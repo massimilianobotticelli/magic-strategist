@@ -6,6 +6,10 @@ __pycache__/
 # macOS
 .DS_Store
 
+# Drop zone for new exports before they are filed into data/manabox/<date>/
+# and decks/<slug>/. Nothing here is authoritative.
+inbox/
+
 # NOTE: data/collection.db and data/scryfall/ are deliberately NOT ignored.
 # The database and the cached Scryfall responses are committed so the repo
 # carries the full history of the collection and works offline.
