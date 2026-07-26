@@ -1,0 +1,137 @@
+{
+ "arena_id": 102475,
+ "artist": "Brian Valeza",
+ "artist_ids": [
+  "bb2a9339-bbe4-445f-9736-3c43379ee076"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 880497,
+ "cmc": 1.0,
+ "collector_number": "16",
+ "color_identity": [
+  "W"
+ ],
+ "colors": [
+  "W"
+ ],
+ "digital": false,
+ "edhrec_rank": 13758,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_text": "Not a journey's end but its beginning.",
+ "foil": true,
+ "frame": "2015",
+ "frame_effects": [
+  "enchantment"
+ ],
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo",
+  "arena"
+ ],
+ "highres_image": true,
+ "id": "db1cea01-123e-4b23-8b98-f94cabce3912",
+ "illustration_id": "ded8818d-5d07-481e-a009-8c4c6d9936b8",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:48:25Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.webp?1783903705",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.jpg?1783903705",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.jpg?1783903705",
+  "crop": "https://cards.scryfall.io/crop/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.webp?1783903705",
+  "display": "https://cards.scryfall.io/display/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.webp?1783903705",
+  "grid": "https://cards.scryfall.io/grid/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.webp?1783903705",
+  "large": "https://cards.scryfall.io/large/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.jpg?1783903705",
+  "normal": "https://cards.scryfall.io/normal/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.jpg?1783903705",
+  "png": "https://cards.scryfall.io/png/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.png?1783903705",
+  "small": "https://cards.scryfall.io/small/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.jpg?1783903705",
+  "thumb": "https://cards.scryfall.io/thumb/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.webp?1783903705"
+ },
+ "keywords": [
+  "Repartee"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "legal",
+  "standardbrawl": "legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{W}",
+ "mtgo_id": 149531,
+ "multiverse_ids": [],
+ "name": "Graduation Day",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "40e0665d-57b8-4c19-9fb8-b3155d7bbb94",
+ "oracle_text": "Repartee \u2014 Whenever you cast an instant or sorcery spell that targets a creature, put a +1/+1 counter on target creature you control.",
+ "oversized": false,
+ "penny_rank": 4203,
+ "prices": {
+  "eur": "0.19",
+  "eur_foil": "0.26",
+  "tix": "0.03",
+  "usd": "0.26",
+  "usd_etched": null,
+  "usd_foil": "0.35"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A40e0665d-57b8-4c19-9fb8-b3155d7bbb94&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/149531?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=880497&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F686528%3Fpage%3D1"
+ },
+ "rarity": "uncommon",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Graduation+Day",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DGraduation%2BDay",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DGraduation%2BDay"
+ },
+ "released_at": "2026-04-24",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "A51ACDDBC3EB5E1932934D91A95AA042B0A818D2282A68C4ED07687E4ABC2591",
+ "rulings_uri": "https://api.scryfall.com/cards/db1cea01-123e-4b23-8b98-f94cabce3912/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/sos?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/sos/16/graduation-day?utm_source=api",
+ "set": "sos",
+ "set_id": "e487c9ce-5e76-4756-bcd0-e4b7db5c38a3",
+ "set_name": "Secrets of Strixhaven",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Asos&unique=prints",
+ "set_type": "expansion",
+ "set_uri": "https://api.scryfall.com/sets/e487c9ce-5e76-4756-bcd0-e4b7db5c38a3",
+ "story_spotlight": false,
+ "tcgplayer_id": 686528,
+ "textless": false,
+ "type_line": "Enchantment",
+ "uri": "https://api.scryfall.com/cards/db1cea01-123e-4b23-8b98-f94cabce3912",
+ "variation": false,
+ "watermark": "silverquill"
+}

@@ -1,0 +1,154 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd",
+   "name": "Hapatra, Vizier of Poisons",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Cleric",
+   "uri": "https://api.scryfall.com/cards/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd"
+  },
+  {
+   "component": "token",
+   "id": "9a9380a8-8f38-47cd-8648-20626c06b9b3",
+   "name": "Snake",
+   "object": "related_card",
+   "type_line": "Token Creature \u2014 Snake",
+   "uri": "https://api.scryfall.com/cards/9a9380a8-8f38-47cd-8648-20626c06b9b3"
+  }
+ ],
+ "artist": "Tyler Jacobson",
+ "artist_ids": [
+  "522af130-8db4-4b4b-950c-6e2b246339cf"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 865055,
+ "cmc": 2.0,
+ "collector_number": "123",
+ "color_identity": [
+  "B",
+  "G"
+ ],
+ "colors": [
+  "B",
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 4021,
+ "finishes": [
+  "nonfoil"
+ ],
+ "flavor_text": "Her subtle smile is suffused with venom.",
+ "foil": false,
+ "frame": "2015",
+ "frame_effects": [
+  "legendary"
+ ],
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd",
+ "illustration_id": "2172019b-43b2-4589-96cb-cdd9bc3b0095",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:02:19Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.webp?1783904539",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.jpg?1783904539",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.jpg?1783904539",
+  "crop": "https://cards.scryfall.io/crop/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.webp?1783904539",
+  "display": "https://cards.scryfall.io/display/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.webp?1783904539",
+  "grid": "https://cards.scryfall.io/grid/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.webp?1783904539",
+  "large": "https://cards.scryfall.io/large/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.jpg?1783904539",
+  "normal": "https://cards.scryfall.io/normal/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.jpg?1783904539",
+  "png": "https://cards.scryfall.io/png/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.png?1783904539",
+  "small": "https://cards.scryfall.io/small/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.jpg?1783904539",
+  "thumb": "https://cards.scryfall.io/thumb/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.webp?1783904539"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{B}{G}",
+ "mtgo_id": 146181,
+ "multiverse_ids": [],
+ "name": "Hapatra, Vizier of Poisons",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "a8ddea1c-8d80-49c1-a5b4-630d5e51d66e",
+ "oracle_text": "Whenever Hapatra deals combat damage to a player, you may put a -1/-1 counter on target creature.\nWhenever you put one or more -1/-1 counters on a creature, create a 1/1 green Snake creature token with deathtouch.",
+ "oversized": false,
+ "penny_rank": 5788,
+ "power": "2",
+ "prices": {
+  "eur": "0.28",
+  "eur_foil": null,
+  "tix": "0.14",
+  "usd": "0.36",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aa8ddea1c-8d80-49c1-a5b4-630d5e51d66e&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146181?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=865055&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671268%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Hapatra%2C+Vizier+of+Poisons",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DHapatra%252C%2BVizier%2Bof%2BPoisons",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DHapatra%252C%2BVizier%2Bof%2BPoisons"
+ },
+ "released_at": "2026-01-23",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "99523FF77A783C59259B40243DEF0ED4507B99BD9C985FC60BCE7B89C1A83F09",
+ "rulings_uri": "https://api.scryfall.com/cards/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/123/hapatra-vizier-of-poisons?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671268,
+ "textless": false,
+ "toughness": "2",
+ "type_line": "Legendary Creature \u2014 Human Cleric",
+ "uri": "https://api.scryfall.com/cards/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd",
+ "variation": false
+}

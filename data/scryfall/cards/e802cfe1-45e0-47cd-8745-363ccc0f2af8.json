@@ -1,0 +1,140 @@
+{
+ "artist": "Victor Adame Minguez",
+ "artist_ids": [
+  "bd8f7368-5b10-4554-b6b8-d052c6aca89f"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 864987,
+ "cmc": 1.0,
+ "collector_number": "52",
+ "color_identity": [
+  "B",
+  "G",
+  "R"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 530,
+ "finishes": [
+  "nonfoil"
+ ],
+ "flavor_text": "\"You, toadlet! Bring me a goblet of your bog's finest fire-slug slime!\"",
+ "foil": false,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "e802cfe1-45e0-47cd-8745-363ccc0f2af8",
+ "illustration_id": "bc48aa16-56fd-4c70-8a05-0feee3422401",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T02:58:44Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.webp?1783911524",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.jpg?1783911524",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.jpg?1783911524",
+  "crop": "https://cards.scryfall.io/crop/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.webp?1783911524",
+  "display": "https://cards.scryfall.io/display/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.webp?1783911524",
+  "grid": "https://cards.scryfall.io/grid/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.webp?1783911524",
+  "large": "https://cards.scryfall.io/large/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.jpg?1783911524",
+  "normal": "https://cards.scryfall.io/normal/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.jpg?1783911524",
+  "png": "https://cards.scryfall.io/png/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.png?1783911524",
+  "small": "https://cards.scryfall.io/small/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.jpg?1783911524",
+  "thumb": "https://cards.scryfall.io/thumb/front/e/8/e802cfe1-45e0-47cd-8745-363ccc0f2af8.webp?1783911524"
+ },
+ "keywords": [
+  "Exalted"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{G}",
+ "mtgo_id": 146039,
+ "multiverse_ids": [],
+ "name": "Ignoble Hierarch",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "c8de43a3-ebd3-4000-b343-a6ffed11d34d",
+ "oracle_text": "Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\n{T}: Add {B}, {R}, or {G}.",
+ "oversized": false,
+ "penny_rank": 137,
+ "power": "0",
+ "prices": {
+  "eur": "1.20",
+  "eur_foil": null,
+  "tix": "0.43",
+  "usd": "1.36",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ac8de43a3-ebd3-4000-b343-a6ffed11d34d&unique=prints",
+ "produced_mana": [
+  "B",
+  "G",
+  "R"
+ ],
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146039?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=864987&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671175%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Ignoble+Hierarch",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DIgnoble%2BHierarch",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DIgnoble%2BHierarch"
+ },
+ "released_at": "2026-01-23",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "1FEF2B9D5D5EA5BF3B358A57E0B2C3152B8F69BE18FF90B09855352EBD43D841",
+ "rulings_uri": "https://api.scryfall.com/cards/e802cfe1-45e0-47cd-8745-363ccc0f2af8/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/52/ignoble-hierarch?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671175,
+ "textless": false,
+ "toughness": "1",
+ "type_line": "Creature \u2014 Goblin Shaman",
+ "uri": "https://api.scryfall.com/cards/e802cfe1-45e0-47cd-8745-363ccc0f2af8",
+ "variation": false
+}

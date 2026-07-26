@@ -1,0 +1,150 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "3b84ec1e-ccce-4b8b-9302-b26f84cfa469",
+   "name": "Forest",
+   "object": "related_card",
+   "type_line": "Basic Land \u2014 Forest",
+   "uri": "https://api.scryfall.com/cards/3b84ec1e-ccce-4b8b-9302-b26f84cfa469"
+  },
+  {
+   "component": "combo_piece",
+   "id": "aed8ae06-ae54-4a16-8830-6547164ce6ae",
+   "name": "Gilt-Leaf Alchemist",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Elf Druid",
+   "uri": "https://api.scryfall.com/cards/aed8ae06-ae54-4a16-8830-6547164ce6ae"
+  }
+ ],
+ "arena_id": 100652,
+ "artist": "Sylvain Sarrailh",
+ "artist_ids": [
+  "2e95abfc-addc-477e-a98e-b551ab56d4ec"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 873426,
+ "cmc": 0.0,
+ "collector_number": "319",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [],
+ "digital": false,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "arena",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "3b84ec1e-ccce-4b8b-9302-b26f84cfa469",
+ "illustration_id": "250047c3-ef33-4ab7-ad83-d357e150240c",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:53:38Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.webp?1783904018",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.jpg?1783904018",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.jpg?1783904018",
+  "crop": "https://cards.scryfall.io/crop/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.webp?1783904018",
+  "display": "https://cards.scryfall.io/display/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.webp?1783904018",
+  "grid": "https://cards.scryfall.io/grid/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.webp?1783904018",
+  "large": "https://cards.scryfall.io/large/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.jpg?1783904018",
+  "normal": "https://cards.scryfall.io/normal/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.jpg?1783904018",
+  "png": "https://cards.scryfall.io/png/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.png?1783904018",
+  "small": "https://cards.scryfall.io/small/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.jpg?1783904018",
+  "thumb": "https://cards.scryfall.io/thumb/front/3/b/3b84ec1e-ccce-4b8b-9302-b26f84cfa469.webp?1783904018"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "legal",
+  "paupercommander": "legal",
+  "penny": "legal",
+  "pioneer": "legal",
+  "predh": "legal",
+  "premodern": "legal",
+  "standard": "legal",
+  "standardbrawl": "legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "",
+ "mtgo_id": 147623,
+ "multiverse_ids": [],
+ "name": "Forest",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+ "oracle_text": "({T}: Add {G}.)",
+ "oversized": false,
+ "prices": {
+  "eur": "0.11",
+  "eur_foil": "0.24",
+  "tix": "0.03",
+  "usd": "0.22",
+  "usd_etched": null,
+  "usd_foil": "0.29"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ab34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6&unique=prints",
+ "produced_mana": [
+  "G"
+ ],
+ "promo": false,
+ "promo_types": [
+  "universesbeyond"
+ ],
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/147623?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=873426&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F679229%3Fpage%3D1"
+ },
+ "rarity": "common",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Forest",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DForest",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DForest"
+ },
+ "released_at": "2026-03-06",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "76DFAC6FA5F4EF924ABE0B96FBF0ECB29A573C1ED7869BF3FFB57E59B1BE39CA",
+ "rulings_uri": "https://api.scryfall.com/cards/3b84ec1e-ccce-4b8b-9302-b26f84cfa469/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/tmt?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/tmt/319/forest?utm_source=api",
+ "set": "tmt",
+ "set_id": "03990f52-1d8a-4ce8-828a-c9bf633f0de6",
+ "set_name": "Teenage Mutant Ninja Turtles",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Atmt&unique=prints",
+ "set_type": "expansion",
+ "set_uri": "https://api.scryfall.com/sets/03990f52-1d8a-4ce8-828a-c9bf633f0de6",
+ "story_spotlight": false,
+ "tcgplayer_id": 679229,
+ "textless": false,
+ "type_line": "Basic Land \u2014 Forest",
+ "uri": "https://api.scryfall.com/cards/3b84ec1e-ccce-4b8b-9302-b26f84cfa469",
+ "variation": false
+}

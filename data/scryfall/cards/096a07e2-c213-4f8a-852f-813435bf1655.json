@@ -1,0 +1,151 @@
+{
+ "all_parts": [
+  {
+   "component": "token",
+   "id": "3e28bc58-b616-4a65-8d33-7cdd07405d41",
+   "name": "Copy",
+   "object": "related_card",
+   "type_line": "Token",
+   "uri": "https://api.scryfall.com/cards/3e28bc58-b616-4a65-8d33-7cdd07405d41"
+  },
+  {
+   "component": "combo_piece",
+   "id": "096a07e2-c213-4f8a-852f-813435bf1655",
+   "name": "Here Comes a New Hero!",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/096a07e2-c213-4f8a-852f-813435bf1655"
+  }
+ ],
+ "artist": "Leonardo Santanna",
+ "artist_ids": [
+  "f1f8e6d8-8fb3-472a-a32f-a4b1225bd054"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 873488,
+ "cmc": 3.0,
+ "collector_number": "11",
+ "color_identity": [
+  "U"
+ ],
+ "colors": [
+  "U"
+ ],
+ "digital": false,
+ "edhrec_rank": 10400,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_text": "\"Give me a recap. Are we winning or losing?\"",
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "096a07e2-c213-4f8a-852f-813435bf1655",
+ "illustration_id": "418b4380-ab56-4f09-87ab-4fdf3cceb739",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:56:14Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.webp?1783904174",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.jpg?1783904174",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.jpg?1783904174",
+  "crop": "https://cards.scryfall.io/crop/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.webp?1783904174",
+  "display": "https://cards.scryfall.io/display/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.webp?1783904174",
+  "grid": "https://cards.scryfall.io/grid/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.webp?1783904174",
+  "large": "https://cards.scryfall.io/large/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.jpg?1783904174",
+  "normal": "https://cards.scryfall.io/normal/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.jpg?1783904174",
+  "png": "https://cards.scryfall.io/png/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.png?1783904174",
+  "small": "https://cards.scryfall.io/small/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.jpg?1783904174",
+  "thumb": "https://cards.scryfall.io/thumb/front/0/9/096a07e2-c213-4f8a-852f-813435bf1655.webp?1783904174"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{X}{2}{U}",
+ "mtgo_id": 147351,
+ "multiverse_ids": [],
+ "name": "Here Comes a New Hero!",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "c4fb12cb-05e1-4df2-b62e-3391621a601b",
+ "oracle_text": "Target player draws X cards. Create a token that's a copy of up to one target creature with mana value X or less.",
+ "oversized": false,
+ "prices": {
+  "eur": "0.25",
+  "eur_foil": "2.16",
+  "tix": "1.65",
+  "usd": "0.39",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ac4fb12cb-05e1-4df2-b62e-3391621a601b&unique=prints",
+ "promo": false,
+ "promo_types": [
+  "surgefoil",
+  "universesbeyond"
+ ],
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/147351?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=873488&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F679574%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Here+Comes+a+New+Hero%21",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DHere%2BComes%2Ba%2BNew%2BHero%2521",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DHere%2BComes%2Ba%2BNew%2BHero%2521"
+ },
+ "released_at": "2026-03-06",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "98ECD4B3E0FB348352D2D84F5A5C7139BDCD9F178B6A36062DE672658BE17D41",
+ "rulings_uri": "https://api.scryfall.com/cards/096a07e2-c213-4f8a-852f-813435bf1655/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/tmc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/tmc/11/here-comes-a-new-hero!?utm_source=api",
+ "security_stamp": "oval",
+ "set": "tmc",
+ "set_id": "178a07bb-cd54-4443-8b62-675e0c52cfe3",
+ "set_name": "Teenage Mutant Ninja Turtles Eternal",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Atmc&unique=prints",
+ "set_type": "eternal",
+ "set_uri": "https://api.scryfall.com/sets/178a07bb-cd54-4443-8b62-675e0c52cfe3",
+ "story_spotlight": false,
+ "tcgplayer_id": 679574,
+ "textless": false,
+ "type_line": "Sorcery",
+ "uri": "https://api.scryfall.com/cards/096a07e2-c213-4f8a-852f-813435bf1655",
+ "variation": false
+}

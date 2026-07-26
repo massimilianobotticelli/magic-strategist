@@ -1,0 +1,138 @@
+{
+ "artist": "Robin Olausson",
+ "artist_ids": [
+  "adb9ad6d-6173-454b-8b50-a102b182548b"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 873522,
+ "cmc": 6.0,
+ "collector_number": "53",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 1325,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_name": "Heralds of the Shredder",
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "6952b1c3-2a18-4ad5-8130-861fce1cb422",
+ "illustration_id": "c42bcc46-716c-4adf-93f0-af7871ad4fca",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:55:56Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.webp?1783904156",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.jpg?1783904156",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.jpg?1783904156",
+  "crop": "https://cards.scryfall.io/crop/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.webp?1783904156",
+  "display": "https://cards.scryfall.io/display/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.webp?1783904156",
+  "grid": "https://cards.scryfall.io/grid/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.webp?1783904156",
+  "large": "https://cards.scryfall.io/large/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.jpg?1783904156",
+  "normal": "https://cards.scryfall.io/normal/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.jpg?1783904156",
+  "png": "https://cards.scryfall.io/png/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.png?1783904156",
+  "small": "https://cards.scryfall.io/small/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.jpg?1783904156",
+  "thumb": "https://cards.scryfall.io/thumb/front/6/9/6952b1c3-2a18-4ad5-8130-861fce1cb422.webp?1783904156"
+ },
+ "keywords": [
+  "Trample"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "legal",
+  "pioneer": "not_legal",
+  "predh": "legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{3}{G}{G}{G}",
+ "mtgo_id": 147439,
+ "multiverse_ids": [],
+ "name": "Vigor",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "70787d8b-0a40-43ea-837a-9617dc13e7e5",
+ "oracle_text": "Trample\nIf damage would be dealt to another creature you control, prevent that damage. Put a +1/+1 counter on that creature for each 1 damage prevented this way.\nWhen Vigor is put into a graveyard from anywhere, shuffle it into its owner's library.",
+ "oversized": false,
+ "penny_rank": 7421,
+ "power": "6",
+ "prices": {
+  "eur": "1.47",
+  "eur_foil": "4.04",
+  "tix": "0.02",
+  "usd": "2.31",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A70787d8b-0a40-43ea-837a-9617dc13e7e5&unique=prints",
+ "promo": false,
+ "promo_types": [
+  "surgefoil",
+  "universesbeyond"
+ ],
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/147439?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=873522&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F679596%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Vigor",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DVigor",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DVigor"
+ },
+ "released_at": "2026-03-06",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "73D7C2A846AE68176EE3B93A572E9CF5AB309554385E7F7500AB9BAB7E2D1A6F",
+ "rulings_uri": "https://api.scryfall.com/cards/6952b1c3-2a18-4ad5-8130-861fce1cb422/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/tmc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/tmc/53/vigor?utm_source=api",
+ "security_stamp": "oval",
+ "set": "tmc",
+ "set_id": "178a07bb-cd54-4443-8b62-675e0c52cfe3",
+ "set_name": "Teenage Mutant Ninja Turtles Eternal",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Atmc&unique=prints",
+ "set_type": "eternal",
+ "set_uri": "https://api.scryfall.com/sets/178a07bb-cd54-4443-8b62-675e0c52cfe3",
+ "story_spotlight": false,
+ "tcgplayer_id": 679596,
+ "textless": false,
+ "toughness": "6",
+ "type_line": "Creature \u2014 Elemental Incarnation",
+ "uri": "https://api.scryfall.com/cards/6952b1c3-2a18-4ad5-8130-861fce1cb422",
+ "variation": false
+}

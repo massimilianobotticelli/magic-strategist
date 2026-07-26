@@ -1,0 +1,150 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "432f2b57-4e7e-4717-8707-8cdbc1aae154",
+   "name": "Titan of Industry",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Elemental",
+   "uri": "https://api.scryfall.com/cards/432f2b57-4e7e-4717-8707-8cdbc1aae154"
+  },
+  {
+   "component": "token",
+   "id": "8f4188d4-a371-49be-ad33-ad87801ba99d",
+   "name": "Rhino Warrior",
+   "object": "related_card",
+   "type_line": "Token Creature \u2014 Rhino Warrior",
+   "uri": "https://api.scryfall.com/cards/8f4188d4-a371-49be-ad33-ad87801ba99d"
+  }
+ ],
+ "artist": "Lucas Staniec",
+ "artist_ids": [
+  "b4344292-387b-4aa0-8225-13f1fbe77808"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 865049,
+ "cmc": 7.0,
+ "collector_number": "117",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 2652,
+ "finishes": [
+  "nonfoil"
+ ],
+ "foil": false,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "432f2b57-4e7e-4717-8707-8cdbc1aae154",
+ "illustration_id": "9d7e0841-6170-4a85-91c4-e9462ae0ea0f",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:02:21Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.webp?1783904541",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.jpg?1783904541",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.jpg?1783904541",
+  "crop": "https://cards.scryfall.io/crop/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.webp?1783904541",
+  "display": "https://cards.scryfall.io/display/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.webp?1783904541",
+  "grid": "https://cards.scryfall.io/grid/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.webp?1783904541",
+  "large": "https://cards.scryfall.io/large/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.jpg?1783904541",
+  "normal": "https://cards.scryfall.io/normal/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.jpg?1783904541",
+  "png": "https://cards.scryfall.io/png/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.png?1783904541",
+  "small": "https://cards.scryfall.io/small/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.jpg?1783904541",
+  "thumb": "https://cards.scryfall.io/thumb/front/4/3/432f2b57-4e7e-4717-8707-8cdbc1aae154.webp?1783904541"
+ },
+ "keywords": [
+  "Reach",
+  "Trample"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{4}{G}{G}{G}",
+ "mtgo_id": 146169,
+ "multiverse_ids": [],
+ "name": "Titan of Industry",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "5d8acafe-c13e-43ca-a89e-0cfd12d95662",
+ "oracle_text": "Reach, trample\nWhen this creature enters, choose two \u2014\n\u2022 Destroy target artifact or enchantment.\n\u2022 Target player gains 5 life.\n\u2022 Create a 4/4 green Rhino Warrior creature token.\n\u2022 Put a shield counter on a creature you control.",
+ "oversized": false,
+ "power": "7",
+ "prices": {
+  "eur": "0.59",
+  "eur_foil": null,
+  "tix": "0.24",
+  "usd": "0.42",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A5d8acafe-c13e-43ca-a89e-0cfd12d95662&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146169?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=865049&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671247%3Fpage%3D1"
+ },
+ "rarity": "mythic",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Titan+of+Industry",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DTitan%2Bof%2BIndustry",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DTitan%2Bof%2BIndustry"
+ },
+ "released_at": "2026-01-23",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "1F09EE37FE6D78277B922B2D05DF4162A02DD7E6E34F7EEAAF0D269B0EBB8D40",
+ "rulings_uri": "https://api.scryfall.com/cards/432f2b57-4e7e-4717-8707-8cdbc1aae154/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/117/titan-of-industry?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671247,
+ "textless": false,
+ "toughness": "7",
+ "type_line": "Creature \u2014 Elemental",
+ "uri": "https://api.scryfall.com/cards/432f2b57-4e7e-4717-8707-8cdbc1aae154",
+ "variation": false
+}

@@ -1,0 +1,155 @@
+{
+ "arena_id": 102611,
+ "artist": "Nereida",
+ "artist_ids": [
+  "bcab6d8a-e3eb-4502-9cc4-23b92bc8c4d1"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "card_faces": [
+  {
+   "artist": "Nereida",
+   "artist_id": "bcab6d8a-e3eb-4502-9cc4-23b92bc8c4d1",
+   "illustration_id": "29ef36ba-de5d-4a76-8113-9444e0c7c844",
+   "mana_cost": "{1}{G}",
+   "name": "Infirmary Healer",
+   "object": "card_face",
+   "oracle_text": "This creature enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+   "power": "2",
+   "toughness": "3",
+   "type_line": "Creature \u2014 Cat Cleric"
+  },
+  {
+   "artist": "Nereida",
+   "artist_id": "bcab6d8a-e3eb-4502-9cc4-23b92bc8c4d1",
+   "mana_cost": "{X}{G}",
+   "name": "Stream of Life",
+   "object": "card_face",
+   "oracle_text": "Target player gains X life.",
+   "type_line": "Sorcery"
+  }
+ ],
+ "cardmarket_id": 883044,
+ "cmc": 2.0,
+ "collector_number": "152",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 18668,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo",
+  "arena"
+ ],
+ "highres_image": true,
+ "id": "911442e3-3003-4683-a766-e791e9553667",
+ "illustration_id": "29ef36ba-de5d-4a76-8113-9444e0c7c844",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:47:37Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/9/1/911442e3-3003-4683-a766-e791e9553667.webp?1783903657",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/9/1/911442e3-3003-4683-a766-e791e9553667.jpg?1783903657",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/9/1/911442e3-3003-4683-a766-e791e9553667.jpg?1783903657",
+  "crop": "https://cards.scryfall.io/crop/front/9/1/911442e3-3003-4683-a766-e791e9553667.webp?1783903657",
+  "display": "https://cards.scryfall.io/display/front/9/1/911442e3-3003-4683-a766-e791e9553667.webp?1783903657",
+  "grid": "https://cards.scryfall.io/grid/front/9/1/911442e3-3003-4683-a766-e791e9553667.webp?1783903657",
+  "large": "https://cards.scryfall.io/large/front/9/1/911442e3-3003-4683-a766-e791e9553667.jpg?1783903657",
+  "normal": "https://cards.scryfall.io/normal/front/9/1/911442e3-3003-4683-a766-e791e9553667.jpg?1783903657",
+  "png": "https://cards.scryfall.io/png/front/9/1/911442e3-3003-4683-a766-e791e9553667.png?1783903657",
+  "small": "https://cards.scryfall.io/small/front/9/1/911442e3-3003-4683-a766-e791e9553667.jpg?1783903657",
+  "thumb": "https://cards.scryfall.io/thumb/front/9/1/911442e3-3003-4683-a766-e791e9553667.webp?1783903657"
+ },
+ "keywords": [
+  "Prepared"
+ ],
+ "lang": "en",
+ "layout": "prepare",
+ "legalities": {
+  "alchemy": "legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "legal",
+  "standardbrawl": "legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{1}{G} // {X}{G}",
+ "mtgo_id": 149803,
+ "multiverse_ids": [],
+ "name": "Infirmary Healer // Stream of Life",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "4cbbdebc-b807-4d7b-92dd-312637d2a5de",
+ "oversized": false,
+ "power": "2",
+ "prices": {
+  "eur": "0.08",
+  "eur_foil": "0.07",
+  "tix": "0.03",
+  "usd": "0.20",
+  "usd_etched": null,
+  "usd_foil": "0.21"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A4cbbdebc-b807-4d7b-92dd-312637d2a5de&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/149803?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=883044&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F689509%3Fpage%3D1"
+ },
+ "rarity": "uncommon",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Infirmary+Healer",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DInfirmary%2BHealer%2B%252F%252F%2BStream%2Bof%2BLife",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DInfirmary%2BHealer%2B%252F%252F%2BStream%2Bof%2BLife"
+ },
+ "released_at": "2026-04-24",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "7D28D356A5D70D0A81246C98B02011997B6B69C48E7C59187C76E71FAB70B74F",
+ "rulings_uri": "https://api.scryfall.com/cards/911442e3-3003-4683-a766-e791e9553667/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/sos?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/sos/152/infirmary-healer-stream-of-life?utm_source=api",
+ "set": "sos",
+ "set_id": "e487c9ce-5e76-4756-bcd0-e4b7db5c38a3",
+ "set_name": "Secrets of Strixhaven",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Asos&unique=prints",
+ "set_type": "expansion",
+ "set_uri": "https://api.scryfall.com/sets/e487c9ce-5e76-4756-bcd0-e4b7db5c38a3",
+ "story_spotlight": false,
+ "tcgplayer_id": 689509,
+ "textless": false,
+ "toughness": "3",
+ "type_line": "Creature \u2014 Cat Cleric // Sorcery",
+ "uri": "https://api.scryfall.com/cards/911442e3-3003-4683-a766-e791e9553667",
+ "variation": false
+}

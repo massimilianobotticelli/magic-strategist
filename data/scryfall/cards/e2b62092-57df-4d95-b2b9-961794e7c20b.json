@@ -1,0 +1,1354 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "2cfd365e-34d1-4224-b925-119000311934",
+   "name": "Greta, Sweettooth Scourge",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Warrior",
+   "uri": "https://api.scryfall.com/cards/2cfd365e-34d1-4224-b925-119000311934"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b38c9e49-4859-4783-a6bf-49ac1e81aee3",
+   "name": "Spider-Ham, Peter Porker",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Spider Boar Hero",
+   "uri": "https://api.scryfall.com/cards/b38c9e49-4859-4783-a6bf-49ac1e81aee3"
+  },
+  {
+   "component": "combo_piece",
+   "id": "53f5f704-2265-42bb-bff5-fd9d85bc2bfb",
+   "name": "Courier of Comestibles",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Citizen",
+   "uri": "https://api.scryfall.com/cards/53f5f704-2265-42bb-bff5-fd9d85bc2bfb"
+  },
+  {
+   "component": "combo_piece",
+   "id": "dfd977dc-a7c3-4d0a-aca7-b25bd154e963",
+   "name": "Cache Grab",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/dfd977dc-a7c3-4d0a-aca7-b25bd154e963"
+  },
+  {
+   "component": "combo_piece",
+   "id": "dc25ce46-9d1a-4d5d-b35d-ea7abb8c5e5c",
+   "name": "Rocco, Street Chef",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Elf Druid",
+   "uri": "https://api.scryfall.com/cards/dc25ce46-9d1a-4d5d-b35d-ea7abb8c5e5c"
+  },
+  {
+   "component": "combo_piece",
+   "id": "599234de-4bbc-4c9b-84a2-c426e64597ff",
+   "name": "Field-Tested Frying Pan",
+   "object": "related_card",
+   "type_line": "Artifact \u2014 Equipment",
+   "uri": "https://api.scryfall.com/cards/599234de-4bbc-4c9b-84a2-c426e64597ff"
+  },
+  {
+   "component": "combo_piece",
+   "id": "8279d421-dd86-49d1-93f7-65f6046c542d",
+   "name": "Gyome, Master Chef",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Troll Warlock",
+   "uri": "https://api.scryfall.com/cards/8279d421-dd86-49d1-93f7-65f6046c542d"
+  },
+  {
+   "component": "combo_piece",
+   "id": "59b211da-1438-456a-b38d-f11bc09260f0",
+   "name": "Killer Service",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/59b211da-1438-456a-b38d-f11bc09260f0"
+  },
+  {
+   "component": "combo_piece",
+   "id": "9a37e9f3-8543-4c56-b7e3-0676db7e2154",
+   "name": "Brandywine Farmer",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Halfling Peasant",
+   "uri": "https://api.scryfall.com/cards/9a37e9f3-8543-4c56-b7e3-0676db7e2154"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b19fcc45-a77a-4296-a2a6-8320b5712cc5",
+   "name": "Farmer Cotton",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Halfling Peasant",
+   "uri": "https://api.scryfall.com/cards/b19fcc45-a77a-4296-a2a6-8320b5712cc5"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4224747e-1dbc-4a29-b5da-5916d8ca2768",
+   "name": "Intrepid Trufflesnout // Go Hog Wild",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Boar // Instant \u2014 Adventure",
+   "uri": "https://api.scryfall.com/cards/4224747e-1dbc-4a29-b5da-5916d8ca2768"
+  },
+  {
+   "component": "combo_piece",
+   "id": "d44790d3-39ce-4e79-99b8-6b58cd578890",
+   "name": "Rosie Cotton of South Lane",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Halfling Peasant",
+   "uri": "https://api.scryfall.com/cards/d44790d3-39ce-4e79-99b8-6b58cd578890"
+  },
+  {
+   "component": "combo_piece",
+   "id": "198be33b-d6d1-4c96-bdfa-4b4098079042",
+   "name": "Trail of Crumbs",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/198be33b-d6d1-4c96-bdfa-4b4098079042"
+  },
+  {
+   "component": "combo_piece",
+   "id": "3c8b8eef-d150-4610-8428-d8ea75eeb80a",
+   "name": "Peregrin Took",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Halfling Citizen",
+   "uri": "https://api.scryfall.com/cards/3c8b8eef-d150-4610-8428-d8ea75eeb80a"
+  },
+  {
+   "component": "combo_piece",
+   "id": "2ab0e660-86a3-4b92-82fa-77dcb5db947d",
+   "name": "Bake into a Pie",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/2ab0e660-86a3-4b92-82fa-77dcb5db947d"
+  },
+  {
+   "component": "combo_piece",
+   "id": "0cfd18a5-e06a-4cb5-b78e-de18ec641321",
+   "name": "Feed the Cauldron",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/0cfd18a5-e06a-4cb5-b78e-de18ec641321"
+  },
+  {
+   "component": "combo_piece",
+   "id": "9fbaabb5-e981-4cbf-888c-46449412711f",
+   "name": "Lita, Little Orphan Amphibian",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Mutant Ninja Turtle",
+   "uri": "https://api.scryfall.com/cards/9fbaabb5-e981-4cbf-888c-46449412711f"
+  },
+  {
+   "component": "combo_piece",
+   "id": "d2709d91-4235-482c-b9b3-ac5d61cb5bcb",
+   "name": "Oath of the Grey Host",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Saga",
+   "uri": "https://api.scryfall.com/cards/d2709d91-4235-482c-b9b3-ac5d61cb5bcb"
+  },
+  {
+   "component": "combo_piece",
+   "id": "2790a23d-00ff-47b7-badd-9dd68042bb99",
+   "name": "Ignis Scientia",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Advisor",
+   "uri": "https://api.scryfall.com/cards/2790a23d-00ff-47b7-badd-9dd68042bb99"
+  },
+  {
+   "component": "combo_piece",
+   "id": "514e6039-2722-4350-a8e0-b2964d6c100d",
+   "name": "Concession Stand",
+   "object": "related_card",
+   "type_line": "Artifact \u2014 Attraction",
+   "uri": "https://api.scryfall.com/cards/514e6039-2722-4350-a8e0-b2964d6c100d"
+  },
+  {
+   "component": "combo_piece",
+   "id": "cfdfa303-2578-455b-929c-a217a0261bb3",
+   "name": "Sam, Loyal Attendant",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Halfling Peasant",
+   "uri": "https://api.scryfall.com/cards/cfdfa303-2578-455b-929c-a217a0261bb3"
+  },
+  {
+   "component": "combo_piece",
+   "id": "afec640e-2695-429f-82b3-61c2387e6f1e",
+   "name": "Gluttonous Troll",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Troll",
+   "uri": "https://api.scryfall.com/cards/afec640e-2695-429f-82b3-61c2387e6f1e"
+  },
+  {
+   "component": "combo_piece",
+   "id": "f6d25476-cab1-4035-843f-19da73c4dac7",
+   "name": "The Third Doctor",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Time Lord Doctor",
+   "uri": "https://api.scryfall.com/cards/f6d25476-cab1-4035-843f-19da73c4dac7"
+  },
+  {
+   "component": "combo_piece",
+   "id": "fd9452a2-4c6c-4080-b9fe-a81b215caae4",
+   "name": "Overcooked",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/fd9452a2-4c6c-4080-b9fe-a81b215caae4"
+  },
+  {
+   "component": "combo_piece",
+   "id": "a08da5c6-ebe7-4166-99d5-2aca5b0b529f",
+   "name": "Skybeast Tracker",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Giant Archer",
+   "uri": "https://api.scryfall.com/cards/a08da5c6-ebe7-4166-99d5-2aca5b0b529f"
+  },
+  {
+   "component": "combo_piece",
+   "id": "11603836-d1a3-4e95-a8cc-e6ca2c854309",
+   "name": "Voracious Fell Beast",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Drake Beast",
+   "uri": "https://api.scryfall.com/cards/11603836-d1a3-4e95-a8cc-e6ca2c854309"
+  },
+  {
+   "component": "combo_piece",
+   "id": "d493c09c-7794-47ed-a002-3493187d1da6",
+   "name": "Of Herbs and Stewed Rabbit",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Saga",
+   "uri": "https://api.scryfall.com/cards/d493c09c-7794-47ed-a002-3493187d1da6"
+  },
+  {
+   "component": "combo_piece",
+   "id": "a015282d-bcd4-44ab-ae26-41e4e3b23fc0",
+   "name": "Provisions Merchant",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Beast Peasant",
+   "uri": "https://api.scryfall.com/cards/a015282d-bcd4-44ab-ae26-41e4e3b23fc0"
+  },
+  {
+   "component": "combo_piece",
+   "id": "445a4587-b8cd-4846-9d00-bb882766cf08",
+   "name": "Late to Dinner",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/445a4587-b8cd-4846-9d00-bb882766cf08"
+  },
+  {
+   "component": "combo_piece",
+   "id": "dd9b6b3f-07b1-42d2-8aff-8da3113b9d88",
+   "name": "Heroic Feast",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/dd9b6b3f-07b1-42d2-8aff-8da3113b9d88"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b66bccde-c32f-4daa-89a9-a6561e9fdac7",
+   "name": "Wish Good Luck",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/b66bccde-c32f-4daa-89a9-a6561e9fdac7"
+  },
+  {
+   "component": "combo_piece",
+   "id": "c5f79ec4-3722-4fda-824b-e80dc7608d01",
+   "name": "Foreboding Fruit",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/c5f79ec4-3722-4fda-824b-e80dc7608d01"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b6d3bff2-9d08-4774-909a-bac0ae6245df",
+   "name": "Bartered Cow",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Ox",
+   "uri": "https://api.scryfall.com/cards/b6d3bff2-9d08-4774-909a-bac0ae6245df"
+  },
+  {
+   "component": "combo_piece",
+   "id": "61a89566-06c1-404f-8217-e5276e2dc5a2",
+   "name": "Ant-Man's Army",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Insect",
+   "uri": "https://api.scryfall.com/cards/61a89566-06c1-404f-8217-e5276e2dc5a2"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4a015ab6-4eb3-42e3-bb19-a0668e9f7ff0",
+   "name": "White Glove Gourmand",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Noble",
+   "uri": "https://api.scryfall.com/cards/4a015ab6-4eb3-42e3-bb19-a0668e9f7ff0"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4f24504e-b397-4b98-b8e8-8166457f7a2e",
+   "name": "The Underworld Cookbook",
+   "object": "related_card",
+   "type_line": "Artifact \u2014 Book",
+   "uri": "https://api.scryfall.com/cards/4f24504e-b397-4b98-b8e8-8166457f7a2e"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b9fd720b-e9c2-4e82-917e-bab6c544afb0",
+   "name": "Spider Food",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/b9fd720b-e9c2-4e82-917e-bab6c544afb0"
+  },
+  {
+   "component": "combo_piece",
+   "id": "6d284306-3365-45b4-8539-c2af7b3e16c4",
+   "name": "Giant Opportunity",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/6d284306-3365-45b4-8539-c2af7b3e16c4"
+  },
+  {
+   "component": "combo_piece",
+   "id": "5fc454a5-39af-421d-a494-727ac7b6115e",
+   "name": "Lucky the Pizza Dog",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Dog",
+   "uri": "https://api.scryfall.com/cards/5fc454a5-39af-421d-a494-727ac7b6115e"
+  },
+  {
+   "component": "combo_piece",
+   "id": "c9b7543f-2a45-4db6-b560-d15507a58c91",
+   "name": "Midnight Snack",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/c9b7543f-2a45-4db6-b560-d15507a58c91"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4fa29302-65bb-4852-94dd-9c5f5477f94f",
+   "name": "Bristlebud Farmer",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Plant Druid",
+   "uri": "https://api.scryfall.com/cards/4fa29302-65bb-4852-94dd-9c5f5477f94f"
+  },
+  {
+   "component": "combo_piece",
+   "id": "f29ba4cb-112a-4065-883b-94d1e154b83f",
+   "name": "Bumi's Feast Lecture",
+   "object": "related_card",
+   "type_line": "Sorcery \u2014 Lesson",
+   "uri": "https://api.scryfall.com/cards/f29ba4cb-112a-4065-883b-94d1e154b83f"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4ef54258-6b01-4758-aed0-695fe5c10dfb",
+   "name": "Pippin, Warden of Isengard",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Halfling Advisor",
+   "uri": "https://api.scryfall.com/cards/4ef54258-6b01-4758-aed0-695fe5c10dfb"
+  },
+  {
+   "component": "combo_piece",
+   "id": "ec6d3402-eed6-44be-a572-9ec0678af403",
+   "name": "Campsite Cuisine",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/ec6d3402-eed6-44be-a572-9ec0678af403"
+  },
+  {
+   "component": "combo_piece",
+   "id": "f8a73bf1-cf14-4a36-97ff-868212e0bfb8",
+   "name": "Madame Vastra",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Lizard Detective",
+   "uri": "https://api.scryfall.com/cards/f8a73bf1-cf14-4a36-97ff-868212e0bfb8"
+  },
+  {
+   "component": "combo_piece",
+   "id": "d664f3ac-30c9-4e69-912c-60aa01a37366",
+   "name": "Eastfarthing Farmer",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Halfling Peasant",
+   "uri": "https://api.scryfall.com/cards/d664f3ac-30c9-4e69-912c-60aa01a37366"
+  },
+  {
+   "component": "combo_piece",
+   "id": "27f53bed-7075-4303-aa9e-fcca0a266e19",
+   "name": "Night of the Sweets' Revenge",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/27f53bed-7075-4303-aa9e-fcca0a266e19"
+  },
+  {
+   "component": "combo_piece",
+   "id": "dcfdb433-f4fb-4e3d-92b9-a7071d34a3dd",
+   "name": "Insatiable Frugivore",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Rat Berserker",
+   "uri": "https://api.scryfall.com/cards/dcfdb433-f4fb-4e3d-92b9-a7071d34a3dd"
+  },
+  {
+   "component": "combo_piece",
+   "id": "84933e48-8b10-4ccf-a7e8-140fbb9c0c9b",
+   "name": "Spectrox Mines",
+   "object": "related_card",
+   "type_line": "Plane \u2014 Androzani Minor",
+   "uri": "https://api.scryfall.com/cards/84933e48-8b10-4ccf-a7e8-140fbb9c0c9b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "75821f46-a60c-4113-80e7-97bc624dca50",
+   "name": "Gumdrop Poisoner // Tempt with Treats",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Warlock // Instant \u2014 Adventure",
+   "uri": "https://api.scryfall.com/cards/75821f46-a60c-4113-80e7-97bc624dca50"
+  },
+  {
+   "component": "combo_piece",
+   "id": "0ad345b6-7077-4dd2-b515-c774a3185fe4",
+   "name": "Hollow Scavenger // Bakery Raid",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Wolf // Sorcery \u2014 Adventure",
+   "uri": "https://api.scryfall.com/cards/0ad345b6-7077-4dd2-b515-c774a3185fe4"
+  },
+  {
+   "component": "combo_piece",
+   "id": "526fe356-bff1-4211-9e88-bf913ac76b1d",
+   "name": "Cat Collector",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Citizen",
+   "uri": "https://api.scryfall.com/cards/526fe356-bff1-4211-9e88-bf913ac76b1d"
+  },
+  {
+   "component": "combo_piece",
+   "id": "9597d9ea-d9b2-4009-8e7c-02caa3585bc5",
+   "name": "Return from the Wilds",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/9597d9ea-d9b2-4009-8e7c-02caa3585bc5"
+  },
+  {
+   "component": "combo_piece",
+   "id": "899ce2c9-b2aa-47c9-ae6e-480c9733e5bb",
+   "name": "Overencumbered",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Aura",
+   "uri": "https://api.scryfall.com/cards/899ce2c9-b2aa-47c9-ae6e-480c9733e5bb"
+  },
+  {
+   "component": "combo_piece",
+   "id": "685c72fb-ebb8-4474-bd73-bcbbbc38c496",
+   "name": "Rapacious Guest",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Halfling Citizen",
+   "uri": "https://api.scryfall.com/cards/685c72fb-ebb8-4474-bd73-bcbbbc38c496"
+  },
+  {
+   "component": "combo_piece",
+   "id": "00cf8be8-8359-4172-8e86-07ecbbf1fd58",
+   "name": "Ninja Pizza",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/00cf8be8-8359-4172-8e86-07ecbbf1fd58"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b6178258-1ad6-4122-a56f-6eb7d0611e84",
+   "name": "Valley Rally",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/b6178258-1ad6-4122-a56f-6eb7d0611e84"
+  },
+  {
+   "component": "combo_piece",
+   "id": "2285b3a3-782e-4acd-bf32-cb116c27b883",
+   "name": "Savvy Hunter",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Warrior",
+   "uri": "https://api.scryfall.com/cards/2285b3a3-782e-4acd-bf32-cb116c27b883"
+  },
+  {
+   "component": "combo_piece",
+   "id": "fa684608-ecd3-43e2-99a1-71318f133e29",
+   "name": "Tainted Treats",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/fa684608-ecd3-43e2-99a1-71318f133e29"
+  },
+  {
+   "component": "combo_piece",
+   "id": "016b0750-d48d-4b6e-ac9c-a7904371a914",
+   "name": "Oko, Thief of Crowns",
+   "object": "related_card",
+   "type_line": "Legendary Planeswalker \u2014 Oko",
+   "uri": "https://api.scryfall.com/cards/016b0750-d48d-4b6e-ac9c-a7904371a914"
+  },
+  {
+   "component": "combo_piece",
+   "id": "a6bdb984-06f8-4bca-a943-17fe5db97682",
+   "name": "Sweettooth Witch",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Warlock",
+   "uri": "https://api.scryfall.com/cards/a6bdb984-06f8-4bca-a943-17fe5db97682"
+  },
+  {
+   "component": "combo_piece",
+   "id": "fc676894-59de-4e69-a110-5e4def877c58",
+   "name": "Revive the Shire",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/fc676894-59de-4e69-a110-5e4def877c58"
+  },
+  {
+   "component": "combo_piece",
+   "id": "d3154e82-3497-47ad-99e5-369cb40ac869",
+   "name": "Tippy-Toe, Terrific Partner",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Squirrel Hero",
+   "uri": "https://api.scryfall.com/cards/d3154e82-3497-47ad-99e5-369cb40ac869"
+  },
+  {
+   "component": "combo_piece",
+   "id": "ed22dc33-d3c0-454e-aa41-29b653742964",
+   "name": "The Eleventh Hour",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Saga",
+   "uri": "https://api.scryfall.com/cards/ed22dc33-d3c0-454e-aa41-29b653742964"
+  },
+  {
+   "component": "combo_piece",
+   "id": "bd5cc052-7175-4bb8-a52c-f1fb80cb731a",
+   "name": "Nuka-Cola Vending Machine",
+   "object": "related_card",
+   "type_line": "Artifact",
+   "uri": "https://api.scryfall.com/cards/bd5cc052-7175-4bb8-a52c-f1fb80cb731a"
+  },
+  {
+   "component": "combo_piece",
+   "id": "5f0affd5-5dcd-4dd1-a694-37a9aedf4084",
+   "name": "Bumbleflower's Sharepot",
+   "object": "related_card",
+   "type_line": "Artifact",
+   "uri": "https://api.scryfall.com/cards/5f0affd5-5dcd-4dd1-a694-37a9aedf4084"
+  },
+  {
+   "component": "combo_piece",
+   "id": "70dbb5f3-0552-408c-9d02-9f9afc72fa7b",
+   "name": "Feasting Troll King",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Troll Noble",
+   "uri": "https://api.scryfall.com/cards/70dbb5f3-0552-408c-9d02-9f9afc72fa7b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "bf6193ea-4906-4097-8e30-431220f9e35c",
+   "name": "The Dining Car",
+   "object": "related_card",
+   "type_line": "Plane \u2014 Spacecraft",
+   "uri": "https://api.scryfall.com/cards/bf6193ea-4906-4097-8e30-431220f9e35c"
+  },
+  {
+   "component": "combo_piece",
+   "id": "741caee0-03c7-4b72-8f71-234e66eb6609",
+   "name": "Vault 101: Birthday Party",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Saga",
+   "uri": "https://api.scryfall.com/cards/741caee0-03c7-4b72-8f71-234e66eb6609"
+  },
+  {
+   "component": "combo_piece",
+   "id": "2a0410cb-e202-4bad-a6a5-e3e58e574157",
+   "name": "Graham O'Brien",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Pilot",
+   "uri": "https://api.scryfall.com/cards/2a0410cb-e202-4bad-a6a5-e3e58e574157"
+  },
+  {
+   "component": "combo_piece",
+   "id": "78c55706-4d00-4b97-965c-0b2d0963e59d",
+   "name": "Featherbrained Filcher",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Bird Mutant",
+   "uri": "https://api.scryfall.com/cards/78c55706-4d00-4b97-965c-0b2d0963e59d"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4fedf84e-55ca-4334-a2c1-6e991112bb68",
+   "name": "Apothecary White",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Cleric",
+   "uri": "https://api.scryfall.com/cards/4fedf84e-55ca-4334-a2c1-6e991112bb68"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b18995c2-efe3-46ca-8204-e2dc0e42f6e3",
+   "name": "Leaves from the Vine",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Saga",
+   "uri": "https://api.scryfall.com/cards/b18995c2-efe3-46ca-8204-e2dc0e42f6e3"
+  },
+  {
+   "component": "combo_piece",
+   "id": "cc0fc98e-49ec-4d76-a922-52fe481da88f",
+   "name": "Samwise Gamgee",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Halfling Peasant",
+   "uri": "https://api.scryfall.com/cards/cc0fc98e-49ec-4d76-a922-52fe481da88f"
+  },
+  {
+   "component": "combo_piece",
+   "id": "38e91870-bb00-437c-99d5-29d13d79989a",
+   "name": "Restless Cottage",
+   "object": "related_card",
+   "type_line": "Land",
+   "uri": "https://api.scryfall.com/cards/38e91870-bb00-437c-99d5-29d13d79989a"
+  },
+  {
+   "component": "combo_piece",
+   "id": "a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7",
+   "name": "Eager Trufflesnout",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Boar",
+   "uri": "https://api.scryfall.com/cards/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7"
+  },
+  {
+   "component": "combo_piece",
+   "id": "8adbd4a5-3171-495a-a540-0ecf280b77fc",
+   "name": "Tempting Witch",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Warlock",
+   "uri": "https://api.scryfall.com/cards/8adbd4a5-3171-495a-a540-0ecf280b77fc"
+  },
+  {
+   "component": "combo_piece",
+   "id": "5478bda7-2524-4095-941b-5dcc261ba985",
+   "name": "Treebeard, Gracious Host",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Treefolk",
+   "uri": "https://api.scryfall.com/cards/5478bda7-2524-4095-941b-5dcc261ba985"
+  },
+  {
+   "component": "combo_piece",
+   "id": "42353f71-9c79-4105-a117-c12b3f4ac895",
+   "name": "Sorin of House Markov // Sorin, Ravenous Neonate",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Noble // Legendary Planeswalker \u2014 Sorin",
+   "uri": "https://api.scryfall.com/cards/42353f71-9c79-4105-a117-c12b3f4ac895"
+  },
+  {
+   "component": "combo_piece",
+   "id": "9350bf4a-fa12-4867-b31f-1f1394d99571",
+   "name": "Momo, Playful Pet",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Lemur Bat Ally",
+   "uri": "https://api.scryfall.com/cards/9350bf4a-fa12-4867-b31f-1f1394d99571"
+  },
+  {
+   "component": "combo_piece",
+   "id": "a23d6283-c7a3-45a1-8c6b-cd806212d5e3",
+   "name": "Elephant-Mandrill",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Elephant Monkey",
+   "uri": "https://api.scryfall.com/cards/a23d6283-c7a3-45a1-8c6b-cd806212d5e3"
+  },
+  {
+   "component": "combo_piece",
+   "id": "7a08a9fe-1a77-40fb-b568-549adba58c7b",
+   "name": "Iroh, Tea Master",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Citizen Ally",
+   "uri": "https://api.scryfall.com/cards/7a08a9fe-1a77-40fb-b568-549adba58c7b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "49aaf5db-9418-4b97-97da-736c674905d4",
+   "name": "Experimental Confectioner",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Peasant",
+   "uri": "https://api.scryfall.com/cards/49aaf5db-9418-4b97-97da-736c674905d4"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4462f57d-5214-4b0e-a963-e0077741aad1",
+   "name": "Fae Offering",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/4462f57d-5214-4b0e-a963-e0077741aad1"
+  },
+  {
+   "component": "combo_piece",
+   "id": "09ffe48f-abfa-4110-805e-35671b42386d",
+   "name": "Tough Cookie",
+   "object": "related_card",
+   "type_line": "Artifact Creature \u2014 Food Golem",
+   "uri": "https://api.scryfall.com/cards/09ffe48f-abfa-4110-805e-35671b42386d"
+  },
+  {
+   "component": "combo_piece",
+   "id": "00841818-d46a-4865-a41c-daf627d10d1b",
+   "name": "Hurska Sweet-Tooth",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Bear",
+   "uri": "https://api.scryfall.com/cards/00841818-d46a-4865-a41c-daf627d10d1b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "d27b6f2a-84df-4097-a66a-8e463db47f58",
+   "name": "Party Dude",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Class",
+   "uri": "https://api.scryfall.com/cards/d27b6f2a-84df-4097-a66a-8e463db47f58"
+  },
+  {
+   "component": "combo_piece",
+   "id": "1546013b-89d7-46b8-bfcb-9d150a50499f",
+   "name": "Witch's Oven",
+   "object": "related_card",
+   "type_line": "Artifact",
+   "uri": "https://api.scryfall.com/cards/1546013b-89d7-46b8-bfcb-9d150a50499f"
+  },
+  {
+   "component": "combo_piece",
+   "id": "29267b6b-e0d9-4514-8932-16bf8e6db3bb",
+   "name": "Many Partings",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/29267b6b-e0d9-4514-8932-16bf8e6db3bb"
+  },
+  {
+   "component": "combo_piece",
+   "id": "3c7b3b25-d4b3-4451-9f5c-6eb369541175",
+   "name": "Crumb and Get It",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/3c7b3b25-d4b3-4451-9f5c-6eb369541175"
+  },
+  {
+   "component": "combo_piece",
+   "id": "8e629a31-2e06-4f95-9628-34670dcf68b9",
+   "name": "Welcome to Sweettooth",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Saga",
+   "uri": "https://api.scryfall.com/cards/8e629a31-2e06-4f95-9628-34670dcf68b9"
+  },
+  {
+   "component": "combo_piece",
+   "id": "8314297a-5c97-4d94-800c-0f9e42fca902",
+   "name": "The Shire",
+   "object": "related_card",
+   "type_line": "Legendary Land",
+   "uri": "https://api.scryfall.com/cards/8314297a-5c97-4d94-800c-0f9e42fca902"
+  },
+  {
+   "component": "combo_piece",
+   "id": "1897db0c-db6d-4018-bf2a-9221bb0d6e61",
+   "name": "The Art of Tea",
+   "object": "related_card",
+   "type_line": "Instant \u2014 Lesson",
+   "uri": "https://api.scryfall.com/cards/1897db0c-db6d-4018-bf2a-9221bb0d6e61"
+  },
+  {
+   "component": "combo_piece",
+   "id": "dfb85545-22d0-4265-94e2-8805d2ccf0f8",
+   "name": "Bosco, Just a Bear",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Bear",
+   "uri": "https://api.scryfall.com/cards/dfb85545-22d0-4265-94e2-8805d2ccf0f8"
+  },
+  {
+   "component": "token",
+   "id": "e2b62092-57df-4d95-b2b9-961794e7c20b",
+   "name": "Food",
+   "object": "related_card",
+   "type_line": "Token Artifact \u2014 Food",
+   "uri": "https://api.scryfall.com/cards/e2b62092-57df-4d95-b2b9-961794e7c20b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "47a2058a-24a7-4b10-a1d5-0b69e94c8688",
+   "name": "Transmutation Font",
+   "object": "related_card",
+   "type_line": "Artifact",
+   "uri": "https://api.scryfall.com/cards/47a2058a-24a7-4b10-a1d5-0b69e94c8688"
+  },
+  {
+   "component": "token",
+   "id": "365b2234-c29d-42db-a8e0-80685a4b6434",
+   "name": "Boar",
+   "object": "related_card",
+   "type_line": "Token Creature \u2014 Boar",
+   "uri": "https://api.scryfall.com/cards/365b2234-c29d-42db-a8e0-80685a4b6434"
+  },
+  {
+   "component": "combo_piece",
+   "id": "27c57721-547a-405e-931a-bdc6e1950df3",
+   "name": "The Battle of Bywater",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/27c57721-547a-405e-931a-bdc6e1950df3"
+  },
+  {
+   "component": "combo_piece",
+   "id": "050c03f9-ccbd-4dcc-9789-8013875ef470",
+   "name": "Giant's Skewer",
+   "object": "related_card",
+   "type_line": "Artifact \u2014 Equipment",
+   "uri": "https://api.scryfall.com/cards/050c03f9-ccbd-4dcc-9789-8013875ef470"
+  },
+  {
+   "component": "combo_piece",
+   "id": "61ba2aed-3514-4db9-8da0-329620b12f63",
+   "name": "Food Coma",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/61ba2aed-3514-4db9-8da0-329620b12f63"
+  },
+  {
+   "component": "combo_piece",
+   "id": "6d2e2e8d-8382-4d98-9e25-2dff1b1d0ff8",
+   "name": "Tireless Provisioner",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Elf Scout",
+   "uri": "https://api.scryfall.com/cards/6d2e2e8d-8382-4d98-9e25-2dff1b1d0ff8"
+  },
+  {
+   "component": "combo_piece",
+   "id": "726882db-0fac-4a86-ab85-c62bcb593093",
+   "name": "City Pigeon",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Bird",
+   "uri": "https://api.scryfall.com/cards/726882db-0fac-4a86-ab85-c62bcb593093"
+  },
+  {
+   "component": "combo_piece",
+   "id": "47ca4926-b5ac-405a-8b58-f8db6df400ff",
+   "name": "The Witch's Vanity",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Saga",
+   "uri": "https://api.scryfall.com/cards/47ca4926-b5ac-405a-8b58-f8db6df400ff"
+  },
+  {
+   "component": "combo_piece",
+   "id": "7b35ec3c-6da6-435d-b094-14a56cec58fe",
+   "name": "Elanor Gardner",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Halfling Scout",
+   "uri": "https://api.scryfall.com/cards/7b35ec3c-6da6-435d-b094-14a56cec58fe"
+  },
+  {
+   "component": "combo_piece",
+   "id": "207788a7-c6aa-4aad-b2d1-f1b20355ae7b",
+   "name": "Fierce Witchstalker",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Wolf",
+   "uri": "https://api.scryfall.com/cards/207788a7-c6aa-4aad-b2d1-f1b20355ae7b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "e3150f4f-2ec5-483c-ac8a-306b6f99e65a",
+   "name": "Scavenger's Talent",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Class",
+   "uri": "https://api.scryfall.com/cards/e3150f4f-2ec5-483c-ac8a-306b6f99e65a"
+  },
+  {
+   "component": "combo_piece",
+   "id": "c62d0ae9-5a82-40bf-b8bb-9c2e2d55d458",
+   "name": "Scream Puff",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Horror",
+   "uri": "https://api.scryfall.com/cards/c62d0ae9-5a82-40bf-b8bb-9c2e2d55d458"
+  },
+  {
+   "component": "combo_piece",
+   "id": "ffabb307-87f0-428b-a4dc-a147c6c926a8",
+   "name": "Generous Ent",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Treefolk",
+   "uri": "https://api.scryfall.com/cards/ffabb307-87f0-428b-a4dc-a147c6c926a8"
+  },
+  {
+   "component": "combo_piece",
+   "id": "30a30bfb-f0f3-425b-b37d-20079ee27046",
+   "name": "Canyon Crawler",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Spider Beast",
+   "uri": "https://api.scryfall.com/cards/30a30bfb-f0f3-425b-b37d-20079ee27046"
+  },
+  {
+   "component": "combo_piece",
+   "id": "bdb5452e-d97f-409b-91d0-2664f39b09b8",
+   "name": "Sidequest: Catch a Fish // Cooking Campsite",
+   "object": "related_card",
+   "type_line": "Enchantment // Land",
+   "uri": "https://api.scryfall.com/cards/bdb5452e-d97f-409b-91d0-2664f39b09b8"
+  },
+  {
+   "component": "combo_piece",
+   "id": "3f88a06a-ab45-48b5-99cd-f13aede9dfc0",
+   "name": "Second Breakfast",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/3f88a06a-ab45-48b5-99cd-f13aede9dfc0"
+  },
+  {
+   "component": "combo_piece",
+   "id": "0292a859-79b4-46ae-b2fe-293dae5cba7a",
+   "name": "The Fourth Doctor",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Time Lord Doctor",
+   "uri": "https://api.scryfall.com/cards/0292a859-79b4-46ae-b2fe-293dae5cba7a"
+  },
+  {
+   "component": "combo_piece",
+   "id": "ae4cebb7-927c-4958-974a-279924ec6d48",
+   "name": "Creeping Crystal Coating",
+   "object": "related_card",
+   "type_line": "Enchantment \u2014 Aura",
+   "uri": "https://api.scryfall.com/cards/ae4cebb7-927c-4958-974a-279924ec6d48"
+  },
+  {
+   "component": "combo_piece",
+   "id": "6b90c983-ff77-4dde-b6cb-6da1fb9bb260",
+   "name": "Shelob's Ambush",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/6b90c983-ff77-4dde-b6cb-6da1fb9bb260"
+  },
+  {
+   "component": "combo_piece",
+   "id": "acdab158-3e36-42cd-9fda-e8282dbafeb2",
+   "name": "Orchard Strider",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Treefolk",
+   "uri": "https://api.scryfall.com/cards/acdab158-3e36-42cd-9fda-e8282dbafeb2"
+  },
+  {
+   "component": "combo_piece",
+   "id": "33d3cc84-7cb6-4de2-9018-4695a3b1e099",
+   "name": "Fell the Pheasant",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/33d3cc84-7cb6-4de2-9018-4695a3b1e099"
+  },
+  {
+   "component": "combo_piece",
+   "id": "a8f02241-b268-43c8-b69e-bf10c8a9b9ca",
+   "name": "Applejack",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Pony",
+   "uri": "https://api.scryfall.com/cards/a8f02241-b268-43c8-b69e-bf10c8a9b9ca"
+  },
+  {
+   "component": "combo_piece",
+   "id": "bfb8cc18-d5ac-47c3-bf6e-b3ac22aa303e",
+   "name": "Devouring Sugarmaw // Have for Dinner",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Horror // Instant \u2014 Adventure",
+   "uri": "https://api.scryfall.com/cards/bfb8cc18-d5ac-47c3-bf6e-b3ac22aa303e"
+  },
+  {
+   "component": "combo_piece",
+   "id": "d902f154-6fe8-4b97-aa67-4d4696abf887",
+   "name": "Mintstrosity",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Horror",
+   "uri": "https://api.scryfall.com/cards/d902f154-6fe8-4b97-aa67-4d4696abf887"
+  },
+  {
+   "component": "combo_piece",
+   "id": "e074e0a7-1411-47ea-a71c-3493cb16bcdc",
+   "name": "Cirith Ungol Patrol",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Orc Soldier",
+   "uri": "https://api.scryfall.com/cards/e074e0a7-1411-47ea-a71c-3493cb16bcdc"
+  },
+  {
+   "component": "combo_piece",
+   "id": "1fccd76c-cce9-4ae3-84c1-000e54ca4734",
+   "name": "The Wilds",
+   "object": "related_card",
+   "type_line": "Plane \u2014 Eldraine",
+   "uri": "https://api.scryfall.com/cards/1fccd76c-cce9-4ae3-84c1-000e54ca4734"
+  },
+  {
+   "component": "combo_piece",
+   "id": "6ee3b883-e9f5-426f-a2ea-96fe9ff3aba9",
+   "name": "Hot Dog Cart",
+   "object": "related_card",
+   "type_line": "Artifact",
+   "uri": "https://api.scryfall.com/cards/6ee3b883-e9f5-426f-a2ea-96fe9ff3aba9"
+  },
+  {
+   "component": "combo_piece",
+   "id": "f2a37dcb-4a18-4f03-b28c-27188a1a5ec1",
+   "name": "Turn into a Pumpkin",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/f2a37dcb-4a18-4f03-b28c-27188a1a5ec1"
+  },
+  {
+   "component": "combo_piece",
+   "id": "9bbc8de9-6f74-468f-834c-46d10864e36b",
+   "name": "Galadriel, Gift-Giver",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Elf Noble",
+   "uri": "https://api.scryfall.com/cards/9bbc8de9-6f74-468f-834c-46d10864e36b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "103fa2de-6c5d-419b-8261-ad027cd229b9",
+   "name": "Questionable Cuisine",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/103fa2de-6c5d-419b-8261-ad027cd229b9"
+  },
+  {
+   "component": "combo_piece",
+   "id": "0a838009-b115-4497-b35d-682e41ead7db",
+   "name": "Unlucky Cabbage Merchant",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Citizen",
+   "uri": "https://api.scryfall.com/cards/0a838009-b115-4497-b35d-682e41ead7db"
+  },
+  {
+   "component": "combo_piece",
+   "id": "29b615ba-45c4-42a1-8525-1535f0b55300",
+   "name": "Vinereap Mentor",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Squirrel Druid",
+   "uri": "https://api.scryfall.com/cards/29b615ba-45c4-42a1-8525-1535f0b55300"
+  },
+  {
+   "component": "combo_piece",
+   "id": "fbc33291-a597-4c70-8072-aa7251e57e78",
+   "name": "Gift Shop",
+   "object": "related_card",
+   "type_line": "Artifact \u2014 Attraction",
+   "uri": "https://api.scryfall.com/cards/fbc33291-a597-4c70-8072-aa7251e57e78"
+  },
+  {
+   "component": "combo_piece",
+   "id": "a094fa16-256f-4fb1-9738-3025085d1941",
+   "name": "The Goose Mother",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Bird Hydra",
+   "uri": "https://api.scryfall.com/cards/a094fa16-256f-4fb1-9738-3025085d1941"
+  },
+  {
+   "component": "combo_piece",
+   "id": "1397f689-dca1-4d35-864b-92c5606afb9a",
+   "name": "Savor",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/1397f689-dca1-4d35-864b-92c5606afb9a"
+  },
+  {
+   "component": "combo_piece",
+   "id": "65ffb473-0a11-44c2-9311-f39d69eef713",
+   "name": "The Cabbage Merchant",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Citizen",
+   "uri": "https://api.scryfall.com/cards/65ffb473-0a11-44c2-9311-f39d69eef713"
+  },
+  {
+   "component": "combo_piece",
+   "id": "f957c4d9-834b-4ad1-915b-5f496d63489e",
+   "name": "Bill the Pony",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Horse",
+   "uri": "https://api.scryfall.com/cards/f957c4d9-834b-4ad1-915b-5f496d63489e"
+  },
+  {
+   "component": "combo_piece",
+   "id": "fd827857-3971-48ec-9aec-fe7d4c49882a",
+   "name": "Sierra, Nuka's Biggest Fan",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Citizen",
+   "uri": "https://api.scryfall.com/cards/fd827857-3971-48ec-9aec-fe7d4c49882a"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4f8ca405-f3e2-4efd-9f31-2acc44fefc1b",
+   "name": "Curious Pair // Treats to Share",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Human Peasant // Sorcery \u2014 Adventure",
+   "uri": "https://api.scryfall.com/cards/4f8ca405-f3e2-4efd-9f31-2acc44fefc1b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b03cf0bb-3207-4e8e-bb3f-e3e4367aa86e",
+   "name": "Pizza Face, Gastromancer",
+   "object": "related_card",
+   "type_line": "Legendary Artifact Creature \u2014 Food Mutant",
+   "uri": "https://api.scryfall.com/cards/b03cf0bb-3207-4e8e-bb3f-e3e4367aa86e"
+  },
+  {
+   "component": "combo_piece",
+   "id": "95965b9a-9ab3-4dd4-b8de-65df9c62e797",
+   "name": "Hazel's Brewmaster",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Squirrel Warlock",
+   "uri": "https://api.scryfall.com/cards/95965b9a-9ab3-4dd4-b8de-65df9c62e797"
+  },
+  {
+   "component": "combo_piece",
+   "id": "ae3257ec-d5f3-4cfb-8446-cbeb236ee10e",
+   "name": "Albiorix, Goose Tyrant // Wild Goose Chase",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Bird // Instant \u2014 Adventure",
+   "uri": "https://api.scryfall.com/cards/ae3257ec-d5f3-4cfb-8446-cbeb236ee10e"
+  },
+  {
+   "component": "combo_piece",
+   "id": "6c22504f-45a4-41b1-9e75-63712162f55b",
+   "name": "Sophia, Dogged Detective",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Detective",
+   "uri": "https://api.scryfall.com/cards/6c22504f-45a4-41b1-9e75-63712162f55b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "27032171-abf2-4ebe-a86a-f8b64d93072c",
+   "name": "Butterbur, Bree Innkeeper",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human Peasant",
+   "uri": "https://api.scryfall.com/cards/27032171-abf2-4ebe-a86a-f8b64d93072c"
+  },
+  {
+   "component": "combo_piece",
+   "id": "5309354f-1ff4-4fa9-9141-01ea2f7588ab",
+   "name": "Bakersbane Duo",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Squirrel Raccoon",
+   "uri": "https://api.scryfall.com/cards/5309354f-1ff4-4fa9-9141-01ea2f7588ab"
+  },
+  {
+   "component": "combo_piece",
+   "id": "742c0409-9abd-4559-b52e-932cc90c531a",
+   "name": "Nocturnal Hunger",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/742c0409-9abd-4559-b52e-932cc90c531a"
+  },
+  {
+   "component": "combo_piece",
+   "id": "58b98563-88b6-49a1-b467-a24e7a985f72",
+   "name": "Fortifying Provisions",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/58b98563-88b6-49a1-b467-a24e7a985f72"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4c6b7f78-3882-42cc-bac5-4df33938a6f2",
+   "name": "Michelangelo, the Heart",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Mutant Ninja Turtle",
+   "uri": "https://api.scryfall.com/cards/4c6b7f78-3882-42cc-bac5-4df33938a6f2"
+  },
+  {
+   "component": "combo_piece",
+   "id": "5ea59511-24b1-4925-9948-9d4c0d27d1c5",
+   "name": "Gilded Goose",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Bird",
+   "uri": "https://api.scryfall.com/cards/5ea59511-24b1-4925-9948-9d4c0d27d1c5"
+  },
+  {
+   "component": "combo_piece",
+   "id": "c88eb33d-efba-4ad9-878f-f051079c9bce",
+   "name": "Academy Manufactor",
+   "object": "related_card",
+   "type_line": "Artifact Creature \u2014 Assembly-Worker",
+   "uri": "https://api.scryfall.com/cards/c88eb33d-efba-4ad9-878f-f051079c9bce"
+  },
+  {
+   "component": "combo_piece",
+   "id": "bb127265-7be7-4807-884e-bf9f49c39192",
+   "name": "Stew the Coneys",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/bb127265-7be7-4807-884e-bf9f49c39192"
+  },
+  {
+   "component": "combo_piece",
+   "id": "e77a8fd4-af5f-42b3-a87e-788baf2562dd",
+   "name": "Gingerbread Hunter // Puny Snack",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Giant // Instant \u2014 Adventure",
+   "uri": "https://api.scryfall.com/cards/e77a8fd4-af5f-42b3-a87e-788baf2562dd"
+  },
+  {
+   "component": "combo_piece",
+   "id": "a4e52634-8502-4b72-950d-eb4c2f6b3bc4",
+   "name": "Taste of Death",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/a4e52634-8502-4b72-950d-eb4c2f6b3bc4"
+  },
+  {
+   "component": "combo_piece",
+   "id": "67c77d6f-de14-423c-bf55-0fb289171004",
+   "name": "Old Flitterfang",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Rat Faerie",
+   "uri": "https://api.scryfall.com/cards/67c77d6f-de14-423c-bf55-0fb289171004"
+  },
+  {
+   "component": "combo_piece",
+   "id": "dda5e513-775c-4c5e-b9dc-cb836ca8cb8c",
+   "name": "Survivor's Med Kit",
+   "object": "related_card",
+   "type_line": "Artifact",
+   "uri": "https://api.scryfall.com/cards/dda5e513-775c-4c5e-b9dc-cb836ca8cb8c"
+  },
+  {
+   "component": "combo_piece",
+   "id": "e0c48102-e213-4188-a2a7-5a9adae3f693",
+   "name": "Astrid Peth",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Human",
+   "uri": "https://api.scryfall.com/cards/e0c48102-e213-4188-a2a7-5a9adae3f693"
+  },
+  {
+   "component": "combo_piece",
+   "id": "3b583cc8-95e6-4772-afe3-d405b65836e0",
+   "name": "Gingerbread Cabin",
+   "object": "related_card",
+   "type_line": "Land \u2014 Forest",
+   "uri": "https://api.scryfall.com/cards/3b583cc8-95e6-4772-afe3-d405b65836e0"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b82c20ad-0f69-4822-ae76-770832cccdf7",
+   "name": "Pawpatch Formation",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/b82c20ad-0f69-4822-ae76-770832cccdf7"
+  },
+  {
+   "component": "combo_piece",
+   "id": "bba5e81d-fcdd-4c26-a83f-3ee48f23ac6f",
+   "name": "Meriadoc Brandybuck",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Halfling Citizen",
+   "uri": "https://api.scryfall.com/cards/bba5e81d-fcdd-4c26-a83f-3ee48f23ac6f"
+  }
+ ],
+ "artist": "Nicholas Gregory",
+ "artist_ids": [
+  "a1bba8ff-63b4-4786-b1c4-f1bfe5d3ab1c"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cmc": 0.0,
+ "collector_number": "8",
+ "color_identity": [],
+ "colors": [],
+ "digital": false,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper"
+ ],
+ "highres_image": true,
+ "id": "e2b62092-57df-4d95-b2b9-961794e7c20b",
+ "illustration_id": "25209a48-d010-4987-bde9-a4168b93a116",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:53:23Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.webp?1783904003",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.jpg?1783904003",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.jpg?1783904003",
+  "crop": "https://cards.scryfall.io/crop/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.webp?1783904003",
+  "display": "https://cards.scryfall.io/display/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.webp?1783904003",
+  "grid": "https://cards.scryfall.io/grid/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.webp?1783904003",
+  "large": "https://cards.scryfall.io/large/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.jpg?1783904003",
+  "normal": "https://cards.scryfall.io/normal/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.jpg?1783904003",
+  "png": "https://cards.scryfall.io/png/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.png?1783904003",
+  "small": "https://cards.scryfall.io/small/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.jpg?1783904003",
+  "thumb": "https://cards.scryfall.io/thumb/front/e/2/e2b62092-57df-4d95-b2b9-961794e7c20b.webp?1783904003"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "token",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "not_legal",
+  "competitivebrawl": "not_legal",
+  "duel": "not_legal",
+  "future": "not_legal",
+  "gladiator": "not_legal",
+  "historic": "not_legal",
+  "legacy": "not_legal",
+  "modern": "not_legal",
+  "oathbreaker": "not_legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "not_legal",
+  "vintage": "not_legal"
+ },
+ "mana_cost": "",
+ "multiverse_ids": [],
+ "name": "Food",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "a468338f-635e-4206-89d6-72d723071d45",
+ "oracle_text": "{2}, {T}, Sacrifice this token: You gain 3 life.",
+ "oversized": false,
+ "prices": {
+  "eur": null,
+  "eur_foil": null,
+  "tix": null,
+  "usd": null,
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aa468338f-635e-4206-89d6-72d723071d45&unique=prints",
+ "promo": false,
+ "promo_types": [
+  "universesbeyond"
+ ],
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Food&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Food&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DFood%26view%3Dgrid"
+ },
+ "rarity": "common",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Food",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DFood",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DFood"
+ },
+ "released_at": "2026-03-06",
+ "reprint": true,
+ "reserved": false,
+ "rulings_uri": "https://api.scryfall.com/cards/e2b62092-57df-4d95-b2b9-961794e7c20b/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ttmt?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ttmt/8/food?utm_source=api",
+ "set": "ttmt",
+ "set_id": "914ad085-2264-40ad-84cb-b7e3d63bb5fe",
+ "set_name": "Teenage Mutant Ninja Turtles Tokens",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Attmt&unique=prints",
+ "set_type": "token",
+ "set_uri": "https://api.scryfall.com/sets/914ad085-2264-40ad-84cb-b7e3d63bb5fe",
+ "story_spotlight": false,
+ "textless": false,
+ "type_line": "Token Artifact \u2014 Food",
+ "uri": "https://api.scryfall.com/cards/e2b62092-57df-4d95-b2b9-961794e7c20b",
+ "variation": false
+}

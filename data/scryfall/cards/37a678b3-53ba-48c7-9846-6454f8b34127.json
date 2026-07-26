@@ -1,0 +1,149 @@
+{
+ "all_parts": [
+  {
+   "component": "token",
+   "id": "29e9326a-a435-44c7-939a-8da6ed3c4510",
+   "name": "Elf Warrior",
+   "object": "related_card",
+   "type_line": "Token Creature \u2014 Elf Warrior",
+   "uri": "https://api.scryfall.com/cards/29e9326a-a435-44c7-939a-8da6ed3c4510"
+  },
+  {
+   "component": "combo_piece",
+   "id": "37a678b3-53ba-48c7-9846-6454f8b34127",
+   "name": "Flourishing Defenses",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/37a678b3-53ba-48c7-9846-6454f8b34127"
+  }
+ ],
+ "artist": "Dan Murayama Scott",
+ "artist_ids": [
+  "f852fa13-137e-40f2-bbc1-0f01df09c0e0"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 865039,
+ "cmc": 5.0,
+ "collector_number": "107",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 4068,
+ "finishes": [
+  "nonfoil"
+ ],
+ "flavor_text": "Many horrors take the bait of brave elf volunteers walking alone, only to fall to the blades of rescuers lurking nearby.",
+ "foil": false,
+ "frame": "2015",
+ "frame_effects": [
+  "enchantment"
+ ],
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "37a678b3-53ba-48c7-9846-6454f8b34127",
+ "illustration_id": "4e33e0a7-d2ac-45ba-881f-b57016cff940",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:02:26Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.webp?1783904546",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.jpg?1783904546",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.jpg?1783904546",
+  "crop": "https://cards.scryfall.io/crop/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.webp?1783904546",
+  "display": "https://cards.scryfall.io/display/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.webp?1783904546",
+  "grid": "https://cards.scryfall.io/grid/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.webp?1783904546",
+  "large": "https://cards.scryfall.io/large/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.jpg?1783904546",
+  "normal": "https://cards.scryfall.io/normal/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.jpg?1783904546",
+  "png": "https://cards.scryfall.io/png/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.png?1783904546",
+  "small": "https://cards.scryfall.io/small/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.jpg?1783904546",
+  "thumb": "https://cards.scryfall.io/thumb/front/3/7/37a678b3-53ba-48c7-9846-6454f8b34127.webp?1783904546"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "not_legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{4}{G}",
+ "mtgo_id": 146149,
+ "multiverse_ids": [],
+ "name": "Flourishing Defenses",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "f1b26eb1-6337-42d6-a475-53ad6427f00f",
+ "oracle_text": "Whenever a -1/-1 counter is put on a creature, you may create a 1/1 green Elf Warrior creature token.",
+ "oversized": false,
+ "penny_rank": 9895,
+ "prices": {
+  "eur": "1.68",
+  "eur_foil": null,
+  "tix": "0.06",
+  "usd": "1.16",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af1b26eb1-6337-42d6-a475-53ad6427f00f&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146149?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=865039&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671213%3Fpage%3D1"
+ },
+ "rarity": "uncommon",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Flourishing+Defenses",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DFlourishing%2BDefenses",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DFlourishing%2BDefenses"
+ },
+ "released_at": "2026-01-23",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "B64A7B0663ADC5A2CFA12C62B3C8E9E15C8BF61F856F4DEF5B72CE159970287B",
+ "rulings_uri": "https://api.scryfall.com/cards/37a678b3-53ba-48c7-9846-6454f8b34127/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/107/flourishing-defenses?utm_source=api",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671213,
+ "textless": false,
+ "type_line": "Enchantment",
+ "uri": "https://api.scryfall.com/cards/37a678b3-53ba-48c7-9846-6454f8b34127",
+ "variation": false
+}

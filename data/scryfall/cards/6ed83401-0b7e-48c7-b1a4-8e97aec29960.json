@@ -1,0 +1,146 @@
+{
+ "arena_id": 96240,
+ "artist": "Yoshitaka Amano",
+ "artist_ids": [
+  "71c0c461-d1a6-4d7f-b01f-352e7228cf8a"
+ ],
+ "booster": false,
+ "border_color": "borderless",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 825862,
+ "cmc": 4.0,
+ "collector_number": "11",
+ "color_identity": [
+  "B"
+ ],
+ "colors": [
+  "B"
+ ],
+ "digital": false,
+ "edhrec_rank": 827,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_name": "The Emperor, Hell Tyrant",
+ "foil": true,
+ "frame": "2015",
+ "frame_effects": [
+  "legendary",
+  "inverted"
+ ],
+ "full_art": true,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "arena",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "6ed83401-0b7e-48c7-b1a4-8e97aec29960",
+ "illustration_id": "8adc9ffc-7654-4fa9-af20-d21b72d57eac",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:33:12Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.webp?1783906392",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.jpg?1783906392",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.jpg?1783906392",
+  "crop": "https://cards.scryfall.io/crop/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.webp?1783906392",
+  "display": "https://cards.scryfall.io/display/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.webp?1783906392",
+  "grid": "https://cards.scryfall.io/grid/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.webp?1783906392",
+  "large": "https://cards.scryfall.io/large/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.jpg?1783906392",
+  "normal": "https://cards.scryfall.io/normal/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.jpg?1783906392",
+  "png": "https://cards.scryfall.io/png/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.png?1783906392",
+  "small": "https://cards.scryfall.io/small/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.jpg?1783906392",
+  "thumb": "https://cards.scryfall.io/thumb/front/6/e/6ed83401-0b7e-48c7-b1a4-8e97aec29960.webp?1783906392"
+ },
+ "keywords": [
+  "Protection",
+  "Proliferate"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{B}{B}",
+ "mtgo_id": 139885,
+ "multiverse_ids": [],
+ "name": "Yawgmoth, Thran Physician",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "a1e232c0-dc38-47be-a5a0-f68bc1d86a29",
+ "oracle_text": "Protection from Humans\nPay 1 life, Sacrifice another creature: Put a -1/-1 counter on up to one target creature and draw a card.\n{B}{B}, Discard a card: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+ "oversized": false,
+ "power": "2",
+ "prices": {
+  "eur": "27.46",
+  "eur_foil": "80.71",
+  "tix": "3.25",
+  "usd": "28.76",
+  "usd_etched": null,
+  "usd_foil": "128.15"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aa1e232c0-dc38-47be-a5a0-f68bc1d86a29&unique=prints",
+ "promo": false,
+ "promo_types": [
+  "ffii",
+  "sourcematerial",
+  "universesbeyond",
+  "boosterfun"
+ ],
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/139885?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=825862&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F631843%3Fpage%3D1"
+ },
+ "rarity": "mythic",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Yawgmoth%2C+Thran+Physician",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DYawgmoth%252C%2BThran%2BPhysician",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DYawgmoth%252C%2BThran%2BPhysician"
+ },
+ "released_at": "2025-06-13",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "7E83F1D438C3A86208D069D89C4928CB61986ED2BE4BB39791FA8806054EB08A",
+ "rulings_uri": "https://api.scryfall.com/cards/6ed83401-0b7e-48c7-b1a4-8e97aec29960/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/fca?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/fca/11/yawgmoth-thran-physician?utm_source=api",
+ "security_stamp": "triangle",
+ "set": "fca",
+ "set_id": "5f2176db-3c44-459d-8a57-7c51e770a476",
+ "set_name": "Final Fantasy: Through the Ages",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afca&unique=prints",
+ "set_type": "masterpiece",
+ "set_uri": "https://api.scryfall.com/sets/5f2176db-3c44-459d-8a57-7c51e770a476",
+ "story_spotlight": false,
+ "tcgplayer_id": 631843,
+ "textless": false,
+ "toughness": "4",
+ "type_line": "Legendary Creature \u2014 Human Cleric",
+ "uri": "https://api.scryfall.com/cards/6ed83401-0b7e-48c7-b1a4-8e97aec29960",
+ "variation": false
+}

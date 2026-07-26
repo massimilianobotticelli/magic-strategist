@@ -1,0 +1,201 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "c6dc0dbf-0d41-4677-a200-62a966876c1d",
+   "name": "Slash, Reptile Rampager",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Mutant Berserker Turtle",
+   "uri": "https://api.scryfall.com/cards/c6dc0dbf-0d41-4677-a200-62a966876c1d"
+  },
+  {
+   "component": "token",
+   "id": "51e33613-7a24-461c-8d9f-12680af4b92a",
+   "name": "Mutant",
+   "object": "related_card",
+   "type_line": "Token Creature \u2014 Mutant",
+   "uri": "https://api.scryfall.com/cards/51e33613-7a24-461c-8d9f-12680af4b92a"
+  },
+  {
+   "component": "combo_piece",
+   "id": "e07e1c31-d6f0-491c-b231-e1df87c9ea9f",
+   "name": "Sally Pride, Lioness Leader",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Cat Mutant Rebel",
+   "uri": "https://api.scryfall.com/cards/e07e1c31-d6f0-491c-b231-e1df87c9ea9f"
+  },
+  {
+   "component": "combo_piece",
+   "id": "64c6cf57-bc43-4b36-a01c-f4b2fadc8ce2",
+   "name": "Jennika, Bad Apple Big Sister",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Mutant Ninja Turtle",
+   "uri": "https://api.scryfall.com/cards/64c6cf57-bc43-4b36-a01c-f4b2fadc8ce2"
+  },
+  {
+   "component": "combo_piece",
+   "id": "6e118fc5-b0ae-4592-8292-d611856ae203",
+   "name": "Turtle Blimp",
+   "object": "related_card",
+   "type_line": "Artifact \u2014 Vehicle",
+   "uri": "https://api.scryfall.com/cards/6e118fc5-b0ae-4592-8292-d611856ae203"
+  },
+  {
+   "component": "combo_piece",
+   "id": "a8959c36-068f-48fa-ab6a-9dd24ba985ce",
+   "name": "Splinter & Leo, Father & Son",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Mutant Ninja Rat Turtle",
+   "uri": "https://api.scryfall.com/cards/a8959c36-068f-48fa-ab6a-9dd24ba985ce"
+  },
+  {
+   "component": "combo_piece",
+   "id": "4c056bc2-e33e-4e8e-ab02-d5d0a4c8a13c",
+   "name": "Wooden Cane",
+   "object": "related_card",
+   "type_line": "Artifact \u2014 Equipment",
+   "uri": "https://api.scryfall.com/cards/4c056bc2-e33e-4e8e-ab02-d5d0a4c8a13c"
+  },
+  {
+   "component": "combo_piece",
+   "id": "1515eed9-3b21-42f0-ab57-de5df19317af",
+   "name": "Old Hob, Alleycat Blues",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Cat Mutant Rebel",
+   "uri": "https://api.scryfall.com/cards/1515eed9-3b21-42f0-ab57-de5df19317af"
+  },
+  {
+   "component": "combo_piece",
+   "id": "5dd5369c-174c-450b-b776-553866787f8f",
+   "name": "Mighty Mutanimals",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Mutant Rebel",
+   "uri": "https://api.scryfall.com/cards/5dd5369c-174c-450b-b776-553866787f8f"
+  }
+ ],
+ "artist": "Lordigan",
+ "artist_ids": [
+  "eae339a0-a8be-40b9-9878-55f7de9256f9"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 740313,
+ "cmc": 0.0,
+ "collector_number": "7",
+ "color_identity": [
+  "R"
+ ],
+ "colors": [
+  "R"
+ ],
+ "digital": false,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper"
+ ],
+ "highres_image": true,
+ "id": "51e33613-7a24-461c-8d9f-12680af4b92a",
+ "illustration_id": "628ac374-87db-4ab6-aebf-0d189d3c5637",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:53:22Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.webp?1783904002",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.jpg?1783904002",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.jpg?1783904002",
+  "crop": "https://cards.scryfall.io/crop/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.webp?1783904002",
+  "display": "https://cards.scryfall.io/display/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.webp?1783904002",
+  "grid": "https://cards.scryfall.io/grid/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.webp?1783904002",
+  "large": "https://cards.scryfall.io/large/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.jpg?1783904002",
+  "normal": "https://cards.scryfall.io/normal/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.jpg?1783904002",
+  "png": "https://cards.scryfall.io/png/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.png?1783904002",
+  "small": "https://cards.scryfall.io/small/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.jpg?1783904002",
+  "thumb": "https://cards.scryfall.io/thumb/front/5/1/51e33613-7a24-461c-8d9f-12680af4b92a.webp?1783904002"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "token",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "not_legal",
+  "competitivebrawl": "not_legal",
+  "duel": "not_legal",
+  "future": "not_legal",
+  "gladiator": "not_legal",
+  "historic": "not_legal",
+  "legacy": "not_legal",
+  "modern": "not_legal",
+  "oathbreaker": "not_legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "not_legal",
+  "vintage": "not_legal"
+ },
+ "mana_cost": "",
+ "multiverse_ids": [],
+ "name": "Mutant",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "9abddb21-5b24-4cf7-8878-8b87e6ecbc65",
+ "oracle_text": "",
+ "oversized": false,
+ "power": "2",
+ "prices": {
+  "eur": "0.40",
+  "eur_foil": "1.00",
+  "tix": null,
+  "usd": null,
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A9abddb21-5b24-4cf7-8878-8b87e6ecbc65&unique=prints",
+ "promo": false,
+ "promo_types": [
+  "universesbeyond"
+ ],
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Mutant&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=740313&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fmagic%2Fproduct%3FproductLineName%3Dmagic%26q%3DMutant%26view%3Dgrid"
+ },
+ "rarity": "common",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Mutant",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DMutant",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DMutant"
+ },
+ "released_at": "2026-03-06",
+ "reprint": false,
+ "reserved": false,
+ "rulings_uri": "https://api.scryfall.com/cards/51e33613-7a24-461c-8d9f-12680af4b92a/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ttmt?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ttmt/7/mutant?utm_source=api",
+ "set": "ttmt",
+ "set_id": "914ad085-2264-40ad-84cb-b7e3d63bb5fe",
+ "set_name": "Teenage Mutant Ninja Turtles Tokens",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Attmt&unique=prints",
+ "set_type": "token",
+ "set_uri": "https://api.scryfall.com/sets/914ad085-2264-40ad-84cb-b7e3d63bb5fe",
+ "story_spotlight": false,
+ "textless": false,
+ "toughness": "2",
+ "type_line": "Token Creature \u2014 Mutant",
+ "uri": "https://api.scryfall.com/cards/51e33613-7a24-461c-8d9f-12680af4b92a",
+ "variation": false
+}

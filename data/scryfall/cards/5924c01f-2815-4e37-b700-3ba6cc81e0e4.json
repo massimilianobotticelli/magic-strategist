@@ -1,0 +1,158 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "5924c01f-2815-4e37-b700-3ba6cc81e0e4",
+   "name": "Ashling, the Limitless",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Elemental Sorcerer",
+   "uri": "https://api.scryfall.com/cards/5924c01f-2815-4e37-b700-3ba6cc81e0e4"
+  },
+  {
+   "component": "token",
+   "id": "61328aec-ba26-4142-a774-96924303786d",
+   "name": "Copy",
+   "object": "related_card",
+   "type_line": "Token",
+   "uri": "https://api.scryfall.com/cards/61328aec-ba26-4142-a774-96924303786d"
+  }
+ ],
+ "arena_id": 98890,
+ "artist": "Kai Carpenter",
+ "artist_ids": [
+  "dcd3cf0d-67b7-4b73-8e62-1d318bf6209c"
+ ],
+ "booster": false,
+ "border_color": "borderless",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 864953,
+ "cmc": 3.0,
+ "collector_number": "1",
+ "color_identity": [
+  "B",
+  "G",
+  "R",
+  "U",
+  "W"
+ ],
+ "colors": [
+  "R"
+ ],
+ "digital": false,
+ "edhrec_rank": 5814,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "frame_effects": [
+  "legendary",
+  "inverted"
+ ],
+ "full_art": true,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo",
+  "arena"
+ ],
+ "highres_image": true,
+ "id": "5924c01f-2815-4e37-b700-3ba6cc81e0e4",
+ "illustration_id": "0c118fdb-5431-4dce-bff5-6a704c9ef009",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:03:27Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.webp?1783904607",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.jpg?1783904607",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.jpg?1783904607",
+  "crop": "https://cards.scryfall.io/crop/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.webp?1783904607",
+  "display": "https://cards.scryfall.io/display/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.webp?1783904607",
+  "grid": "https://cards.scryfall.io/grid/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.webp?1783904607",
+  "large": "https://cards.scryfall.io/large/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.jpg?1783904607",
+  "normal": "https://cards.scryfall.io/normal/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.jpg?1783904607",
+  "png": "https://cards.scryfall.io/png/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.png?1783904607",
+  "small": "https://cards.scryfall.io/small/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.jpg?1783904607",
+  "thumb": "https://cards.scryfall.io/thumb/front/5/9/5924c01f-2815-4e37-b700-3ba6cc81e0e4.webp?1783904607"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{R}",
+ "mtgo_id": 145975,
+ "multiverse_ids": [],
+ "name": "Ashling, the Limitless",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "77a9e7cf-76e9-4323-8504-a5b831de00be",
+ "oracle_text": "Elemental permanent spells you cast from your hand gain evoke {4} as you cast them. (If you cast a spell for its evoke cost, it's sacrificed when it enters.)\nWhenever you sacrifice a nontoken Elemental, create a token that's a copy of it. The token gains haste until end of turn. At the beginning of your next end step, sacrifice it unless you pay {W}{U}{B}{R}{G}.",
+ "oversized": false,
+ "power": "2",
+ "prices": {
+  "eur": "0.45",
+  "eur_foil": "0.48",
+  "tix": "11.99",
+  "usd": "0.46",
+  "usd_etched": null,
+  "usd_foil": "0.41"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A77a9e7cf-76e9-4323-8504-a5b831de00be&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/145975?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=864953&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671012%3Fpage%3D1"
+ },
+ "rarity": "mythic",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Ashling%2C+the+Limitless",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DAshling%252C%2Bthe%2BLimitless",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DAshling%252C%2Bthe%2BLimitless"
+ },
+ "released_at": "2026-01-23",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "A722B88C894F1C71D5CA2A3856D5ABA424E9F2D5D4CFD9DDB069C54EAF8082DE",
+ "rulings_uri": "https://api.scryfall.com/cards/5924c01f-2815-4e37-b700-3ba6cc81e0e4/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/1/ashling-the-limitless?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671012,
+ "textless": false,
+ "toughness": "3",
+ "type_line": "Legendary Creature \u2014 Elemental Sorcerer",
+ "uri": "https://api.scryfall.com/cards/5924c01f-2815-4e37-b700-3ba6cc81e0e4",
+ "variation": false
+}

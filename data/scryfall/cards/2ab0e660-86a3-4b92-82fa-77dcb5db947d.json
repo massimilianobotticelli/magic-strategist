@@ -1,0 +1,153 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "2ab0e660-86a3-4b92-82fa-77dcb5db947d",
+   "name": "Bake into a Pie",
+   "object": "related_card",
+   "type_line": "Instant",
+   "uri": "https://api.scryfall.com/cards/2ab0e660-86a3-4b92-82fa-77dcb5db947d"
+  },
+  {
+   "component": "token",
+   "id": "6f1077f8-9e2a-4155-a7f0-4604bc0f94e8",
+   "name": "Food",
+   "object": "related_card",
+   "type_line": "Token Artifact \u2014 Food",
+   "uri": "https://api.scryfall.com/cards/6f1077f8-9e2a-4155-a7f0-4604bc0f94e8"
+  }
+ ],
+ "arena_id": 93882,
+ "artist": "Zoltan Boros",
+ "artist_ids": [
+  "1885e6cb-c827-4896-994e-3d0a027d602f"
+ ],
+ "booster": true,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 797345,
+ "cmc": 4.0,
+ "collector_number": "169",
+ "color_identity": [
+  "B"
+ ],
+ "colors": [
+  "B"
+ ],
+ "digital": false,
+ "edhrec_rank": 6031,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_text": "\"My secret ingredient? Well, I can't tell you that. But here's a hint. It's not love.\"",
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "arena",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "2ab0e660-86a3-4b92-82fa-77dcb5db947d",
+ "illustration_id": "c6d7c553-50c8-4ede-90ad-8a4772673017",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T02:17:56Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.webp?1783909076",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.jpg?1783909076",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.jpg?1783909076",
+  "crop": "https://cards.scryfall.io/crop/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.webp?1783909076",
+  "display": "https://cards.scryfall.io/display/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.webp?1783909076",
+  "grid": "https://cards.scryfall.io/grid/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.webp?1783909076",
+  "large": "https://cards.scryfall.io/large/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.jpg?1783909076",
+  "normal": "https://cards.scryfall.io/normal/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.jpg?1783909076",
+  "png": "https://cards.scryfall.io/png/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.png?1783909076",
+  "small": "https://cards.scryfall.io/small/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.jpg?1783909076",
+  "thumb": "https://cards.scryfall.io/thumb/front/2/a/2ab0e660-86a3-4b92-82fa-77dcb5db947d.webp?1783909076"
+ },
+ "keywords": [
+  "Food"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "legal",
+  "paupercommander": "legal",
+  "penny": "not_legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "legal",
+  "standardbrawl": "legal",
+  "timeless": "legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{B}{B}",
+ "mtgo_id": 133364,
+ "multiverse_ids": [
+  679911
+ ],
+ "name": "Bake into a Pie",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "1b9ec782-0ba1-41f1-bc39-d3302494ecb3",
+ "oracle_text": "Destroy target creature. Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+ "oversized": false,
+ "penny_rank": 14361,
+ "prices": {
+  "eur": "0.08",
+  "eur_foil": "0.06",
+  "tix": "0.03",
+  "usd": "0.23",
+  "usd_etched": null,
+  "usd_foil": "0.30"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A1b9ec782-0ba1-41f1-bc39-d3302494ecb3&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/133364?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=797345&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F591737%3Fpage%3D1"
+ },
+ "rarity": "common",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Bake+into+a+Pie",
+  "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=679911&printed=false",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DBake%2Binto%2Ba%2BPie",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DBake%2Binto%2Ba%2BPie"
+ },
+ "released_at": "2024-11-15",
+ "reprint": true,
+ "reserved": false,
+ "rulings_uri": "https://api.scryfall.com/cards/2ab0e660-86a3-4b92-82fa-77dcb5db947d/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/fdn?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/fdn/169/bake-into-a-pie?utm_source=api",
+ "set": "fdn",
+ "set_id": "a7ecb771-d1b6-4dec-8cf5-8d45179f21e0",
+ "set_name": "Foundations",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afdn&unique=prints",
+ "set_type": "core",
+ "set_uri": "https://api.scryfall.com/sets/a7ecb771-d1b6-4dec-8cf5-8d45179f21e0",
+ "story_spotlight": false,
+ "tcgplayer_id": 591737,
+ "textless": false,
+ "type_line": "Instant",
+ "uri": "https://api.scryfall.com/cards/2ab0e660-86a3-4b92-82fa-77dcb5db947d",
+ "variation": false
+}

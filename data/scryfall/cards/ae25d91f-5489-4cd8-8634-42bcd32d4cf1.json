@@ -1,0 +1,161 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "4f40a1d3-eb94-455d-a1f3-fcfd91fd888b",
+   "name": "Rocksteady, Mutant Marauder",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Rhino Mutant",
+   "uri": "https://api.scryfall.com/cards/4f40a1d3-eb94-455d-a1f3-fcfd91fd888b"
+  },
+  {
+   "component": "combo_piece",
+   "id": "d7ed8569-7b6b-4924-aedd-4210930e3bfc",
+   "name": "Bebop, Skull & Crossbones",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Boar Mutant",
+   "uri": "https://api.scryfall.com/cards/d7ed8569-7b6b-4924-aedd-4210930e3bfc"
+  }
+ ],
+ "arena_id": 100715,
+ "artist": "Kieran Yanner",
+ "artist_ids": [
+  "aa7e89ed-d294-4633-9057-ce04dacfcfa4"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 873503,
+ "cmc": 3.0,
+ "collector_number": "33",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 10628,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "frame_effects": [
+  "legendary"
+ ],
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "arena",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "ae25d91f-5489-4cd8-8634-42bcd32d4cf1",
+ "illustration_id": "2af5dce0-ee93-4380-afec-beb58b2b643c",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:56:05Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.webp?1783904165",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.jpg?1783904165",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.jpg?1783904165",
+  "crop": "https://cards.scryfall.io/crop/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.webp?1783904165",
+  "display": "https://cards.scryfall.io/display/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.webp?1783904165",
+  "grid": "https://cards.scryfall.io/grid/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.webp?1783904165",
+  "large": "https://cards.scryfall.io/large/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.jpg?1783904165",
+  "normal": "https://cards.scryfall.io/normal/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.jpg?1783904165",
+  "png": "https://cards.scryfall.io/png/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.png?1783904165",
+  "small": "https://cards.scryfall.io/small/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.jpg?1783904165",
+  "thumb": "https://cards.scryfall.io/thumb/front/a/e/ae25d91f-5489-4cd8-8634-42bcd32d4cf1.webp?1783904165"
+ },
+ "keywords": [
+  "Partner with",
+  "Partner",
+  "Trample"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{G}",
+ "mtgo_id": 147395,
+ "multiverse_ids": [],
+ "name": "Rocksteady, Mutant Marauder",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "506a972d-d226-44dc-95b7-a6e7a63d76cd",
+ "oracle_text": "Partner with Bebop, Skull & Crossbones (When this creature enters, target player may put Bebop into their hand from their library, then shuffle.)\nTrample\nWhenever another nontoken creature you control enters, put a +1/+1 counter on target creature.",
+ "oversized": false,
+ "power": "3",
+ "prices": {
+  "eur": "0.26",
+  "eur_foil": "1.37",
+  "tix": "0.46",
+  "usd": "0.32",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A506a972d-d226-44dc-95b7-a6e7a63d76cd&unique=prints",
+ "promo": false,
+ "promo_types": [
+  "surgefoil",
+  "universesbeyond"
+ ],
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/147395?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=873503&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F679575%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Rocksteady%2C+Mutant+Marauder",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DRocksteady%252C%2BMutant%2BMarauder",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DRocksteady%252C%2BMutant%2BMarauder"
+ },
+ "released_at": "2026-03-06",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "F93FB8928B3A6B12C1F02FEE92524DF4EE965149C5AEEAC76EEDF57B089D7EE6",
+ "rulings_uri": "https://api.scryfall.com/cards/ae25d91f-5489-4cd8-8634-42bcd32d4cf1/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/tmc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/tmc/33/rocksteady-mutant-marauder?utm_source=api",
+ "security_stamp": "oval",
+ "set": "tmc",
+ "set_id": "178a07bb-cd54-4443-8b62-675e0c52cfe3",
+ "set_name": "Teenage Mutant Ninja Turtles Eternal",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Atmc&unique=prints",
+ "set_type": "eternal",
+ "set_uri": "https://api.scryfall.com/sets/178a07bb-cd54-4443-8b62-675e0c52cfe3",
+ "story_spotlight": false,
+ "tcgplayer_id": 679575,
+ "textless": false,
+ "toughness": "3",
+ "type_line": "Legendary Creature \u2014 Rhino Mutant",
+ "uri": "https://api.scryfall.com/cards/ae25d91f-5489-4cd8-8634-42bcd32d4cf1",
+ "variation": false
+}

@@ -1,0 +1,150 @@
+{
+ "all_parts": [
+  {
+   "component": "token",
+   "id": "ac4384b7-853c-417d-b3b4-f54cd0b5d361",
+   "name": "Treasure",
+   "object": "related_card",
+   "type_line": "Token Artifact \u2014 Treasure",
+   "uri": "https://api.scryfall.com/cards/ac4384b7-853c-417d-b3b4-f54cd0b5d361"
+  },
+  {
+   "component": "combo_piece",
+   "id": "616b606a-e7c2-461c-989c-b5e74b424849",
+   "name": "Village Pillagers",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Goblin Warrior",
+   "uri": "https://api.scryfall.com/cards/616b606a-e7c2-461c-989c-b5e74b424849"
+  }
+ ],
+ "artist": "Paolo Parente",
+ "artist_ids": [
+  "d48dd097-720d-476a-8722-6a02854ae28b"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 864969,
+ "cmc": 5.0,
+ "collector_number": "14",
+ "color_identity": [
+  "R"
+ ],
+ "colors": [
+  "R"
+ ],
+ "digital": false,
+ "edhrec_rank": 6009,
+ "finishes": [
+  "nonfoil"
+ ],
+ "foil": false,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "a1e34ec4-6a85-4e22-9be9-f27dda5752d6",
+ "illustration_id": "d9194665-9a19-47ae-a07a-298e629c1efa",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:03:22Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.webp?1783904602",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.jpg?1783904602",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.jpg?1783904602",
+  "crop": "https://cards.scryfall.io/crop/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.webp?1783904602",
+  "display": "https://cards.scryfall.io/display/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.webp?1783904602",
+  "grid": "https://cards.scryfall.io/grid/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.webp?1783904602",
+  "large": "https://cards.scryfall.io/large/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.jpg?1783904602",
+  "normal": "https://cards.scryfall.io/normal/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.jpg?1783904602",
+  "png": "https://cards.scryfall.io/png/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.png?1783904602",
+  "small": "https://cards.scryfall.io/small/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.jpg?1783904602",
+  "thumb": "https://cards.scryfall.io/thumb/front/a/1/a1e34ec4-6a85-4e22-9be9-f27dda5752d6.webp?1783904602"
+ },
+ "keywords": [
+  "Treasure",
+  "Wither"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "not_legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{3}{R}{R}",
+ "mtgo_id": 146001,
+ "multiverse_ids": [],
+ "name": "Village Pillagers",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "54b44499-398b-47ad-b790-bd5b5994d1a6",
+ "oracle_text": "Wither (This deals damage to creatures in the form of -1/-1 counters.)\nWhen this creature enters, it deals 1 damage to each creature your opponents control.\nWhenever a creature an opponent controls with a counter on it dies, you create a tapped Treasure token.",
+ "oversized": false,
+ "power": "5",
+ "prices": {
+  "eur": "0.46",
+  "eur_foil": null,
+  "tix": "2.09",
+  "usd": "0.32",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A54b44499-398b-47ad-b790-bd5b5994d1a6&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146001?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=864969&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671223%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Village+Pillagers",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DVillage%2BPillagers",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DVillage%2BPillagers"
+ },
+ "released_at": "2026-01-23",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "C92F92CE84F46D7909BAF2946E314EF7BF3E411CA49083197F89D12C84E1078A",
+ "rulings_uri": "https://api.scryfall.com/cards/a1e34ec4-6a85-4e22-9be9-f27dda5752d6/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/14/village-pillagers?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671223,
+ "textless": false,
+ "toughness": "5",
+ "type_line": "Creature \u2014 Goblin Warrior",
+ "uri": "https://api.scryfall.com/cards/a1e34ec4-6a85-4e22-9be9-f27dda5752d6",
+ "variation": false
+}

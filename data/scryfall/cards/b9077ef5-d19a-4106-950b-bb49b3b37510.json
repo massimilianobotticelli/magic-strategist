@@ -1,0 +1,136 @@
+{
+ "artist": "Fahmi Fauzi",
+ "artist_ids": [
+  "71e0cca2-5ded-4a60-91aa-65a131b35987"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 873455,
+ "cmc": 3.0,
+ "collector_number": "29",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 5634,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_text": "Victory comes in endless forms.",
+ "foil": true,
+ "frame": "2015",
+ "frame_effects": [
+  "enchantment"
+ ],
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "b9077ef5-d19a-4106-950b-bb49b3b37510",
+ "illustration_id": "eeece393-c4d6-4dee-b931-625c032a598c",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:56:05Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.webp?1783904165",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.jpg?1783904165",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.jpg?1783904165",
+  "crop": "https://cards.scryfall.io/crop/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.webp?1783904165",
+  "display": "https://cards.scryfall.io/display/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.webp?1783904165",
+  "grid": "https://cards.scryfall.io/grid/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.webp?1783904165",
+  "large": "https://cards.scryfall.io/large/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.jpg?1783904165",
+  "normal": "https://cards.scryfall.io/normal/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.jpg?1783904165",
+  "png": "https://cards.scryfall.io/png/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.png?1783904165",
+  "small": "https://cards.scryfall.io/small/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.jpg?1783904165",
+  "thumb": "https://cards.scryfall.io/thumb/front/b/9/b9077ef5-d19a-4106-950b-bb49b3b37510.webp?1783904165"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{G}",
+ "mtgo_id": 147387,
+ "multiverse_ids": [],
+ "name": "High Score",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "d81fc181-ecb0-43a5-88e8-c61aca3428d8",
+ "oracle_text": "If one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.\nAt the beginning of your end step, draw a card if you control a creature with the greatest power among creatures on the battlefield.",
+ "oversized": false,
+ "prices": {
+  "eur": "0.87",
+  "eur_foil": "5.40",
+  "tix": "2.38",
+  "usd": "1.38",
+  "usd_etched": null,
+  "usd_foil": "2.00"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ad81fc181-ecb0-43a5-88e8-c61aca3428d8&unique=prints",
+ "promo": false,
+ "promo_types": [
+  "surgefoil",
+  "universesbeyond"
+ ],
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/147387?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=873455&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F679158%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=High+Score",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DHigh%2BScore",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DHigh%2BScore"
+ },
+ "released_at": "2026-03-06",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "832894EDD61AFD1BAFD13EB909DE36F8CD2397C6FEA496C65602158D7C2DF310",
+ "rulings_uri": "https://api.scryfall.com/cards/b9077ef5-d19a-4106-950b-bb49b3b37510/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/tmc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/tmc/29/high-score?utm_source=api",
+ "security_stamp": "oval",
+ "set": "tmc",
+ "set_id": "178a07bb-cd54-4443-8b62-675e0c52cfe3",
+ "set_name": "Teenage Mutant Ninja Turtles Eternal",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Atmc&unique=prints",
+ "set_type": "eternal",
+ "set_uri": "https://api.scryfall.com/sets/178a07bb-cd54-4443-8b62-675e0c52cfe3",
+ "story_spotlight": false,
+ "tcgplayer_id": 679158,
+ "textless": false,
+ "type_line": "Enchantment",
+ "uri": "https://api.scryfall.com/cards/b9077ef5-d19a-4106-950b-bb49b3b37510",
+ "variation": false
+}

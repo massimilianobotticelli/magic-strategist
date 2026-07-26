@@ -1,0 +1,133 @@
+{
+ "artist": "Adam Paquette",
+ "artist_ids": [
+  "89023dad-e6c0-41e0-83fb-eb2bfbbdc3f2"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 864978,
+ "cmc": 0.0,
+ "collector_number": "23",
+ "color_identity": [
+  "G",
+  "U"
+ ],
+ "colors": [],
+ "digital": false,
+ "edhrec_rank": 3761,
+ "finishes": [
+  "nonfoil"
+ ],
+ "flavor_text": "A forest that never thirsts always flourishes.",
+ "foil": false,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "07be68c1-1272-4209-84b9-4fff9211b23e",
+ "illustration_id": "b20a04b5-d5f0-4b02-966d-8a057fef0777",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:03:20Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.webp?1783904600",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.jpg?1783904600",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.jpg?1783904600",
+  "crop": "https://cards.scryfall.io/crop/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.webp?1783904600",
+  "display": "https://cards.scryfall.io/display/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.webp?1783904600",
+  "grid": "https://cards.scryfall.io/grid/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.webp?1783904600",
+  "large": "https://cards.scryfall.io/large/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.jpg?1783904600",
+  "normal": "https://cards.scryfall.io/normal/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.jpg?1783904600",
+  "png": "https://cards.scryfall.io/png/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.png?1783904600",
+  "small": "https://cards.scryfall.io/small/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.jpg?1783904600",
+  "thumb": "https://cards.scryfall.io/thumb/front/0/7/07be68c1-1272-4209-84b9-4fff9211b23e.webp?1783904600"
+ },
+ "keywords": [
+  "Cycling"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "",
+ "mtgo_id": 146019,
+ "multiverse_ids": [],
+ "name": "Rain-Slicked Copse",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "633a41f0-3889-49a0-b2fc-9baf59f4ddc2",
+ "oracle_text": "({T}: Add {G} or {U}.)\nThis land enters tapped.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+ "oversized": false,
+ "prices": {
+  "eur": "0.33",
+  "eur_foil": null,
+  "tix": "0.78",
+  "usd": "0.30",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A633a41f0-3889-49a0-b2fc-9baf59f4ddc2&unique=prints",
+ "produced_mana": [
+  "G",
+  "U"
+ ],
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146019?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=864978&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671182%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Rain-Slicked+Copse",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DRain-Slicked%2BCopse",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DRain-Slicked%2BCopse"
+ },
+ "released_at": "2026-01-23",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "23FE27497D533A00540216F3A6AEDF84003343868DD25CB18CAAF65730E7F703",
+ "rulings_uri": "https://api.scryfall.com/cards/07be68c1-1272-4209-84b9-4fff9211b23e/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/23/rain-slicked-copse?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671182,
+ "textless": false,
+ "type_line": "Land \u2014 Forest Island",
+ "uri": "https://api.scryfall.com/cards/07be68c1-1272-4209-84b9-4fff9211b23e",
+ "variation": false
+}

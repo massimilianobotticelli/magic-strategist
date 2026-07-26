@@ -1,0 +1,147 @@
+{
+ "artist": "Chris Rahn",
+ "artist_ids": [
+  "7742047e-0f80-4c0f-a530-d07460165e86"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 865057,
+ "cmc": 5.0,
+ "collector_number": "125",
+ "color_identity": [
+  "B",
+  "G",
+  "R",
+  "U",
+  "W"
+ ],
+ "colors": [
+  "G",
+  "R"
+ ],
+ "digital": false,
+ "edhrec_rank": 3861,
+ "finishes": [
+  "nonfoil"
+ ],
+ "foil": false,
+ "frame": "2015",
+ "frame_effects": [
+  "legendary"
+ ],
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "79ec30d9-daf7-4f1d-ac16-4d11e8160d97",
+ "illustration_id": "effc3e76-9122-4e1d-956b-360909f2f5d8",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:02:18Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.webp?1783904538",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.jpg?1783904538",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.jpg?1783904538",
+  "crop": "https://cards.scryfall.io/crop/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.webp?1783904538",
+  "display": "https://cards.scryfall.io/display/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.webp?1783904538",
+  "grid": "https://cards.scryfall.io/grid/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.webp?1783904538",
+  "large": "https://cards.scryfall.io/large/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.jpg?1783904538",
+  "normal": "https://cards.scryfall.io/normal/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.jpg?1783904538",
+  "png": "https://cards.scryfall.io/png/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.png?1783904538",
+  "small": "https://cards.scryfall.io/small/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.jpg?1783904538",
+  "thumb": "https://cards.scryfall.io/thumb/front/7/9/79ec30d9-daf7-4f1d-ac16-4d11e8160d97.webp?1783904538"
+ },
+ "keywords": [
+  "Companion"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "banned",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "legal",
+  "pioneer": "banned",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{4}{R/G}",
+ "mtgo_id": 146185,
+ "multiverse_ids": [],
+ "name": "Jegantha, the Wellspring",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "f0587c55-06c1-4930-a62e-668f37464ce9",
+ "oracle_text": "Companion \u2014 No card in your starting deck has more than one of the same mana symbol in its mana cost. (If this card is your chosen companion, you may put it into your hand from outside the game for {3} as a sorcery.)\n{T}: Add {W}{U}{B}{R}{G}. This mana can't be spent to pay generic mana costs.",
+ "oversized": false,
+ "penny_rank": 1751,
+ "power": "5",
+ "prices": {
+  "eur": "0.23",
+  "eur_foil": null,
+  "tix": "0.04",
+  "usd": "0.31",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af0587c55-06c1-4930-a62e-668f37464ce9&unique=prints",
+ "produced_mana": [
+  "B",
+  "G",
+  "R",
+  "U",
+  "W"
+ ],
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146185?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=865057&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671270%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Jegantha%2C+the+Wellspring",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DJegantha%252C%2Bthe%2BWellspring",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DJegantha%252C%2Bthe%2BWellspring"
+ },
+ "released_at": "2026-01-23",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "E9D72C985C4F67CE8F3AF47CA290C770B4A30B7B3C9C228201A359D141376E2E",
+ "rulings_uri": "https://api.scryfall.com/cards/79ec30d9-daf7-4f1d-ac16-4d11e8160d97/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/125/jegantha-the-wellspring?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671270,
+ "textless": false,
+ "toughness": "5",
+ "type_line": "Legendary Creature \u2014 Elemental Elk",
+ "uri": "https://api.scryfall.com/cards/79ec30d9-daf7-4f1d-ac16-4d11e8160d97",
+ "variation": false
+}

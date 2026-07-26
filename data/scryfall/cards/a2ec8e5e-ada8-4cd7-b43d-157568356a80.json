@@ -1,0 +1,140 @@
+{
+ "arena_id": 96263,
+ "artist": "Fumio Minagawa",
+ "artist_ids": [
+  "8bbe383b-b631-444f-8456-110ffce1efad"
+ ],
+ "booster": false,
+ "border_color": "borderless",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 826326,
+ "cmc": 2.0,
+ "collector_number": "34",
+ "color_identity": [
+  "B"
+ ],
+ "colors": [
+  "B"
+ ],
+ "digital": false,
+ "edhrec_rank": 268,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_name": "Shantotto's Coercion",
+ "foil": true,
+ "frame": "2015",
+ "frame_effects": [
+  "inverted"
+ ],
+ "full_art": true,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "arena",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "a2ec8e5e-ada8-4cd7-b43d-157568356a80",
+ "illustration_id": "73cd542a-b20c-4253-a761-5e7b1f9d6d2e",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:33:05Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.webp?1783906385",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.jpg?1783906385",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.jpg?1783906385",
+  "crop": "https://cards.scryfall.io/crop/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.webp?1783906385",
+  "display": "https://cards.scryfall.io/display/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.webp?1783906385",
+  "grid": "https://cards.scryfall.io/grid/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.webp?1783906385",
+  "large": "https://cards.scryfall.io/large/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.jpg?1783906385",
+  "normal": "https://cards.scryfall.io/normal/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.jpg?1783906385",
+  "png": "https://cards.scryfall.io/png/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.png?1783906385",
+  "small": "https://cards.scryfall.io/small/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.jpg?1783906385",
+  "thumb": "https://cards.scryfall.io/thumb/front/a/2/a2ec8e5e-ada8-4cd7-b43d-157568356a80.webp?1783906385"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "legal",
+  "predh": "legal",
+  "premodern": "legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{1}{B}",
+ "mtgo_id": 139931,
+ "multiverse_ids": [],
+ "name": "Diabolic Intent",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "038519b9-bca8-4b27-b5ac-2409595469d0",
+ "oracle_text": "As an additional cost to cast this spell, sacrifice a creature.\nSearch your library for a card, put that card into your hand, then shuffle.",
+ "oversized": false,
+ "prices": {
+  "eur": "11.79",
+  "eur_foil": "26.27",
+  "tix": "0.14",
+  "usd": "13.81",
+  "usd_etched": null,
+  "usd_foil": "34.98"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A038519b9-bca8-4b27-b5ac-2409595469d0&unique=prints",
+ "promo": false,
+ "promo_types": [
+  "sourcematerial",
+  "universesbeyond",
+  "ffxi",
+  "boosterfun"
+ ],
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/139931?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=826326&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F632688%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Diabolic+Intent",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DDiabolic%2BIntent",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DDiabolic%2BIntent"
+ },
+ "released_at": "2025-06-13",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "6B6891D6963AEA72120B962C2F65E059C7956126D9F1FB0EFC697FC05B7880AB",
+ "rulings_uri": "https://api.scryfall.com/cards/a2ec8e5e-ada8-4cd7-b43d-157568356a80/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/fca?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/fca/34/diabolic-intent?utm_source=api",
+ "security_stamp": "triangle",
+ "set": "fca",
+ "set_id": "5f2176db-3c44-459d-8a57-7c51e770a476",
+ "set_name": "Final Fantasy: Through the Ages",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afca&unique=prints",
+ "set_type": "masterpiece",
+ "set_uri": "https://api.scryfall.com/sets/5f2176db-3c44-459d-8a57-7c51e770a476",
+ "story_spotlight": false,
+ "tcgplayer_id": 632688,
+ "textless": false,
+ "type_line": "Sorcery",
+ "uri": "https://api.scryfall.com/cards/a2ec8e5e-ada8-4cd7-b43d-157568356a80",
+ "variation": false
+}

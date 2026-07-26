@@ -1,0 +1,149 @@
+{
+ "all_parts": [
+  {
+   "component": "token",
+   "id": "61328aec-ba26-4142-a774-96924303786d",
+   "name": "Copy",
+   "object": "related_card",
+   "type_line": "Token",
+   "uri": "https://api.scryfall.com/cards/61328aec-ba26-4142-a774-96924303786d"
+  },
+  {
+   "component": "combo_piece",
+   "id": "301b3ef7-bb89-4479-ae15-e003cd8a5976",
+   "name": "Lamentation",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Elemental Incarnation",
+   "uri": "https://api.scryfall.com/cards/301b3ef7-bb89-4479-ae15-e003cd8a5976"
+  }
+ ],
+ "artist": "Lars Grant-West",
+ "artist_ids": [
+  "21ed6499-c4d3-4965-ab02-6c7228275bec"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 864965,
+ "cmc": 6.0,
+ "collector_number": "10",
+ "color_identity": [
+  "B"
+ ],
+ "colors": [
+  "B"
+ ],
+ "digital": false,
+ "edhrec_rank": 6217,
+ "finishes": [
+  "nonfoil"
+ ],
+ "foil": false,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "2dbc775a-ec2b-442f-a817-4108c05d7fab",
+ "illustration_id": "e08ea242-8624-4fb0-b548-bcc27b063127",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:03:25Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.webp?1783904605",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.jpg?1783904605",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.jpg?1783904605",
+  "crop": "https://cards.scryfall.io/crop/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.webp?1783904605",
+  "display": "https://cards.scryfall.io/display/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.webp?1783904605",
+  "grid": "https://cards.scryfall.io/grid/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.webp?1783904605",
+  "large": "https://cards.scryfall.io/large/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.jpg?1783904605",
+  "normal": "https://cards.scryfall.io/normal/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.jpg?1783904605",
+  "png": "https://cards.scryfall.io/png/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.png?1783904605",
+  "small": "https://cards.scryfall.io/small/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.jpg?1783904605",
+  "thumb": "https://cards.scryfall.io/thumb/front/2/d/2dbc775a-ec2b-442f-a817-4108c05d7fab.webp?1783904605"
+ },
+ "keywords": [
+  "Encore"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "not_legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{5}{B}",
+ "mtgo_id": 145993,
+ "multiverse_ids": [],
+ "name": "Lamentation",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "88e43e62-8bce-41b3-ac2d-47043fcc7077",
+ "oracle_text": "When this creature enters, destroy target creature an opponent controls. You gain 3 life.\nEncore {6}{B}{B} ({6}{B}{B}, Exile this card from your graveyard: For each opponent, create a token copy that attacks that opponent this turn if able. They gain haste. Sacrifice them at the beginning of the next end step. Activate only as a sorcery.)",
+ "oversized": false,
+ "power": "5",
+ "prices": {
+  "eur": "0.32",
+  "eur_foil": null,
+  "tix": "1.11",
+  "usd": "0.27",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A88e43e62-8bce-41b3-ac2d-47043fcc7077&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/145993?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=864965&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671126%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Lamentation",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DLamentation",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DLamentation"
+ },
+ "released_at": "2026-01-23",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "B93874F2F0B1D5878D57135B546D3E3CB9CEDA16F933E2FCE22FDEE34CE7E6DE",
+ "rulings_uri": "https://api.scryfall.com/cards/2dbc775a-ec2b-442f-a817-4108c05d7fab/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/10/lamentation?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671126,
+ "textless": false,
+ "toughness": "4",
+ "type_line": "Creature \u2014 Elemental Incarnation",
+ "uri": "https://api.scryfall.com/cards/2dbc775a-ec2b-442f-a817-4108c05d7fab",
+ "variation": false
+}

@@ -1,0 +1,164 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "871decb1-82e7-48f7-84be-96dde2d35770",
+   "name": "Mass of Mysteries",
+   "object": "related_card",
+   "type_line": "Legendary Creature \u2014 Elemental",
+   "uri": "https://api.scryfall.com/cards/871decb1-82e7-48f7-84be-96dde2d35770"
+  },
+  {
+   "component": "token",
+   "id": "61328aec-ba26-4142-a774-96924303786d",
+   "name": "Copy",
+   "object": "related_card",
+   "type_line": "Token",
+   "uri": "https://api.scryfall.com/cards/61328aec-ba26-4142-a774-96924303786d"
+  }
+ ],
+ "artist": "Jeff Miracola",
+ "artist_ids": [
+  "9b465bde-3656-4495-ace4-af4ce29999ed"
+ ],
+ "booster": false,
+ "border_color": "borderless",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 864955,
+ "cmc": 5.0,
+ "collector_number": "3",
+ "color_identity": [
+  "B",
+  "G",
+  "R",
+  "U",
+  "W"
+ ],
+ "colors": [
+  "B",
+  "G",
+  "R",
+  "U",
+  "W"
+ ],
+ "digital": false,
+ "edhrec_rank": 6849,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "frame_effects": [
+  "legendary",
+  "inverted"
+ ],
+ "full_art": true,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "871decb1-82e7-48f7-84be-96dde2d35770",
+ "illustration_id": "01bd5081-58bd-4885-971c-6905552f9653",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:03:26Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.webp?1783904606",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.jpg?1783904606",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.jpg?1783904606",
+  "crop": "https://cards.scryfall.io/crop/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.webp?1783904606",
+  "display": "https://cards.scryfall.io/display/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.webp?1783904606",
+  "grid": "https://cards.scryfall.io/grid/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.webp?1783904606",
+  "large": "https://cards.scryfall.io/large/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.jpg?1783904606",
+  "normal": "https://cards.scryfall.io/normal/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.jpg?1783904606",
+  "png": "https://cards.scryfall.io/png/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.png?1783904606",
+  "small": "https://cards.scryfall.io/small/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.jpg?1783904606",
+  "thumb": "https://cards.scryfall.io/thumb/front/8/7/871decb1-82e7-48f7-84be-96dde2d35770.webp?1783904606"
+ },
+ "keywords": [
+  "Vigilance",
+  "First strike",
+  "Trample"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "not_legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{W}{U}{B}{R}{G}",
+ "mtgo_id": 145979,
+ "multiverse_ids": [],
+ "name": "Mass of Mysteries",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "3ceffadd-c32d-4508-b307-e03bf3c8e7b8",
+ "oracle_text": "First strike, vigilance, trample\nAt the beginning of combat on your turn, another target Elemental you control gains myriad until end of turn. (Whenever it attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
+ "oversized": false,
+ "power": "5",
+ "prices": {
+  "eur": "0.39",
+  "eur_foil": "0.37",
+  "tix": "7.79",
+  "usd": "0.49",
+  "usd_etched": null,
+  "usd_foil": "0.28"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A3ceffadd-c32d-4508-b307-e03bf3c8e7b8&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/145979?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=864955&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671252%3Fpage%3D1"
+ },
+ "rarity": "mythic",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Mass+of+Mysteries",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DMass%2Bof%2BMysteries",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DMass%2Bof%2BMysteries"
+ },
+ "released_at": "2026-01-23",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "9CD006AA07500C3E178AC9158C321C1E7654AF48015E64B704BF39139AC63F86",
+ "rulings_uri": "https://api.scryfall.com/cards/871decb1-82e7-48f7-84be-96dde2d35770/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/3/mass-of-mysteries?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671252,
+ "textless": false,
+ "toughness": "5",
+ "type_line": "Legendary Creature \u2014 Elemental",
+ "uri": "https://api.scryfall.com/cards/871decb1-82e7-48f7-84be-96dde2d35770",
+ "variation": false
+}

@@ -1,0 +1,158 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "ca271f77-0e09-4651-b5ff-ab98ccd6f137",
+   "name": "Tend to the Kiln",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/ca271f77-0e09-4651-b5ff-ab98ccd6f137"
+  },
+  {
+   "component": "combo_piece",
+   "id": "b8aa428c-5a77-444f-b75e-a113e46fe4e0",
+   "name": "Flamebraider",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Elemental Bard",
+   "uri": "https://api.scryfall.com/cards/b8aa428c-5a77-444f-b75e-a113e46fe4e0"
+  }
+ ],
+ "arena_id": 98460,
+ "artist": "Pete Venters",
+ "artist_ids": [
+  "d54c4a1a-c0c5-4834-84db-125d341f3ad8"
+ ],
+ "booster": true,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 865112,
+ "cmc": 2.0,
+ "collector_number": "139",
+ "color_identity": [
+  "R"
+ ],
+ "colors": [
+  "R"
+ ],
+ "digital": false,
+ "edhrec_rank": 5791,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_text": "\"You seek guidance on your Path. Then let me provide it: What greater flame is there than the sun?\"",
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "arena",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "b8aa428c-5a77-444f-b75e-a113e46fe4e0",
+ "illustration_id": "430af666-3295-4fdf-9408-3d19acd5896c",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:00:49Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.webp?1783904449",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.jpg?1783904449",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.jpg?1783904449",
+  "crop": "https://cards.scryfall.io/crop/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.webp?1783904449",
+  "display": "https://cards.scryfall.io/display/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.webp?1783904449",
+  "grid": "https://cards.scryfall.io/grid/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.webp?1783904449",
+  "large": "https://cards.scryfall.io/large/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.jpg?1783904449",
+  "normal": "https://cards.scryfall.io/normal/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.jpg?1783904449",
+  "png": "https://cards.scryfall.io/png/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.png?1783904449",
+  "small": "https://cards.scryfall.io/small/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.jpg?1783904449",
+  "thumb": "https://cards.scryfall.io/thumb/front/b/8/b8aa428c-5a77-444f-b75e-a113e46fe4e0.webp?1783904449"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "legal",
+  "standardbrawl": "legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{1}{R}",
+ "mtgo_id": 146669,
+ "multiverse_ids": [],
+ "name": "Flamebraider",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "c552bd73-ce75-40fd-9d80-9e90b6f45274",
+ "oracle_text": "{T}: Add two mana in any combination of colors. Spend this mana only to cast Elemental spells or activate abilities of Elemental sources.",
+ "oversized": false,
+ "penny_rank": 3684,
+ "power": "2",
+ "prices": {
+  "eur": "0.16",
+  "eur_foil": "0.11",
+  "tix": "0.03",
+  "usd": "0.22",
+  "usd_etched": null,
+  "usd_foil": "0.32"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ac552bd73-ce75-40fd-9d80-9e90b6f45274&unique=prints",
+ "produced_mana": [
+  "B",
+  "G",
+  "R",
+  "U",
+  "W"
+ ],
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146669?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=865112&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671176%3Fpage%3D1"
+ },
+ "rarity": "uncommon",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Flamebraider",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DFlamebraider",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DFlamebraider"
+ },
+ "released_at": "2026-01-23",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "5A8DD7CEFF5A7AE58E9CB3B50FB59CB47BBAB1226743E24B0C02C90261EAD8ED",
+ "rulings_uri": "https://api.scryfall.com/cards/b8aa428c-5a77-444f-b75e-a113e46fe4e0/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecl?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecl/139/flamebraider?utm_source=api",
+ "set": "ecl",
+ "set_id": "5d293ad8-a749-4725-bd5c-c4e1db828bd0",
+ "set_name": "Lorwyn Eclipsed",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecl&unique=prints",
+ "set_type": "expansion",
+ "set_uri": "https://api.scryfall.com/sets/5d293ad8-a749-4725-bd5c-c4e1db828bd0",
+ "story_spotlight": false,
+ "tcgplayer_id": 671176,
+ "textless": false,
+ "toughness": "2",
+ "type_line": "Creature \u2014 Elemental Bard",
+ "uri": "https://api.scryfall.com/cards/b8aa428c-5a77-444f-b75e-a113e46fe4e0",
+ "variation": false
+}

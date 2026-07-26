@@ -1,0 +1,132 @@
+{
+ "artist": "Yeong-Hao Han",
+ "artist_ids": [
+  "f8e7f8d6-6dde-4059-973c-30f1fd1bbe4e"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 865040,
+ "cmc": 4.0,
+ "collector_number": "108",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 2905,
+ "finishes": [
+  "nonfoil"
+ ],
+ "flavor_text": "The castle finally got vengeance for enduring years of royally bad taste.",
+ "foil": false,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "d990b59f-2ad1-4224-9f1e-2574eadce1a3",
+ "illustration_id": "05850f48-b143-4cb9-a553-04b12bb96e8a",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:02:26Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.webp?1783904546",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.jpg?1783904546",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.jpg?1783904546",
+  "crop": "https://cards.scryfall.io/crop/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.webp?1783904546",
+  "display": "https://cards.scryfall.io/display/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.webp?1783904546",
+  "grid": "https://cards.scryfall.io/grid/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.webp?1783904546",
+  "large": "https://cards.scryfall.io/large/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.jpg?1783904546",
+  "normal": "https://cards.scryfall.io/normal/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.jpg?1783904546",
+  "png": "https://cards.scryfall.io/png/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.png?1783904546",
+  "small": "https://cards.scryfall.io/small/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.jpg?1783904546",
+  "thumb": "https://cards.scryfall.io/thumb/front/d/9/d990b59f-2ad1-4224-9f1e-2574eadce1a3.webp?1783904546"
+ },
+ "keywords": [
+  "Evoke"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "not_legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{3}{G}",
+ "mtgo_id": 146151,
+ "multiverse_ids": [],
+ "name": "Foundation Breaker",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "8b7a3613-f1bd-4262-9b11-b631167c2c2d",
+ "oracle_text": "When this creature enters, you may destroy target artifact or enchantment.\nEvoke {1}{G} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+ "oversized": false,
+ "penny_rank": 1393,
+ "power": "2",
+ "prices": {
+  "eur": "0.19",
+  "eur_foil": null,
+  "tix": "0.06",
+  "usd": "0.24",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A8b7a3613-f1bd-4262-9b11-b631167c2c2d&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146151?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=865040&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671217%3Fpage%3D1"
+ },
+ "rarity": "uncommon",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Foundation+Breaker",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DFoundation%2BBreaker",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DFoundation%2BBreaker"
+ },
+ "released_at": "2026-01-23",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "F908ADB8D979F0048D8D9FB09658A344FD2ECD9B669CD18CEB98A326E6735EED",
+ "rulings_uri": "https://api.scryfall.com/cards/d990b59f-2ad1-4224-9f1e-2574eadce1a3/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/108/foundation-breaker?utm_source=api",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671217,
+ "textless": false,
+ "toughness": "2",
+ "type_line": "Creature \u2014 Elemental",
+ "uri": "https://api.scryfall.com/cards/d990b59f-2ad1-4224-9f1e-2574eadce1a3",
+ "variation": false
+}

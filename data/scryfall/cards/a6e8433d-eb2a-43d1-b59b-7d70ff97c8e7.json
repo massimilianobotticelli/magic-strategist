@@ -1,0 +1,154 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7",
+   "name": "Eager Trufflesnout",
+   "object": "related_card",
+   "type_line": "Creature \u2014 Boar",
+   "uri": "https://api.scryfall.com/cards/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7"
+  },
+  {
+   "component": "token",
+   "id": "6f1077f8-9e2a-4155-a7f0-4604bc0f94e8",
+   "name": "Food",
+   "object": "related_card",
+   "type_line": "Token Artifact \u2014 Food",
+   "uri": "https://api.scryfall.com/cards/6f1077f8-9e2a-4155-a7f0-4604bc0f94e8"
+  }
+ ],
+ "arena_id": 93815,
+ "artist": "Filipe Pagliuso",
+ "artist_ids": [
+  "64c537b4-a864-4051-9a24-fbdd22cb40b4"
+ ],
+ "booster": true,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 797266,
+ "cmc": 3.0,
+ "collector_number": "102",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 14156,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "arena",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7",
+ "illustration_id": "e94d3efd-af75-405e-85d5-dff9ccfef7aa",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T02:18:18Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.webp?1783909098",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.jpg?1783909098",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.jpg?1783909098",
+  "crop": "https://cards.scryfall.io/crop/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.webp?1783909098",
+  "display": "https://cards.scryfall.io/display/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.webp?1783909098",
+  "grid": "https://cards.scryfall.io/grid/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.webp?1783909098",
+  "large": "https://cards.scryfall.io/large/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.jpg?1783909098",
+  "normal": "https://cards.scryfall.io/normal/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.jpg?1783909098",
+  "png": "https://cards.scryfall.io/png/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.png?1783909098",
+  "small": "https://cards.scryfall.io/small/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.jpg?1783909098",
+  "thumb": "https://cards.scryfall.io/thumb/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.webp?1783909098"
+ },
+ "keywords": [
+  "Food",
+  "Trample"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "legal",
+  "standardbrawl": "legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{G}",
+ "mtgo_id": 133772,
+ "multiverse_ids": [
+  679179
+ ],
+ "name": "Eager Trufflesnout",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "7f2ba562-8d5e-4915-967e-54916c3c5876",
+ "oracle_text": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nWhenever this creature deals combat damage to a player, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+ "oversized": false,
+ "power": "4",
+ "prices": {
+  "eur": "0.08",
+  "eur_foil": "0.21",
+  "tix": "0.03",
+  "usd": "0.26",
+  "usd_etched": null,
+  "usd_foil": "0.26"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A7f2ba562-8d5e-4915-967e-54916c3c5876&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/133772?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=797266&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F591795%3Fpage%3D1"
+ },
+ "rarity": "uncommon",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Eager+Trufflesnout",
+  "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=679179&printed=false",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DEager%2BTrufflesnout",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DEager%2BTrufflesnout"
+ },
+ "released_at": "2024-11-15",
+ "reprint": false,
+ "reserved": false,
+ "rulings_uri": "https://api.scryfall.com/cards/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/fdn?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/fdn/102/eager-trufflesnout?utm_source=api",
+ "set": "fdn",
+ "set_id": "a7ecb771-d1b6-4dec-8cf5-8d45179f21e0",
+ "set_name": "Foundations",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afdn&unique=prints",
+ "set_type": "core",
+ "set_uri": "https://api.scryfall.com/sets/a7ecb771-d1b6-4dec-8cf5-8d45179f21e0",
+ "story_spotlight": false,
+ "tcgplayer_id": 591795,
+ "textless": false,
+ "toughness": "2",
+ "type_line": "Creature \u2014 Boar",
+ "uri": "https://api.scryfall.com/cards/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7",
+ "variation": false
+}

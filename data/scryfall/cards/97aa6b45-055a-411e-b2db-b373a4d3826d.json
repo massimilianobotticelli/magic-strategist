@@ -1,0 +1,150 @@
+{
+ "all_parts": [
+  {
+   "component": "combo_piece",
+   "id": "97aa6b45-055a-411e-b2db-b373a4d3826d",
+   "name": "Nest of Scarabs",
+   "object": "related_card",
+   "type_line": "Enchantment",
+   "uri": "https://api.scryfall.com/cards/97aa6b45-055a-411e-b2db-b373a4d3826d"
+  },
+  {
+   "component": "token",
+   "id": "242c381e-df58-4365-a68c-add1127a83cc",
+   "name": "Insect",
+   "object": "related_card",
+   "type_line": "Token Creature \u2014 Insect",
+   "uri": "https://api.scryfall.com/cards/242c381e-df58-4365-a68c-add1127a83cc"
+  }
+ ],
+ "artist": "Jason A. Engle",
+ "artist_ids": [
+  "02e2b5de-4341-464c-8fdb-a1adbf873bc0"
+ ],
+ "booster": true,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 296689,
+ "cmc": 3.0,
+ "collector_number": "101",
+ "color_identity": [
+  "B"
+ ],
+ "colors": [
+  "B"
+ ],
+ "digital": false,
+ "edhrec_rank": 3493,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_text": "\"They are small, but they always want more. Learn from them.\"\n\u2014Bontu, god of ambition",
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "97aa6b45-055a-411e-b2db-b373a4d3826d",
+ "illustration_id": "425a0732-9b4a-429f-aed9-70b671aff8de",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T09:55:03Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.webp?1783936503",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.jpg?1783936503",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.jpg?1783936503",
+  "crop": "https://cards.scryfall.io/crop/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.webp?1783936503",
+  "display": "https://cards.scryfall.io/display/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.webp?1783936503",
+  "grid": "https://cards.scryfall.io/grid/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.webp?1783936503",
+  "large": "https://cards.scryfall.io/large/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.jpg?1783936503",
+  "normal": "https://cards.scryfall.io/normal/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.jpg?1783936503",
+  "png": "https://cards.scryfall.io/png/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.png?1783936503",
+  "small": "https://cards.scryfall.io/small/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.jpg?1783936503",
+  "thumb": "https://cards.scryfall.io/thumb/front/9/7/97aa6b45-055a-411e-b2db-b373a4d3826d.webp?1783936503"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{B}",
+ "mtgo_foil_id": 63805,
+ "mtgo_id": 63804,
+ "multiverse_ids": [
+  426803
+ ],
+ "name": "Nest of Scarabs",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "1f21cf59-6390-44b4-ab2e-ef290dfd8c85",
+ "oracle_text": "Whenever you put one or more -1/-1 counters on a creature, create that many 1/1 black Insect creature tokens.",
+ "oversized": false,
+ "penny_rank": 2487,
+ "prices": {
+  "eur": "3.70",
+  "eur_foil": "8.90",
+  "tix": "0.03",
+  "usd": "4.82",
+  "usd_etched": null,
+  "usd_foil": "18.10"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A1f21cf59-6390-44b4-ab2e-ef290dfd8c85&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/63804?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=296689&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F129733%3Fpage%3D1"
+ },
+ "rarity": "uncommon",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Nest+of+Scarabs",
+  "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=426803&printed=false",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DNest%2Bof%2BScarabs",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DNest%2Bof%2BScarabs"
+ },
+ "released_at": "2017-04-28",
+ "reprint": false,
+ "reserved": false,
+ "rulings_uri": "https://api.scryfall.com/cards/97aa6b45-055a-411e-b2db-b373a4d3826d/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/akh?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/akh/101/nest-of-scarabs?utm_source=api",
+ "set": "akh",
+ "set_id": "02d1c536-68bc-4208-9b65-7741ef1f9da8",
+ "set_name": "Amonkhet",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aakh&unique=prints",
+ "set_type": "expansion",
+ "set_uri": "https://api.scryfall.com/sets/02d1c536-68bc-4208-9b65-7741ef1f9da8",
+ "story_spotlight": false,
+ "tcgplayer_id": 129733,
+ "textless": false,
+ "type_line": "Enchantment",
+ "uri": "https://api.scryfall.com/cards/97aa6b45-055a-411e-b2db-b373a4d3826d",
+ "variation": false
+}

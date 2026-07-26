@@ -1,0 +1,161 @@
+{
+ "arena_id": 102629,
+ "artist": "Olivier Bernard",
+ "artist_ids": [
+  "11c6f325-68c2-4f2a-972d-98d2ffe6c224"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "card_faces": [
+  {
+   "artist": "Olivier Bernard",
+   "artist_id": "11c6f325-68c2-4f2a-972d-98d2ffe6c224",
+   "illustration_id": "c1f8e669-60d0-4e66-b85a-07dafb9782a9",
+   "mana_cost": "{1}{W}{B}",
+   "name": "Abigale, Poet Laureate",
+   "object": "card_face",
+   "oracle_text": "Flying\nWhenever you cast a creature spell, Abigale becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+   "power": "2",
+   "toughness": "3",
+   "type_line": "Legendary Creature \u2014 Bird Bard"
+  },
+  {
+   "artist": "Olivier Bernard",
+   "artist_id": "11c6f325-68c2-4f2a-972d-98d2ffe6c224",
+   "mana_cost": "{1}{W/B}",
+   "name": "Heroic Stanza",
+   "object": "card_face",
+   "oracle_text": "Put a +1/+1 counter on target creature.",
+   "type_line": "Sorcery"
+  }
+ ],
+ "cardmarket_id": 880512,
+ "cmc": 3.0,
+ "collector_number": "170",
+ "color_identity": [
+  "B",
+  "W"
+ ],
+ "colors": [
+  "B",
+  "W"
+ ],
+ "digital": false,
+ "edhrec_rank": 14950,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "frame_effects": [
+  "legendary"
+ ],
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo",
+  "arena"
+ ],
+ "highres_image": true,
+ "id": "77285d12-e658-4eb3-ba13-ff202afab9c8",
+ "illustration_id": "c1f8e669-60d0-4e66-b85a-07dafb9782a9",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T00:47:31Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.webp?1783903651",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.jpg?1783903651",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.jpg?1783903651",
+  "crop": "https://cards.scryfall.io/crop/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.webp?1783903651",
+  "display": "https://cards.scryfall.io/display/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.webp?1783903651",
+  "grid": "https://cards.scryfall.io/grid/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.webp?1783903651",
+  "large": "https://cards.scryfall.io/large/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.jpg?1783903651",
+  "normal": "https://cards.scryfall.io/normal/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.jpg?1783903651",
+  "png": "https://cards.scryfall.io/png/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.png?1783903651",
+  "small": "https://cards.scryfall.io/small/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.jpg?1783903651",
+  "thumb": "https://cards.scryfall.io/thumb/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.webp?1783903651"
+ },
+ "keywords": [
+  "Flying",
+  "Prepared"
+ ],
+ "lang": "en",
+ "layout": "prepare",
+ "legalities": {
+  "alchemy": "legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "legal",
+  "standardbrawl": "legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{1}{W}{B} // {1}{W/B}",
+ "mtgo_id": 149839,
+ "multiverse_ids": [],
+ "name": "Abigale, Poet Laureate // Heroic Stanza",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "2f5f46ed-b8aa-4864-bd20-17281d4632bf",
+ "oversized": false,
+ "power": "2",
+ "prices": {
+  "eur": "0.14",
+  "eur_foil": "0.23",
+  "tix": "0.03",
+  "usd": "0.24",
+  "usd_etched": null,
+  "usd_foil": "0.23"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A2f5f46ed-b8aa-4864-bd20-17281d4632bf&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/149839?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=880512&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F686529%3Fpage%3D1"
+ },
+ "rarity": "uncommon",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Abigale%2C+Poet+Laureate",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DAbigale%252C%2BPoet%2BLaureate%2B%252F%252F%2BHeroic%2BStanza",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DAbigale%252C%2BPoet%2BLaureate%2B%252F%252F%2BHeroic%2BStanza"
+ },
+ "released_at": "2026-04-24",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "697803ACDF127AFB0F39ACB997912A44702EB2E70264899D4D67ECCC2E883416",
+ "rulings_uri": "https://api.scryfall.com/cards/77285d12-e658-4eb3-ba13-ff202afab9c8/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/sos?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/sos/170/abigale-poet-laureate-heroic-stanza?utm_source=api",
+ "set": "sos",
+ "set_id": "e487c9ce-5e76-4756-bcd0-e4b7db5c38a3",
+ "set_name": "Secrets of Strixhaven",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Asos&unique=prints",
+ "set_type": "expansion",
+ "set_uri": "https://api.scryfall.com/sets/e487c9ce-5e76-4756-bcd0-e4b7db5c38a3",
+ "story_spotlight": false,
+ "tcgplayer_id": 686529,
+ "textless": false,
+ "toughness": "3",
+ "type_line": "Legendary Creature \u2014 Bird Bard // Sorcery",
+ "uri": "https://api.scryfall.com/cards/77285d12-e658-4eb3-ba13-ff202afab9c8",
+ "variation": false
+}

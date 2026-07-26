@@ -1,0 +1,132 @@
+{
+ "artist": "Olivier Bernard",
+ "artist_ids": [
+  "11c6f325-68c2-4f2a-972d-98d2ffe6c224"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 864967,
+ "cmc": 3.0,
+ "collector_number": "12",
+ "color_identity": [
+  "B"
+ ],
+ "colors": [
+  "B"
+ ],
+ "digital": false,
+ "edhrec_rank": 5492,
+ "finishes": [
+  "nonfoil"
+ ],
+ "flavor_text": "It is accompanied by the agonized squeals of faeries caught in its sap.",
+ "foil": false,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "939a4eaa-4d9b-47d1-94a4-fb1e9a95e539",
+ "illustration_id": "c61ff1a4-adb0-41d7-8ee3-f39277c462ef",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:03:24Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.webp?1783904604",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.jpg?1783904604",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.jpg?1783904604",
+  "crop": "https://cards.scryfall.io/crop/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.webp?1783904604",
+  "display": "https://cards.scryfall.io/display/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.webp?1783904604",
+  "grid": "https://cards.scryfall.io/grid/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.webp?1783904604",
+  "large": "https://cards.scryfall.io/large/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.jpg?1783904604",
+  "normal": "https://cards.scryfall.io/normal/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.jpg?1783904604",
+  "png": "https://cards.scryfall.io/png/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.png?1783904604",
+  "small": "https://cards.scryfall.io/small/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.jpg?1783904604",
+  "thumb": "https://cards.scryfall.io/thumb/front/9/3/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539.webp?1783904604"
+ },
+ "keywords": [
+  "Blight"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "not_legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{B}",
+ "mtgo_id": 145997,
+ "multiverse_ids": [],
+ "name": "Sinister Gnarlbark",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "fcd2142e-ba84-4693-9b29-ecc43feba2b8",
+ "oracle_text": "At the beginning of your end step, draw a card and blight 1. (Put a -1/-1 counter on a creature you control.)",
+ "oversized": false,
+ "power": "0",
+ "prices": {
+  "eur": "0.53",
+  "eur_foil": null,
+  "tix": "1.90",
+  "usd": "0.31",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Afcd2142e-ba84-4693-9b29-ecc43feba2b8&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/145997?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=864967&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671129%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Sinister+Gnarlbark",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DSinister%2BGnarlbark",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DSinister%2BGnarlbark"
+ },
+ "released_at": "2026-01-23",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "11C1D77B55411859B5D92E87B6AA1C6BD1EA2156C9322A6C457CB162B1A503E6",
+ "rulings_uri": "https://api.scryfall.com/cards/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/12/sinister-gnarlbark?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671129,
+ "textless": false,
+ "toughness": "4",
+ "type_line": "Creature \u2014 Treefolk Warlock",
+ "uri": "https://api.scryfall.com/cards/939a4eaa-4d9b-47d1-94a4-fb1e9a95e539",
+ "variation": false
+}

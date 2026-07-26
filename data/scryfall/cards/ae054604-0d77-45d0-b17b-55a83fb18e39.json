@@ -1,0 +1,137 @@
+{
+ "artist": "YW Tang",
+ "artist_ids": [
+  "63b2909b-7102-49c5-8f9d-6116a1913308"
+ ],
+ "booster": true,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 298857,
+ "cmc": 3.0,
+ "collector_number": "141",
+ "color_identity": [
+  "B",
+  "G"
+ ],
+ "colors": [
+  "B",
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 4899,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "ae054604-0d77-45d0-b17b-55a83fb18e39",
+ "illustration_id": "02b70e2f-1ac2-40cb-b65d-97e168479c11",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T09:46:51Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.webp?1783936011",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.jpg?1783936011",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.jpg?1783936011",
+  "crop": "https://cards.scryfall.io/crop/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.webp?1783936011",
+  "display": "https://cards.scryfall.io/display/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.webp?1783936011",
+  "grid": "https://cards.scryfall.io/grid/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.webp?1783936011",
+  "large": "https://cards.scryfall.io/large/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.jpg?1783936011",
+  "normal": "https://cards.scryfall.io/normal/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.jpg?1783936011",
+  "png": "https://cards.scryfall.io/png/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.png?1783936011",
+  "small": "https://cards.scryfall.io/small/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.jpg?1783936011",
+  "thumb": "https://cards.scryfall.io/thumb/front/a/e/ae054604-0d77-45d0-b17b-55a83fb18e39.webp?1783936011"
+ },
+ "keywords": [
+  "Reach"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{1}{B}{G}",
+ "mtgo_foil_id": 64767,
+ "mtgo_id": 64766,
+ "multiverse_ids": [
+  430830
+ ],
+ "name": "Obelisk Spider",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "f7289e62-ce5e-4f11-8d64-9fb62531b578",
+ "oracle_text": "Reach\nWhenever this creature deals combat damage to a creature, put a -1/-1 counter on that creature.\nWhenever you put one or more -1/-1 counters on a creature, each opponent loses 1 life and you gain 1 life.",
+ "oversized": false,
+ "penny_rank": 2817,
+ "power": "1",
+ "prices": {
+  "eur": "3.10",
+  "eur_foil": "6.03",
+  "tix": "0.03",
+  "usd": "3.01",
+  "usd_etched": null,
+  "usd_foil": "23.64"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af7289e62-ce5e-4f11-8d64-9fb62531b578&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/64766?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=298857&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F136705%3Fpage%3D1"
+ },
+ "rarity": "uncommon",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Obelisk+Spider",
+  "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=430830&printed=false",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DObelisk%2BSpider",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DObelisk%2BSpider"
+ },
+ "released_at": "2017-07-14",
+ "reprint": false,
+ "reserved": false,
+ "rulings_uri": "https://api.scryfall.com/cards/ae054604-0d77-45d0-b17b-55a83fb18e39/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/hou?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/hou/141/obelisk-spider?utm_source=api",
+ "set": "hou",
+ "set_id": "65ff168b-bb94-47a5-a8f9-4ec6c213e768",
+ "set_name": "Hour of Devastation",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Ahou&unique=prints",
+ "set_type": "expansion",
+ "set_uri": "https://api.scryfall.com/sets/65ff168b-bb94-47a5-a8f9-4ec6c213e768",
+ "story_spotlight": false,
+ "tcgplayer_id": 136705,
+ "textless": false,
+ "toughness": "4",
+ "type_line": "Creature \u2014 Spider",
+ "uri": "https://api.scryfall.com/cards/ae054604-0d77-45d0-b17b-55a83fb18e39",
+ "variation": false
+}

@@ -1,0 +1,131 @@
+{
+ "artist": "Jehan Choo",
+ "artist_ids": [
+  "515df9fe-9c29-4e75-9e49-6ce5be4ec8c8"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 865032,
+ "cmc": 5.0,
+ "collector_number": "100",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 5386,
+ "finishes": [
+  "nonfoil"
+ ],
+ "foil": false,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "ace83f5b-2349-46b8-b27f-bf705912a6df",
+ "illustration_id": "e3063904-ac23-4566-a4b0-bec0b8bd9530",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:02:39Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.webp?1783904559",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.jpg?1783904559",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.jpg?1783904559",
+  "crop": "https://cards.scryfall.io/crop/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.webp?1783904559",
+  "display": "https://cards.scryfall.io/display/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.webp?1783904559",
+  "grid": "https://cards.scryfall.io/grid/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.webp?1783904559",
+  "large": "https://cards.scryfall.io/large/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.jpg?1783904559",
+  "normal": "https://cards.scryfall.io/normal/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.jpg?1783904559",
+  "png": "https://cards.scryfall.io/png/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.png?1783904559",
+  "small": "https://cards.scryfall.io/small/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.jpg?1783904559",
+  "thumb": "https://cards.scryfall.io/thumb/front/a/c/ace83f5b-2349-46b8-b27f-bf705912a6df.webp?1783904559"
+ },
+ "keywords": [
+  "Reach"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{G}{G}{G}",
+ "mtgo_id": 146135,
+ "multiverse_ids": [],
+ "name": "Cavalier of Thorns",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "96b909ab-55f1-4cde-a675-2504de3da772",
+ "oracle_text": "Reach\nWhen this creature enters, reveal the top five cards of your library. Put a land card from among them onto the battlefield and the rest into your graveyard.\nWhen this creature dies, you may exile it. If you do, put another target card from your graveyard on top of your library.",
+ "oversized": false,
+ "power": "5",
+ "prices": {
+  "eur": "0.38",
+  "eur_foil": null,
+  "tix": "0.18",
+  "usd": "0.28",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A96b909ab-55f1-4cde-a675-2504de3da772&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146135?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=865032&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671187%3Fpage%3D1"
+ },
+ "rarity": "mythic",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Cavalier+of+Thorns",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DCavalier%2Bof%2BThorns",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DCavalier%2Bof%2BThorns"
+ },
+ "released_at": "2026-01-23",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "E7E7948E1B897DE530922ED421FB423FC1BA575B6B139E945A7898D46BBB8F9A",
+ "rulings_uri": "https://api.scryfall.com/cards/ace83f5b-2349-46b8-b27f-bf705912a6df/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/100/cavalier-of-thorns?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671187,
+ "textless": false,
+ "toughness": "6",
+ "type_line": "Creature \u2014 Elemental Knight",
+ "uri": "https://api.scryfall.com/cards/ace83f5b-2349-46b8-b27f-bf705912a6df",
+ "variation": false
+}

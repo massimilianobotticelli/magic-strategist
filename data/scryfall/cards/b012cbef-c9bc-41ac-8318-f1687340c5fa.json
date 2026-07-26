@@ -1,0 +1,147 @@
+{
+ "all_parts": [
+  {
+   "component": "token",
+   "id": "1ab6cab4-a3a5-4b48-832a-1d486e8094a5",
+   "name": "Elemental",
+   "object": "related_card",
+   "type_line": "Token Creature \u2014 Elemental",
+   "uri": "https://api.scryfall.com/cards/1ab6cab4-a3a5-4b48-832a-1d486e8094a5"
+  },
+  {
+   "component": "combo_piece",
+   "id": "6251ca05-7eae-493c-ade3-8a5ebabfe43d",
+   "name": "Elemental Spectacle",
+   "object": "related_card",
+   "type_line": "Sorcery",
+   "uri": "https://api.scryfall.com/cards/6251ca05-7eae-493c-ade3-8a5ebabfe43d"
+  }
+ ],
+ "artist": "Aldo Dom\u00ednguez",
+ "artist_ids": [
+  "b701136e-c578-4a48-9383-1c2a5381ecb2"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 864970,
+ "cmc": 6.0,
+ "collector_number": "15",
+ "color_identity": [
+  "G"
+ ],
+ "colors": [
+  "G"
+ ],
+ "digital": false,
+ "edhrec_rank": 12582,
+ "finishes": [
+  "nonfoil"
+ ],
+ "foil": false,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "b012cbef-c9bc-41ac-8318-f1687340c5fa",
+ "illustration_id": "b72c830d-f0f1-48f9-907b-c6d3726b5d43",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:03:22Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.webp?1783904602",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.jpg?1783904602",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.jpg?1783904602",
+  "crop": "https://cards.scryfall.io/crop/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.webp?1783904602",
+  "display": "https://cards.scryfall.io/display/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.webp?1783904602",
+  "grid": "https://cards.scryfall.io/grid/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.webp?1783904602",
+  "large": "https://cards.scryfall.io/large/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.jpg?1783904602",
+  "normal": "https://cards.scryfall.io/normal/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.jpg?1783904602",
+  "png": "https://cards.scryfall.io/png/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.png?1783904602",
+  "small": "https://cards.scryfall.io/small/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.jpg?1783904602",
+  "thumb": "https://cards.scryfall.io/thumb/front/b/0/b012cbef-c9bc-41ac-8318-f1687340c5fa.webp?1783904602"
+ },
+ "keywords": [
+  "Vivid"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "not_legal",
+  "commander": "legal",
+  "competitivebrawl": "not_legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "not_legal",
+  "historic": "not_legal",
+  "legacy": "legal",
+  "modern": "not_legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "not_legal",
+  "pioneer": "not_legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "not_legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{5}{G}",
+ "mtgo_id": 146003,
+ "multiverse_ids": [],
+ "name": "Elemental Spectacle",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "dd963396-3f81-49ad-a68e-87b9764d7ac5",
+ "oracle_text": "Vivid \u2014 Create a number of 5/5 red and green Elemental creature tokens equal to the number of colors among permanents you control. Then you gain life equal to the number of creatures you control.",
+ "oversized": false,
+ "prices": {
+  "eur": "0.24",
+  "eur_foil": null,
+  "tix": "0.65",
+  "usd": "0.22",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Add963396-3f81-49ad-a68e-87b9764d7ac5&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146003?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=864970&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671167%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Elemental+Spectacle",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DElemental%2BSpectacle",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DElemental%2BSpectacle"
+ },
+ "released_at": "2026-01-23",
+ "reprint": false,
+ "reserved": false,
+ "resource_id": "83BBFC31E3A1517B3823650E1F186C0D8F5768222BDA4FC06AB48007F3D28493",
+ "rulings_uri": "https://api.scryfall.com/cards/b012cbef-c9bc-41ac-8318-f1687340c5fa/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/15/elemental-spectacle?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671167,
+ "textless": false,
+ "type_line": "Sorcery",
+ "uri": "https://api.scryfall.com/cards/b012cbef-c9bc-41ac-8318-f1687340c5fa",
+ "variation": false
+}

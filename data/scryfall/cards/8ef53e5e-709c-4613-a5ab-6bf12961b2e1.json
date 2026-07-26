@@ -1,0 +1,136 @@
+{
+ "artist": "Billy Christian",
+ "artist_ids": [
+  "10f26f94-64fc-4174-856e-701bea4f1521"
+ ],
+ "booster": false,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 865011,
+ "cmc": 4.0,
+ "collector_number": "79",
+ "color_identity": [
+  "B"
+ ],
+ "colors": [
+  "B"
+ ],
+ "digital": false,
+ "edhrec_rank": 1666,
+ "finishes": [
+  "nonfoil"
+ ],
+ "flavor_text": "\"'Did I do it?' You'll have to be more specific.\"",
+ "foil": false,
+ "frame": "2015",
+ "frame_effects": [
+  "legendary"
+ ],
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "8ef53e5e-709c-4613-a5ab-6bf12961b2e1",
+ "illustration_id": "ec4cf9de-7b87-4153-a6e4-600c254e56a8",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T01:02:39Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.webp?1783904559",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.jpg?1783904559",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.jpg?1783904559",
+  "crop": "https://cards.scryfall.io/crop/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.webp?1783904559",
+  "display": "https://cards.scryfall.io/display/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.webp?1783904559",
+  "grid": "https://cards.scryfall.io/grid/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.webp?1783904559",
+  "large": "https://cards.scryfall.io/large/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.jpg?1783904559",
+  "normal": "https://cards.scryfall.io/normal/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.jpg?1783904559",
+  "png": "https://cards.scryfall.io/png/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.png?1783904559",
+  "small": "https://cards.scryfall.io/small/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.jpg?1783904559",
+  "thumb": "https://cards.scryfall.io/thumb/front/8/e/8ef53e5e-709c-4613-a5ab-6bf12961b2e1.webp?1783904559"
+ },
+ "keywords": [
+  "Menace"
+ ],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "legal",
+  "standardbrawl": "legal",
+  "timeless": "legal",
+  "tlr": "not_legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{B}{B}",
+ "mtgo_id": 146093,
+ "multiverse_ids": [],
+ "name": "Massacre Girl, Known Killer",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "ccb39f4a-2684-4eb7-9066-aad81ae08962",
+ "oracle_text": "Menace\nCreatures you control have wither. (They deal damage to creatures in the form of -1/-1 counters.)\nWhenever a creature an opponent controls dies, if its toughness was less than 1, draw a card.",
+ "oversized": false,
+ "penny_rank": 7220,
+ "power": "4",
+ "prices": {
+  "eur": "1.13",
+  "eur_foil": null,
+  "tix": "0.06",
+  "usd": "0.72",
+  "usd_etched": null,
+  "usd_foil": null
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Accb39f4a-2684-4eb7-9066-aad81ae08962&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/146093?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=865011&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F671152%3Fpage%3D1"
+ },
+ "rarity": "mythic",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Massacre+Girl%2C+Known+Killer",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DMassacre%2BGirl%252C%2BKnown%2BKiller",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DMassacre%2BGirl%252C%2BKnown%2BKiller"
+ },
+ "released_at": "2026-01-23",
+ "reprint": true,
+ "reserved": false,
+ "resource_id": "0805FDB1BD94317E3ED2B9564B09470BCD73943E8589E7680B6AD8C729D39367",
+ "rulings_uri": "https://api.scryfall.com/cards/8ef53e5e-709c-4613-a5ab-6bf12961b2e1/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/ecc?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/ecc/79/massacre-girl-known-killer?utm_source=api",
+ "security_stamp": "oval",
+ "set": "ecc",
+ "set_id": "805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "set_name": "Lorwyn Eclipsed Commander",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aecc&unique=prints",
+ "set_type": "commander",
+ "set_uri": "https://api.scryfall.com/sets/805b5a0c-f8bb-4555-86ea-eb9ec36a011a",
+ "story_spotlight": false,
+ "tcgplayer_id": 671152,
+ "textless": false,
+ "toughness": "4",
+ "type_line": "Legendary Creature \u2014 Human Assassin",
+ "uri": "https://api.scryfall.com/cards/8ef53e5e-709c-4613-a5ab-6bf12961b2e1",
+ "variation": false
+}
