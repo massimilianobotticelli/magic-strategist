@@ -1,0 +1,15 @@
+# Editor-independent runner for the same image the dev container uses.
+#   docker compose run --rm app python scripts/validate.py
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    image: magic-strategist:dev
+    working_dir: /workspace
+    user: vscode
+    init: true
+    volumes:
+      # The repo is the workspace. The database and Scryfall cache live inside
+      # it, so they survive rebuilds of the image.
+      - .:/workspace

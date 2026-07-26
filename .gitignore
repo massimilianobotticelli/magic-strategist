@@ -1,0 +1,11 @@
+# Python cruft
+__pycache__/
+*.py[cod]
+.venv/
+
+# macOS
+.DS_Store
+
+# NOTE: data/collection.db and data/scryfall/ are deliberately NOT ignored.
+# The database and the cached Scryfall responses are committed so the repo
+# carries the full history of the collection and works offline.
