@@ -1,0 +1,111 @@
+# magic-strategist
+
+Massimiliano's Magic: The Gathering Commander (EDH) collection. Card data lives
+in SQLite and is queried per session — never loaded wholesale into context.
+
+## Everything runs in the container
+
+**Never run `pip`, `python`, or `sqlite3` on the host.** The host has Docker and
+git, and nothing else. Every command goes through `make` or
+`docker compose run --rm app ...`. If a step seems to need a host install, stop
+and say so instead of doing it.
+
+```
+make shell            # bash inside the container
+make validate         # all deck and collection checks
+make query ARGS='...' # query the collection
+make import ARGS='...' make enrich   make sync-gc   make seed
+make rebuild          # rebuild the database from committed files, offline
+```
+
+## How to work with this repo
+
+- **Query, don't read.** Use `scripts/query.py` for card and deck facts. Do not
+  read `data/collection.db`, the decklists, or the Scryfall cache in bulk.
+  - `query.py decks` · `query.py deck <slug> --roles` · `query.py card "<name>"`
+  - `query.py combos --deck <slug>` · `query.py pool --color-identity BRG`
+  - `query.py wishlist` · `query.py conflicts`
+- **Run `make validate` after any deck change.** Non-zero exit means something
+  is broken. Report the output; do not silently fix it.
+- Deck slugs come from ManaBox binder names. ManaBox is the source of truth for
+  where a card physically is.
+- `data/seed.sql` holds what no import can derive — target brackets, an
+  ambiguous commander, combos, wishlist detail. Edit it, then `make seed`.
+- Scryfall responses are cached in `data/scryfall/` and committed, so
+  `--offline` works for everything except fetching genuinely new cards.
+
+## Session protocol
+
+At the start of a session, ask **which deck we're focusing on** and **which
+bracket he's building for today** — it changes, usually 3 or 4, occasionally 1
+for fun. Skip the question if he already said.
+
+## The collection's real constraint
+
+He does **not** own exactly one copy of every card — each precon ships its own
+Sol Ring, Arcane Signet and Command Tower, so several staples exist in
+triplicate. What matters is **supply vs. demand**: if more decks list a card
+than there are physical copies, building one deck strips another. `validate.py`
+checks this. When proposing a move, always say which deck loses the card.
+
+## Brackets
+
+| # | Name | Game Changers | Combos | Mass land destruction | Extra turns |
+|---|------|---------------|--------|------------------------|-------------|
+| 1 | Exhibition | 0 | none | no | no |
+| 2 | Core | 0 | no early infinites | no | no chaining |
+| 3 | Upgraded | max 3 | only ones that can't realistically go off by ~turn 6 | no | no chaining |
+| 4 | Optimized | unlimited | unlimited | allowed | allowed |
+| 5 | cEDH | unlimited | unlimited | allowed | allowed |
+
+Game Changers determine bracket legality, so **always label them explicitly with
+⚡**. The official list is `knowledge/game-changers.json`, refreshed by
+`make sync-gc` from Scryfall's `is:game-changer` search. WotC revises it every
+few months — never answer from memory.
+
+## Recommendation format
+
+Split every set of suggestions into two buckets:
+
+**Bucket A — cards he already owns.** Name which deck or pool it is currently
+in. **Always flag that moving it weakens the donor deck**, and say how.
+
+**Bucket B — cards to buy.** Include a price tier. Respect the ~€10–15 per card
+ceiling including worst-case shipping.
+
+## Hard rules
+
+- Stay inside the focus commander's colour identity. No exceptions.
+- Never suggest a card already in the deck. Check first with `query.py deck`.
+- **For every addition, propose a specific cut, with a reason.** Decks stay at
+  exactly 100 including the commander.
+- Singleton within a deck; basic lands excepted.
+- English, non-foil printings. He rejects cheaper Japanese or other-language
+  printings for consistency.
+
+## Verify, don't guess
+
+Two decks are built from **Lorwyn Eclipsed (ECL/ECC)** and **Secrets of
+Strixhaven (SOS)**. If unsure whether a card exists or how it works, check the
+database or Scryfall and say that you did. Never invent a card, a mana cost, or
+an interaction.
+
+## Combo disablers
+
+`combo_disablers` records cards that **shut a combo off**. This is the detail
+that keeps getting lost in his notes. When registering or discussing a combo,
+always account for its disablers.
+
+## Layout
+
+```
+data/collection.db      SQLite, the source of truth (committed)
+data/collection.sql     text dump of the same, so git history is diffable
+data/manabox/<date>/    raw ManaBox exports — committed, never edited
+data/scryfall/          cached API responses (committed)
+data/seed.sql           hand-maintained facts
+decks/<slug>/           decklist.txt, strategy.md, upgrades.md
+pool/                   notes on loose cards; the cards live in the database
+knowledge/              brackets.md, game-changers.json
+scripts/                import_manabox · enrich · sync_gamechangers · validate · query
+```
