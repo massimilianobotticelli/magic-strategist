@@ -123,27 +123,30 @@ def upsert_card(conn, card: dict) -> str | None:
         ),
     )
 
-    image = (card.get("image_uris") or {}).get("normal")
-    if not image and card.get("card_faces"):
-        image = (card["card_faces"][0].get("image_uris") or {}).get("normal")
+    images = card.get("image_uris") or {}
+    if not images and card.get("card_faces"):
+        images = card["card_faces"][0].get("image_uris") or {}
 
     conn.execute(
         """
         INSERT INTO printings (scryfall_id, oracle_id, name, set_code, set_name,
-                               collector_number, rarity, lang, finishes, released_at, image_uri)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                               collector_number, rarity, lang, finishes, released_at,
+                               image_uri, image_small)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(scryfall_id) DO UPDATE SET
             oracle_id = excluded.oracle_id, name = excluded.name,
             set_code = excluded.set_code, set_name = excluded.set_name,
             collector_number = excluded.collector_number, rarity = excluded.rarity,
             lang = excluded.lang, finishes = excluded.finishes,
-            released_at = excluded.released_at, image_uri = excluded.image_uri
+            released_at = excluded.released_at, image_uri = excluded.image_uri,
+            image_small = excluded.image_small
         """,
         (
             card["id"], oracle_id, card.get("name"),
             (card.get("set") or "").upper(), card.get("set_name"),
             card.get("collector_number"), card.get("rarity"), card.get("lang", "en"),
-            json.dumps(card.get("finishes") or []), card.get("released_at"), image,
+            json.dumps(card.get("finishes") or []), card.get("released_at"),
+            images.get("normal"), images.get("small"),
         ),
     )
     return oracle_id

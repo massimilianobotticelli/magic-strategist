@@ -11,12 +11,33 @@ git, and nothing else. Every command goes through `make` or
 and say so instead of doing it.
 
 ```
+make app              # web app on http://localhost:8000
 make shell            # bash inside the container
 make validate         # all deck and collection checks
 make query ARGS='...' # query the collection
 make import ARGS='...' make enrich   make sync-gc   make seed
 make rebuild          # rebuild the database from committed files, offline
 ```
+
+## Talk to him through the database, not through the chat
+
+The web app (`app/`) reads and writes the same `data/collection.db`. When
+proposing deck changes, **write them into `deck_proposals`** instead of only
+describing them in prose — he reviews them visually in the app and accepts or
+rejects there, and his answer comes back through the same table.
+
+```sql
+INSERT INTO deck_proposals (deck_id, oracle_id, action, source, rationale, pairs_with)
+VALUES (:deck, :oracle, 'cut'|'add', 'claude', 'why, in one or two sentences', :paired_id);
+```
+
+- Always give a `rationale`. It is the only thing he sees next to the card.
+- Pair every `add` with the `cut` that pays for it via `pairs_with` — the deck
+  stays at 100 and the app shows the projected total.
+- `source` is `claude` or `massimiliano`; never write his name on your own idea.
+- Rows he created are his marks. Read them before proposing, and respond to
+  them rather than duplicating them.
+- Nothing touches `decklist.txt` until a proposal is applied deliberately.
 
 ## How to work with this repo
 
@@ -119,6 +140,7 @@ always account for its disablers.
 ## Layout
 
 ```
+app/                    FastAPI web app — main.py, queries.py, templates, static
 data/collection.db      SQLite, the source of truth (committed)
 data/collection.sql     text dump of the same, so git history is diffable
 data/manabox/<date>/    raw ManaBox exports — committed, never edited

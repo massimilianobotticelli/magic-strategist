@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="wrap">
+  <h1>Mazzi</h1>
+  <div class="deck-list">
+    {% for d in decks %}
+    <a class="deck-card" href="/deck/{{ d.slug }}">
+      <div class="deck-card-head">
+        <span class="deck-name">{{ d.name }}</span>
+        {% if d.status != 'active' %}<span class="pill pill-muted">{{ d.status }}</span>{% endif %}
+        {% if d.open_proposals %}<span class="pill pill-accent">{{ d.open_proposals }} proposte</span>{% endif %}
+      </div>
+      <div class="deck-meta">
+        {{ d.commander or 'comandante non identificato' }}
+      </div>
+      <div class="deck-meta">
+        {{ d.size }} carte · {{ d.color_identity or 'C' }} ·
+        bracket {{ d.target_bracket or '—' }} {{ d.bracket_name }}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

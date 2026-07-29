@@ -9,6 +9,9 @@ services:
     working_dir: /workspace
     user: vscode
     init: true
+    ports:
+      # The web app. `make app` -> http://localhost:8000
+      - "8000:8000"
     volumes:
       # The repo is the workspace. The database and Scryfall cache live inside
       # it, so they survive rebuilds of the image.

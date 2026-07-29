@@ -17,16 +17,21 @@ import sqlite3
 # `exclude` patterns veto a match, which is how "each opponent draws a card"
 # avoids being tagged as card draw for you.
 RULES: dict[str, dict[str, list[str]]] = {
+    # Lands are NOT ramp. A land is your normal land drop; tagging every dual
+    # land as ramp inflated Blight Curse's count from 6 to 27 and made the role
+    # breakdown useless. Only non-lands that produce extra mana, and land
+    # fetching from non-lands, count here. `land_excluded` is enforced against
+    # the type line in roles_for().
     "ramp": {
         "include": [
             r"search your library for .{0,40}\bland\b.{0,80}onto the battlefield",
             r"\{t\}: add \{",
             r"\{t\}: add one mana",
             r"\{t\}: add two mana",
-            r"lands? you control .{0,30}\badd\b",
             r"you may play an additional land",
         ],
-        "exclude": [r"^basic land"],
+        "exclude": [],
+        "land_excluded": True,
     },
     "card-draw": {
         "include": [
@@ -115,9 +120,11 @@ COMPILED = {
     role: {
         key: [re.compile(p, re.IGNORECASE | re.DOTALL) for p in patterns]
         for key, patterns in spec.items()
+        if key in ("include", "exclude")
     }
     for role, spec in RULES.items()
 }
+LAND_EXCLUDED = {role for role, spec in RULES.items() if spec.get("land_excluded")}
 
 
 def roles_for(oracle_text: str | None, type_line: str | None) -> set[str]:
@@ -127,8 +134,12 @@ def roles_for(oracle_text: str | None, type_line: str | None) -> set[str]:
     if not text:
         return set()
 
+    is_land = "Land" in types
+
     found: set[str] = set()
     for role, spec in COMPILED.items():
+        if is_land and role in LAND_EXCLUDED:
+            continue
         if any(pattern.search(text) for pattern in spec["include"]) and not any(
             pattern.search(types) or pattern.search(text) for pattern in spec["exclude"]
         ):

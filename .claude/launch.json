@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "magic-strategist",
+      "runtimeExecutable": "docker",
+      "runtimeArgs": [
+        "compose", "run", "--rm", "--service-ports", "app",
+        "uvicorn", "main:app",
+        "--host", "0.0.0.0", "--port", "8000", "--app-dir", "app", "--reload"
+      ],
+      "port": 8000
+    }
+  ]
+}

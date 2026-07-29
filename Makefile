@@ -5,10 +5,11 @@
 COMPOSE ?= docker compose
 RUN     := $(COMPOSE) run --rm app
 
-.PHONY: build shell import enrich sync-gc seed validate query dump sql rebuild help
+.PHONY: build shell app import enrich sync-gc seed validate query dump sql rebuild help
 
 help:
 	@echo 'make build      Build the container image'
+	@echo 'make app        Start the web app on http://localhost:8000'
 	@echo 'make shell      Interactive bash shell inside the container'
 	@echo 'make import     Import ManaBox CSVs / decklists   (ARGS=...)'
 	@echo 'make enrich     Fetch card data from Scryfall     (ARGS=...)'
@@ -25,6 +26,13 @@ build:
 
 shell:
 	$(RUN) bash
+
+# The web app: browse decks, mark cards, review combos. Reads and writes the
+# same data/collection.db the scripts use, so it and a session stay in sync.
+app:
+	@echo 'magic-strategist -> http://localhost:8000  (ctrl-c to stop)'
+	$(COMPOSE) run --rm --service-ports app \
+	  uvicorn main:app --host 0.0.0.0 --port 8000 --app-dir app --reload
 
 import:
 	$(RUN) python scripts/import_manabox.py $(ARGS)

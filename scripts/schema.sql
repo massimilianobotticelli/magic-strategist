@@ -77,7 +77,8 @@ CREATE TABLE IF NOT EXISTS printings (
     lang             TEXT NOT NULL DEFAULT 'en',
     finishes         TEXT,                    -- JSON array
     released_at      TEXT,
-    image_uri        TEXT
+    image_uri        TEXT,                    -- 'normal' size
+    image_small      TEXT                     -- thumbnail, for dense grids
 );
 CREATE INDEX IF NOT EXISTS ix_printings_setcn  ON printings(set_code, collector_number, lang);
 CREATE INDEX IF NOT EXISTS ix_printings_oracle ON printings(oracle_id);
@@ -277,6 +278,42 @@ INSERT OR IGNORE INTO roles (slug, name) VALUES
     ('protection',   'Protection'),
     ('recursion',    'Recursion'),
     ('fixing',       'Mana Fixing');
+
+
+-- ---------------------------------------------------------------------------
+-- Proposed deck changes.
+--
+-- This is the shared workspace between a session and the web app: a session
+-- writes proposals here while discussing a deck, the app renders them as red
+-- (cut) and green (add) and lets them be accepted or rejected, and the answer
+-- comes back through the same table. Neither side edits decklist.txt until a
+-- proposal is applied.
+--
+-- `pairs_with` links an add to the cut that pays for it, because the standing
+-- rule is that every addition names a specific cut and the deck stays at 100.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS deck_proposals (
+    id          INTEGER PRIMARY KEY,
+    deck_id     INTEGER NOT NULL REFERENCES decks(id) ON DELETE CASCADE,
+    oracle_id   TEXT    NOT NULL REFERENCES cards(oracle_id),
+    action      TEXT    NOT NULL CHECK (action IN ('add', 'cut')),
+    status      TEXT    NOT NULL DEFAULT 'proposed'
+                CHECK (status IN ('proposed', 'accepted', 'rejected', 'applied')),
+    rationale   TEXT,
+    source      TEXT    NOT NULL DEFAULT 'claude'
+                CHECK (source IN ('claude', 'massimiliano')),
+    pairs_with  INTEGER REFERENCES deck_proposals(id) ON DELETE SET NULL,
+    created_at  TEXT    NOT NULL DEFAULT (datetime('now')),
+    updated_at  TEXT    NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (deck_id, oracle_id, action)
+);
+CREATE INDEX IF NOT EXISTS ix_proposals_deck ON deck_proposals(deck_id, status);
+
+CREATE TRIGGER IF NOT EXISTS trg_proposals_touch
+AFTER UPDATE ON deck_proposals
+BEGIN
+    UPDATE deck_proposals SET updated_at = datetime('now') WHERE id = NEW.id;
+END;
 
 
 -- ---------------------------------------------------------------------------

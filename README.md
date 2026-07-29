@@ -24,6 +24,26 @@ Scryfall responses are committed, so the repo is functional offline.
 
 `make help` lists every command.
 
+## The web app
+
+```bash
+make app          # http://localhost:8000
+```
+
+Pick a deck and it shows the 100 cards with their real art, grouped by type,
+alongside every card you own that is legal in that deck, and the registered
+combos with their pieces and disablers.
+
+It reads and writes the **same** `data/collection.db` the scripts use, which is
+the point: a session records a proposed change in `deck_proposals`, you see it
+in the app as red (cut) or green (add) with the reasoning next to it, and accept
+or reject with one click. Marks you make yourself go back the same way. Neither
+side edits `decklist.txt` until a change is deliberately applied, so the deck
+list is never quietly rewritten by a conversation.
+
+Card art is loaded from Scryfall, so the grid needs a connection the first time;
+everything else works offline.
+
 ## What each script does
 
 | Script | What it does |
@@ -113,6 +133,7 @@ make rebuild
 
 ```
 .devcontainer/       Dockerfile + devcontainer.json (Python 3.12, non-root)
+app/                 FastAPI web app: main.py, queries.py, templates/, static/
 compose.yaml         same image, editor-independent
 Makefile             every command, containerised
 data/

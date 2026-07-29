@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}magic-strategist{% endblock %}</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="brand">magic-strategist</a>
+    {% block topbar %}{% endblock %}
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
