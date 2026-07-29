@@ -5,7 +5,7 @@
 <div class="tile {% if c.proposal %}tile-{{ c.proposal.action }}{% endif %}"
      data-oracle="{{ c.oracle_id }}" data-action="{{ action }}" data-deck="{{ deck_id }}"
      tabindex="0" role="button"
-     aria-label="{{ c.name }} — invio per ingrandire, spazio per {{ 'segnarla da togliere' if action == 'cut' else 'segnarla da aggiungere' }}">
+     aria-label="{{ c.name }} — enter to enlarge, space to mark {{ 'for cutting' if action == 'cut' else 'for adding' }}">
   {% if c.image_small %}
     <img src="{{ c.image_small }}" alt="{{ c.name }}" loading="lazy"
          data-full="{{ c.image or c.image_small }}">
@@ -19,8 +19,8 @@
   <div class="tile-flags">
     {% if c.is_game_changer %}<span class="flag flag-gc" title="Game Changer">GC</span>{% endif %}
     {% if c.combos %}<span class="flag flag-combo" title="{{ c.combos }}">combo</span>{% endif %}
-    {% if action == 'add' and not c.free %}<span class="flag flag-warn" title="in un mazzo attivo">{{ c.location }}</span>{% endif %}
-    {% if action == 'add' and c.free %}<span class="flag flag-free" title="pool o donor deck">{{ c.location }}</span>{% endif %}
+    {% if action == 'add' and not c.free %}<span class="flag flag-warn" title="in an active deck, which would lose it">{{ c.location }}</span>{% endif %}
+    {% if action == 'add' and c.free %}<span class="flag flag-free" title="pool or donor deck — costs nothing">{{ c.location }}</span>{% endif %}
   </div>
   <div class="tile-mark"></div>
 </div>
@@ -43,7 +43,7 @@
     <div>
       <h1>{{ deck.name }}</h1>
       <p class="deck-meta">
-        {{ deck.commander or 'comandante non identificato' }} ·
+        {{ deck.commander or 'commander not identified' }} ·
         {{ deck.color_identity or 'C' }} ·
         bracket {{ deck.target_bracket or '—' }} {{ deck.bracket_name }}
         {% if deck.status != 'active' %}· <span class="pill pill-muted">{{ deck.status }}</span>{% endif %}
@@ -54,20 +54,20 @@
 
   {% if proposals %}
   <section>
-    <h2>Proposte aperte</h2>
+    <h2>Open proposals</h2>
     <div class="proposals">
       {% for p in proposals %}
       <div class="proposal proposal-{{ p.action }}" data-id="{{ p.id }}">
         <div>
-          <span class="proposal-action">{{ 'togliere' if p.action == 'cut' else 'aggiungere' }}</span>
+          <span class="proposal-action">{{ 'cut' if p.action == 'cut' else 'add' }}</span>
           <strong>{{ p.name }}</strong>
           <span class="proposal-src">{{ p.source }}</span>
           {% if p.status != 'proposed' %}<span class="pill pill-muted">{{ p.status }}</span>{% endif %}
         </div>
         {% if p.rationale %}<p class="proposal-why">{{ p.rationale }}</p>{% endif %}
         <div class="proposal-actions">
-          <button data-status="accepted">accetta</button>
-          <button data-status="rejected">rifiuta</button>
+          <button data-status="accepted">accept</button>
+          <button data-status="rejected">reject</button>
         </div>
       </div>
       {% endfor %}
@@ -76,8 +76,8 @@
   {% endif %}
 
   <section>
-    <h2>Mazzo <span class="dim">{{ totals.size }} carte</span></h2>
-    <p class="hint">Clicca una carta per ingrandirla. <strong>Tieni premuto</strong> per segnarla da togliere.</p>
+    <h2>Deck <span class="dim">{{ totals.size }} cards</span></h2>
+    <p class="hint">Click a card to enlarge it. <strong>Press and hold</strong> to mark it for cutting.</p>
     {% for key, label in TYPE_ORDER %}
       {% set group = cards | selectattr('group', 'equalto', key) | list %}
       {% if group %}
@@ -90,27 +90,27 @@
   </section>
 
   <section>
-    <h2>Carte papabili <span class="dim">{{ candidates | length }}</span></h2>
-    <p class="hint">Carte che possiedi, dentro l'identità di colore di {{ deck.commander or 'questo mazzo' }} e non già nel mazzo.
-      Verde = pool o donor deck, non costa niente a nessuno. Ambra = in un mazzo attivo, che perderebbe la carta.
-      Clicca per ingrandire, <strong>tieni premuto</strong> per segnarla da aggiungere.</p>
+    <h2>Candidates <span class="dim">{{ candidates | length }}</span></h2>
+    <p class="hint">Cards you own, inside {{ deck.commander or 'this deck' }}'s colour identity and not already in the deck.
+      Green = a pool or a donor deck, so it costs nobody anything. Amber = in an active deck, which would lose the card.
+      Click to enlarge, <strong>press and hold</strong> to mark it for adding.</p>
     <form class="filters" method="get">
-      <input type="search" name="q_" value="{{ search }}" placeholder="cerca per nome">
+      <input type="search" name="q_" value="{{ search }}" placeholder="search by name">
       {% for r in ['ramp','card-draw','spot-removal','board-wipe','tutor','protection','recursion','fixing'] %}
       <a class="chip {% if active_role == r %}chip-on{% endif %}"
          href="?role={{ '' if active_role == r else r }}{% if search %}&q_={{ search }}{% endif %}">{{ r }}</a>
       {% endfor %}
-      {% if active_role or search %}<a class="chip" href="/deck/{{ deck.slug }}">azzera</a>{% endif %}
+      {% if active_role or search %}<a class="chip" href="/deck/{{ deck.slug }}">clear</a>{% endif %}
     </form>
     <div class="grid">
       {% for c in candidates %}{{ tile(c, 'add', deck.id) }}{% endfor %}
     </div>
-    {% if not candidates %}<p class="hint">Nessuna carta corrisponde ai filtri.</p>{% endif %}
+    {% if not candidates %}<p class="hint">No card matches these filters.</p>{% endif %}
   </section>
 
   <section>
-    <h2>Combo <span class="dim">{{ combos | length }}</span></h2>
-    {% if not combos %}<p class="hint">Nessuna combo registrata per questo mazzo.</p>{% endif %}
+    <h2>Combos <span class="dim">{{ combos | length }}</span></h2>
+    {% if not combos %}<p class="hint">No combo registered for this deck.</p>{% endif %}
     {% for cb in combos %}
     <article class="combo">
       <h3>{{ cb.name }} <span class="pill pill-accent">{{ cb.kind }}</span></h3>
@@ -125,11 +125,11 @@
           {% endfor %}
         </div>
         <div class="combo-text">
-          {% if cb.payoff %}<p><span class="lbl">Risultato</span> {{ cb.payoff }}</p>{% endif %}
-          {% if cb.notes %}<p><span class="lbl">Come funziona</span> {{ cb.notes }}</p>{% endif %}
-          {% if cb.power_level %}<p><span class="lbl">Velocità</span> {{ cb.power_level }}</p>{% endif %}
+          {% if cb.payoff %}<p><span class="lbl">Payoff</span> {{ cb.payoff }}</p>{% endif %}
+          {% if cb.notes %}<p><span class="lbl">How it works</span> {{ cb.notes }}</p>{% endif %}
+          {% if cb.power_level %}<p><span class="lbl">Speed</span> {{ cb.power_level }}</p>{% endif %}
           {% if cb.disablers %}
-          <p><span class="lbl lbl-danger">La spengono</span></p>
+          <p><span class="lbl lbl-danger">Shut off by</span></p>
           <ul class="disablers">
             {% for d in cb.disablers %}<li><strong>{{ d.name }}</strong>{% if d.note %} — {{ d.note }}{% endif %}</li>{% endfor %}
           </ul>

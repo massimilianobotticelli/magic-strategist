@@ -19,13 +19,13 @@ BRACKET_NAMES = {1: "Exhibition", 2: "Core", 3: "Upgraded", 4: "Optimized", 5: "
 
 # The order deck sections are shown in, and how a type line maps onto them.
 TYPE_ORDER = [
-    ("commander", "Comandante"),
-    ("creature", "Creature"),
-    ("planeswalker", "Planeswalker"),
-    ("instant-sorcery", "Istantanei e stregonerie"),
-    ("artifact", "Artefatti"),
-    ("enchantment", "Incantesimi"),
-    ("land", "Terre"),
+    ("commander", "Commander"),
+    ("creature", "Creatures"),
+    ("planeswalker", "Planeswalkers"),
+    ("instant-sorcery", "Instants and sorceries"),
+    ("artifact", "Artifacts"),
+    ("enchantment", "Enchantments"),
+    ("land", "Lands"),
 ]
 
 

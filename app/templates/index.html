@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="wrap">
-  <h1>Mazzi</h1>
+  <h1>Decks</h1>
   <div class="deck-list">
     {% for d in decks %}
     <a class="deck-card" href="/deck/{{ d.slug }}">
       <div class="deck-card-head">
         <span class="deck-name">{{ d.name }}</span>
         {% if d.status != 'active' %}<span class="pill pill-muted">{{ d.status }}</span>{% endif %}
-        {% if d.open_proposals %}<span class="pill pill-accent">{{ d.open_proposals }} proposte</span>{% endif %}
+        {% if d.open_proposals %}<span class="pill pill-accent">{{ d.open_proposals }} proposal{{ 's' if d.open_proposals != 1 }}</span>{% endif %}
       </div>
       <div class="deck-meta">
-        {{ d.commander or 'comandante non identificato' }}
+        {{ d.commander or 'commander not identified' }}
       </div>
       <div class="deck-meta">
-        {{ d.size }} carte · {{ d.color_identity or 'C' }} ·
+        {{ d.size }} cards · {{ d.color_identity or 'C' }} ·
         bracket {{ d.target_bracket or '—' }} {{ d.bracket_name }}
       </div>
     </a>

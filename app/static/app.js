@@ -7,12 +7,12 @@ function renderCounter() {
   const projected = size - cuts + adds;
   const off = projected !== 100;
   el.innerHTML =
-    '<b>' + size + '</b> carte' +
+    '<b>' + size + '</b> cards' +
     (cuts ? ' · <span class="c-cut">−' + cuts + '</span>' : '') +
     (adds ? ' · <span class="c-add">+' + adds + '</span>' : '') +
     ((cuts || adds)
       ? ' → <span class="' + (off ? 'c-bad' : '') + '">' + projected + '</span>' +
-        (off ? ' (non 100)' : '')
+        (off ? ' (not 100)' : '')
       : '');
 }
 

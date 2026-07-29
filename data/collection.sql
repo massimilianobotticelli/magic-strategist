@@ -2637,8 +2637,8 @@ CREATE TABLE deck_proposals (
     updated_at  TEXT    NOT NULL DEFAULT (datetime('now')),
     UNIQUE (deck_id, oracle_id, action)
 );
-INSERT INTO deck_proposals VALUES(2,1,'a46f9136-b904-403e-b263-e99c9a2fe2ec','cut','proposed','Curva troppo alta: il mazzo ha 18 carte a costo 5+ ma vuole combare al turno 4-5. Ferrafor a {6}{G} non ha nessun ruolo assegnato e non entra in nessuna linea.','claude',NULL,'2026-07-29 20:49:28','2026-07-29 20:49:28');
-INSERT INTO deck_proposals VALUES(3,1,'0b67c4e2-f88b-4e01-85a1-9d5f5b8db13b','add','proposed','Ramp + fixing a {3}, e il mazzo ha solo 6 fonti di ramp vero. Sta nel pool moved-blight-curse, quindi non toglie niente a nessun mazzo attivo.','claude',2,'2026-07-29 20:49:28','2026-07-29 20:49:28');
+INSERT INTO deck_proposals VALUES(2,1,'a46f9136-b904-403e-b263-e99c9a2fe2ec','cut','proposed','Curve is too top-heavy: the deck runs 18 cards at mana value 5+ but wants to combo on turn 4-5. Ferrafor at {6}{G} carries no role and belongs to no line.','claude',NULL,'2026-07-29 20:49:28','2026-07-29 21:07:46');
+INSERT INTO deck_proposals VALUES(3,1,'0b67c4e2-f88b-4e01-85a1-9d5f5b8db13b','add','proposed','Ramp and fixing at {3}, and the deck has only 6 real ramp sources. It sits in the moved-blight-curse pool, so it takes nothing from any active deck.','claude',2,'2026-07-29 20:49:28','2026-07-29 21:07:46');
 CREATE TABLE wishlist (
     id                INTEGER PRIMARY KEY,
     card_name         TEXT NOT NULL,
