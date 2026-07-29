@@ -32,32 +32,49 @@ BRACKET_NAMES = {
 
 
 class Report:
+    """Collects results grouped by section, so --quiet can drop clean sections."""
+
     def __init__(self) -> None:
         self.failures: list[str] = []
         self.warnings: list[str] = []
-        self.lines: list[str] = []
+        # [(title, [(kind, text), ...]), ...]
+        self.sections: list[tuple[str, list[tuple[str, str]]]] = []
 
     def section(self, title: str) -> None:
-        self.lines.append(f"\n{title}\n{'-' * len(title)}")
+        self.sections.append((title, []))
+
+    def _add(self, kind: str, text: str, detail: list[str] | None = None) -> None:
+        entries = self.sections[-1][1]
+        entries.append((kind, text))
+        for item in detail or []:
+            entries.append(("detail", item))
 
     def ok(self, message: str) -> None:
-        self.lines.append(f"  ✓ {message}")
+        self._add("ok", f"  ✓ {message}")
 
     def fail(self, message: str, detail: list[str] | None = None) -> None:
         self.failures.append(message)
-        self.lines.append(f"  ✗ {message}")
-        for item in detail or []:
-            self.lines.append(f"      {item}")
+        self._add("fail", f"  ✗ {message}", detail)
 
     def warn(self, message: str, detail: list[str] | None = None) -> None:
         self.warnings.append(message)
-        self.lines.append(f"  ! {message}")
-        for item in detail or []:
-            self.lines.append(f"      {item}")
+        self._add("warn", f"  ! {message}", detail)
 
     def note(self, message: str) -> None:
         """Neither a failure nor a warning - just worth knowing."""
-        self.lines.append(f"  · {message}")
+        self._add("note", f"  · {message}")
+
+    def render(self, quiet: bool) -> list[str]:
+        out: list[str] = []
+        for title, entries in self.sections:
+            shown = [e for e in entries if not (quiet and e[0] == "ok")]
+            # In quiet mode a section with nothing left to say is dropped
+            # entirely, rather than leaving a bare heading behind.
+            if quiet and not any(k != "detail" for k, _ in shown):
+                continue
+            out.append(f"\n{title}\n{'-' * len(title)}")
+            out.extend(text for _, text in shown)
+        return out
 
 
 def check_deck_size(conn, report: Report) -> None:
@@ -341,9 +358,7 @@ def main(argv: list[str] | None = None) -> int:
         check(conn, report)
     conn.close()
 
-    for line in report.lines:
-        if args.quiet and line.strip().startswith("✓"):
-            continue
+    for line in report.render(args.quiet):
         print(line)
 
     print(f"\n{'=' * 60}")
