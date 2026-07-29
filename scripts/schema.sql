@@ -103,6 +103,13 @@ CREATE TABLE IF NOT EXISTS decks (
     color_identity      TEXT,
     target_bracket      INTEGER CHECK (target_bracket BETWEEN 1 AND 5),
     is_registered       INTEGER NOT NULL DEFAULT 0,
+    -- active: kept assembled and held to exactly 100.
+    -- donor:  cannibalised for parts. Its cards count as available inventory,
+    --         its list is not held to 100, and it makes no claim on a card
+    --         that an active deck also wants.
+    -- retired: kept for the record only.
+    status              TEXT NOT NULL DEFAULT 'active'
+                        CHECK (status IN ('active', 'donor', 'retired')),
     notes               TEXT
 );
 

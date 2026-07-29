@@ -41,10 +41,11 @@ def fmt_identity(identity: str | None) -> str:
 def cmd_decks(conn, args) -> int:
     rows = conn.execute(
         """
-        SELECT d.slug, d.name, d.color_identity, d.target_bracket, d.is_registered,
+        SELECT d.slug, d.name, d.color_identity, d.target_bracket, d.is_registered, d.status,
                c.name AS commander,
                (SELECT COALESCE(SUM(quantity), 0) FROM deck_cards
-                 WHERE deck_id = d.id AND section IN ('main','commander')) AS size
+                 WHERE deck_id = d.id AND section IN ('main','commander')) AS size,
+               (SELECT count(*) FROM copies cp WHERE cp.location_id = d.location_id) AS physical
           FROM decks d LEFT JOIN cards c ON c.oracle_id = d.commander_oracle_id
          ORDER BY d.slug
         """
@@ -54,8 +55,12 @@ def cmd_decks(conn, args) -> int:
         bracket = (f"bracket {row['target_bracket']} "
                    f"({BRACKET_NAMES.get(row['target_bracket'], '?')})"
                    if row["target_bracket"] else "bracket not set")
-        print(f"  {row['slug']}")
-        print(f"    {row['name']}  —  {row['size']} cards, {fmt_identity(row['color_identity'])}, {bracket}")
+        flag = "" if row["status"] == "active" else f"  [{row['status'].upper()}]"
+        # A donor deck's list is usually stale, so report what is really there.
+        size = (f"{row['size']} cards" if row["status"] == "active"
+                else f"{row['physical']} cards present, list says {row['size']}")
+        print(f"  {row['slug']}{flag}")
+        print(f"    {row['name']}  —  {size}, {fmt_identity(row['color_identity'])}, {bracket}")
         print(f"    commander: {row['commander'] or '(not identified)'}")
     return 0
 
@@ -242,14 +247,20 @@ def cmd_combos(conn, args) -> int:
 
 
 def cmd_pool(conn, args) -> int:
-    sql = """
+    # Donor decks are parts bins, so their cards are available inventory too.
+    # Pass --pools-only to see just the loose binders.
+    donor_clause = "" if args.pools_only else """
+           OR l.id IN (SELECT location_id FROM decks WHERE status = 'donor')"""
+
+    sql = f"""
         SELECT c.name, c.mana_cost, c.type_line, c.color_identity, c.is_game_changer,
-               l.slug AS location, p.set_code, p.collector_number
+               l.slug AS location, p.set_code, p.collector_number,
+               (SELECT status FROM decks WHERE location_id = l.id) AS deck_status
           FROM copies cp
           JOIN locations l ON l.id = cp.location_id
           JOIN cards c ON c.oracle_id = cp.oracle_id
           JOIN printings p ON p.scryfall_id = cp.printing_id
-         WHERE l.type = 'pool' AND c.is_basic_land = 0
+         WHERE c.is_basic_land = 0 AND (l.type = 'pool'{donor_clause})
     """
     params: list = []
     if args.location:
@@ -267,11 +278,12 @@ def cmd_pool(conn, args) -> int:
         rows = [r for r in rows if args.type.lower() in (r["type_line"] or "").lower()]
 
     label = f" within {args.color_identity.upper()}" if args.color_identity else ""
-    print(f"{len(rows)} loose card(s){label}\n")
+    print(f"{len(rows)} available card(s){label}\n")
     for row in rows:
+        where = row["location"] + (" (donor)" if row["deck_status"] == "donor" else "")
         print(f"  {gc(row['is_game_changer'])}{row['name']:<34} {(row['mana_cost'] or ''):<14} "
               f"{fmt_identity(row['color_identity']):<5} {row['type_line']:<40} "
-              f"[{row['location']}]")
+              f"[{where}]")
     return 0
 
 
@@ -329,10 +341,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--deck", help="limit to one deck slug")
     p.set_defaults(func=cmd_combos)
 
-    p = sub.add_parser("pool", help="loose cards not assigned to a deck")
+    p = sub.add_parser("pool", help="cards available to draw on: loose pools plus donor decks")
     p.add_argument("--color-identity", help="only cards inside this identity, e.g. BRG")
-    p.add_argument("--location", help="limit to one pool slug")
+    p.add_argument("--location", help="limit to one pool or deck slug")
     p.add_argument("--type", help="substring match on the type line")
+    p.add_argument("--pools-only", action="store_true",
+                   help="exclude donor decks, showing only the loose binders")
     p.set_defaults(func=cmd_pool)
 
     sub.add_parser("wishlist", help="cards to buy").set_defaults(func=cmd_wishlist)

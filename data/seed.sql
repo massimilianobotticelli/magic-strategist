@@ -35,6 +35,21 @@ UPDATE decks SET target_bracket = 2, is_registered = 1 WHERE slug = 'dance-of-th
 
 
 -- ---------------------------------------------------------------------------
+-- Dance of the Elements is a donor deck.
+--
+-- The bracket-4 Blight Curse upgrade took five cards out of it - Blasphemous
+-- Act, Cultivate, Fellwar Stone, Fury and Shriekmaw - leaving it at 95. Rather
+-- than rebuy or patch it from the pools, it is kept as a parts bin: its cards
+-- are available inventory for the two active decks, its list is not held to
+-- 100, and it no longer competes for a card an active deck wants.
+--
+-- To bring it back: set status = 'active' here, fill the list back to 100, and
+-- run `make validate`.
+-- ---------------------------------------------------------------------------
+UPDATE decks SET status = 'donor', is_registered = 0 WHERE slug = 'dance-of-the-elements';
+
+
+-- ---------------------------------------------------------------------------
 -- Wishlist.  Seeded from the ManaBox `Blight Curse Future` list; the price
 -- ceiling follows the standing ~EUR 10-15 per card budget.
 -- ---------------------------------------------------------------------------

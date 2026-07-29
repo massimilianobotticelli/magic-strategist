@@ -13,8 +13,12 @@ Runs inside the container:
 from __future__ import annotations
 
 import argparse
+import signal
 import sys
 from pathlib import Path
+
+# Output is meant to be piped into head/less, so a closed pipe is normal.
+signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -60,14 +64,23 @@ def check_deck_size(conn, report: Report) -> None:
     report.section("Deck size (exactly 100 including the commander)")
     rows = conn.execute(
         """
-        SELECT d.slug, d.name, COALESCE(SUM(dc.quantity), 0) AS total
+        SELECT d.slug, d.name, d.status, COALESCE(SUM(dc.quantity), 0) AS total,
+               (SELECT count(*) FROM copies cp WHERE cp.location_id = d.location_id) AS physical
           FROM decks d LEFT JOIN deck_cards dc
             ON dc.deck_id = d.id AND dc.section IN ('main', 'commander')
          GROUP BY d.id ORDER BY d.slug
         """
     ).fetchall()
     for row in rows:
-        if row["total"] == 100:
+        # Donor and retired decks are not kept assembled, so 100 is not a rule
+        # for them - reporting it every run would only bury the real failures.
+        # Their list is usually stale, so report what is physically there.
+        if row["status"] != "active":
+            drift = ("" if row["physical"] == row["total"]
+                     else f", list still describes {row['total']}")
+            report.note(f"{row['slug']}: {row['physical']} cards physically present"
+                        f"{drift} ({row['status']} deck — not held to 100)")
+        elif row["total"] == 100:
             report.ok(f"{row['slug']}: 100")
         else:
             report.fail(f"{row['slug']}: {row['total']} cards (should be 100)")
@@ -95,11 +108,11 @@ def check_supply_vs_demand(conn, report: Report) -> None:
     """The rule that actually protects a donor deck.
 
     A card may legitimately appear in several decks - every precon ships its
-    own Sol Ring. What must never happen is more decks wanting a card than
-    there are physical copies of it, because then building one deck quietly
-    strips another.
+    own Sol Ring. What must never happen is more ACTIVE decks wanting a card
+    than there are physical copies of it, because then building one deck
+    quietly strips another. Donor decks are parts bins and make no claim.
     """
-    report.section("Physical copies vs. deck demand")
+    report.section("Physical copies vs. deck demand (active decks only)")
     rows = conn.execute(
         """
         SELECT c.name,
@@ -110,6 +123,7 @@ def check_supply_vs_demand(conn, report: Report) -> None:
           JOIN decks d ON d.id = dc.deck_id
           JOIN cards c ON c.oracle_id = dc.oracle_id
          WHERE dc.section IN ('main', 'commander')
+           AND d.status = 'active'
            AND c.is_basic_land = 0 AND c.is_token = 0
          GROUP BY c.oracle_id
         HAVING wanted_by > owned
@@ -135,6 +149,7 @@ def check_deck_cards_owned(conn, report: Report) -> None:
           JOIN decks d ON d.id = dc.deck_id
           LEFT JOIN cards c ON c.oracle_id = dc.oracle_id
          WHERE dc.section IN ('main', 'commander')
+           AND d.status = 'active'
            AND COALESCE(c.is_basic_land, 0) = 0
            AND NOT EXISTS (SELECT 1 FROM copies cp WHERE cp.oracle_id = dc.oracle_id)
          ORDER BY d.slug, dc.card_name
@@ -149,7 +164,8 @@ def check_deck_cards_owned(conn, report: Report) -> None:
 def check_color_identity(conn, report: Report) -> None:
     report.section("Colour identity inside the commander's")
     decks = conn.execute(
-        "SELECT id, slug, name, color_identity, commander_oracle_id FROM decks ORDER BY slug"
+        "SELECT id, slug, name, color_identity, commander_oracle_id FROM decks "
+        "WHERE status = 'active' ORDER BY slug"
     ).fetchall()
     for deck in decks:
         if not deck["commander_oracle_id"]:
@@ -179,7 +195,7 @@ def check_color_identity(conn, report: Report) -> None:
 def check_game_changers(conn, report: Report) -> None:
     report.section("Game Changers vs. target bracket")
     for deck in conn.execute(
-        "SELECT id, slug, target_bracket FROM decks ORDER BY slug"
+        "SELECT id, slug, target_bracket FROM decks WHERE status = 'active' ORDER BY slug"
     ).fetchall():
         names = [
             row["name"]

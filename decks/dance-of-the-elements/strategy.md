@@ -1,10 +1,23 @@
 # Dance of the Elements — strategy
 
-> **Draft.** Written from what is actually in the decklist, not from play
-> experience. To be refined in session.
+> ## ⚠️ This is a DONOR deck
+>
+> The bracket-4 Blight Curse upgrade took **Blasphemous Act, Cultivate, Fellwar
+> Stone, Fury and Shriekmaw** out of it. It sits at **95 cards** and is kept as
+> a parts bin rather than rebuilt.
+>
+> `decklist.txt` still describes the original 100 and is deliberately stale.
+> The physical truth is in the database — `make query ARGS='deck
+> dance-of-the-elements'`. Its cards are available inventory for the two active
+> decks and show up in `make query ARGS='pool'` tagged `(donor)`.
+>
+> To revive it: set `status = 'active'` in `data/seed.sql`, fill the list back
+> to 100, and run `make validate`.
+
+> **Draft.** Written from what was in the decklist, not from play experience.
 
 **Commander:** Ashling, the Limitless — {2}{R}, five-colour identity (BGRUW)
-**Target bracket:** 2 (Core) — *provisional; this is an unmodified precon*
+**Target bracket:** 2 (Core) — *while it was active*
 
 > Elemental permanent spells you cast from your hand gain evoke {4}.
 > Whenever you sacrifice a nontoken Elemental, create a token that's a copy of

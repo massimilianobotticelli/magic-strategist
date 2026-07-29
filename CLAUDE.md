@@ -44,9 +44,29 @@ for fun. Skip the question if he already said.
 
 He does **not** own exactly one copy of every card — each precon ships its own
 Sol Ring, Arcane Signet and Command Tower, so several staples exist in
-triplicate. What matters is **supply vs. demand**: if more decks list a card
-than there are physical copies, building one deck strips another. `validate.py`
-checks this. When proposing a move, always say which deck loses the card.
+triplicate. What matters is **supply vs. demand**: if more *active* decks list a
+card than there are physical copies, building one deck strips another.
+`validate.py` checks this. When proposing a move, always say which deck loses
+the card.
+
+## Deck status
+
+Every deck is `active`, `donor` or `retired` (`decks.status`, set in
+`data/seed.sql`).
+
+- **active** — kept assembled, held to exactly 100, competes for cards.
+- **donor** — cannibalised for parts. Its cards are **available inventory**, its
+  list is not held to 100, and it makes no claim on a card an active deck wants.
+  `query.py pool` includes donor decks by default, tagged `(donor)`.
+- **retired** — kept for the record only.
+
+`dance-of-the-elements` is currently a **donor** deck: the bracket-4 Blight
+Curse upgrade took five cards out of it, and rather than rebuy them it was kept
+as a parts bin. Its `decklist.txt` still describes the original 100 and is
+deliberately stale — treat `copies` as the truth for that deck.
+
+**Freely recommend cards out of a donor deck.** That is what it is for, and no
+active deck is weakened by the move.
 
 ## Brackets
 
