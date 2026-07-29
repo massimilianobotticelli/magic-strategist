@@ -1,3 +1,5 @@
+const HOLD_MS = 450;
+
 function renderCounter() {
   const el = document.getElementById('counter');
   if (!el) return;
@@ -24,8 +26,7 @@ async function toggle(tile) {
   if (!res.ok) { console.error('proposal failed', res.status); return; }
   const data = await res.json();
 
-  const cls = 'tile-' + tile.dataset.action;
-  tile.classList.toggle(cls, data.state === 'created');
+  tile.classList.toggle('tile-' + tile.dataset.action, data.state === 'created');
 
   const el = document.getElementById('counter');
   if (el && data.totals) {
@@ -36,10 +37,77 @@ async function toggle(tile) {
   }
 }
 
-document.addEventListener('click', (e) => {
-  const tile = e.target.closest('.tile:not(.tile-static)');
-  if (tile) { toggle(tile); return; }
+function openZoom(tile) {
+  const img = tile.querySelector('img');
+  const zoom = document.getElementById('zoom');
+  if (!img || !zoom) return;
+  document.getElementById('zoom-img').src = img.dataset.full || img.src;
+  zoom.hidden = false;
+}
 
+function closeZoom() {
+  const zoom = document.getElementById('zoom');
+  if (zoom) zoom.hidden = true;
+}
+
+/* Click opens the card. Press and hold marks it, so scrolling past a grid of
+   a hundred cards never triggers anything.
+   Cancelling is driven by MOVEMENT, not by the pointer leaving an element: a
+   hold should survive a shaky hand, but a scroll must never mark a card. */
+const MOVE_TOLERANCE = 12;
+let holdTimer = null, heldTile = null, didHold = false, startX = 0, startY = 0;
+
+function startHold(tile, x, y) {
+  if (!tile || tile.classList.contains('tile-static')) return;
+  heldTile = tile;
+  didHold = false;
+  startX = x;
+  startY = y;
+  tile.classList.add('tile-holding');
+  holdTimer = setTimeout(() => {
+    didHold = true;
+    tile.classList.remove('tile-holding');
+    toggle(tile);
+    if (navigator.vibrate) navigator.vibrate(15);
+    holdTimer = null;
+    heldTile = null;
+  }, HOLD_MS);
+}
+
+function cancelHold() {
+  if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+  if (heldTile) { heldTile.classList.remove('tile-holding'); heldTile = null; }
+}
+
+function movedTooFar(x, y) {
+  return Math.abs(x - startX) > MOVE_TOLERANCE || Math.abs(y - startY) > MOVE_TOLERANCE;
+}
+
+document.addEventListener('mousedown', (e) => {
+  if (e.button !== 0) return;
+  startHold(e.target.closest('.tile'), e.clientX, e.clientY);
+});
+document.addEventListener('mouseup', cancelHold);
+document.addEventListener('mousemove', (e) => {
+  if (heldTile && movedTooFar(e.clientX, e.clientY)) cancelHold();
+});
+
+document.addEventListener('touchstart', (e) => {
+  const t = e.touches[0];
+  startHold(e.target.closest('.tile'), t.clientX, t.clientY);
+}, { passive: true });
+document.addEventListener('touchend', cancelHold);
+document.addEventListener('touchcancel', cancelHold);
+document.addEventListener('touchmove', (e) => {
+  const t = e.touches[0];
+  if (heldTile && t && movedTooFar(t.clientX, t.clientY)) cancelHold();
+}, { passive: true });
+
+document.addEventListener('contextmenu', (e) => {
+  if (e.target.closest('.tile')) e.preventDefault();
+});
+
+document.addEventListener('click', (e) => {
   const btn = e.target.closest('.proposal-actions button');
   if (btn) {
     const card = btn.closest('.proposal');
@@ -50,32 +118,22 @@ document.addEventListener('click', (e) => {
     return;
   }
 
-  const zoom = document.getElementById('zoom');
-  if (zoom && !zoom.hidden) zoom.hidden = true;
+  const tile = e.target.closest('.tile');
+  if (tile) {
+    if (didHold) { didHold = false; return; }
+    openZoom(tile);
+    return;
+  }
+
+  closeZoom();
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') { const z = document.getElementById('zoom'); if (z) z.hidden = true; }
-  if ((e.key === 'Enter' || e.key === ' ') && document.activeElement.classList.contains('tile')) {
-    e.preventDefault();
-    toggle(document.activeElement);
-  }
-});
-
-let hoverTimer = null;
-document.addEventListener('mouseover', (e) => {
-  const img = e.target.closest('.tile img');
-  clearTimeout(hoverTimer);
-  if (!img) return;
-  hoverTimer = setTimeout(() => {
-    const zoom = document.getElementById('zoom');
-    if (!zoom) return;
-    document.getElementById('zoom-img').src = img.dataset.full || img.src;
-    zoom.hidden = false;
-  }, 420);
-});
-document.addEventListener('mouseout', (e) => {
-  if (e.target.closest('.tile img')) clearTimeout(hoverTimer);
+  if (e.key === 'Escape') { closeZoom(); return; }
+  const tile = document.activeElement;
+  if (!tile || !tile.classList.contains('tile')) return;
+  if (e.key === 'Enter') { e.preventDefault(); openZoom(tile); }
+  if (e.key === ' ') { e.preventDefault(); toggle(tile); }
 });
 
 renderCounter();

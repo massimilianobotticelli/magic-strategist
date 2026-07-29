@@ -63,10 +63,14 @@ section { margin-bottom: 34px; }
 
 .tile {
   position: relative; background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: border-color .12s;
+  border-radius: var(--radius); overflow: hidden; cursor: pointer;
+  transition: border-color .12s, transform .12s;
+  /* A hold must not start a text selection or the iOS callout menu. */
+  user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
 }
 .tile:hover, .tile:focus-visible { border-color: var(--accent); outline: none; }
-.tile-static { cursor: default; }
+/* Shrinks while held, so the press is visibly registering before it marks. */
+.tile-holding { transform: scale(.93); transition: transform 450ms ease-out; }
 .tile img { display: block; width: 100%; aspect-ratio: 488/680; object-fit: cover; }
 .tile-noimg {
   display: flex; align-items: center; justify-content: center; text-align: center;
@@ -133,4 +137,5 @@ section { margin-bottom: 34px; }
 /* `display: flex` would otherwise beat the `hidden` attribute and leave the
    overlay covering the whole page. */
 #zoom[hidden] { display: none; }
+#zoom img { max-width: 420px; }
 #zoom img { max-width: 340px; width: 100%; border-radius: 14px; }

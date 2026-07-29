@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}magic-strategist{% endblock %}</title>
-  <link rel="stylesheet" href="/static/app.css">
+  <link rel="stylesheet" href="{{ asset('app.css') }}">
 </head>
 <body>
   <header class="topbar">
@@ -12,6 +12,6 @@
     {% block topbar %}{% endblock %}
   </header>
   <main>{% block content %}{% endblock %}</main>
-  <script src="/static/app.js"></script>
+  <script src="{{ asset('app.js') }}"></script>
 </body>
 </html>

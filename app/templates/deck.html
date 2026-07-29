@@ -5,7 +5,7 @@
 <div class="tile {% if c.proposal %}tile-{{ c.proposal.action }}{% endif %}"
      data-oracle="{{ c.oracle_id }}" data-action="{{ action }}" data-deck="{{ deck_id }}"
      tabindex="0" role="button"
-     aria-label="{{ c.name }} — {{ 'segna da togliere' if action == 'cut' else 'segna da aggiungere' }}">
+     aria-label="{{ c.name }} — invio per ingrandire, spazio per {{ 'segnarla da togliere' if action == 'cut' else 'segnarla da aggiungere' }}">
   {% if c.image_small %}
     <img src="{{ c.image_small }}" alt="{{ c.name }}" loading="lazy"
          data-full="{{ c.image or c.image_small }}">
@@ -77,7 +77,7 @@
 
   <section>
     <h2>Mazzo <span class="dim">{{ totals.size }} carte</span></h2>
-    <p class="hint">Clicca una carta per segnarla da togliere. Passa il mouse per ingrandirla.</p>
+    <p class="hint">Clicca una carta per ingrandirla. <strong>Tieni premuto</strong> per segnarla da togliere.</p>
     {% for key, label in TYPE_ORDER %}
       {% set group = cards | selectattr('group', 'equalto', key) | list %}
       {% if group %}
@@ -92,7 +92,8 @@
   <section>
     <h2>Carte papabili <span class="dim">{{ candidates | length }}</span></h2>
     <p class="hint">Carte che possiedi, dentro l'identità di colore di {{ deck.commander or 'questo mazzo' }} e non già nel mazzo.
-      Verde = pool o donor deck, non costa niente a nessuno. Ambra = in un mazzo attivo, che perderebbe la carta.</p>
+      Verde = pool o donor deck, non costa niente a nessuno. Ambra = in un mazzo attivo, che perderebbe la carta.
+      Clicca per ingrandire, <strong>tieni premuto</strong> per segnarla da aggiungere.</p>
     <form class="filters" method="get">
       <input type="search" name="q_" value="{{ search }}" placeholder="cerca per nome">
       {% for r in ['ramp','card-draw','spot-removal','board-wipe','tutor','protection','recursion','fixing'] %}

@@ -24,6 +24,20 @@ templates = Jinja2Templates(directory=BASE / "templates")
 templates.env.globals["TYPE_ORDER"] = q.TYPE_ORDER
 
 
+def asset(path: str) -> str:
+    """Stamp static URLs with the file's mtime.
+
+    Without this the browser keeps serving a cached app.js/app.css after an
+    edit, and the page silently runs the old code.
+    """
+    f = BASE / "static" / path
+    stamp = int(f.stat().st_mtime) if f.exists() else 0
+    return f"/static/{path}?v={stamp}"
+
+
+templates.env.globals["asset"] = asset
+
+
 @app.get("/", response_class=HTMLResponse)
 def index(request: Request):
     conn = q.connect()
