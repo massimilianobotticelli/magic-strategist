@@ -22,6 +22,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import db  # noqa: E402
+import roles  # noqa: E402
 import scryfall  # noqa: E402
 
 
@@ -252,11 +253,14 @@ def main(argv: list[str] | None = None) -> int:
     copies = db.materialize_copies(conn)
     resolved = db.resolve_deck_cards(conn)
     db.refresh_deck_metadata(conn)
+    tagged = roles.tag_roles(conn)
 
     print(f"\ncopies:     {copies['copies']} materialised, {copies['conflicts']} conflict(s), "
           f"{copies['unenriched']} still unenriched")
     print(f"deck cards: {resolved['by_printing']} matched by printing, "
           f"{resolved['by_name']} by name, {resolved['unresolved']} unresolved")
+    print(f"roles:      {tagged.pop('tagged')} automatic tag(s) — "
+          + ", ".join(f"{k} {v}" for k, v in sorted(tagged.items())))
 
     conn.close()
     return 0
