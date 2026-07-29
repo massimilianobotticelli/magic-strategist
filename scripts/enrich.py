@@ -183,6 +183,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--db", type=Path, default=db.DB_PATH, help="database path")
     parser.add_argument("--force", action="store_true", help="ignore the cache and refetch")
     parser.add_argument("--offline", action="store_true", help="use only cached responses")
+    parser.add_argument(
+        "--names", nargs="+", metavar="NAME",
+        help="also fetch these cards by exact name. Combo disablers are usually "
+             "cards you do not own, but they still need a row to be recorded against.",
+    )
     args = parser.parse_args(argv)
 
     conn = db.connect(args.db)
@@ -249,6 +254,30 @@ def main(argv: list[str] | None = None) -> int:
         print(f"\n!! {len(missing)} identifier(s) not found on Scryfall:")
         for identifier in missing:
             print(f"   {identifier}")
+
+    # Cards referenced by name rather than owned - combo disablers, mostly.
+    for name in args.names or []:
+        existing = conn.execute("SELECT 1 FROM cards WHERE name = ?", (name,)).fetchone()
+        if existing and not args.force:
+            continue
+
+        # Serve from cache first, so a rebuild keeps working with no network.
+        cached_id = aliases.get(scryfall.name_key(name))
+        card = scryfall.cached_card(cached_id) if cached_id else None
+        if card is None:
+            if args.offline:
+                print(f"  offline and uncached, skipping: {name}")
+                continue
+            card = scryfall.named(name)
+            if card is None:
+                print(f"  !! not found on Scryfall: {name}")
+                continue
+            scryfall.cache_card(card)
+            aliases[scryfall.name_key(name)] = card["id"]
+            scryfall.save_aliases(aliases)
+        upsert_card(conn, card)
+        print(f"  by name: {card['name']}")
+    conn.commit()
 
     copies = db.materialize_copies(conn)
     resolved = db.resolve_deck_cards(conn)

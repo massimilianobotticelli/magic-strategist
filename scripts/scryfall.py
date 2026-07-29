@@ -80,6 +80,11 @@ def alias_key(set_code: str, collector_number: str) -> str:
     return f"{set_code.lower()}/{collector_number}"
 
 
+def name_key(name: str) -> str:
+    """Alias for a card looked up by name, so --offline can serve it from cache."""
+    return f"name:{name.strip().lower()}"
+
+
 # ---------------------------------------------------------------------------
 # Requests
 # ---------------------------------------------------------------------------

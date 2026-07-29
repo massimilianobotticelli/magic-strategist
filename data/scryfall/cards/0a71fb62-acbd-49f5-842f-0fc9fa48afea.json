@@ -1,0 +1,133 @@
+{
+ "artist": "Greg Opalinski",
+ "artist_ids": [
+  "b864fecb-d491-4f8d-b915-f6c93d0885fa"
+ ],
+ "booster": true,
+ "border_color": "black",
+ "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+ "cardmarket_id": 298655,
+ "cmc": 3.0,
+ "collector_number": "22",
+ "color_identity": [
+  "W"
+ ],
+ "colors": [
+  "W"
+ ],
+ "digital": false,
+ "edhrec_rank": 3906,
+ "finishes": [
+  "nonfoil",
+  "foil"
+ ],
+ "flavor_text": "The arrival of the God-Pharaoh marked a betrayal of both gods and mortals.",
+ "foil": true,
+ "frame": "2015",
+ "full_art": false,
+ "game_changer": false,
+ "games": [
+  "paper",
+  "mtgo"
+ ],
+ "highres_image": true,
+ "id": "0a71fb62-acbd-49f5-842f-0fc9fa48afea",
+ "illustration_id": "d4727c38-1c1a-4b4c-9ca5-aab6beab14e8",
+ "image_status": "highres_scan",
+ "image_updated_at": "2026-07-13T09:47:39Z",
+ "image_uris": {
+  "art": "https://cards.scryfall.io/art/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.webp?1783936059",
+  "art_crop": "https://cards.scryfall.io/art_crop/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.jpg?1783936059",
+  "border_crop": "https://cards.scryfall.io/border_crop/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.jpg?1783936059",
+  "crop": "https://cards.scryfall.io/crop/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.webp?1783936059",
+  "display": "https://cards.scryfall.io/display/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.webp?1783936059",
+  "grid": "https://cards.scryfall.io/grid/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.webp?1783936059",
+  "large": "https://cards.scryfall.io/large/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.jpg?1783936059",
+  "normal": "https://cards.scryfall.io/normal/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.jpg?1783936059",
+  "png": "https://cards.scryfall.io/png/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.png?1783936059",
+  "small": "https://cards.scryfall.io/small/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.jpg?1783936059",
+  "thumb": "https://cards.scryfall.io/thumb/front/0/a/0a71fb62-acbd-49f5-842f-0fc9fa48afea.webp?1783936059"
+ },
+ "keywords": [],
+ "lang": "en",
+ "layout": "normal",
+ "legalities": {
+  "alchemy": "not_legal",
+  "brawl": "legal",
+  "commander": "legal",
+  "competitivebrawl": "legal",
+  "duel": "legal",
+  "future": "not_legal",
+  "gladiator": "legal",
+  "historic": "legal",
+  "legacy": "legal",
+  "modern": "legal",
+  "oathbreaker": "legal",
+  "oldschool": "not_legal",
+  "pauper": "not_legal",
+  "paupercommander": "not_legal",
+  "penny": "legal",
+  "pioneer": "legal",
+  "predh": "not_legal",
+  "premodern": "not_legal",
+  "standard": "not_legal",
+  "standardbrawl": "not_legal",
+  "timeless": "legal",
+  "tlr": "legal",
+  "vintage": "legal"
+ },
+ "mana_cost": "{2}{W}",
+ "mtgo_foil_id": 64529,
+ "mtgo_id": 64528,
+ "multiverse_ids": [
+  430711
+ ],
+ "name": "Solemnity",
+ "nonfoil": true,
+ "object": "card",
+ "oracle_id": "f0b4331b-ddd3-4f11-ba16-67c651c8954c",
+ "oracle_text": "Players can't get counters.\nCounters can't be put on artifacts, creatures, enchantments, or lands.",
+ "oversized": false,
+ "penny_rank": 1875,
+ "prices": {
+  "eur": "5.72",
+  "eur_foil": "9.39",
+  "tix": "0.02",
+  "usd": "9.85",
+  "usd_etched": null,
+  "usd_foil": "19.89"
+ },
+ "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af0b4331b-ddd3-4f11-ba16-67c651c8954c&unique=prints",
+ "promo": false,
+ "purchase_uris": {
+  "cardhoarder": "https://www.cardhoarder.com/cards/64528?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+  "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=298655&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+  "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F135017%3Fpage%3D1"
+ },
+ "rarity": "rare",
+ "related_uris": {
+  "edhrec": "https://edhrec.com/route/?cc=Solemnity",
+  "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=430711&printed=false",
+  "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DSolemnity",
+  "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DSolemnity"
+ },
+ "released_at": "2017-07-14",
+ "reprint": false,
+ "reserved": false,
+ "rulings_uri": "https://api.scryfall.com/cards/0a71fb62-acbd-49f5-842f-0fc9fa48afea/rulings",
+ "scryfall_set_uri": "https://scryfall.com/sets/hou?utm_source=api",
+ "scryfall_uri": "https://scryfall.com/card/hou/22/solemnity?utm_source=api",
+ "security_stamp": "oval",
+ "set": "hou",
+ "set_id": "65ff168b-bb94-47a5-a8f9-4ec6c213e768",
+ "set_name": "Hour of Devastation",
+ "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Ahou&unique=prints",
+ "set_type": "expansion",
+ "set_uri": "https://api.scryfall.com/sets/65ff168b-bb94-47a5-a8f9-4ec6c213e768",
+ "story_spotlight": false,
+ "tcgplayer_id": 135017,
+ "textless": false,
+ "type_line": "Enchantment",
+ "uri": "https://api.scryfall.com/cards/0a71fb62-acbd-49f5-842f-0fc9fa48afea",
+ "variation": false
+}

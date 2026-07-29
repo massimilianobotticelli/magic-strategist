@@ -42,12 +42,16 @@ seed:
 validate:
 	$(RUN) python scripts/validate.py $(ARGS)
 
+# Cards that must exist in `cards` without being owned - combo disablers, which
+# data/seed.sql references by name. Kept here so a rebuild cannot lose them.
+EXTRA_CARDS := "Melira, Sylvok Outcast" "Solemnity" "Pithing Needle"
+
 # Full rebuild from the committed raw exports and decklists. Uses the cached
 # Scryfall responses, so it works with no network.
 rebuild:
 	$(RUN) sh -c 'rm -f data/collection.db && \
 	  python scripts/import_manabox.py data/manabox/*/*.csv decks/*/decklist.txt --no-materialize && \
-	  python scripts/enrich.py --offline && \
+	  python scripts/enrich.py --offline --names $(EXTRA_CARDS) && \
 	  python scripts/sync_gamechangers.py --offline && \
 	  sqlite3 data/collection.db < data/seed.sql'
 	@echo 'Rebuilt data/collection.db'

@@ -67,24 +67,82 @@ UPDATE wishlist
 -- ---------------------------------------------------------------------------
 -- Combos.
 --
--- Nothing is seeded here yet: the strategy and upgrade documents these would
--- come from do not exist, and inventing combos would put fiction into the
--- database. Register them as they are worked out, one INSERT per combo.
+-- Source: the Bracket 4 upgrade summary in
+-- decks/blight-curse-b4-final/upgrades.md. Every line below was checked against
+-- the oracle text in the database, not against memory.
 --
--- The disablers are the part that keeps getting lost, so they are not
--- optional. Template:
---
---   INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
---   VALUES ('Devoted Druid + Quillspike', 'infinite',
---           'infinite +1/+1 counters and unbounded mana',
---           'turn 4-5 with ramp', NULL,
---           (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final'));
---
---   INSERT INTO combo_pieces (combo_id, oracle_id, owned)
---   SELECT (SELECT id FROM combos WHERE name = 'Devoted Druid + Quillspike'),
---          oracle_id, 1 FROM cards WHERE name IN ('Devoted Druid', 'Quillspike');
---
---   INSERT INTO combo_disablers (combo_id, oracle_id, note)
---   SELECT (SELECT id FROM combos WHERE name = 'Devoted Druid + Quillspike'),
---          oracle_id, 'stops the untap' FROM cards WHERE name IN ('Pithing Needle');
+-- Disablers are not optional. Melira, Sylvok Outcast turns BOTH combos off and
+-- was only recorded as a one-line aside under "rejected additions" in the
+-- original notes -- exactly the kind of detail this table exists to stop losing.
 -- ---------------------------------------------------------------------------
+
+DELETE FROM combo_disablers;
+DELETE FROM combo_pieces;
+DELETE FROM combos;
+
+-- 1. The core two-card engine ------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Blowfly Infestation + Nest of Scarabs',
+    'infinite',
+    'Obelisk Spider and Zulaport Cutthroat drain every opponent once per iteration. Auntie Ool draws a card each time, since the counters land on your own creatures.',
+    'Primary line. Needs one or two 1-toughness bodies on board to start; Reassembling Skeleton is ideal fuel.',
+    'A creature with a -1/-1 counter dies, Blowfly Infestation puts a counter on another creature you control, Nest of Scarabs makes that many Insect tokens, the new token dies, loop. STOP CONDITION REQUIRED: Auntie Ool''s draw is forced, so keep a toughness-2+ target available to close the loop before decking yourself out.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Blowfly Infestation + Nest of Scarabs'),
+       oracle_id, 1,
+       CASE name WHEN 'Reassembling Skeleton' THEN 'ideal starting fuel, not strictly required' END
+  FROM cards WHERE name IN ('Blowfly Infestation', 'Nest of Scarabs', 'Reassembling Skeleton');
+
+-- 2. Infinite mana -----------------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Devoted Druid + Quillspike',
+    'infinite',
+    'Infinite green mana, plus an arbitrarily large Quillspike. Sink the mana into Exsanguinate for a clean kill.',
+    'Two creatures for four mana total, so it assembles around turn 4-5. Legal at bracket 4; it would NOT be legal at bracket 3.',
+    'Tap Devoted Druid for {G}, put a -1/-1 counter on it to untap, tap again for {G}, then pay Quillspike''s {B/G} to remove that counter. The untap is free, so each iteration nets one green mana and leaves Quillspike +3/+3. Devoted Druid must be free of summoning sickness.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Devoted Druid + Quillspike'),
+       oracle_id, 1, NULL
+  FROM cards WHERE name IN ('Devoted Druid', 'Quillspike');
+
+-- Disablers ------------------------------------------------------------------
+-- Melira and Solemnity shut off BOTH lines; they were deliberately rejected as
+-- additions to this deck for exactly that reason.
+INSERT INTO combo_disablers (combo_id, oracle_id, note)
+SELECT c.id, k.oracle_id,
+       CASE k.name
+         WHEN 'Melira, Sylvok Outcast' THEN 'your creatures cannot have -1/-1 counters put on them - kills both lines outright. Explicitly rejected as an addition for this reason.'
+         WHEN 'Solemnity' THEN 'counters cannot be put on permanents at all - kills both lines outright'
+       END
+  FROM combos c CROSS JOIN cards k
+ WHERE k.name IN ('Melira, Sylvok Outcast', 'Solemnity');
+
+-- Devoted Druid's untap is an activated ability, so it can be named.
+INSERT INTO combo_disablers (combo_id, oracle_id, note)
+SELECT (SELECT id FROM combos WHERE name = 'Devoted Druid + Quillspike'),
+       oracle_id, 'naming Devoted Druid shuts off the untap ability'
+  FROM cards WHERE name = 'Pithing Needle';
+
+
+-- ---------------------------------------------------------------------------
+-- Wishlist corrections from the upgrade summary.
+--
+-- Demonic Tutor and Vampiric Tutor are both Game Changers and both legal at
+-- bracket 4, but the upgrade summary records them as rejected: too expensive
+-- for the budget target, replaced by Diabolic Intent. They stay on the ManaBox
+-- list, so they are marked dropped rather than deleted.
+--
+-- To want them again, change 'dropped' back to 'wanted'.
+-- ---------------------------------------------------------------------------
+UPDATE wishlist
+   SET status = 'dropped',
+       notes = notes || ' — rejected in the B4 upgrade: over budget, replaced by Diabolic Intent'
+ WHERE card_name IN ('Demonic Tutor', 'Vampiric Tutor');
