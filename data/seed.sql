@@ -451,7 +451,11 @@ SELECT (SELECT id FROM combos WHERE name = 'Prehistoric Pet + Putrid Pals / Lord
 --
 -- To want them again, change 'dropped' back to 'wanted'.
 -- ---------------------------------------------------------------------------
+-- The NOT LIKE guard is what makes this idempotent. `notes || '...'` appends on
+-- every run, so without it a second `make seed` on a live database bolts the
+-- same sentence on again, and a third time after that.
 UPDATE wishlist
    SET status = 'dropped',
        notes = notes || ' — rejected in the B4 upgrade: over budget, replaced by Diabolic Intent'
- WHERE card_name IN ('Demonic Tutor', 'Vampiric Tutor');
+ WHERE card_name IN ('Demonic Tutor', 'Vampiric Tutor')
+   AND notes NOT LIKE '%rejected in the B4 upgrade%';
