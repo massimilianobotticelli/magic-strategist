@@ -20,10 +20,13 @@ Commander concept — every hybrid castable off W/B mana was filtered out.
 ## Forced swaps: the SOS Draft deck
 
 Four cards turned out to belong to the 40-card Secrets of Strixhaven draft deck,
-which is kept assembled and is not available inventory. The lesson is that the
-**set code is not the test** — Bitter Triumph is a TDC printing and Repel Calamity
-a BLB one, and both were opened at that draft. What they share is the `Free Cards`
-pool, which is where the draft leftovers live.
+which is kept assembled and is not available inventory.
+
+The cause was simply that the SOS Draft deck had not been registered in ManaBox
+yet, so its cards read as free. It is registered now, and the pools are accurate
+again. The one lesson worth keeping is that the **set code is not the test**:
+Bitter Triumph is a TDC printing and Repel Calamity a BLB one, and both were
+opened at that draft — a deck mixes printings from many sets.
 
 | Out | In | What it cost |
 |---|---|---|

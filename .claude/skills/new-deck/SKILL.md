@@ -130,8 +130,11 @@ Then `make dump` and tell him the deck is in the app, with:
   meaningless outside Commander and hides castable hybrids, and it hides a card
   listed in an active deck even when a spare copy is free in a pool. See
   CLAUDE.md before concluding that the collection cannot supply something.
-- **The set a card comes from says nothing about whether it is free.** A loose
-  pool can hold leftovers from a draft whose deck he still plays. Ask him.
+- **The set a card comes from says nothing about whether it is free** — one deck
+  mixes printings from many sets. A card in a free pool *is* free; the pools are
+  right as long as every assembled deck is registered as a ManaBox binder. If he
+  says a card is not available, the cause is a deck missing from ManaBox, and
+  registering it beats swapping cards one at a time.
 - **Basic lands run out too**, and `validate` will not tell you: it exempts them
   from the supply check.
 - **Do not modify `decklist.txt`.** Drafts live in the database until he

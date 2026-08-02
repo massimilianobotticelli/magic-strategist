@@ -63,6 +63,10 @@ The repo learns about it only through committed exports in `data/manabox/`.
   deck into a binder turns it into a pool.
 - **A deck's card list comes from its `decklist.txt`, never from the binder.**
   The binder supplies the physical copies. `validate` checks the two agree.
+- **Everything he keeps assembled must exist as a binder**, or its cards sit in
+  a pool and read as available inventory. When a deck turns out to be missing,
+  registering it in ManaBox and re-exporting fixes the whole class of problem at
+  once — do that instead of patching one card at a time.
 
 After he changes anything physically: he re-exports, drops it in
 `data/manabox/<date>/`, then `make rebuild && make validate`. Read the output
@@ -94,10 +98,16 @@ if you trust it alone:**
    in a pool.** He owns a few duplicates. Query `copies` directly when a card
    seems missing.
 
-**The set code is not the test for whether a card is available.** What matters
-is the pool it sits in and whether an assembled deck already claims it. Loose
-pools can hold leftovers from a draft whose deck he still plays. If in doubt,
-ask him — he is the authority on what is physically where.
+**The set code is not the test for whether a card is available.** One deck mixes
+printings from many sets, so "it is from set X" tells you nothing. What matters
+is the pool it sits in and whether an assembled deck already claims it.
+
+**A card in a free pool is free — trust that.** The pools are accurate as long
+as ManaBox is complete, and treating them as suspect just adds friction. The one
+failure mode is a deck that exists on the table but was never registered as a
+binder: its cards then read as free because nothing says otherwise. If he says a
+card is not available when the database says it is, that is the cause, and the
+fix is to register the missing deck in ManaBox — not to start doubting pools.
 
 ## Formats
 
