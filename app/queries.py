@@ -17,6 +17,14 @@ import db  # noqa: E402
 
 BRACKET_NAMES = {1: "Exhibition", 2: "Core", 3: "Upgraded", 4: "Optimized", 5: "cEDH"}
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
+import formats as fmt_rules  # noqa: E402
+
+FORMAT_NAMES = {k: v.name for k, v in fmt_rules.FORMATS.items()}
+FORMAT_LIST = [
+    {"slug": k, "name": v.name, "notes": v.notes} for k, v in fmt_rules.FORMATS.items()
+]
+
 # The order deck sections are shown in, and how a type line maps onto them.
 TYPE_ORDER = [
     ("commander", "Commander"),
@@ -281,6 +289,43 @@ def toggle_proposal(conn, deck_id: int, oracle_id: str, action: str, source: str
 
 def set_status(conn, proposal_id: int, status: str) -> None:
     conn.execute("UPDATE deck_proposals SET status = ? WHERE id = ?", (status, proposal_id))
+    conn.commit()
+
+
+def create_request(conn, **fields) -> int:
+    cur = conn.execute(
+        """
+        INSERT INTO deck_requests (format, colors, commander_hint, strategy,
+                                   allow_borrowing, allow_buying, notes)
+        VALUES (:format, :colors, :commander_hint, :strategy,
+                :allow_borrowing, :allow_buying, :notes)
+        """,
+        fields,
+    )
+    conn.commit()
+    return int(cur.lastrowid)
+
+
+def list_requests(conn, status: str | None = None) -> list[dict]:
+    sql = """
+        SELECT r.*, d.slug AS deck_slug, d.name AS deck_name
+          FROM deck_requests r LEFT JOIN decks d ON d.id = r.deck_id
+    """
+    params: tuple = ()
+    if status:
+        sql += " WHERE r.status = ?"
+        params = (status,)
+    sql += " ORDER BY r.created_at DESC"
+    out = []
+    for r in conn.execute(sql, params):
+        row = dict(r)
+        row["format_name"] = FORMAT_NAMES.get(row["format"], row["format"])
+        out.append(row)
+    return out
+
+
+def dismiss_request(conn, request_id: int) -> None:
+    conn.execute("UPDATE deck_requests SET status = 'dismissed' WHERE id = ?", (request_id,))
     conn.commit()
 
 

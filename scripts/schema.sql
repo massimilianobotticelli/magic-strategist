@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS cards (
     keywords         TEXT,                    -- JSON array
     layout           TEXT,
     card_faces       TEXT,                    -- JSON array; NULL when single-faced
+    legalities       TEXT,                    -- JSON: Scryfall's per-format legality
     is_game_changer  INTEGER NOT NULL DEFAULT 0,
     is_basic_land    INTEGER NOT NULL DEFAULT 0,
     is_token         INTEGER NOT NULL DEFAULT 0,
@@ -102,6 +103,10 @@ CREATE TABLE IF NOT EXISTS decks (
     commander_oracle_id TEXT REFERENCES cards(oracle_id),
     partner_oracle_id   TEXT REFERENCES cards(oracle_id),
     color_identity      TEXT,
+    -- commander | pdh | modern | pauper. See scripts/formats.py; the deck size
+    -- and singleton rules differ, so nothing may assume "100 and singleton".
+    format              TEXT NOT NULL DEFAULT 'commander'
+                        CHECK (format IN ('commander', 'pdh', 'modern', 'pauper')),
     target_bracket      INTEGER CHECK (target_bracket BETWEEN 1 AND 5),
     is_registered       INTEGER NOT NULL DEFAULT 0,
     -- active: kept assembled and held to exactly 100.
@@ -109,8 +114,9 @@ CREATE TABLE IF NOT EXISTS decks (
     --         its list is not held to 100, and it makes no claim on a card
     --         that an active deck also wants.
     -- retired: kept for the record only.
+    -- draft: generated from a deck_request and not yet accepted.
     status              TEXT NOT NULL DEFAULT 'active'
-                        CHECK (status IN ('active', 'donor', 'retired')),
+                        CHECK (status IN ('active', 'donor', 'retired', 'draft')),
     notes               TEXT
 );
 
@@ -317,6 +323,36 @@ END;
 
 
 -- ---------------------------------------------------------------------------
+-- Requests for a new deck.
+--
+-- The app cannot build a deck; that needs a session. So the app records what
+-- was asked for here, a session picks up anything still `pending` (see the
+-- new-deck skill), and the resulting draft deck is linked back through
+-- `deck_id`. Every preference is optional: an empty request means "surprise
+-- me with whatever my collection supports".
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS deck_requests (
+    id             INTEGER PRIMARY KEY,
+    format         TEXT NOT NULL DEFAULT 'commander'
+                   CHECK (format IN ('commander', 'pdh', 'modern', 'pauper')),
+    colors         TEXT,      -- desired colour identity, e.g. 'BG'; NULL = open
+    commander_hint TEXT,      -- a commander he already has in mind
+    strategy       TEXT,      -- free text: what the deck should try to do
+    -- Whether cards may be taken from decks that are currently assembled.
+    -- Pools and donor decks are always fair game.
+    allow_borrowing INTEGER NOT NULL DEFAULT 0,
+    allow_buying    INTEGER NOT NULL DEFAULT 1,
+    notes          TEXT,
+    status         TEXT NOT NULL DEFAULT 'pending'
+                   CHECK (status IN ('pending', 'building', 'ready', 'dismissed')),
+    deck_id        INTEGER REFERENCES decks(id) ON DELETE SET NULL,
+    response       TEXT,      -- what the session did, and what it could not do
+    created_at     TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS ix_requests_status ON deck_requests(status);
+
+
+-- ---------------------------------------------------------------------------
 -- Wishlist
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS wishlist (
@@ -328,6 +364,7 @@ CREATE TABLE IF NOT EXISTS wishlist (
     deck_id           INTEGER REFERENCES decks(id) ON DELETE SET NULL,
     status            TEXT NOT NULL DEFAULT 'wanted'
                       CHECK (status IN ('wanted', 'ordered', 'acquired', 'dropped')),
+    quantity          INTEGER NOT NULL DEFAULT 1,
     notes             TEXT,
     UNIQUE (card_name, deck_id)
 );

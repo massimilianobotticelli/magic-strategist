@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="wrap">
-  <h1>Decks</h1>
+
+  <div class="page-head">
+    <h1>Decks</h1>
+    <a class="btn-primary" href="/new">New deck</a>
+  </div>
+
+  {% if request.query_params.get('requested') %}
+  <p class="banner">Request saved. Run <code>/new-deck</code> in a session to have it built.</p>
+  {% endif %}
+
   <div class="deck-list">
     {% for d in decks %}
     <a class="deck-card" href="/deck/{{ d.slug }}">
@@ -10,9 +19,7 @@
         {% if d.status != 'active' %}<span class="pill pill-muted">{{ d.status }}</span>{% endif %}
         {% if d.open_proposals %}<span class="pill pill-accent">{{ d.open_proposals }} proposal{{ 's' if d.open_proposals != 1 }}</span>{% endif %}
       </div>
-      <div class="deck-meta">
-        {{ d.commander or 'commander not identified' }}
-      </div>
+      <div class="deck-meta">{{ d.commander or 'commander not identified' }}</div>
       <div class="deck-meta">
         {{ d.size }} cards · {{ d.color_identity or 'C' }} ·
         bracket {{ d.target_bracket or '—' }} {{ d.bracket_name }}
@@ -20,5 +27,37 @@
     </a>
     {% endfor %}
   </div>
+
+  {% if requests %}
+  <section>
+    <h2>Deck requests</h2>
+    <p class="hint">Building a deck needs a session. Run <code>/new-deck</code> and
+      anything still pending gets picked up.</p>
+    <div class="deck-list">
+      {% for r in requests %}
+      <div class="deck-card">
+        <div class="deck-card-head">
+          <span class="deck-name">{{ r.format_name }}</span>
+          <span class="pill {% if r.status == 'pending' %}pill-accent{% else %}pill-muted{% endif %}">{{ r.status }}</span>
+        </div>
+        {% if r.colors %}<div class="deck-meta">colours: {{ r.colors }}</div>{% endif %}
+        {% if r.commander_hint %}<div class="deck-meta">commander: {{ r.commander_hint }}</div>{% endif %}
+        {% if r.strategy %}<div class="deck-meta">{{ r.strategy }}</div>{% endif %}
+        <div class="deck-meta dim">
+          {{ 'may borrow from assembled decks' if r.allow_borrowing else 'pools and donor decks only' }}
+        </div>
+        {% if r.response %}<p class="proposal-why">{{ r.response }}</p>{% endif %}
+        {% if r.deck_slug %}
+        <div class="deck-meta"><a href="/deck/{{ r.deck_slug }}">→ {{ r.deck_name }}</a></div>
+        {% endif %}
+        <form method="post" action="/api/request/{{ r.id }}/dismiss" class="form-actions">
+          <button type="submit">dismiss</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
 </div>
 {% endblock %}

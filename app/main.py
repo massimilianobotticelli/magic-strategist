@@ -42,12 +42,61 @@ templates.env.globals["asset"] = asset
 def index(request: Request):
     conn = q.connect()
     try:
-        decks = q.list_decks(conn)
+        context = {
+            "request": request,
+            "decks": q.list_decks(conn),
+            "requests": [r for r in q.list_requests(conn) if r["status"] != "dismissed"],
+        }
     finally:
         conn.close()
-    if len(decks) == 1:
-        return RedirectResponse(f"/deck/{decks[0]['slug']}")
-    return templates.TemplateResponse("index.html", {"request": request, "decks": decks})
+    return templates.TemplateResponse("index.html", context)
+
+
+@app.get("/new", response_class=HTMLResponse)
+def new_deck_form(request: Request):
+    conn = q.connect()
+    try:
+        context = {"request": request, "formats": q.FORMAT_LIST, "decks": q.list_decks(conn)}
+    finally:
+        conn.close()
+    return templates.TemplateResponse("new.html", context)
+
+
+@app.post("/new")
+def new_deck_create(
+    format: str = Form("commander"),
+    colors: list[str] = Form(default=[]),
+    commander_hint: str = Form(""),
+    strategy: str = Form(""),
+    allow_borrowing: str = Form(""),
+    allow_buying: str = Form(""),
+    notes: str = Form(""),
+):
+    conn = q.connect()
+    try:
+        q.create_request(
+            conn,
+            format=format,
+            colors="".join(colors) or None,
+            commander_hint=commander_hint.strip() or None,
+            strategy=strategy.strip() or None,
+            allow_borrowing=1 if allow_borrowing else 0,
+            allow_buying=1 if allow_buying else 0,
+            notes=notes.strip() or None,
+        )
+    finally:
+        conn.close()
+    return RedirectResponse("/?requested=1", status_code=303)
+
+
+@app.post("/api/request/{request_id}/dismiss")
+def api_dismiss_request(request_id: int):
+    conn = q.connect()
+    try:
+        q.dismiss_request(conn, request_id)
+    finally:
+        conn.close()
+    return RedirectResponse("/", status_code=303)
 
 
 @app.get("/deck/{slug}", response_class=HTMLResponse)

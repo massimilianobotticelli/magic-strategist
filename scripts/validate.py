@@ -13,6 +13,7 @@ Runs inside the container:
 from __future__ import annotations
 
 import argparse
+import json
 import signal
 import sys
 from pathlib import Path
@@ -23,6 +24,7 @@ signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import db  # noqa: E402
+import formats  # noqa: E402
 
 # Game Changers allowed per target bracket. 4 and 5 are unlimited.
 GAME_CHANGER_LIMIT = {1: 0, 2: 0, 3: 3}
@@ -78,10 +80,10 @@ class Report:
 
 
 def check_deck_size(conn, report: Report) -> None:
-    report.section("Deck size (exactly 100 including the commander)")
+    report.section("Deck size")
     rows = conn.execute(
         """
-        SELECT d.slug, d.name, d.status, COALESCE(SUM(dc.quantity), 0) AS total,
+        SELECT d.slug, d.name, d.status, d.format, COALESCE(SUM(dc.quantity), 0) AS total,
                (SELECT count(*) FROM copies cp WHERE cp.location_id = d.location_id) AS physical
           FROM decks d LEFT JOIN deck_cards dc
             ON dc.deck_id = d.id AND dc.section IN ('main', 'commander')
@@ -89,25 +91,30 @@ def check_deck_size(conn, report: Report) -> None:
         """
     ).fetchall()
     for row in rows:
-        # Donor and retired decks are not kept assembled, so 100 is not a rule
-        # for them - reporting it every run would only bury the real failures.
+        fmt = formats.get(row["format"])
+        # Donor and retired decks are not kept assembled, so the size rule does
+        # not apply - reporting it every run would only bury real failures.
         # Their list is usually stale, so report what is physically there.
-        if row["status"] != "active":
+        if row["status"] not in ("active", "draft"):
             drift = ("" if row["physical"] == row["total"]
                      else f", list still describes {row['total']}")
             report.note(f"{row['slug']}: {row['physical']} cards physically present"
-                        f"{drift} ({row['status']} deck — not held to 100)")
-        elif row["total"] == 100:
-            report.ok(f"{row['slug']}: 100")
+                        f"{drift} ({row['status']} deck — size not enforced)")
+        elif fmt.exact_size and row["total"] != fmt.deck_size:
+            report.fail(f"{row['slug']}: {row['total']} cards "
+                        f"({fmt.name} needs exactly {fmt.deck_size})")
+        elif not fmt.exact_size and row["total"] < fmt.deck_size:
+            report.fail(f"{row['slug']}: {row['total']} cards "
+                        f"({fmt.name} needs at least {fmt.deck_size})")
         else:
-            report.fail(f"{row['slug']}: {row['total']} cards (should be 100)")
+            report.ok(f"{row['slug']}: {row['total']} ({fmt.name})")
 
 
-def check_singleton(conn, report: Report) -> None:
-    report.section("Singleton within each deck (basic lands excepted)")
+def check_copy_limit(conn, report: Report) -> None:
+    report.section("Copies per card (basic lands excepted)")
     rows = conn.execute(
         """
-        SELECT d.slug, dc.card_name, dc.quantity
+        SELECT d.slug, d.format, dc.card_name, dc.quantity
           FROM deck_cards dc
           JOIN decks d ON d.id = dc.deck_id
           LEFT JOIN cards c ON c.oracle_id = dc.oracle_id
@@ -115,10 +122,50 @@ def check_singleton(conn, report: Report) -> None:
          ORDER BY d.slug, dc.card_name
         """
     ).fetchall()
-    if not rows:
-        report.ok("no deck runs more than one copy of a non-basic")
-    for row in rows:
-        report.fail(f"{row['slug']}: {row['quantity']}x {row['card_name']}")
+    offenders = [r for r in rows if r["quantity"] > formats.get(r["format"]).max_copies]
+    if not offenders:
+        report.ok("every deck respects its format's copy limit")
+    for row in offenders:
+        fmt = formats.get(row["format"])
+        report.fail(f"{row['slug']}: {row['quantity']}x {row['card_name']} "
+                    f"({fmt.name} allows {fmt.max_copies})")
+
+
+def check_format_legality(conn, report: Report) -> None:
+    """Cards that are not legal in the deck's own format, or too rare for it."""
+    report.section("Format legality")
+    for deck in conn.execute(
+        "SELECT id, slug, format FROM decks WHERE status IN ('active','draft') ORDER BY slug"
+    ).fetchall():
+        fmt = formats.get(deck["format"])
+        bad, rare = [], []
+        for row in conn.execute(
+            """
+            SELECT c.name, c.legalities, c.is_basic_land,
+                   (SELECT group_concat(DISTINCT p.rarity) FROM printings p
+                     WHERE p.oracle_id = c.oracle_id) AS rarities
+              FROM deck_cards dc JOIN cards c ON c.oracle_id = dc.oracle_id
+             WHERE dc.deck_id = ? AND dc.section IN ('main', 'commander')
+             ORDER BY c.name
+            """,
+            (deck["id"],),
+        ).fetchall():
+            if row["is_basic_land"]:
+                continue
+            legal = json.loads(row["legalities"] or "{}").get(fmt.legality_key)
+            if legal and legal != "legal":
+                bad.append(f"{row['name']} — {legal}")
+            if fmt.allowed_rarities:
+                printed = set((row["rarities"] or "").split(","))
+                if printed and not (printed & fmt.allowed_rarities):
+                    rare.append(f"{row['name']} — only printed at {'/'.join(sorted(printed))}")
+
+        if bad:
+            report.fail(f"{deck['slug']}: {len(bad)} card(s) not legal in {fmt.name}", bad[:10])
+        if rare:
+            report.fail(f"{deck['slug']}: {len(rare)} card(s) too rare for {fmt.name}", rare[:10])
+        if not bad and not rare:
+            report.ok(f"{deck['slug']}: every card is legal in {fmt.name}")
 
 
 def check_supply_vs_demand(conn, report: Report) -> None:
@@ -181,10 +228,14 @@ def check_deck_cards_owned(conn, report: Report) -> None:
 def check_color_identity(conn, report: Report) -> None:
     report.section("Colour identity inside the commander's")
     decks = conn.execute(
-        "SELECT id, slug, name, color_identity, commander_oracle_id FROM decks "
-        "WHERE status = 'active' ORDER BY slug"
+        "SELECT id, slug, name, color_identity, commander_oracle_id, format FROM decks "
+        "WHERE status IN ('active','draft') ORDER BY slug"
     ).fetchall()
     for deck in decks:
+        # Colour identity is a Commander rule. Modern and Pauper decks may play
+        # anything, so checking them would only produce noise.
+        if not formats.get(deck["format"]).needs_commander:
+            continue
         if not deck["commander_oracle_id"]:
             report.warn(f"{deck['slug']}: no commander identified — colour check skipped")
             continue
@@ -211,8 +262,10 @@ def check_color_identity(conn, report: Report) -> None:
 
 def check_game_changers(conn, report: Report) -> None:
     report.section("Game Changers vs. target bracket")
+    # Brackets and the Game Changer list are Commander concepts only.
     for deck in conn.execute(
-        "SELECT id, slug, target_bracket FROM decks WHERE status = 'active' ORDER BY slug"
+        "SELECT id, slug, target_bracket FROM decks "
+        "WHERE status IN ('active','draft') AND format = 'commander' ORDER BY slug"
     ).fetchall():
         names = [
             row["name"]
@@ -331,7 +384,8 @@ def check_languages(conn, report: Report) -> None:
 
 CHECKS = [
     check_deck_size,
-    check_singleton,
+    check_copy_limit,
+    check_format_legality,
     check_supply_vs_demand,
     check_deck_cards_owned,
     check_color_identity,

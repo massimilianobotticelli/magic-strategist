@@ -79,6 +79,43 @@ section { margin-bottom: 34px; }
 .counter .c-add { color: var(--add); }
 .counter .c-bad { color: var(--cut); font-weight: 600; }
 
+.wrap-narrow { max-width: 620px; }
+.page-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.banner {
+  background: var(--accent-bg); color: var(--accent); border-radius: var(--radius);
+  padding: 10px 14px; font-size: 13.5px; margin: 0 0 16px;
+}
+.banner code, .hint code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+
+.btn-primary {
+  font: inherit; font-size: 13px; font-weight: 600; padding: 7px 14px; cursor: pointer;
+  border-radius: var(--radius); border: 1px solid transparent;
+  background: var(--accent); color: #fff; text-decoration: none; display: inline-block;
+}
+.btn-primary:hover { filter: brightness(1.08); }
+
+.form { display: flex; flex-direction: column; gap: 20px; }
+.field { display: flex; flex-direction: column; gap: 6px; border: 0; padding: 0; margin: 0; }
+.field-label { font-size: 13px; font-weight: 600; }
+.field-hint { font-size: 12px; color: var(--muted); }
+.form input[type=text], .form select, .form textarea {
+  background: var(--surface); color: var(--text); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 8px 10px; font: inherit; font-size: 14px; width: 100%;
+}
+.form textarea { resize: vertical; }
+.colors { display: flex; gap: 6px; flex-wrap: wrap; }
+.color-chip, .check {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 5px 10px; background: var(--surface); cursor: pointer;
+}
+.check { border: 0; padding: 2px 0; background: none; }
+.form-actions { display: flex; gap: 10px; align-items: center; margin-top: 4px; }
+.form-actions button {
+  font: inherit; font-size: 12px; padding: 4px 12px; border-radius: var(--radius);
+  border: 1px solid var(--border); background: var(--bg); color: var(--text); cursor: pointer;
+}
+
 .deck-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
 .deck-card {
   display: block; text-decoration: none; background: var(--surface);

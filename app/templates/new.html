@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}New deck — magic-strategist{% endblock %}
+{% block content %}
+<div class="wrap wrap-narrow">
+  <h1>New deck</h1>
+  <p class="hint">Everything below is optional. What you fill in narrows the search;
+    what you leave blank is left to the builder. The request is saved to the database —
+    run <code>/new-deck</code> in a session to have it built.</p>
+
+  <form method="post" action="/new" class="form">
+
+    <label class="field">
+      <span class="field-label">Format</span>
+      <select name="format">
+        {% for f in formats %}
+        <option value="{{ f.slug }}">{{ f.name }} — {{ f.notes }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <fieldset class="field">
+      <legend class="field-label">Colours</legend>
+      <div class="colors">
+        {% for c, label in [('W','White'),('U','Blue'),('B','Black'),('R','Red'),('G','Green')] %}
+        <label class="color-chip">
+          <input type="checkbox" name="colors" value="{{ c }}"> {{ label }}
+        </label>
+        {% endfor %}
+      </div>
+      <span class="field-hint">Leave all unchecked to let the collection decide.</span>
+    </fieldset>
+
+    <label class="field">
+      <span class="field-label">Commander you have in mind</span>
+      <input type="text" name="commander_hint" placeholder="e.g. Tatyova, Benthic Druid">
+      <span class="field-hint">Commander and Pauper Commander only.</span>
+    </label>
+
+    <label class="field">
+      <span class="field-label">Strategy</span>
+      <textarea name="strategy" rows="3"
+        placeholder="e.g. lands matter, go wide with tokens, cheap aggressive creatures…"></textarea>
+    </label>
+
+    <fieldset class="field">
+      <legend class="field-label">Where cards may come from</legend>
+      <label class="check"><input type="checkbox" name="allow_borrowing" value="1">
+        Take cards out of decks that are currently assembled</label>
+      <span class="field-hint">Pools and donor decks are always used. This also allows
+        raiding Blight Curse and Turtle Power, which would weaken them.</span>
+      <label class="check"><input type="checkbox" name="allow_buying" value="1" checked>
+        Suggest cards to buy for the gaps</label>
+      <span class="field-hint">Missing cards go to the wishlist with a price tier,
+        respecting the €10–15 per card ceiling.</span>
+    </fieldset>
+
+    <label class="field">
+      <span class="field-label">Anything else</span>
+      <textarea name="notes" rows="2" placeholder="constraints, cards to avoid, who you play against…"></textarea>
+    </label>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">Save request</button>
+      <a class="chip" href="/">cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

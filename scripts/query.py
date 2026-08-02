@@ -14,6 +14,7 @@ Runs inside the container:
 from __future__ import annotations
 
 import argparse
+import json
 import signal
 import sys
 import textwrap
@@ -25,6 +26,7 @@ signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import db  # noqa: E402
+import formats  # noqa: E402
 
 BRACKET_NAMES = {1: "Exhibition", 2: "Core", 3: "Upgraded", 4: "Optimized", 5: "cEDH"}
 
@@ -287,6 +289,105 @@ def cmd_pool(conn, args) -> int:
     return 0
 
 
+def cmd_available(conn, args) -> int:
+    """Owned cards that are legal in a format — the deck-building working set.
+
+    Free cards come from pools and donor decks. Cards sitting in an assembled
+    deck are shown only with --borrow, because taking one costs that deck.
+    """
+    fmt = formats.get(args.format)
+    rows = conn.execute(
+        """
+        SELECT c.oracle_id, c.name, c.mana_cost, c.mana_value, c.type_line,
+               c.color_identity, c.oracle_text, c.legalities, c.is_game_changer,
+               count(*) AS copies,
+               group_concat(DISTINCT l.slug) AS locations,
+               MIN(CASE WHEN l.type = 'pool' THEN 1
+                        WHEN (SELECT status FROM decks WHERE location_id = l.id) IN ('donor','draft','retired') THEN 1
+                        ELSE 0 END) AS borrowed,
+               (SELECT group_concat(DISTINCT p.rarity) FROM printings p
+                 WHERE p.oracle_id = c.oracle_id) AS rarities,
+               (SELECT group_concat(ro.slug) FROM card_roles cr
+                  JOIN roles ro ON ro.id = cr.role_id
+                 WHERE cr.oracle_id = c.oracle_id) AS roles
+          FROM copies cp
+          JOIN cards c ON c.oracle_id = cp.oracle_id
+          JOIN locations l ON l.id = cp.location_id
+         WHERE c.is_basic_land = 0 AND c.is_token = 0
+         GROUP BY c.oracle_id ORDER BY c.mana_value, c.name
+        """
+    ).fetchall()
+
+    identity = set((args.colors or "").upper())
+    out = []
+    for r in rows:
+        card = dict(r)
+        if json.loads(card["legalities"] or "{}").get(fmt.legality_key) != "legal":
+            continue
+        if fmt.allowed_rarities:
+            printed = set((card["rarities"] or "").split(","))
+            if not (printed & fmt.allowed_rarities):
+                continue
+        if identity and set(card["color_identity"] or "") - identity:
+            continue
+        # borrowed == 1 means at least one copy is free (pool or donor).
+        if not args.borrow and not card["borrowed"]:
+            continue
+        card["roles"] = (card["roles"] or "").split(",") if card["roles"] else []
+        if args.role and args.role not in card["roles"]:
+            continue
+        if args.type and args.type.lower() not in (card["type_line"] or "").lower():
+            continue
+        out.append(card)
+
+    scope = "free (pools and donor decks)" if not args.borrow else "including cards in assembled decks"
+    where = f" within {args.colors.upper()}" if args.colors else ""
+    print(f"{len(out)} card(s) legal in {fmt.name}{where} — {scope}")
+    print(f"  {fmt.notes}\n")
+
+    for card in out:
+        free = "" if card["borrowed"] else "  ⚠ in an assembled deck"
+        copies = f" x{card['copies']}" if card["copies"] > 1 else ""
+        print(f"  {gc(card['is_game_changer'])}{card['name']:<32}{copies:<4} "
+              f"{(card['mana_cost'] or ''):<13} {fmt_identity(card['color_identity']):<5} "
+              f"{(card['type_line'] or '')[:34]:<34} [{card['locations']}]{free}")
+        if args.text and card["oracle_text"]:
+            for line in card["oracle_text"].split("\n"):
+                print(f"        {line}")
+    return 0
+
+
+def cmd_requests(conn, args) -> int:
+    rows = conn.execute(
+        """
+        SELECT r.*, d.slug AS deck_slug FROM deck_requests r
+          LEFT JOIN decks d ON d.id = r.deck_id
+         WHERE (? = 'all' OR r.status = ?) ORDER BY r.created_at
+        """,
+        (args.status, args.status),
+    ).fetchall()
+    print(f"{len(rows)} deck request(s)\n")
+    for r in rows:
+        fmt = formats.get(r["format"])
+        print(f"  #{r['id']}  {fmt.name}  [{r['status']}]  {r['created_at']}")
+        if r["colors"]:
+            print(f"      colours:   {r['colors']}")
+        if r["commander_hint"]:
+            print(f"      commander: {r['commander_hint']}")
+        if r["strategy"]:
+            print(f"      strategy:  {r['strategy']}")
+        print(f"      borrowing from assembled decks: "
+              f"{'yes' if r['allow_borrowing'] else 'no'}   "
+              f"buying: {'yes' if r['allow_buying'] else 'no'}")
+        if r["notes"]:
+            print(f"      notes:     {r['notes']}")
+        if r["deck_slug"]:
+            print(f"      -> draft:  {r['deck_slug']}")
+        if r["response"]:
+            print(f"      response:  {r['response']}")
+    return 0
+
+
 def cmd_wishlist(conn, args) -> int:
     rows = conn.execute(
         """
@@ -348,6 +449,21 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--pools-only", action="store_true",
                    help="exclude donor decks, showing only the loose binders")
     p.set_defaults(func=cmd_pool)
+
+    p = sub.add_parser("available", help="owned cards legal in a format — for building")
+    p.add_argument("--format", default="commander", choices=formats.choices())
+    p.add_argument("--colors", help="restrict to this colour identity, e.g. BG")
+    p.add_argument("--role", help="only cards tagged with this role")
+    p.add_argument("--type", help="substring match on the type line")
+    p.add_argument("--borrow", action="store_true",
+                   help="also show cards sitting in assembled decks")
+    p.add_argument("--text", action="store_true", help="include oracle text")
+    p.set_defaults(func=cmd_available)
+
+    p = sub.add_parser("requests", help="deck-building requests from the app")
+    p.add_argument("--status", default="pending",
+                   choices=["pending", "building", "ready", "dismissed", "all"])
+    p.set_defaults(func=cmd_requests)
 
     sub.add_parser("wishlist", help="cards to buy").set_defaults(func=cmd_wishlist)
     sub.add_parser("conflicts", help="physical inventory conflicts").set_defaults(func=cmd_conflicts)

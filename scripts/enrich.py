@@ -84,9 +84,9 @@ def upsert_card(conn, card: dict) -> str | None:
         """
         INSERT INTO cards (oracle_id, name, mana_cost, mana_value, type_line, oracle_text,
                            power, toughness, loyalty, colors, color_identity, keywords,
-                           layout, card_faces, is_basic_land, is_token, is_legendary,
-                           can_be_commander, scryfall_uri, enriched_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                           layout, card_faces, legalities, is_basic_land, is_token,
+                           is_legendary, can_be_commander, scryfall_uri, enriched_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(oracle_id) DO UPDATE SET
             name = excluded.name, mana_cost = excluded.mana_cost,
             mana_value = excluded.mana_value, type_line = excluded.type_line,
@@ -94,7 +94,8 @@ def upsert_card(conn, card: dict) -> str | None:
             toughness = excluded.toughness, loyalty = excluded.loyalty,
             colors = excluded.colors, color_identity = excluded.color_identity,
             keywords = excluded.keywords, layout = excluded.layout,
-            card_faces = excluded.card_faces, is_basic_land = excluded.is_basic_land,
+            card_faces = excluded.card_faces, legalities = excluded.legalities,
+            is_basic_land = excluded.is_basic_land,
             is_token = excluded.is_token, is_legendary = excluded.is_legendary,
             can_be_commander = excluded.can_be_commander,
             scryfall_uri = excluded.scryfall_uri, enriched_at = excluded.enriched_at
@@ -114,6 +115,7 @@ def upsert_card(conn, card: dict) -> str | None:
             json.dumps(card.get("keywords") or []),
             card.get("layout"),
             json.dumps(card["card_faces"]) if card.get("card_faces") else None,
+            json.dumps(card.get("legalities") or {}),
             is_basic,
             is_token,
             is_legendary,
