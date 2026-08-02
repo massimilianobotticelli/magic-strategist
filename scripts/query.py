@@ -322,7 +322,9 @@ def cmd_available(conn, args) -> int:
     out = []
     for r in rows:
         card = dict(r)
-        if json.loads(card["legalities"] or "{}").get(fmt.legality_key) != "legal":
+        # An empty legality_key means the format has no card legality to check
+        # (Limited): filtering on it would reject the whole collection.
+        if fmt.legality_key and json.loads(card["legalities"] or "{}").get(fmt.legality_key) != "legal":
             continue
         if fmt.allowed_rarities:
             printed = set((card["rarities"] or "").split(","))

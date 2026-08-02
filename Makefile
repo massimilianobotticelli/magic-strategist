@@ -56,19 +56,31 @@ EXTRA_CARDS := "Melira, Sylvok Outcast" "Solemnity" "Pithing Needle"
 
 # Full rebuild from the committed raw exports and decklists. Uses the cached
 # Scryfall responses, so it works with no network.
+#
+# Only the NEWEST dump under data/manabox/ is imported. Each export is a full
+# snapshot of the collection, not a delta, so feeding two of them in doubles
+# the wishlist and leaves copies split between the old binder names and the
+# new ones. Older dumps stay committed as history; they are not inputs.
 rebuild:
 	$(RUN) sh -c 'rm -f data/collection.db && \
-	  python scripts/import_manabox.py data/manabox/*/*.csv decks/*/decklist.txt --no-materialize && \
+	  latest=$$(ls -d data/manabox/*/ | sort | tail -1) && \
+	  echo "importing snapshot $$latest" && \
+	  python scripts/import_manabox.py $$latest*.csv decks/*/decklist.txt --no-materialize && \
 	  python scripts/enrich.py --offline --names $(EXTRA_CARDS) && \
 	  python scripts/sync_gamechangers.py --offline && \
-	  sqlite3 data/collection.db < data/seed.sql'
+	  sqlite3 data/collection.db < data/seed.sql && \
+	  test -f data/app-state.sql && sqlite3 data/collection.db < data/app-state.sql || true'
 	@echo 'Rebuilt data/collection.db'
 
 query:
 	$(RUN) python scripts/query.py $(ARGS)
 
+# Both halves matter: collection.sql is the readable full snapshot, and
+# app-state.sql is the only committed home for the tables the web app writes.
+# Without it a rebuild drops every proposal and deck request.
 dump:
 	$(RUN) sh -c 'sqlite3 data/collection.db .dump > data/collection.sql'
+	$(RUN) python scripts/export_state.py
 	@echo 'Wrote data/collection.sql'
 
 sql:

@@ -5,14 +5,17 @@ function renderCounter() {
   if (!el) return;
   const size = +el.dataset.size, cuts = +el.dataset.cuts, adds = +el.dataset.adds;
   const projected = size - cuts + adds;
-  const off = projected !== 100;
+  /* The target is the format's, not always 100: Modern and Pauper are a
+     60-card MINIMUM, so being over it is legal and must not read as an error. */
+  const target = +el.dataset.target || 100, exact = el.dataset.exact === '1';
+  const off = exact ? projected !== target : projected < target;
   el.innerHTML =
     '<b>' + size + '</b> cards' +
     (cuts ? ' · <span class="c-cut">−' + cuts + '</span>' : '') +
     (adds ? ' · <span class="c-add">+' + adds + '</span>' : '') +
     ((cuts || adds)
       ? ' → <span class="' + (off ? 'c-bad' : '') + '">' + projected + '</span>' +
-        (off ? ' (not 100)' : '')
+        (off ? (exact ? ' (not ' + target + ')' : ' (under ' + target + ')') : '')
       : '');
 }
 
@@ -37,17 +40,55 @@ async function toggle(tile) {
   }
 }
 
+let zoomTile = null;
+
 function openZoom(tile) {
   const img = tile.querySelector('img');
   const zoom = document.getElementById('zoom');
   if (!img || !zoom) return;
-  document.getElementById('zoom-img').src = img.dataset.full || img.src;
+  const full = document.getElementById('zoom-img');
+  full.src = img.dataset.full || img.src;
+  full.alt = img.alt || '';
   zoom.hidden = false;
+  zoomTile = tile;
 }
 
 function closeZoom() {
   const zoom = document.getElementById('zoom');
   if (zoom) zoom.hidden = true;
+  zoomTile = null;
+}
+
+/* Arrow keys walk the grid behind the zoom. Only tiles actually on screen
+   count, so the arrows never wander into the tab you are not looking at or
+   into a section you folded away.
+
+   A collapsed <details> is NOT caught by offsetParent: it keeps a layout box
+   and only stops rendering its content, so its tiles still measure 204px tall.
+   checkVisibility() sees through both that and a display:none panel. A tile
+   with no image has nothing to enlarge, so it is skipped rather than leaving
+   the previous card on screen under the wrong name. */
+function onScreen(el) {
+  return el.checkVisibility
+    ? el.checkVisibility()
+    : el.offsetParent !== null && !el.closest('details:not([open])');
+}
+
+function zoomableTiles() {
+  return [...document.querySelectorAll('.tile')]
+    .filter(t => t.querySelector('img') && onScreen(t));
+}
+
+function stepZoom(delta) {
+  if (!zoomTile) return;
+  const tiles = zoomableTiles();
+  const next = tiles[tiles.indexOf(zoomTile) + delta];
+  if (!next) return;   // stop at the ends; wrapping around loses your place
+  openZoom(next);
+  /* Keep the grid in step with the zoom, so closing it leaves you on the card
+     you were looking at rather than back where you started. */
+  next.focus({ preventScroll: true });
+  next.scrollIntoView({ block: 'nearest' });
 }
 
 /* Click opens the card. Press and hold marks it, so scrolling past a grid of
@@ -130,10 +171,19 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') { closeZoom(); return; }
+  if (zoomTile && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) {
+    e.preventDefault();
+    stepZoom(e.key === 'ArrowRight' ? 1 : -1);
+    return;
+  }
   const tile = document.activeElement;
   if (!tile || !tile.classList.contains('tile')) return;
   if (e.key === 'Enter') { e.preventDefault(); openZoom(tile); }
-  if (e.key === ' ') { e.preventDefault(); toggle(tile); }
+  /* Press-and-hold already skips static tiles; the keyboard has to as well. */
+  if (e.key === ' ' && !tile.classList.contains('tile-static')) {
+    e.preventDefault();
+    toggle(tile);
+  }
 });
 
 /* Tabs. Combos and candidates are one click away instead of a long scroll.

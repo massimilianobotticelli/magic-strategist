@@ -80,6 +80,27 @@ FORMATS: dict[str, Format] = {
         allowed_rarities=frozenset({"common"}),
         notes="At least 60 cards, commons only, up to 4 copies, 15-card sideboard.",
     ),
+    # A deck built from cards opened in a draft or sealed pool.
+    #
+    # `legality_key` is deliberately EMPTY: Scryfall has no "limited" legality,
+    # and there is nothing to check anyway - if you opened it, you may play it.
+    # An empty key makes validate.py's lookup return None, which it already
+    # treats as "nothing to say". query.py skips the filter on the same signal.
+    #
+    # `max_copies` is nominally unlimited; the real limit is how many you
+    # opened, which the physical supply check already enforces.
+    "limited": Format(
+        slug="limited",
+        name="Limited",
+        legality_key="",
+        deck_size=40,
+        exact_size=False,
+        max_copies=99,
+        needs_commander=False,
+        sideboard=0,
+        notes="At least 40 cards from what you opened. No card legality or "
+              "copy limit; the sideboard is the rest of the pool and is not tracked.",
+    ),
 }
 
 DEFAULT = "commander"

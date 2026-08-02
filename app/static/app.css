@@ -151,8 +151,11 @@ section { margin-bottom: 34px; }
   aspect-ratio: 488/680; padding: 8px; font-size: 12px; color: var(--muted);
 }
 .tile-bar { display: flex; justify-content: space-between; gap: 5px; padding: 5px 7px; font-size: 11px; }
-.tile-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* `flex: 1` and `min-width: 0` keep the ellipsis working once the count badge
+   makes this a three-item row, and keep the cost pinned right. */
+.tile-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
 .tile-cost { color: var(--dim); flex-shrink: 0; }
+.tile-qty { color: var(--accent); font-weight: 700; flex-shrink: 0; }
 .tile-flags { position: absolute; top: 5px; left: 5px; display: flex; flex-direction: column; gap: 3px; align-items: flex-start; }
 .flag { font-size: 9.5px; padding: 1px 5px; border-radius: 4px; font-weight: 600; }
 .flag-gc { background: var(--accent); color: #fff; }

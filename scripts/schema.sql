@@ -103,10 +103,10 @@ CREATE TABLE IF NOT EXISTS decks (
     commander_oracle_id TEXT REFERENCES cards(oracle_id),
     partner_oracle_id   TEXT REFERENCES cards(oracle_id),
     color_identity      TEXT,
-    -- commander | pdh | modern | pauper. See scripts/formats.py; the deck size
+    -- commander | pdh | modern | pauper | limited. See scripts/formats.py; the size
     -- and singleton rules differ, so nothing may assume "100 and singleton".
     format              TEXT NOT NULL DEFAULT 'commander'
-                        CHECK (format IN ('commander', 'pdh', 'modern', 'pauper')),
+                        CHECK (format IN ('commander', 'pdh', 'modern', 'pauper', 'limited')),
     target_bracket      INTEGER CHECK (target_bracket BETWEEN 1 AND 5),
     is_registered       INTEGER NOT NULL DEFAULT 0,
     -- active: kept assembled and held to exactly 100.
@@ -334,7 +334,7 @@ END;
 CREATE TABLE IF NOT EXISTS deck_requests (
     id             INTEGER PRIMARY KEY,
     format         TEXT NOT NULL DEFAULT 'commander'
-                   CHECK (format IN ('commander', 'pdh', 'modern', 'pauper')),
+                   CHECK (format IN ('commander', 'pdh', 'modern', 'pauper', 'limited')),
     colors         TEXT,      -- desired colour identity, e.g. 'BG'; NULL = open
     commander_hint TEXT,      -- a commander he already has in mind
     strategy       TEXT,      -- free text: what the deck should try to do

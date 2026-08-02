@@ -111,8 +111,12 @@ def _proposal_map(conn, deck_id: int) -> dict[str, dict]:
     }
 
 
-def deck_cards(conn, deck_id: int) -> list[dict]:
-    """The deck list, with images, roles, combo membership and any proposal."""
+def deck_cards(conn, deck_id: int, sections: tuple[str, ...] = ("main", "commander")) -> list[dict]:
+    """The deck list, with images, roles, combo membership and any proposal.
+
+    Commander and PDH have no sideboard, so the default sections are what every
+    caller wanted until Modern arrived; ask for ('sideboard',) to get the rest.
+    """
     proposals = _proposal_map(conn, deck_id)
     rows = conn.execute(
         """
@@ -127,10 +131,11 @@ def deck_cards(conn, deck_id: int) -> list[dict]:
                   JOIN combos cb ON cb.id = cp.combo_id
                  WHERE cp.oracle_id = c.oracle_id) AS combos
           FROM deck_cards dc JOIN cards c ON c.oracle_id = dc.oracle_id
-         WHERE dc.deck_id = ? AND dc.section IN ('main','commander')
+         WHERE dc.deck_id = ? AND dc.section IN (%s)
          ORDER BY c.mana_value, c.name
-        """,
-        (deck_id,),
+        """
+        % ",".join("?" * len(sections)),
+        (deck_id, *sections),
     ).fetchall()
 
     out = []
@@ -342,4 +347,16 @@ def deck_totals(conn, deck_id: int) -> dict:
         "SELECT count(*) n FROM deck_proposals WHERE deck_id = ? AND action='add' "
         "AND status IN ('proposed','accepted')", (deck_id,)
     ).fetchone()["n"]
-    return {"size": size, "cuts": cuts, "adds": adds, "projected": size - cuts + adds}
+    side = conn.execute(
+        "SELECT COALESCE(SUM(quantity),0) n FROM deck_cards "
+        "WHERE deck_id = ? AND section = 'sideboard'", (deck_id,)
+    ).fetchone()["n"]
+    slug = conn.execute("SELECT format FROM decks WHERE id = ?", (deck_id,)).fetchone()["format"]
+    rules = fmt_rules.get(slug)
+    return {
+        "size": size, "cuts": cuts, "adds": adds, "projected": size - cuts + adds,
+        "sideboard": side,
+        # The counter used to hardcode 100, which is wrong for a 60-card format.
+        "target": rules.deck_size, "exact": rules.exact_size,
+        "sideboard_max": rules.sideboard,
+    }

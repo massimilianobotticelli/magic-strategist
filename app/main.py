@@ -111,6 +111,7 @@ def deck_view(request: Request, slug: str, role: str | None = None, q_: str | No
             "deck": deck,
             "decks": q.list_decks(conn),
             "cards": q.deck_cards(conn, deck["id"]),
+            "sideboard": q.deck_cards(conn, deck["id"], ("sideboard",)),
             "candidates": q.candidates(conn, deck, role=role, query=q_),
             "combos": q.deck_combos(conn, deck["id"]),
             "proposals": q.proposals(conn, deck["id"]),

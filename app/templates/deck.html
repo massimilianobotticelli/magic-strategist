@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block title %}{{ deck.name }} — magic-strategist{% endblock %}
 
-{% macro tile(c, action, deck_id) %}
-<div class="tile {% if c.proposal %}tile-{{ c.proposal.action }}{% endif %}"
+{# `markable=false` gives a tile you can still open and arrow through, but not
+   propose against: the counter tracks maindeck size, so marking a sideboard
+   card would make it lie. #}
+{% macro tile(c, action, deck_id, markable=true) %}
+<div class="tile {% if not markable %}tile-static{% endif %} {% if c.proposal and markable %}tile-{{ c.proposal.action }}{% endif %}"
      data-oracle="{{ c.oracle_id }}" data-action="{{ action }}" data-deck="{{ deck_id }}"
      tabindex="0" role="button"
-     aria-label="{{ c.name }} — enter to enlarge, space to mark {{ 'for cutting' if action == 'cut' else 'for adding' }}">
+     aria-label="{% if c.quantity and c.quantity > 1 %}{{ c.quantity }} copies of {% endif %}{{ c.name }} — enter to enlarge{% if markable %}, space to mark {{ 'for cutting' if action == 'cut' else 'for adding' }}{% endif %}">
   {% if c.image_small %}
     <img src="{{ c.image_small }}" alt="{{ c.name }}" loading="lazy"
          data-full="{{ c.image or c.image_small }}">
@@ -13,6 +16,9 @@
     <div class="tile-noimg">{{ c.name }}</div>
   {% endif %}
   <div class="tile-bar">
+    {# One tile stands for every copy, so a tile that is worth more than one has
+       to say so, or the section heading (which counts copies) reads as wrong. #}
+    {% if c.quantity and c.quantity > 1 %}<span class="tile-qty">{{ c.quantity }}×</span>{% endif %}
     <span class="tile-name">{{ c.name }}</span>
     <span class="tile-cost">{{ c.mana_cost or '' }}</span>
   </div>
@@ -33,13 +39,17 @@
   {% endfor %}
 </select>
 <span class="counter" id="counter"
-      data-size="{{ totals.size }}" data-cuts="{{ totals.cuts }}" data-adds="{{ totals.adds }}"></span>
+      data-size="{{ totals.size }}" data-cuts="{{ totals.cuts }}" data-adds="{{ totals.adds }}"
+      data-target="{{ totals.target }}" data-exact="{{ 1 if totals.exact else 0 }}"></span>
 {% endblock %}
 
 {% block subbar %}
 <nav class="tabs" role="tablist">
   <button class="tab" data-tab="deck" role="tab">Deck <span class="dim">{{ totals.size }}</span></button>
   <button class="tab" data-tab="candidates" role="tab">Candidates <span class="dim">{{ candidates | length }}</span></button>
+  {% if sideboard %}
+  <button class="tab" data-tab="sideboard" role="tab">Sideboard <span class="dim">{{ totals.sideboard }}</span></button>
+  {% endif %}
   <button class="tab" data-tab="combos" role="tab">Combos <span class="dim">{{ combos | length }}</span></button>
   {% if proposals %}
   <button class="tab" data-tab="proposals" role="tab">Proposals <span class="dim">{{ proposals | length }}</span></button>
@@ -87,9 +97,32 @@
   </section>
   {% endif %}
 
+  {% if sideboard %}
+  <section class="panel" data-panel="sideboard">
+    <h2>Sideboard <span class="dim">{{ totals.sideboard }} of {{ totals.sideboard_max }}</span></h2>
+    <p class="hint">Cards kept aside, not in the {{ totals.size }}. Swap them in between games of a
+      match to answer what your opponent is actually playing. They are shown here for reference —
+      marking a cut belongs to the deck itself.</p>
+    {% for key, label in TYPE_ORDER %}
+      {% set group = sideboard | selectattr('group', 'equalto', key) | list %}
+      {% if group %}
+      {# `sb-` prefix: the fold state is keyed by data-group, and the deck panel
+         already uses these same type keys. #}
+      <details class="group" data-group="sb-{{ key }}" open>
+        <summary class="group-head">{{ label }} <span class="dim">{{ group | sum(attribute='quantity') }}</span></summary>
+        <div class="grid">
+          {% for c in group %}{{ tile(c, 'cut', deck.id, markable=false) }}{% endfor %}
+        </div>
+      </details>
+      {% endif %}
+    {% endfor %}
+  </section>
+  {% endif %}
+
   <section class="panel" data-panel="deck">
     <h2>Deck <span class="dim">{{ totals.size }} cards</span></h2>
-    <p class="hint">Click a card to enlarge it. <strong>Press and hold</strong> to mark it for cutting.
+    <p class="hint">Click a card to enlarge it, then <strong>←</strong> and <strong>→</strong> to step
+      through the rest. <strong>Press and hold</strong> to mark it for cutting.
       Click a section heading to fold it away.</p>
     {% for key, label in TYPE_ORDER %}
       {% set group = cards | selectattr('group', 'equalto', key) | list %}

@@ -1,0 +1,58 @@
+1 Anchovy & Banana Pizza (TMT) 57
+1 April O'Neil, Kunoichi Trainee (TMT) 3
+1 Crib Swap (ECL) 11
+1 Death in the Family (TMT) 61
+1 Diregraf Ghoul (FDN) 171
+1 Don & Leo, Problem Solvers (TMT) 143
+1 Featherbrained Filcher (TMT) 6
+1 Foot Elite (TMT) 146
+1 Foot Headquarters (TMT) 185
+1 Foot Headquarters (TMT) 185 *F*
+1 Foot Mystic (TMT) 63
+1 Grounded for Life (TMT) 7
+1 Grounded for Life (TMT) 7 *F*
+1 Hamato Guardian Stance (TMT) 8
+1 Ice Cream Kitty (TMT) 150
+1 Illegitimate Business (TMT) 186
+1 Inkling Mascot (SOS) 196
+1 Insectoid Exterminator (TMT) 64
+1 Karai's Technique (TMT) 152
+1 Koya, Death from Above (TMT) 11
+1 Leonardo's Technique (TMT) 18
+1 Leonardo, Big Brother (TMT) 14
+1 Leonardo, Leader in Blue (TMT) 196
+1 Lita, Little Orphan Amphibian (TMT) 19
+1 Lord Dregg, Insect Invader (TMT) 65
+1 Make Your Move (TMT) 20
+1 Mechanized Ninja Cavalry (TMT) 156
+2 Oroku Saki, Shredder Rising (TMT) 68
+1 Path to Exile (ECC) 65
+9 Plains (TMT) 191
+1 Prehistoric Pet (TMT) 22
+1 Putrid Pals (TMT) 165
+1 Secluded Courtyard (ECC) 62
+1 Shark Shredder, Killer Clone (TMT) 320 *F*
+1 Shark Shredder, Killer Clone (TMT) 73 *F*
+1 Shredder's Technique (TMT) 232
+2 Squirrelanoids (TMT) 81
+1 Stab (FDN) 71
+10 Swamp (ECL) 271
+1 Tunnel Rats (TMT) 84
+1 Turtle Van (TMT) 181
+
+// SIDEBOARD
+1 Archfiend of Ifnir (ECC) 70
+1 Bake into a Pie (FDN) 169
+1 Banishing Light (FDN) 138
+1 Bebop, Warthog Warrior (TMT) 59
+1 EPF Point Squad (TMT) 145
+1 Henchbots (TMT) 174
+1 Hoarder's Greed (ECC) 47
+1 Incremental Blight (ECC) 76
+1 Jennika, Bad Apple Big Sister (TMT) 10
+1 Pain 101 (TMT) 69
+1 Shatter the Sky (ECC) 66
+1 Shredder's Revenge (TMT) 76
+1 South Wind Avatar (TMT) 78
+1 The Cloning of Shredder (TMT) 60
+1 Uneasy Alliance (TMT) 28
