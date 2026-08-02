@@ -36,6 +36,18 @@
       data-size="{{ totals.size }}" data-cuts="{{ totals.cuts }}" data-adds="{{ totals.adds }}"></span>
 {% endblock %}
 
+{% block subbar %}
+<nav class="tabs" role="tablist">
+  <button class="tab" data-tab="deck" role="tab">Deck <span class="dim">{{ totals.size }}</span></button>
+  <button class="tab" data-tab="candidates" role="tab">Candidates <span class="dim">{{ candidates | length }}</span></button>
+  <button class="tab" data-tab="combos" role="tab">Combos <span class="dim">{{ combos | length }}</span></button>
+  {% if proposals %}
+  <button class="tab" data-tab="proposals" role="tab">Proposals <span class="dim">{{ proposals | length }}</span></button>
+  {% endif %}
+  <button class="toggle-all" id="toggle-all" hidden>collapse all</button>
+</nav>
+{% endblock %}
+
 {% block content %}
 <div class="wrap">
 
@@ -53,7 +65,7 @@
   </section>
 
   {% if proposals %}
-  <section>
+  <section class="panel" data-panel="proposals">
     <h2>Open proposals</h2>
     <div class="proposals">
       {% for p in proposals %}
@@ -75,21 +87,24 @@
   </section>
   {% endif %}
 
-  <section>
+  <section class="panel" data-panel="deck">
     <h2>Deck <span class="dim">{{ totals.size }} cards</span></h2>
-    <p class="hint">Click a card to enlarge it. <strong>Press and hold</strong> to mark it for cutting.</p>
+    <p class="hint">Click a card to enlarge it. <strong>Press and hold</strong> to mark it for cutting.
+      Click a section heading to fold it away.</p>
     {% for key, label in TYPE_ORDER %}
       {% set group = cards | selectattr('group', 'equalto', key) | list %}
       {% if group %}
-      <h3 class="group-head">{{ label }} <span class="dim">{{ group | sum(attribute='quantity') }}</span></h3>
-      <div class="grid">
-        {% for c in group %}{{ tile(c, 'cut', deck.id) }}{% endfor %}
-      </div>
+      <details class="group" data-group="{{ key }}" open>
+        <summary class="group-head">{{ label }} <span class="dim">{{ group | sum(attribute='quantity') }}</span></summary>
+        <div class="grid">
+          {% for c in group %}{{ tile(c, 'cut', deck.id) }}{% endfor %}
+        </div>
+      </details>
       {% endif %}
     {% endfor %}
   </section>
 
-  <section>
+  <section class="panel" data-panel="candidates">
     <h2>Candidates <span class="dim">{{ candidates | length }}</span></h2>
     <p class="hint">Cards you own, inside {{ deck.commander or 'this deck' }}'s colour identity and not already in the deck.
       Green = a pool or a donor deck, so it costs nobody anything. Amber = in an active deck, which would lose the card.
@@ -102,13 +117,21 @@
       {% endfor %}
       {% if active_role or search %}<a class="chip" href="/deck/{{ deck.slug }}">clear</a>{% endif %}
     </form>
-    <div class="grid">
-      {% for c in candidates %}{{ tile(c, 'add', deck.id) }}{% endfor %}
-    </div>
+    {% for key, label in TYPE_ORDER %}
+      {% set group = candidates | selectattr('group', 'equalto', key) | list %}
+      {% if group %}
+      <details class="group" data-group="cand-{{ key }}" open>
+        <summary class="group-head">{{ label }} <span class="dim">{{ group | length }}</span></summary>
+        <div class="grid">
+          {% for c in group %}{{ tile(c, 'add', deck.id) }}{% endfor %}
+        </div>
+      </details>
+      {% endif %}
+    {% endfor %}
     {% if not candidates %}<p class="hint">No card matches these filters.</p>{% endif %}
   </section>
 
-  <section>
+  <section class="panel" data-panel="combos">
     <h2>Combos <span class="dim">{{ combos | length }}</span></h2>
     {% if not combos %}<p class="hint">No combo registered for this deck.</p>{% endif %}
     {% for cb in combos %}

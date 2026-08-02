@@ -136,4 +136,71 @@ document.addEventListener('keydown', (e) => {
   if (e.key === ' ') { e.preventDefault(); toggle(tile); }
 });
 
+/* Tabs. Combos and candidates are one click away instead of a long scroll.
+   The active tab lives in the URL hash so a reload or the back button keeps it,
+   with sessionStorage as the fallback for the filter form, which submits a
+   plain GET and drops the hash. */
+const TAB_KEY = 'ms-tab:' + location.pathname;
+
+function showTab(name, remember) {
+  const panels = document.querySelectorAll('.panel');
+  if (!panels.length) return;
+  const known = [...document.querySelectorAll('.tab')].map(t => t.dataset.tab);
+  if (known.indexOf(name) < 0) name = known[0];
+
+  panels.forEach(p => { p.hidden = p.dataset.panel !== name; });
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('tab-on', t.dataset.tab === name));
+  syncToggleAll();
+
+  if (remember) {
+    sessionStorage.setItem(TAB_KEY, name);
+    history.replaceState(null, '', '#' + name);
+  }
+}
+
+/* Fold state per group, remembered across reloads. */
+const GROUP_KEY = 'ms-groups:' + location.pathname;
+
+function loadGroups() {
+  try { return JSON.parse(localStorage.getItem(GROUP_KEY)) || {}; } catch (_) { return {}; }
+}
+function saveGroups(state) {
+  try { localStorage.setItem(GROUP_KEY, JSON.stringify(state)); } catch (_) {}
+}
+
+function syncToggleAll() {
+  const btn = document.getElementById('toggle-all');
+  if (!btn) return;
+  const visible = [...document.querySelectorAll('.panel:not([hidden]) .group')];
+  btn.hidden = !visible.length;
+  btn.textContent = visible.some(g => g.open) ? 'collapse all' : 'expand all';
+}
+
+function initGroups() {
+  const state = loadGroups();
+  document.querySelectorAll('.group').forEach(g => {
+    const key = g.dataset.group;
+    if (key in state) g.open = state[key];
+    g.addEventListener('toggle', () => {
+      const s = loadGroups();
+      s[key] = g.open;
+      saveGroups(s);
+      syncToggleAll();
+    });
+  });
+}
+
+document.addEventListener('click', (e) => {
+  const tab = e.target.closest('.tab');
+  if (tab) { showTab(tab.dataset.tab, true); window.scrollTo(0, 0); return; }
+
+  if (e.target.closest('#toggle-all')) {
+    const visible = [...document.querySelectorAll('.panel:not([hidden]) .group')];
+    const collapsing = visible.some(g => g.open);
+    visible.forEach(g => { g.open = !collapsing; });
+  }
+});
+
+initGroups();
+showTab(location.hash.slice(1) || sessionStorage.getItem(TAB_KEY) || 'deck', false);
 renderCounter();

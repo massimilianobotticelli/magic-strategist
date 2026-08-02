@@ -7,10 +7,13 @@
   <link rel="stylesheet" href="{{ asset('app.css') }}">
 </head>
 <body>
-  <header class="topbar">
-    <a href="/" class="brand">magic-strategist</a>
-    {% block topbar %}{% endblock %}
-  </header>
+  <div class="stickyhead">
+    <header class="topbar">
+      <a href="/" class="brand">magic-strategist</a>
+      {% block topbar %}{% endblock %}
+    </header>
+    {% block subbar %}{% endblock %}
+  </div>
   <main>{% block content %}{% endblock %}</main>
   <script src="{{ asset('app.js') }}"></script>
 </body>

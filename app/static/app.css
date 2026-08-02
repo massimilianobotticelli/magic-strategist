@@ -27,10 +27,47 @@ a { color: inherit; }
 .wrap { max-width: 1180px; margin: 0 auto; padding: 20px 20px 80px; }
 section { margin-bottom: 34px; }
 
+.stickyhead { position: sticky; top: 0; z-index: 20; background: var(--surface); }
 .topbar {
-  position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 14px;
+  display: flex; align-items: center; gap: 14px;
   padding: 10px 20px; background: var(--surface); border-bottom: 1px solid var(--border);
 }
+
+.tabs {
+  display: flex; align-items: center; gap: 4px; padding: 6px 20px;
+  background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto;
+}
+.tab {
+  font: inherit; font-size: 13px; padding: 5px 12px; border-radius: var(--radius);
+  border: 1px solid transparent; background: transparent; color: var(--muted);
+  cursor: pointer; white-space: nowrap;
+}
+.tab:hover { color: var(--text); background: var(--bg); }
+.tab-on { background: var(--accent-bg); color: var(--accent); border-color: transparent; font-weight: 600; }
+.tab-on .dim { color: var(--accent); opacity: .7; }
+.toggle-all {
+  margin-left: auto; font: inherit; font-size: 12px; padding: 4px 10px;
+  border-radius: var(--radius); border: 1px solid var(--border);
+  background: var(--bg); color: var(--muted); cursor: pointer; white-space: nowrap;
+}
+.toggle-all:hover { color: var(--text); border-color: var(--accent); }
+
+.panel[hidden] { display: none; }
+
+/* Type groups fold away, so a hundred cards stay navigable. */
+.group { margin-bottom: 6px; }
+.group > summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; margin: 18px 0 8px; padding: 4px 0; user-select: none;
+}
+.group > summary::-webkit-details-marker { display: none; }
+.group > summary::before {
+  content: ""; width: 0; height: 0; flex-shrink: 0;
+  border-left: 5px solid currentColor; border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent; transition: transform .15s; color: var(--dim);
+}
+.group[open] > summary::before { transform: rotate(90deg); }
+.group > summary:hover { color: var(--accent); }
 .brand { font-weight: 600; text-decoration: none; font-size: 14px; }
 .deck-switch {
   background: var(--bg); color: var(--text); border: 1px solid var(--border);
