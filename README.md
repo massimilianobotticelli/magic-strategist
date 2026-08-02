@@ -44,6 +44,50 @@ list is never quietly rewritten by a conversation.
 Card art is loaded from Scryfall, so the grid needs a connection the first time;
 everything else works offline.
 
+Deck, Candidates, Combos and Proposals are tabs in the sticky header, so nothing
+is more than one click away. Type sections fold, and stay folded across reloads.
+Click a card to see it full size; **press and hold** to mark it.
+
+## Building a new deck
+
+Deck construction needs judgement, which the app cannot do on its own. So the
+two halves talk through the database:
+
+1. **"New deck"** in the app opens a form — format, colours, a commander you have
+   in mind, the strategy in free text, and whether cards may be taken out of
+   decks that are currently assembled. Everything is optional. It writes a row
+   into `deck_requests`.
+2. **`/new-deck` in a session** picks up anything still pending, builds from what
+   the collection actually holds, and writes the result back as a deck with
+   `status = 'draft'`.
+3. The draft shows up in the app like any other deck, and is refined with the
+   same proposal mechanism until it is promoted to `active`.
+
+The skill also works straight from a conversation, with no request row.
+
+### Supported formats
+
+| Format | Size | Copies | Commander | Rarity |
+|---|---|---|---|---|
+| Commander | exactly 100 | 1 | yes | any |
+| Pauper Commander | exactly 100 | 1 | uncommon creature | commons |
+| Modern | 60+ (+15 sideboard) | 4 | no | any |
+| Pauper | 60+ (+15 sideboard) | 4 | no | commons |
+
+`scripts/formats.py` holds the rules and `validate.py` enforces them per deck,
+so a Modern deck is never held to Commander's 100-card singleton rule. Card
+legality comes from the committed Scryfall cache, so it costs no API calls.
+
+The working tool is:
+
+```bash
+make query ARGS='available --format pdh --colors GU'
+make query ARGS='available --format modern --role spot-removal --borrow'
+```
+
+Owned cards legal in a format, filtered by colour, role and type. Without
+`--borrow` it lists only what costs nothing — the loose pools and donor decks.
+
 ## What each script does
 
 | Script | What it does |
@@ -145,8 +189,9 @@ data/
 decks/<slug>/        decklist.txt, strategy.md, upgrades.md
 pool/                notes on the loose card pools
 knowledge/           brackets.md, game-changers.json
-scripts/             the five scripts above, plus db.py, scryfall.py, roles.py
-.claude/             rules/ (path-scoped) and commands/ (/session)
+scripts/             the five scripts above, plus db.py, scryfall.py,
+                     roles.py, formats.py and schema.sql
+.claude/             rules/ · commands/ (/session) · skills/ (new-deck)
 ```
 
 ## Design notes
@@ -179,6 +224,14 @@ This is not hypothetical: the bracket-4 Blight Curse upgrade physically took
 five cards out of Dance of the Elements, leaving it at 95. Rather than rebuy
 them, Dance is a donor deck. Its `decklist.txt` still describes the original
 100 and is deliberately stale — `copies` is the truth for that deck.
+
+**What the collection can actually support.** 405 distinct cards, but **363 of
+them are single copies and there is not one playset**. Commander is well served
+with 405 legal cards, and Pauper Commander turns out to fit unusually well — 140
+legal commons and 12 possible commanders — because both formats are singleton.
+Modern and Pauper will produce near-singleton decks: fine for casual games, and
+the builder says which cards would want a second or third copy rather than
+pretending otherwise.
 
 **Combo disablers are first-class.** `combo_disablers` records the cards that
 shut a combo *off*, because that is the detail my notes kept losing. Melira,

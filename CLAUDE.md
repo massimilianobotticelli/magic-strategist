@@ -39,12 +39,45 @@ VALUES (:deck, :oracle, 'cut'|'add', 'claude', 'why, in one or two sentences', :
   them rather than duplicating them.
 - Nothing touches `decklist.txt` until a proposal is applied deliberately.
 
+## Building a new deck
+
+Run the **`new-deck` skill**. The web app's "New deck" button writes a row into
+`deck_requests`; the skill reads anything still `pending`, builds from what he
+owns, and writes the result back as a deck with `status='draft'`. It works from
+a conversation too, with no request row.
+
+```
+make query ARGS='requests'                              # what was asked for
+make query ARGS='available --format pdh --colors GU'    # what can be used
+```
+
+`available` is the building tool: owned cards legal in a format, filtered by
+colour, role and type. Without `--borrow` it shows only cards that cost nothing
+(pools and donor decks); with it, cards that would have to leave an assembled
+deck. Never borrow without naming the deck that loses the card.
+
+## Formats
+
+`scripts/formats.py` is the authority — never recall these from memory.
+
+| Format | Size | Copies | Commander | Rarity |
+|---|---|---|---|---|
+| `commander` | exactly 100 | 1 | yes | any |
+| `pdh` | exactly 100 | 1 | uncommon creature | commons |
+| `modern` | 60+ (+15 SB) | 4 | no | any |
+| `pauper` | 60+ (+15 SB) | 4 | no | commons |
+
+Colour identity, brackets and Game Changers apply to Commander-style formats
+only. `validate.py` already knows this; don't re-impose Commander rules on a
+Modern deck.
+
 ## How to work with this repo
 
 - **Query, don't read.** Use `scripts/query.py` for card and deck facts. Do not
   read `data/collection.db`, the decklists, or the Scryfall cache in bulk.
   - `query.py decks` · `query.py deck <slug> --roles` · `query.py card "<name>"`
   - `query.py combos --deck <slug>` · `query.py pool --color-identity BRG`
+  - `query.py available --format <fmt>` · `query.py requests`
   - `query.py wishlist` · `query.py conflicts`
 - **Run `make validate` after any deck change.** Non-zero exit means something
   is broken. Report the output; do not silently fix it.
@@ -69,6 +102,13 @@ triplicate. What matters is **supply vs. demand**: if more *active* decks list a
 card than there are physical copies, building one deck strips another.
 `validate.py` checks this. When proposing a move, always say which deck loses
 the card.
+
+The other half of the picture: **363 of his 405 distinct cards are single
+copies, and he owns no playsets at all.** Commander and PDH are singleton, so
+this costs nothing. Modern and Pauper decks built from the collection will be
+near-singleton piles — fine for casual games against friends, which is what he
+plays, but say which cards would want a second or third copy so they can go on
+the wishlist.
 
 ## Deck status
 
@@ -116,11 +156,10 @@ ceiling including worst-case shipping.
 
 ## Hard rules
 
-- Stay inside the focus commander's colour identity. No exceptions.
+- Stay inside the commander's colour identity (Commander and PDH). No exceptions.
 - Never suggest a card already in the deck. Check first with `query.py deck`.
-- **For every addition, propose a specific cut, with a reason.** Decks stay at
-  exactly 100 including the commander.
-- Singleton within a deck; basic lands excepted.
+- **For every addition, propose a specific cut, with a reason.** Deck size is
+  the format's, not always 100 — see the table above.
 - English, non-foil printings. He rejects cheaper Japanese or other-language
   printings for consistency.
 
@@ -131,23 +170,26 @@ Strixhaven (SOS)**. If unsure whether a card exists or how it works, check the
 database or Scryfall and say that you did. Never invent a card, a mana cost, or
 an interaction.
 
-## Combo disablers
-
-`combo_disablers` records cards that **shut a combo off**. This is the detail
-that keeps getting lost in his notes. When registering or discussing a combo,
-always account for its disablers.
+`combo_disablers` records cards that **shut a combo off** — the detail that
+keeps getting lost in his notes. Always account for them when discussing a combo.
 
 ## Layout
 
 ```
-app/                    FastAPI web app — main.py, queries.py, templates, static
-data/collection.db      SQLite, the source of truth (committed)
-data/collection.sql     text dump of the same, so git history is diffable
-data/manabox/<date>/    raw ManaBox exports — committed, never edited
-data/scryfall/          cached API responses (committed)
-data/seed.sql           hand-maintained facts
-decks/<slug>/           decklist.txt, strategy.md, upgrades.md
-pool/                   notes on loose cards; the cards live in the database
-knowledge/              brackets.md, game-changers.json
-scripts/                import_manabox · enrich · sync_gamechangers · validate · query
+app/                 FastAPI web app · .claude/skills/new-deck
+data/collection.db   SQLite, the source of truth (committed)
+data/collection.sql  text dump, so git history is diffable
+data/manabox/<date>/ raw ManaBox exports — committed, never edited
+data/scryfall/       cached API responses (committed)
+data/seed.sql        hand-maintained facts: brackets, commanders, combos
+decks/<slug>/        decklist.txt, strategy.md, upgrades.md
+pool/                notes on loose cards; the cards live in the database
+knowledge/           brackets.md, game-changers.json
+scripts/             import_manabox · enrich · sync_gamechangers · validate ·
+                     query · db · scryfall · roles · formats · schema.sql
 ```
+
+## Language
+
+He writes in Italian, German or English — **reply in whichever he used**. The
+web app and everything committed to the repo stay in English.

@@ -2661,7 +2661,6 @@ CREATE TABLE deck_requests (
     response       TEXT,      -- what the session did, and what it could not do
     created_at     TEXT NOT NULL DEFAULT (datetime('now'))
 );
-INSERT INTO deck_requests VALUES(1,'pdh','GU',NULL,'lands matter, ramp into big turns',0,1,NULL,'pending',NULL,NULL,'2026-08-02 17:28:08');
 CREATE TABLE wishlist (
     id                INTEGER PRIMARY KEY,
     card_name         TEXT NOT NULL,
