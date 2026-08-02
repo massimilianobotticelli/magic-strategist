@@ -31,6 +31,11 @@ Never block on questions you can answer from the database.
 | `pdh` | exactly 100 | 1 | yes, uncommon creature | commons |
 | `modern` | 60+ (+15 SB) | 4 | no | any |
 | `pauper` | 60+ (+15 SB) | 4 | no | commons |
+| `limited` | 40+ | unlimited | no | any |
+
+For Modern and Pauper, aim for **two colours, no lands that enter tapped, and a
+curve topping out at 3** — see CLAUDE.md. Say so when the collection cannot get
+there, rather than quietly missing the target.
 
 ## 3. See what is actually available
 
@@ -114,11 +119,20 @@ Then `make dump` and tell him the deck is in the app, with:
 
 ## Watch out for
 
-- **He owns almost no playsets** — 363 of 405 cards are single copies. Modern
-  and Pauper decks will be closer to singleton piles than to tournament lists.
-  Say so plainly; he plays casually with friends and has accepted this, but he
-  should still know which cards would want a second or third copy.
+- **He owns almost no playsets** — the large majority of cards are single
+  copies, so Modern and Pauper decks come out closer to singleton piles than to
+  tournament lists. Say so plainly; he plays casually with friends and has
+  accepted this, but he should still know which cards would want a second or
+  third copy. Count it from `copies` rather than quoting a number from here.
 - **Borrowing weakens a real deck.** Never take a card from an assembled deck
   without naming the deck and what it loses.
+- **`available` has two blind spots** — it filters by colour identity, which is
+  meaningless outside Commander and hides castable hybrids, and it hides a card
+  listed in an active deck even when a spare copy is free in a pool. See
+  CLAUDE.md before concluding that the collection cannot supply something.
+- **The set a card comes from says nothing about whether it is free.** A loose
+  pool can hold leftovers from a draft whose deck he still plays. Ask him.
+- **Basic lands run out too**, and `validate` will not tell you: it exempts them
+  from the supply check.
 - **Do not modify `decklist.txt`.** Drafts live in the database until he
   promotes them.
