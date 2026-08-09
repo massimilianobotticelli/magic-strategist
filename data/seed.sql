@@ -143,6 +143,7 @@ UPDATE wishlist
 DELETE FROM combo_disablers;
 DELETE FROM combo_pieces;
 DELETE FROM combos;
+DELETE FROM effective_costs;
 
 -- 1. The core two-card engine ------------------------------------------------
 INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
@@ -681,6 +682,37 @@ INSERT INTO combo_disablers (combo_id, oracle_id, note)
 SELECT (SELECT id FROM combos WHERE name = 'Quick-Draw Katana + any one-drop'),
        oracle_id, 'equip is an activated ability; naming Quick-Draw Katana means it can never be attached to anything'
   FROM cards WHERE name = 'Pithing Needle';
+
+
+-- ---------------------------------------------------------------------------
+-- Effective mana cost, where it differs from the printed one.
+--
+-- This table exists because of a real failure. Grounded for Life was cut from
+-- Foot Clan Blitz for "costing 5" while the deck casts it for {1}{W}, and the
+-- reason was mechanical rather than careless: the build sorted on
+-- cards.mana_value, which is printed cost, while the rule about effective cost
+-- lived only as prose in CLAUDE.md. When the tool and the rule disagree, the
+-- tool wins silently. Anything written here is what the tool now says.
+--
+-- THE BAR IS "RELIABLY TURNS ON", and it is deliberately high.
+--
+-- Note which cards are NOT in this table. Every Sneak card in Foot Clan Blitz
+-- is cheaper on paper - Leonardo Big Brother {2}{W} -> {W}, Oroku Saki {2}{B}
+-- -> {1}{B}, Shredder's Technique {2}{B} -> {B} - and NONE of them is listed,
+-- because Sneak needs an unblocked attacker in the declare blockers step and a
+-- faster opponent simply never gives you one. That is the finding that killed
+-- the deck's predecessor. Listing them would re-import the exact mistake this
+-- table is here to prevent: a discount you cannot count on is not a discount.
+--
+-- Leonardo, Leader in Blue is the mirror case - his Sneak cost is HIGHER than
+-- printed ({W} -> {3}{W}{W}) - and he is not listed either, for the same
+-- reason. Effective cost means what you actually pay, in both directions.
+-- ---------------------------------------------------------------------------
+INSERT INTO effective_costs (oracle_id, deck_id, effective_mv, condition)
+SELECT c.oracle_id, d.id, 2.0,
+       'Costs {3} less if it targets a TAPPED creature, so {1}{W} against anything that has attacked. ONE-DIRECTIONAL: cheap on defence, full price on offence - clearing a fresh blocker on your own turn really does cost five. Counted as 2 because the decks this list is built to beat attack every turn.'
+  FROM cards c, decks d
+ WHERE c.name = 'Grounded for Life' AND d.slug = 'foot-clan-blitz';
 
 
 -- ---------------------------------------------------------------------------

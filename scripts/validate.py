@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import signal
 import sys
 from pathlib import Path
@@ -382,6 +383,70 @@ def check_languages(conn, report: Report) -> None:
         report.warn(f"{row['name']} in '{row['slug']}' is a '{row['language']}' printing")
 
 
+def check_combo_notes_vs_decklist(conn, report: Report) -> None:
+    """Combo rot: pieces and notes that still describe a card the deck lost.
+
+    Combo notes quote card names and counts, and a deck change makes them wrong
+    silently - which defeats the whole point of writing them down. Every stale
+    note found so far was found at the table or while sleeving, never by a
+    command, so this is the command.
+
+    A PIECE that is not in the deck is a failure: a combo cannot be assembled
+    out of cards the deck does not run. A name merely MENTIONED in the prose is
+    only a note, because saying "Foot Mystic was cut for costing four" is
+    exactly the kind of history these notes should keep.
+    """
+    report.section("Combo notes vs. the deck they belong to")
+
+    combos = conn.execute(
+        """
+        SELECT c.id, c.name, d.slug, d.id AS deck_id,
+               COALESCE(c.payoff,'') || ' ' || COALESCE(c.power_level,'') || ' '
+               || COALESCE(c.notes,'') || ' ' || c.name AS blob
+          FROM combos c JOIN decks d ON d.id = c.deck_id
+         ORDER BY d.slug, c.name
+        """
+    ).fetchall()
+    if not combos:
+        report.ok("no combos registered against a deck")
+        return
+
+    # Short names produce false positives against ordinary English, and the
+    # cost of a missed 6-letter card name is far lower than the cost of
+    # flagging every combo that contains the word "Stab".
+    names = [r["name"] for r in conn.execute("SELECT DISTINCT name FROM cards")
+             if len(r["name"]) > 6]
+    clean = True
+    for combo in combos:
+        in_deck = {r["card_name"] for r in conn.execute(
+            "SELECT card_name FROM deck_cards WHERE deck_id = ?", (combo["deck_id"],))}
+        front = {n.split(" //")[0] for n in in_deck}
+
+        missing = sorted({r["name"] for r in conn.execute(
+            """
+            SELECT cd.name FROM combo_pieces cp JOIN cards cd ON cd.oracle_id = cp.oracle_id
+             WHERE cp.combo_id = ?
+            """, (combo["id"],)) if r["name"] not in in_deck})
+        if missing:
+            clean = False
+            report.fail(
+                f"{combo['slug']}: '{combo['name']}' lists pieces the deck no longer runs",
+                [f"{n} is not in the decklist" for n in missing])
+
+        mentioned = sorted({
+            n.split(" //")[0] for n in names
+            if re.search(rf"\b{re.escape(n.split(' //')[0])}\b", combo["blob"])
+            and n not in in_deck and n.split(" //")[0] not in front})
+        if mentioned:
+            clean = False
+            report.note(
+                f"{combo['slug']}: '{combo['name']}' mentions {', '.join(mentioned)} — "
+                "deliberate history, or a note that went stale?")
+
+    if clean:
+        report.ok("every combo's pieces and notes match its deck's current list")
+
+
 CHECKS = [
     check_deck_size,
     check_copy_limit,
@@ -391,6 +456,7 @@ CHECKS = [
     check_color_identity,
     check_game_changers,
     check_combos_vs_bracket,
+    check_combo_notes_vs_decklist,
     check_copy_conflicts,
     check_languages,
     check_singleton_across_collection,

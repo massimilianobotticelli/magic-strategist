@@ -67,6 +67,55 @@ def cmd_decks(conn, args) -> int:
     return 0
 
 
+def print_curve(conn, deck) -> None:
+    """Mana curve on EFFECTIVE cost, with the printed one beside it.
+
+    cards.mana_value is the printed cost. CLAUDE.md asks for effective cost,
+    and the two disagreeing silently is how Grounded for Life got cut for
+    "costing 5" out of a deck that casts it for {1}{W}. Anything in
+    effective_costs overrides the printed number here, and the override is
+    always shown so it can be argued with rather than trusted blindly.
+    """
+    rows = conn.execute(
+        """
+        SELECT dc.quantity AS q, dc.card_name AS name, c.mana_value AS printed,
+               ec.effective_mv AS eff, ec.condition AS cond, c.type_line AS tl
+          FROM deck_cards dc
+          JOIN cards c ON c.oracle_id = dc.oracle_id
+     LEFT JOIN effective_costs ec
+            ON ec.oracle_id = dc.oracle_id AND ec.deck_id = dc.deck_id
+         WHERE dc.deck_id = ? AND dc.section = 'main'
+           AND c.type_line NOT LIKE '%Land%'
+        """,
+        (deck["id"],),
+    ).fetchall()
+    if not rows:
+        return
+
+    printed, effective, overrides = {}, {}, []
+    for r in rows:
+        p = int(r["printed"] or 0)
+        e = int(r["eff"]) if r["eff"] is not None else p
+        printed[p] = printed.get(p, 0) + r["q"]
+        effective[e] = effective.get(e, 0) + r["q"]
+        if r["eff"] is not None and e != p:
+            overrides.append((r["name"], p, e, r["cond"]))
+
+    n = sum(printed.values())
+    top = max(max(printed), max(effective))
+    cols = list(range(1, top + 1))
+    head = "".join(f"{c:>4}" for c in cols)
+    print(f"\nCurve ({n} nonland)      MV{head}")
+    print(f"  printed             {'':2}" + "".join(f"{printed.get(c, 0):>4}" for c in cols)
+          + f"   avg {sum(k * v for k, v in printed.items()) / n:.2f}")
+    print(f"  effective           {'':2}" + "".join(f"{effective.get(c, 0):>4}" for c in cols)
+          + f"   avg {sum(k * v for k, v in effective.items()) / n:.2f}")
+
+    for name, p, e, cond in sorted(overrides):
+        print(f"    {name}: {p} -> {e}")
+        print(f"      {cond}")
+
+
 def cmd_deck(conn, args) -> int:
     deck = conn.execute(
         "SELECT * FROM decks WHERE slug = ? OR name = ?", (args.slug, args.slug)
@@ -119,6 +168,8 @@ def cmd_deck(conn, args) -> int:
     print(f"\nGame Changers: {len(gcs)}")
     for row in gcs:
         print(f"  ⚡ {row['name']}")
+
+    print_curve(conn, deck)
 
     print("\nDecklist")
     for section in ("commander", "main", "sideboard"):

@@ -368,3 +368,33 @@ CREATE TABLE IF NOT EXISTS wishlist (
     notes             TEXT,
     UNIQUE (card_name, deck_id)
 );
+
+
+-- ---------------------------------------------------------------------------
+-- Effective mana cost.
+--
+-- `cards.mana_value` is the PRINTED cost, and it is the number any query sorts
+-- on by default. CLAUDE.md asks for the EFFECTIVE cost instead: a reduction or
+-- an alternative cost the deck reliably turns on makes a card cheaper than its
+-- mana value says.
+--
+-- Those two rules disagreed once and the tool won silently: Grounded for Life
+-- was cut from Foot Clan Blitz for "costing 5" when the deck casts it for
+-- {1}{W}, because the build sorted on mana_value while the rule lived only in
+-- prose. This table is where the rule stops being prose.
+--
+-- Scoped to a deck on purpose - "reliably turns on" is a property of the deck,
+-- not of the card. The same card can be 2 here and 5 somewhere else.
+--
+-- `condition` is required and must say WHEN the reduction applies, and any
+-- direction it does not work in. A reduction that only helps on defence is a
+-- different card from one that always helps, and that is the part that gets
+-- forgotten.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS effective_costs (
+    oracle_id    TEXT    NOT NULL REFERENCES cards(oracle_id),
+    deck_id      INTEGER NOT NULL REFERENCES decks(id) ON DELETE CASCADE,
+    effective_mv REAL    NOT NULL,
+    condition    TEXT    NOT NULL,
+    PRIMARY KEY (oracle_id, deck_id)
+);
