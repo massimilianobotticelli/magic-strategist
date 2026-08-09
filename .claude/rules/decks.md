@@ -60,6 +60,37 @@ promoted. Doing it properly means all of:
 Step 4 is not optional. It is the only thing that proves the deck survives a
 rebuild rather than living on in a database nobody can regenerate.
 
+## Retiring a deck for good
+
+Deleting a deck is **two** changes, and doing only one leaves the repo lying:
+
+1. **Rename its `decklist.txt`** to `decklist-<why>-<date>.txt`. The importer
+   only reads `decklist.txt`, so the list stays readable without building a
+   phantom deck. Keep `strategy.md` and `upgrades.md` — they are the record of
+   why it existed.
+2. **If it was a ManaBox binder typed `deck`, an import will recreate it every
+   time**, and no committed file can stop that — only a fresh export can. Until
+   he retypes the binder to `binder` and re-exports, `data/seed.sql` has to
+   delete the deck row and flip `locations.type` to `'pool'`. That block runs
+   after the import, so it wins; once the export agrees it becomes a no-op.
+
+**Never rename the binder to "fix" it.** The binder name *is* the slug, so
+renaming creates a second location and orphans the first, taking the copies
+with it. Change the type, keep the name.
+
+`make seed` pipes into `sqlite3`, which leaves foreign keys **off**, so
+`ON DELETE CASCADE` does not fire. Delete `deck_cards` and `deck_proposals`
+yourself before deleting the deck, and null out `wishlist.deck_id` and
+`deck_requests.deck_id`.
+
+Deleting a deck **destroys its proposals**, which is the app's record of what
+was decided and why. Carry anything worth keeping into the successor's
+`upgrades.md` first, and say plainly that the rows are gone.
+
+Examples of the kept-for-reference convention:
+`decks/blight-curse-b4-final/decklist-pre-upgrade.txt` and
+`decks/foot-clan-sneak/decklist-dismantled-2026-08-09.txt`.
+
 ## Sideboards
 
 Only the 60-card formats have one. The app shows it in its own tab, read-only:
