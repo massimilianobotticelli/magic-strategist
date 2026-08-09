@@ -216,3 +216,8 @@ section { margin-bottom: 34px; }
 #zoom[hidden] { display: none; }
 #zoom img { max-width: 420px; }
 #zoom img { max-width: 340px; width: 100%; border-radius: 14px; }
+
+/* A dropped wishlist row is kept on purpose - it records a decision not to buy
+   - so it stays readable but stops competing for attention with live wants. */
+.wish-dropped { opacity: .55; }
+.wish-dropped h3 { text-decoration: line-through; }

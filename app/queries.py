@@ -159,12 +159,43 @@ def _images(conn, printing_id: str | None) -> tuple[str | None, str | None]:
     return (row["image_uri"], row["image_small"]) if row else (None, None)
 
 
-def candidates(conn, deck: dict, role: str | None = None, query: str | None = None) -> list[dict]:
+def wishlist(conn, deck_id: int) -> list[dict]:
+    """Cards to buy for this deck, worst-priority last.
+
+    A wishlist row is keyed by card NAME, because the whole point is that the
+    card is not owned yet - there is no copy and often no printing either. The
+    join to `cards` is a left join for the same reason, and it only resolves at
+    all because those names are listed in the Makefile's EXTRA_CARDS so a
+    rebuild enriches them.
+    """
+    rows = conn.execute(
+        """
+        SELECT w.id, w.card_name, w.quantity, w.priority, w.price_ceiling_eur,
+               w.status, w.notes, c.mana_cost, c.type_line, c.oracle_text,
+               (SELECT p.scryfall_id FROM printings p
+                 WHERE p.oracle_id = c.oracle_id ORDER BY p.released_at DESC LIMIT 1) AS printing_id
+          FROM wishlist w LEFT JOIN cards c ON c.oracle_id = w.oracle_id
+         WHERE w.deck_id = ?
+         ORDER BY w.status = 'dropped', w.priority, w.card_name
+        """,
+        (deck_id,),
+    ).fetchall()
+    out = []
+    for r in rows:
+        item = dict(r)
+        item["image"], item["image_small"] = _images(conn, item.pop("printing_id"))
+        out.append(item)
+    return out
+
+
+def candidates(conn, deck: dict, role: str | None = None, query: str | None = None,
+               free_only: bool = False) -> list[dict]:
     """Cards you own that are legal in this deck and not already in it.
 
     Pools and donor decks both count as available inventory; a card sitting in
     another ACTIVE deck is shown too, but flagged, because taking it costs that
-    deck the card.
+    deck the card. `free_only` drops that second kind entirely, which is the
+    view you want when the rule is "nothing may be taken out of a live deck".
     """
     identity = set(deck["color_identity"] or "")
     rows = conn.execute(
@@ -183,7 +214,13 @@ def candidates(conn, deck: dict, role: str | None = None, query: str | None = No
          WHERE c.is_basic_land = 0 AND c.is_token = 0
            AND c.oracle_id NOT IN (SELECT oracle_id FROM deck_cards
                                     WHERE deck_id = ? AND oracle_id IS NOT NULL)
-         ORDER BY c.mana_value, c.name
+         -- The last key decides which row survives the dedup below, and it has
+         -- to prefer a free copy: he owns a few cards twice, and showing the
+         -- one locked in an active deck would paint a card amber that is
+         -- actually sitting in a pool, free to take.
+         ORDER BY c.mana_value, c.name,
+                  (l.type = 'pool'
+                   OR (SELECT status FROM decks WHERE location_id = l.id) = 'donor') DESC
         """,
         (deck["id"],),
     ).fetchall()
@@ -195,6 +232,16 @@ def candidates(conn, deck: dict, role: str | None = None, query: str | None = No
         card = dict(r)
         if set(card["color_identity"] or "") - identity:
             continue
+        # Taking a card out of an active deck weakens it; out of a pool or a
+        # donor deck it costs nothing.
+        card["free"] = card["location_type"] == "pool" or card["deck_status"] == "donor"
+        # This has to happen BEFORE the dedup below. There is one row per
+        # (card, location), and he owns a few cards twice - so a copy locked in
+        # an active deck can arrive first and, if it were allowed to claim the
+        # `seen` slot, would hide the free copy sitting in a pool behind it.
+        # That is the exact blind spot CLAUDE.md warns about.
+        if free_only and not card["free"]:
+            continue
         if card["oracle_id"] in seen:
             continue
         card["roles"] = (card["roles"] or "").split(",") if card["roles"] else []
@@ -205,9 +252,6 @@ def candidates(conn, deck: dict, role: str | None = None, query: str | None = No
         seen.add(card["oracle_id"])
         card["group"] = type_group(card["type_line"])
         card["image"], card["image_small"] = _images(conn, card["printing_id"])
-        # Taking a card out of an active deck weakens it; out of a pool or a
-        # donor deck it costs nothing.
-        card["free"] = card["location_type"] == "pool" or card["deck_status"] == "donor"
         prop = proposals.get(card["oracle_id"])
         card["proposal"] = prop if prop and prop["action"] == "add" else None
         out.append(card)

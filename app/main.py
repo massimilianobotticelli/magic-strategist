@@ -100,24 +100,28 @@ def api_dismiss_request(request_id: int):
 
 
 @app.get("/deck/{slug}", response_class=HTMLResponse)
-def deck_view(request: Request, slug: str, role: str | None = None, q_: str | None = None):
+def deck_view(request: Request, slug: str, role: str | None = None, q_: str | None = None,
+              free: str | None = None):
     conn = q.connect()
     try:
         deck = q.get_deck(conn, slug)
         if deck is None:
             raise HTTPException(404, f"no deck '{slug}'")
+        free_only = bool(free)
         context = {
             "request": request,
             "deck": deck,
             "decks": q.list_decks(conn),
             "cards": q.deck_cards(conn, deck["id"]),
             "sideboard": q.deck_cards(conn, deck["id"], ("sideboard",)),
-            "candidates": q.candidates(conn, deck, role=role, query=q_),
+            "candidates": q.candidates(conn, deck, role=role, query=q_, free_only=free_only),
             "combos": q.deck_combos(conn, deck["id"]),
             "proposals": q.proposals(conn, deck["id"]),
+            "wishlist": q.wishlist(conn, deck["id"]),
             "totals": q.deck_totals(conn, deck["id"]),
             "active_role": role or "",
             "search": q_ or "",
+            "free_only": free_only,
         }
     finally:
         conn.close()

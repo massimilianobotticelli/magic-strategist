@@ -47,6 +47,7 @@
 <nav class="tabs" role="tablist">
   <button class="tab" data-tab="deck" role="tab">Deck <span class="dim">{{ totals.size }}</span></button>
   <button class="tab" data-tab="candidates" role="tab">Candidates <span class="dim">{{ candidates | length }}</span></button>
+  <button class="tab" data-tab="wishlist" role="tab">Wishlist <span class="dim">{{ wishlist | selectattr('status', 'ne', 'dropped') | list | length }}</span></button>
   {% if sideboard %}
   <button class="tab" data-tab="sideboard" role="tab">Sideboard <span class="dim">{{ totals.sideboard }}</span></button>
   {% endif %}
@@ -144,11 +145,15 @@
       Click to enlarge, <strong>press and hold</strong> to mark it for adding.</p>
     <form class="filters" method="get">
       <input type="search" name="q_" value="{{ search }}" placeholder="search by name">
+      {% if free_only %}<input type="hidden" name="free" value="1">{% endif %}
+      <a class="chip {% if free_only %}chip-on{% endif %}"
+         href="?{% if not free_only %}free=1{% endif %}{% if active_role %}&role={{ active_role }}{% endif %}{% if search %}&q_={{ search }}{% endif %}"
+         title="Only cards in a pool or a donor deck — nothing that would be taken out of a live deck">free only</a>
       {% for r in ['ramp','card-draw','spot-removal','board-wipe','tutor','protection','recursion','fixing'] %}
       <a class="chip {% if active_role == r %}chip-on{% endif %}"
-         href="?role={{ '' if active_role == r else r }}{% if search %}&q_={{ search }}{% endif %}">{{ r }}</a>
+         href="?role={{ '' if active_role == r else r }}{% if free_only %}&free=1{% endif %}{% if search %}&q_={{ search }}{% endif %}">{{ r }}</a>
       {% endfor %}
-      {% if active_role or search %}<a class="chip" href="/deck/{{ deck.slug }}">clear</a>{% endif %}
+      {% if active_role or search or free_only %}<a class="chip" href="/deck/{{ deck.slug }}">clear</a>{% endif %}
     </form>
     {% for key, label in TYPE_ORDER %}
       {% set group = candidates | selectattr('group', 'equalto', key) | list %}
@@ -162,6 +167,40 @@
       {% endif %}
     {% endfor %}
     {% if not candidates %}<p class="hint">No card matches these filters.</p>{% endif %}
+  </section>
+
+  <section class="panel" data-panel="wishlist">
+    <h2>Wishlist <span class="dim">{{ wishlist | length }}</span></h2>
+    <p class="hint">Cards to buy for this deck, highest priority first. These are <strong>not owned</strong> —
+      they will never show up under Candidates, which is exactly why they live here.
+      Nothing is ordered automatically; this is the handover point.</p>
+    {% if not wishlist %}
+    <p class="hint">Nothing on the wishlist for this deck.</p>
+    {% endif %}
+    {% for w in wishlist %}
+    <article class="combo {% if w.status == 'dropped' %}wish-dropped{% endif %}">
+      <h3>
+        {% if w.quantity > 1 %}{{ w.quantity }}× {% endif %}{{ w.card_name }}
+        <span class="pill pill-accent">P{{ w.priority }}</span>
+        {% if w.status != 'wanted' %}<span class="pill pill-muted">{{ w.status }}</span>{% endif %}
+        {% if w.price_ceiling_eur %}<span class="dim">≤ €{{ '%.2f' | format(w.price_ceiling_eur) }}</span>{% endif %}
+      </h3>
+      <div class="combo-body">
+        <div class="grid grid-sm">
+          <div class="tile tile-static">
+            {% if w.image_small %}<img src="{{ w.image_small }}" alt="{{ w.card_name }}" loading="lazy" data-full="{{ w.image }}">
+            {% else %}<div class="tile-noimg">{{ w.card_name }}</div>{% endif %}
+            <div class="tile-bar"><span class="tile-name">{{ w.mana_cost or '' }}</span></div>
+          </div>
+        </div>
+        <div class="combo-text">
+          {% if w.type_line %}<p class="dim">{{ w.type_line }}</p>{% endif %}
+          {% if w.oracle_text %}<p class="oracle">{{ w.oracle_text }}</p>{% endif %}
+          {% if w.notes %}<p><span class="lbl">Why</span> {{ w.notes }}</p>{% endif %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
   </section>
 
   <section class="panel" data-panel="combos">

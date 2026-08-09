@@ -50,9 +50,18 @@ seed:
 validate:
 	$(RUN) python scripts/validate.py $(ARGS)
 
-# Cards that must exist in `cards` without being owned - combo disablers, which
-# data/seed.sql references by name. Kept here so a rebuild cannot lose them.
-EXTRA_CARDS := "Melira, Sylvok Outcast" "Solemnity" "Pithing Needle"
+# Cards that must exist in `cards` without being owned. Two kinds:
+#
+#   * combo disablers, which data/seed.sql references by name, and
+#   * wishlist cards he does not own yet. Without them the wishlist row keeps
+#     its card_name but resolves to no oracle_id after a rebuild, so the app
+#     has no mana cost, no type and no image to show - which is most of what
+#     makes the Wishlist tab worth opening.
+#
+# Kept here so a rebuild cannot lose them. Their Scryfall responses are cached
+# and committed, so --offline still works.
+EXTRA_CARDS := "Melira, Sylvok Outcast" "Solemnity" "Pithing Needle" \
+               "Caves of Koilos" "Concealed Courtyard" "Isolated Chapel"
 
 # Full rebuild from the committed raw exports and decklists. Uses the cached
 # Scryfall responses, so it works with no network.
