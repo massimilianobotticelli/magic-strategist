@@ -50,45 +50,67 @@ UPDATE decks SET status = 'donor', is_registered = 0 WHERE slug = 'dance-of-the-
 
 
 -- ---------------------------------------------------------------------------
--- Foot Clan Sneak: a Modern deck, promoted from draft on 2026-08-02.
+-- Foot Clan Blitz: the Modern deck he actually plays. Promoted 2026-08-09.
 --
--- Unlike the other three it has no ManaBox binder - it was built from the
--- pools rather than bought as a product - so an import can derive nothing but
--- its card list from decks/foot-clan-sneak/decklist.txt. Everything below has
--- to be stated here or a `make rebuild` would recreate it as an unnamed
--- Commander deck with the default format.
+-- It has NO ManaBox binder yet - it was built out of the pools rather than
+-- bought as a product - so an import can derive nothing but its card list from
+-- decks/foot-clan-blitz/decklist.txt. Everything below has to be stated here
+-- or a `make rebuild` would recreate it as an unnamed Commander deck with the
+-- default format.
+--
+-- Until he creates a `deck` binder named "Foot Clan Blitz" in ManaBox and
+-- re-exports, its cards still read as sitting in the old binders. That is the
+-- one outstanding physical step.
 --
 -- No target_bracket on purpose: brackets are a Commander concept and this is
 -- Modern. validate.py is format-aware and will not ask for one.
 -- ---------------------------------------------------------------------------
 UPDATE decks
-   SET name           = 'Foot Clan Sneak',
+   SET name           = 'Foot Clan Blitz',
        format         = 'modern',
        status         = 'active',
        color_identity = 'BW',
        is_registered  = 1,
-       notes          = 'Cheap evasive bodies connect, then get returned to hand during declare blockers to Sneak in a bigger Ninja tapped and attacking. Bouncing your own attacker also turns on Disappear. Late game, Don & Leo blinks Anchovy & Banana Pizza and Foot Mystic every end step: a removal spell and a Ninja token every turn.'
- WHERE slug = 'foot-clan-sneak';
+       notes          = 'Cheap bodies from turn 1 backed by nine removal spells, seven of them at one or two mana. Nothing costs more than 3 and no land enters tapped - both of Steffen''s rules met for the first time. Sneak is a discount now, not the plan. The cost: only ten coloured sources for noncreature spells, which is why every noncreature card is a single pip.'
+ WHERE slug = 'foot-clan-blitz';
 
-UPDATE locations SET name = 'Foot Clan Sneak' WHERE slug = 'foot-clan-sneak';
+UPDATE locations SET name = 'Foot Clan Blitz' WHERE slug = 'foot-clan-blitz';
 
 
 -- ---------------------------------------------------------------------------
--- SOS Draft: the 40-card deck built from a Secrets of Strixhaven draft.
+-- Foot Clan Sneak and SOS Draft: DELETED as decks on 2026-08-09. Their
+-- binders become plain pools, so their cards are simply free inventory.
 --
--- The ManaBox binder is typed `deck`, so the import creates it, but nothing in
--- an export says which format it is and the column defaults to Commander -
--- which is how it first showed up as "0 cards, needs exactly 100".
+-- WHY THEY WENT. Foot Clan Sneak lost repeatedly to Steffen's deck and to
+-- Florian's Final Fantasy starter for one measurable reason: 22 of its 37
+-- spells cost 3 or more, average mana value 2.78, eleven cards at four mana or
+-- more. Sneak only discounts a spell when you already have an unblocked
+-- attacker, which against a faster deck never happens - so every Sneak cost
+-- was paid at full price. SOS Draft was given up because it held the cheap W/B
+-- removal the collection was otherwise hiding (Bitter Triumph, Last Gasp,
+-- Repel Calamity, Burrog Banemaker, Imperious Inkmage, Elite Interceptor).
+-- Both now feed Foot Clan Blitz.
 --
--- No target_bracket, no commander: neither is a Limited concept.
+-- NOTHING IS NEEDED HERE ANY MORE, and that is the point worth recording.
+--
+-- Both were real ManaBox binders typed `deck`, so while they existed in the
+-- export every import recreated them as decks and this file had to delete them
+-- again on every run. The 2026-08-09 export removed both binders and moved
+-- their cards into Free Cards, so the export and the repo finally agree and
+-- the override could go. Total card count is 576 in both the 2026-08-02 and
+-- the 2026-08-09 snapshot: the cards moved, none were duplicated.
+--
+-- The other half of retiring a deck is the decklist, and it is easy to miss:
+-- `make rebuild` imports decks/*/decklist.txt, so a leftover decklist.txt
+-- rebuilds the deck from the file even after its binder is gone. Both were
+-- renamed to decklist-dismantled-2026-08-09.txt, which keeps the list readable
+-- while the importer ignores it - the same convention as
+-- decks/dance-of-the-elements/decklist-dismantled.txt.
+--
+-- The 20 `applied` proposals recorded against Foot Clan Sneak died with it.
+-- They documented changes to a deck that no longer exists; the reasoning that
+-- mattered was carried into decks/foot-clan-blitz/upgrades.md first.
 -- ---------------------------------------------------------------------------
-UPDATE decks
-   SET name          = 'SOS Draft',
-       format        = 'limited',
-       status        = 'active',
-       is_registered = 1,
-       notes         = 'Built from the Secrets of Strixhaven boosters opened at a draft night. Kept assembled to play, so its cards are NOT available to other decks.'
- WHERE slug = 'sos-draft';
 
 
 -- ---------------------------------------------------------------------------
@@ -180,7 +202,281 @@ SELECT (SELECT id FROM combos WHERE name = 'Devoted Druid + Quillspike'),
 
 
 -- ---------------------------------------------------------------------------
--- Foot Clan Sneak (Modern draft).
+-- Blight Curse, second pass: the lines that were already in the 100 and had
+-- never been written down.
+--
+-- This block sits AFTER the CROSS JOIN above on purpose. Melira does not stop
+-- a line that puts its counters on an opponent's creature, so these combos get
+-- their disablers named one at a time instead of inheriting the pair.
+--
+-- Every card below was read out of the database, not recalled. Bracket 4
+-- allows unlimited combos, so none of this is a legality question.
+-- ---------------------------------------------------------------------------
+
+-- 3. The second infinite: a sacrifice loop that never runs out of bodies -----
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Yawgmoth, Thran Physician + two token makers',
+    'infinite',
+    'Two creatures die per iteration, so Zulaport Cutthroat and Grave Venerations each drain 2 and Obelisk Spider drains 1 - lethal long before the draw runs out. Without a drain payoff it is still "draw your library for 1 life a card".',
+    'The deck''s second real kill, and it shares no card with the Blowfly line except the token makers. Three permanents, so realistically turn 6-7.',
+    'Sacrifice a 1/1 token to Yawgmoth and put the -1/-1 counter on ANOTHER 1/1 token: the target dies at 0/0, and both token makers each replace a body, so the count never drops. TRAP: with only ONE token maker this is NOT infinite - each pass is one body down and you are just grinding through an external target. Targets are chosen on activation, so you can never aim at the token you are about to make, and aiming at the creature you sacrifice makes the whole ability fizzle for no counter and no card. TRAP 2: with your own Everlasting Torment on the battlefield you cannot gain the life back, so the loop is capped at your life total. Auntie Ool draws on top of Yawgmoth''s own draw, so count the drain before starting.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Yawgmoth, Thran Physician + two token makers'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Yawgmoth, Thran Physician' THEN 'the outlet; 1 life and a card per pass'
+         WHEN 'Nest of Scarabs' THEN 'token maker - any TWO of these three'
+         WHEN 'Hapatra, Vizier of Poisons' THEN 'token maker - any TWO of these three'
+         WHEN 'Flourishing Defenses' THEN 'token maker - any TWO of these three'
+         WHEN 'Zulaport Cutthroat' THEN 'payoff: 2 drain per pass, both deaths count'
+         WHEN 'Obelisk Spider' THEN 'payoff: 1 drain per pass, and it pays the life back'
+       END
+  FROM cards WHERE name IN ('Yawgmoth, Thran Physician', 'Nest of Scarabs',
+                            'Hapatra, Vizier of Poisons', 'Flourishing Defenses',
+                            'Zulaport Cutthroat', 'Obelisk Spider');
+
+-- 4. The mana combo already in the deck, turned into a kill ------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Devoted Druid + Quillspike + Obelisk Spider',
+    'infinite',
+    'Each opponent loses 1 life per untap and you gain 1. The two cards that already make infinite mana just win on the spot, with no Exsanguinate and no attack needed.',
+    'A free upgrade on a line the deck already runs: the third piece is a 3-drop that is in the 100 anyway. Assembles a turn later than the mana version at worst.',
+    'Every untap puts a -1/-1 counter on Devoted Druid, and that is a "you put one or more -1/-1 counters on a creature" event, so Obelisk Spider fires on each pass. Nest of Scarabs, Hapatra and Flourishing Defenses each make a token off the same event instead - infinite bodies, but summoning sick, so that version is a next-turn kill. TRAP: Auntie Ool''s draw is not optional and the Druid is yours, so with Ool on the battlefield the loop mills you at exactly the speed it drains them. Count their life totals BEFORE you start, and stop the loop yourself.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Devoted Druid + Quillspike + Obelisk Spider'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Obelisk Spider' THEN 'the third piece; drains without needing combat'
+         WHEN 'Auntie Ool, Cursewretch' THEN 'forced draw each pass - the reason this loop needs a stop condition'
+       END
+  FROM cards WHERE name IN ('Devoted Druid', 'Quillspike', 'Obelisk Spider',
+                            'Auntie Ool, Cursewretch');
+
+-- 5. The haymaker: wither turns a symmetric wipe one-sided -------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Everlasting Torment + Blasphemous Act',
+    'value',
+    '13 damage to each creature becomes 13 -1/-1 counters on each creature: Nest of Scarabs answers with thirteen Insects per creature, Auntie Ool draws a card for each creature you controlled, and Necroskitter takes back every creature of theirs that died.',
+    'The biggest turn in the deck. Blasphemous Act usually costs {R} on a full board, so this is two cards and about four mana.',
+    'Everlasting Torment makes ALL damage wither, so every damage effect stops killing and starts making counters - Fire Covenant is the cheap targeted version, Fury the free one, and Village Pillagers and Massacre Girl, Known Killer bring wither of their own. SEQUENCING: the counters all land at once and the token triggers resolve afterwards, so your Insects arrive after the damage and survive it. Your own board dies too - this is a reset from behind, not a value play. And remember the first line of Everlasting Torment: no player can gain life, so Obelisk Spider, Zulaport Cutthroat and Exsanguinate still drain but stop paying you back.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Everlasting Torment + Blasphemous Act'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Fire Covenant' THEN 'cheaper, targeted version of the same trick'
+         WHEN 'Necroskitter' THEN 'collects everything of theirs that died with counters'
+         WHEN 'Nest of Scarabs' THEN 'turns the wipe into a board'
+       END
+  FROM cards WHERE name IN ('Everlasting Torment', 'Blasphemous Act', 'Fire Covenant',
+                            'Necroskitter', 'Nest of Scarabs');
+
+-- 6. The one-sided wipe ------------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Black Sun''s Zenith + Necroskitter',
+    'value',
+    'Every creature dies with -1/-1 counters on it, and each of theirs comes back on your side. Their board becomes your board.',
+    'X=2 or X=3 is usually enough, so four or five mana empties the table and refills only your half.',
+    'Necroskitter is a 1/4: keep X at 3 or less and it lives. It works even if it dies in the same wipe - a trigger that watches other creatures leave the battlefield still sees deaths simultaneous with its own, the same rule that makes Blood Artist work - but keeping it around means it keeps collecting. The Reaper, King No More does the same job capped at once each turn. Auntie Ool draws for each of your creatures and drains 1 per creature of theirs; Nest of Scarabs makes X Insects per creature, so the wipe rebuilds your side twice over. Soul Snuffers, Contagion Engine and Midnight Banshee are the repeatable versions of the same setup. Graveyard hate stops Necroskitter cold: it returns the card from the graveyard.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Black Sun''s Zenith + Necroskitter'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'The Reaper, King No More' THEN 'same effect, once each turn'
+         WHEN 'Soul Snuffers' THEN 'cheaper mass counter, one per creature'
+       END
+  FROM cards WHERE name IN ('Black Sun''s Zenith', 'Necroskitter',
+                            'The Reaper, King No More', 'Soul Snuffers');
+
+-- 7. The lock ----------------------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Kulrath Knight + Midnight Banshee',
+    'value',
+    'Nothing your opponents control can attack or block. The Banshee puts a counter on each nonblack creature every upkeep, and the Knight turns each of those counters into a lock.',
+    'A five- and a six-drop, so it is a late-game lock rather than a plan - but it is a real lock, not a tax, and it holds three opponents at once.',
+    'Kulrath Knight reads "counters", not "-1/-1 counters": +1/+1 counters an opponent put there themselves lock the creature just as well. Contagion Engine is the on-demand version (enter puts a counter on each creature one player controls, then proliferate twice per turn), and Everlasting Torment locks anything your damage touches. Midnight Banshee only hits NONBLACK creatures, so it spares your black half - and theirs. The Knight only names creatures your opponents control, so your own counter-covered creatures attack freely.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Kulrath Knight + Midnight Banshee'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Contagion Engine' THEN 'on-demand counter source, then proliferate twice a turn'
+         WHEN 'Everlasting Torment' THEN 'every damage source becomes a lock enabler'
+       END
+  FROM cards WHERE name IN ('Kulrath Knight', 'Midnight Banshee',
+                            'Contagion Engine', 'Everlasting Torment');
+
+-- 8. The draw engine ---------------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Skullclamp + any token maker',
+    'value',
+    'Two cards for {1}, again and again: equip a 1/1 token, it becomes 2/0 and dies, you draw two.',
+    'The cheapest engine in the deck and the reason the token makers are worth more than their bodies.',
+    'Nest of Scarabs, Hapatra and Flourishing Defenses all make 1/1s, and Sinister Gnarlbark blights one of your creatures for free at every end step, so a token appears each turn without spending a card. TRAP: the token dies to +1/-1, NOT to a -1/-1 counter - Blowfly Infestation and Auntie Ool see nothing at all. Zulaport Cutthroat and Grave Venerations do drain, because they only care that a creature died.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Skullclamp + any token maker'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Sinister Gnarlbark' THEN 'a free counter every end step, so a free token every turn'
+       END
+  FROM cards WHERE name IN ('Skullclamp', 'Nest of Scarabs', 'Hapatra, Vizier of Poisons',
+                            'Flourishing Defenses', 'Sinister Gnarlbark');
+
+-- 9. Removal that ramps ------------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Yawgmoth, Thran Physician + Necroskitter',
+    'value',
+    'Every X/1 an opponent controls dies to one activation and comes back under your control, and you draw a card for each one.',
+    'As wide as your spare bodies. It turns a sacrifice outlet into repeatable removal that leaves you the creature.',
+    'Pay 1 life, sacrifice a creature, put the counter on THEIR creature - note that Auntie Ool then drains that player for 1 instead of drawing you a card, because you do not control it. Massacre Girl, Known Killer gives your creatures wither, so combat damage becomes counters and Necroskitter collects their blockers too. The Reaper, King No More is the same effect capped at once each turn. Both stop dead against graveyard hate: they return the card from the graveyard, not the creature from the battlefield.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Yawgmoth, Thran Physician + Necroskitter'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Massacre Girl, Known Killer' THEN 'wither on your whole team, so blockers die with counters'
+         WHEN 'The Reaper, King No More' THEN 'same effect, once each turn'
+       END
+  FROM cards WHERE name IN ('Yawgmoth, Thran Physician', 'Necroskitter',
+                            'Massacre Girl, Known Killer', 'The Reaper, King No More');
+
+-- 10. The Goat, aimed at yourself on purpose ---------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Oft-Nabbed Goat + Skinrender / Channeler Initiate',
+    'value',
+    'Point six -1/-1 counters at your own 0/5 Goat: it dies, you draw six cards and every other player loses six life.',
+    'A burn spell and a Painful Truths out of two cards that are in the deck for other reasons. Nothing about it needs an attack.',
+    'The death trigger counts the counters that were ON it, so load the Goat in one turn instead of one counter at a time: Skinrender puts three on any creature, Channeler Initiate puts three on a creature YOU control, and Soul Snuffers, Black Sun''s Zenith and Carnifex Demon hit it along with everything else. Each of those events is also an Auntie Ool draw and an Obelisk Spider drain, and Nest of Scarabs turns the same counters into Insects. Read the trigger carefully: "its OWNER draws" means you draw even if an opponent paid {1} to steal it - letting them take it is fine, it comes with a free -1/-1 counter.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Oft-Nabbed Goat + Skinrender / Channeler Initiate'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Skinrender' THEN 'three counters, any creature'
+         WHEN 'Channeler Initiate' THEN 'three counters, must be a creature you control'
+         WHEN 'Soul Snuffers' THEN 'one counter on everything, Goat included'
+       END
+  FROM cards WHERE name IN ('Oft-Nabbed Goat', 'Skinrender', 'Channeler Initiate',
+                            'Soul Snuffers');
+
+-- 11. What the proliferate effects are actually for --------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Carnifex Demon + proliferate',
+    'value',
+    'A board sweep you can fire once per proliferate: remove a counter from the Demon, put one on every other creature.',
+    'Slow, but repeatable, and it is the only thing that makes the deck''s proliferate effects worth their slots.',
+    'Carnifex enters with two -1/-1 counters and each activation spends one; proliferate puts them back. Contagion Clasp, Contagion Engine (twice), Evolution Sage on every land drop, Vraska''s 0 and Yawgmoth''s second ability all refill it. Proliferate lets you CHOOSE the permanents, so refill the Demon without adding a counter to Devoted Druid or anything else you need alive. The other direction matters too: it hits each OTHER creature, so it eats your own 1/1 tokens, and the Demon itself dies at six counters.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Carnifex Demon + proliferate'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Evolution Sage' THEN 'free proliferate on every land drop'
+         WHEN 'Contagion Engine' THEN 'proliferates twice per activation'
+       END
+  FROM cards WHERE name IN ('Carnifex Demon', 'Contagion Clasp', 'Contagion Engine',
+                            'Evolution Sage');
+
+-- 12. The late-game engine ---------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Ferrafor, Young Yew + Nest of Scarabs',
+    'value',
+    'Tap Ferrafor to double the -1/-1 counters on a creature: the added counters are counters being PUT ON, so Nest of Scarabs pays out again, Obelisk Spider drains and Auntie Ool draws or burns.',
+    'Seven mana, so it is a late-game engine - but it is free every turn once it lands, and its enter trigger after a mass-counter turn is a board on its own.',
+    'The enter trigger counts counters among creatures ONE target player controls, so cast Ferrafor after Black Sun''s Zenith or a wither wipe and point it at whoever has the most. The tap ability doubles each KIND of counter, so it doubles +1/+1 counters just as happily - only ever aim it at a -1/-1 pile. Doubling three counters adds three: three Insects, one drain, and usually a dead creature.',
+    (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Ferrafor, Young Yew + Nest of Scarabs'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Black Sun''s Zenith' THEN 'sets up the enter trigger: counters on their whole board'
+       END
+  FROM cards WHERE name IN ('Ferrafor, Young Yew', 'Nest of Scarabs', 'Black Sun''s Zenith');
+
+-- Disablers for the second pass ----------------------------------------------
+-- Solemnity is the universal answer: no counters, no deck.
+INSERT INTO combo_disablers (combo_id, oracle_id, note)
+SELECT c.id, k.oracle_id, 'counters cannot be put on permanents at all - the whole deck stops, this line included'
+  FROM combos c CROSS JOIN cards k
+ WHERE k.name = 'Solemnity'
+   AND c.deck_id = (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+   AND c.name IN ('Yawgmoth, Thran Physician + two token makers',
+                  'Devoted Druid + Quillspike + Obelisk Spider',
+                  'Everlasting Torment + Blasphemous Act',
+                  'Black Sun''s Zenith + Necroskitter',
+                  'Kulrath Knight + Midnight Banshee',
+                  'Skullclamp + any token maker',
+                  'Yawgmoth, Thran Physician + Necroskitter',
+                  'Oft-Nabbed Goat + Skinrender / Channeler Initiate',
+                  'Carnifex Demon + proliferate',
+                  'Ferrafor, Young Yew + Nest of Scarabs');
+
+-- Melira only protects YOUR creatures, so she only reaches the lines whose
+-- counters have to land on your own side. She does nothing against the ones
+-- that point at an opponent's board.
+INSERT INTO combo_disablers (combo_id, oracle_id, note)
+SELECT c.id, k.oracle_id, 'your creatures cannot have -1/-1 counters put on them, and this line has to put them on your own side'
+  FROM combos c CROSS JOIN cards k
+ WHERE k.name = 'Melira, Sylvok Outcast'
+   AND c.deck_id = (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+   AND c.name IN ('Yawgmoth, Thran Physician + two token makers',
+                  'Devoted Druid + Quillspike + Obelisk Spider',
+                  'Oft-Nabbed Goat + Skinrender / Channeler Initiate');
+
+-- Pithing Needle answers whatever is an activated ability - equip included.
+INSERT INTO combo_disablers (combo_id, oracle_id, note)
+SELECT c.id, k.oracle_id,
+       CASE c.name
+         WHEN 'Skullclamp + any token maker' THEN 'naming Skullclamp shuts off equip, which is an activated ability'
+         WHEN 'Carnifex Demon + proliferate' THEN 'naming Carnifex Demon shuts off the sweep; naming Contagion Engine shuts off the refill'
+         WHEN 'Ferrafor, Young Yew + Nest of Scarabs' THEN 'naming Ferrafor shuts off the doubling'
+         WHEN 'Devoted Druid + Quillspike + Obelisk Spider' THEN 'naming Devoted Druid shuts off the untap ability'
+       END
+  FROM combos c CROSS JOIN cards k
+ WHERE k.name = 'Pithing Needle'
+   AND c.deck_id = (SELECT id FROM decks WHERE slug = 'blight-curse-b4-final')
+   AND c.name IN ('Skullclamp + any token maker',
+                  'Carnifex Demon + proliferate',
+                  'Ferrafor, Young Yew + Nest of Scarabs',
+                  'Devoted Druid + Quillspike + Obelisk Spider');
+
+
+-- ---------------------------------------------------------------------------
+-- Foot Clan Blitz (Modern).
 --
 -- These are 'value' combos, not infinite ones: recognisable two-card patterns
 -- that win games, recorded so they can be played from memory instead of
@@ -189,9 +485,12 @@ SELECT (SELECT id FROM combos WHERE name = 'Devoted Druid + Quillspike'),
 --
 -- Every line was checked against the oracle text in the database.
 --
--- NOTE: the deck is a draft and has no decks/<slug>/decklist.txt, so a
--- `make rebuild` will not recreate it. These rows survive a rebuild but their
--- deck_id falls back to NULL until the draft is promoted to a deck folder.
+-- REWRITTEN 2026-08-09 for the Foot Clan Sneak -> Foot Clan Blitz rebuild.
+-- Four combos were deleted outright because their pieces were cut for costing
+-- four or five mana: 'Leonardo''s Technique via Sneak', 'Don & Leo + Anchovy &
+-- Banana Pizza', 'Featherbrained Filcher + Ice Cream Kitty' and 'Prehistoric
+-- Pet + Putrid Pals / Lord Dregg'. The rest had their notes re-checked card by
+-- card against the new 60 - that is the whole reason this table exists.
 -- ---------------------------------------------------------------------------
 
 -- 3. The exponential clock ---------------------------------------------------
@@ -201,8 +500,8 @@ VALUES (
     'value',
     'A one-mana deathtouch body that doubles in size every attack. 1 -> 2 -> 6 -> 14 -> 30 counters over four swings, and nothing profitably blocks a deathtouch creature that big.',
     'Strongest line in the deck and the least obvious. Online turn 3-4; the Van does the attacking, Squirrelanoids does the growing.',
-    'Turtle Van puts one +1/+1 counter on the creature that crewed it, THEN doubles that creature''s total if it is a Mutant, Ninja or Turtle - Squirrelanoids is a Squirrel Mutant, so it qualifies. Crewing taps it, so it grows while sitting back as a blocker; swing with it on a turn you choose not to crew. BEST CREWER IS LITA, not Squirrelanoids: her Alliance banks counters on its own, and the Van doubles whatever total she has already built, so the two engines multiply instead of adding. Any Mutant/Ninja/Turtle crews it: Lita, Prehistoric Pet, Foot Elite, Koya, April O''Neil, Oroku Saki, Mechanized Ninja Cavalry, Ice Cream Kitty, Putrid Pals, Insectoid Exterminator. TRAP: Featherbrained Filcher is 0/2 and cannot meet crew 1 on its own. If they kill the crewer in response to the attack trigger, the trigger simply fizzles.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
+    'Turtle Van puts one +1/+1 counter on the creature that crewed it, THEN doubles that creature''s total if it is a Mutant, Ninja or Turtle - Squirrelanoids is a Squirrel Mutant, so it qualifies. Crewing taps it, so it grows while sitting back as a blocker; swing with it on a turn you choose not to crew. BEST CREWER IS LITA, not Squirrelanoids: her Alliance banks counters on its own, and the Van doubles whatever total she has already built, so the two engines multiply instead of adding. Any Mutant/Ninja/Turtle crews it: Lita, Prehistoric Pet, Foot Elite, Koya, April O''Neil, both Oroku Saki, both Leonardos, Mechanized Ninja Cavalry, Insectoid Exterminator, Squirrelanoids. TRAP: Featherbrained Filcher is 0/2 and cannot meet crew 1 on its own. If they kill the crewer in response to the attack trigger, the trigger simply fizzles.',
+    (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
@@ -227,8 +526,8 @@ VALUES (
     'value',
     'A 3/1 that enters tapped and attacking for {1}{B} and draws a card when it connects - plus a free Food token off the Filcher.',
     'The deck''s default turn from turn 3 onward. This is the pattern to recognise first; every other Sneak card runs on the same enabler.',
-    'Filcher is a 0/2 flier, so it is almost never worth blocking - that is the point, not a drawback. Attack, wait for blockers to be declared, then return the unblocked Filcher to hand as part of casting Oroku Saki for his Sneak cost. Filcher leaving the battlefield also triggers its own "create a Food token", so the enabler pays you every time. The same unblocked attacker pays for Leonardo Big Brother ({W}), Shredder''s Technique ({B}) or Karai''s Technique ({W}{B}) instead - pick on the day.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
+    'Filcher is a 0/2 flier, so it is almost never worth blocking - that is the point, not a drawback. Attack, wait for blockers to be declared, then return the unblocked Filcher to hand as part of casting Oroku Saki for his Sneak cost. Filcher leaving the battlefield also triggers its own "create a Food token", so the enabler pays you every time. The same unblocked attacker pays for Leonardo Big Brother ({W}) or Shredder''s Technique ({B}) instead - pick on the day. Since the rebuild these three are the ONLY Sneak cards left in the maindeck, and all three are fine at full price: Sneak is now a discount you take when it appears, never a plan you build a turn around.',
+    (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
@@ -250,7 +549,7 @@ VALUES (
     'One white mana turns any creature into an unblocked attacker, which is the resource the whole deck actually runs on.',
     'The fix for the deck''s one real failure mode: you attack, they block everything, and no Sneak cost can be paid.',
     'Cast it in the declare attackers step, BEFORE blockers are declared - +1/+3 and flying. Waiting until blockers are on the table is too late. Reading Sneak''s reminder text, it also lets the sorcery-speed Techniques be cast during the declare blockers step, which is otherwise impossible. Because it targets a creature it also turns on Inkling Mascot.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
+    (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
@@ -265,9 +564,9 @@ VALUES (
     'Inkling Mascot + any targeted spell',
     'value',
     'A 2/2 that flies on demand, turning a removal spell you were casting anyway into a second Sneak enabler.',
-    'Free value: ten maindeck spells trigger it, so it is live most turns without building around it.',
-    'Repartee triggers on any instant or sorcery you cast that targets a creature: Path to Exile, Stab, Crib Swap, Death in the Family, both Grounded for Life, Karai''s Technique, Hamato Guardian Stance, Shredder''s Technique, Make Your Move. Cast it precombat, swing with a flying Mascot, return it for Sneak. CAREFUL: Leonardo''s Technique targets creature CARDS in the graveyard, not creatures, so it does NOT trigger Repartee.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
+    'Free value: nine maindeck spells trigger it, so it is live most turns without building around it.',
+    'Repartee triggers on any instant or sorcery you cast that targets a creature. After the rebuild that is: Path to Exile, Stab, Bitter Triumph, Last Gasp, Death in the Family, Repel Calamity, Hamato Guardian Stance, Shredder''s Technique and Crib Swap - nine, and every one of them costs three or less. Crib Swap counts because a Kindred Instant is still an instant. Cast one precombat, swing with a flying Mascot. CAREFUL: Banishing Light does NOT trigger it - it is an enchantment, and it exiles on an enter trigger rather than by the spell targeting anything.',
+    (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
@@ -284,7 +583,7 @@ VALUES (
     'Sneak him in for {3}{W}{W} and every creature you control gets +2/+0, with Leonardo himself arriving tapped and attacking on top of it.',
     'How the deck actually closes. Hold him rather than casting him as a 1-drop 2/1 once the board is wide.',
     'The anthem only fires if the sneak cost was paid - hard-casting him for {W} gets you a 2/1 and nothing else. COUNT BEFORE DECLARING: the unblocked attacker you return to hand leaves combat, so it deals no damage and does not get the +2/+0. Leonardo Big Brother is a different card name, so both Leonardos can be on the battlefield at once.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
+    (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
@@ -300,8 +599,8 @@ VALUES (
     'value',
     'A removal effect every single turn: bounce Koya, recast her, exile the best creature again.',
     'Grindy but genuinely repeatable, and it needs no extra pieces once both are down.',
-    'Prehistoric Pet''s {1}{W}, {T} returns another creature you control to hand during your turn; Koya''s enter trigger exiles a creature until the next end step unless you pay {3}{B} to keep it gone. Two things worth remembering: against a TOKEN the exile is permanent for free, because a token that leaves the battlefield ceases to exist and there is no card to return. And the same bounce turns on Disappear, so it doubles as the enabler for Foot Mystic.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
+    'Prehistoric Pet''s {1}{W}, {T} returns another creature you control to hand during your turn; Koya''s enter trigger exiles a creature until the next end step unless you pay {3}{B} to keep it gone. Two things worth remembering: against a TOKEN the exile is permanent for free, because a token that leaves the battlefield ceases to exist and there is no card to return. And the same bounce turns on Disappear, so it doubles as the enabler for Insectoid Exterminator - the only Disappear card left after the rebuild.',
+    (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
@@ -310,88 +609,42 @@ SELECT (SELECT id FROM combos WHERE name = 'Prehistoric Pet + Koya, Death from A
        CASE name WHEN 'Prehistoric Pet' THEN 'also re-buys any other enter-the-battlefield trigger in the deck' END
   FROM cards WHERE name IN ('Prehistoric Pet', 'Koya, Death from Above');
 
--- 9. The rebuild -------------------------------------------------------------
-INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
-VALUES (
-    'Leonardo''s Technique via Sneak',
-    'value',
-    'Two creatures back from the graveyard for {1}{W}, at instant speed during combat.',
-    'The best late-game card in the deck and the answer to a board wipe. Eighteen maindeck creatures cost 3 or less.',
-    'Sneak drops it from {3}{W} to {1}{W} and, per the reminder text, lets a sorcery be cast during the declare blockers step. Return one or two creature cards of mana value 3 or less. Best targets are the ones with enter triggers: Koya, April O''Neil, Oroku Saki. NOT protected against graveyard hate - he owns none of the usual pieces, so an opponent''s Rest in Peace or Relic of Progenitus simply blanks this card and there is nothing in the 75 to answer it.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
-);
-
-INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
-SELECT (SELECT id FROM combos WHERE name = 'Leonardo''s Technique via Sneak'),
-       oracle_id, 1,
-       CASE name WHEN 'Koya, Death from Above' THEN 'best target: reanimating her exiles a creature again' END
-  FROM cards WHERE name IN ('Leonardo''s Technique', 'Koya, Death from Above');
-
--- 10. The free rider ---------------------------------------------------------
+-- 9. The free rider ----------------------------------------------------------
 INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
 VALUES (
     'Sneak + Disappear',
     'value',
-    'Every Sneak turn hands you a free 1/1 Ninja and a scry, for no extra cards and no extra mana.',
-    'Pure upside that is easy to miss. Costs nothing to play around, so the only real risk is forgetting the sequencing.',
-    'Returning your unblocked attacker to hand means a permanent left the battlefield under your control this turn, which is exactly the Disappear condition. SEQUENCING: Foot Mystic checks on ENTER, so cast him AFTER combat on a turn you sneaked - cast him precombat and you get nothing. Insectoid Exterminator checks at the beginning of your end step, so it needs no sequencing at all. Prehistoric Pet''s bounce turns both on without any Sneak card involved.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
+    'Every Sneak turn hands you a free scry, for no extra cards and no extra mana.',
+    'Pure upside that is easy to miss, but much smaller than it was: the rebuild cut Foot Mystic, Lord Dregg and Putrid Pals for costing four, so Insectoid Exterminator is the last Disappear card in the deck.',
+    'Returning your unblocked attacker to hand means a permanent left the battlefield under your control this turn, which is exactly the Disappear condition. Insectoid Exterminator checks at the beginning of your end step, so it needs no sequencing at all - which is the only reason it survived the cut while the others did not. Prehistoric Pet''s {1}{W}, {T} bounce turns it on with no Sneak card and no combat involved. Featherbrained Filcher leaving the battlefield also makes a Food, so the enabler still pays you twice.',
+    (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
 SELECT (SELECT id FROM combos WHERE name = 'Sneak + Disappear'),
        oracle_id, 1,
        CASE name
-         WHEN 'Foot Mystic' THEN 'cast POST-combat: the Disappear check is on enter'
-         WHEN 'Insectoid Exterminator' THEN 'checks at your end step, so sequencing does not matter'
+         WHEN 'Insectoid Exterminator' THEN 'the last Disappear card in the deck; checks at your end step, so sequencing does not matter'
+         WHEN 'Prehistoric Pet' THEN 'turns it on with no Sneak and no combat: sorcery-speed bounce on your own turn'
        END
-  FROM cards WHERE name IN ('Foot Mystic', 'Insectoid Exterminator', 'Oroku Saki, Shredder Rising');
+  FROM cards WHERE name IN ('Insectoid Exterminator', 'Oroku Saki, Shredder Rising', 'Prehistoric Pet');
 
 -- ---------------------------------------------------------------------------
--- Second pass over Foot Clan Sneak.
+-- Alliance and equipment: what carries the deck now that the top end is gone.
 --
--- The first pass missed these because query.py's `available` hides two whole
--- classes of card:
---   * a card LISTED in an active deck is hidden even when a spare physical
---     copy sits free in a pool (this is how Lita was missed), and
---   * --colors filters on colour identity, which is a Commander concept. A
---     {1}{R/W} hybrid is castable off Plains alone but reads as RW, so every
---     hybrid playable in this deck was filtered out.
--- Everything below is free in ninja-booster. Nothing is borrowed from
--- Turtle Power!.
---
--- These combos depend on the six pending deck_proposals being accepted.
+-- Everything below is free in ninja-booster or came out of the two dismantled
+-- decks. Nothing is borrowed from Turtle Power! or Blight-Curse.
 -- ---------------------------------------------------------------------------
 
--- 11. The engine that should have been found first ---------------------------
-INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
-VALUES (
-    'Don & Leo, Problem Solvers + Anchovy & Banana Pizza',
-    'value',
-    'Destroy a creature at the beginning of every one of your end steps, for free, forever - and Don & Leo blinks a creature in the same trigger, so Foot Mystic hands you a 1/1 Ninja on the same turn.',
-    'The strongest thing this card pool can do, and it costs no extra cards: both halves were already playable. Online turn 5.',
-    'Don & Leo exiles up to one target artifact AND up to one target creature you control, then returns both - so you get two enter-the-battlefield triggers every end step, not one. Anchovy & Banana Pizza is a Food ARTIFACT whose enter trigger destroys a creature with no restriction. Best creature half is Foot Mystic: being exiled means a permanent left the battlefield this turn, so its own Disappear check is satisfied when it comes back and it makes a Ninja token every turn. Mechanized Ninja Cavalry (another Robot) and April O''Neil (scry 2) are the other good creature targets. Blinking at end step means everything is back and unsick by your next turn.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
-);
-
-INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
-SELECT (SELECT id FROM combos WHERE name = 'Don & Leo, Problem Solvers + Anchovy & Banana Pizza'),
-       oracle_id, 1,
-       CASE name
-         WHEN 'Don & Leo, Problem Solvers' THEN 'castable {3}{W}{W} - the W/U hybrid only makes it read as blue'
-         WHEN 'Foot Mystic' THEN 'best creature half: blinking it satisfies its own Disappear condition'
-       END
-  FROM cards WHERE name IN ('Don & Leo, Problem Solvers', 'Anchovy & Banana Pizza', 'Foot Mystic');
-
--- 12. Alliance stacking ------------------------------------------------------
+-- 10. Alliance stacking ------------------------------------------------------
 INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
 VALUES (
     'Lita, Little Orphan Amphibian + Mechanized Ninja Cavalry',
     'value',
     'One card, two creatures entering, two separate Alliance choices - a counter on Lita and a Food, or a counter and a scry.',
     'Cheap and repeatable. Lita is the engine; the Cavalry is simply the most efficient way to feed her twice off a single card.',
-    'Lita''s Alliance fires whenever another creature you control enters and lets you choose a mode that has NOT been chosen this turn, so multiple creatures entering in one turn give genuinely different value - up to a counter, a Food and a scry. Casting Mechanized Ninja Cavalry does it twice by itself: the Cavalry enters, then its Robot token enters. Foot Mystic''s Ninja token, Lord Dregg''s Insect token and Leonardo''s Technique returning two creatures all feed her the same way. The Food she banks is fuel for Ice Cream Kitty.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
+    'Lita''s Alliance fires whenever another creature you control enters and lets you choose a mode that has NOT been chosen this turn, so multiple creatures entering in one turn give genuinely different value - up to a counter, a Food and a scry. Casting Mechanized Ninja Cavalry does it twice by itself: the Cavalry enters, then its Robot token enters. Crib Swap feeds her too - it hands the OPPONENT a Shapeshifter, but the deck''s own cheap creatures are what keep her firing. After the rebuild the counters matter more than they used to, because Lita is a Turtle Van crewer and the Van doubles whatever total she has already banked; the Foods are now just incidental life, with Ice Cream Kitty cut.',
+    (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
@@ -403,42 +656,31 @@ SELECT (SELECT id FROM combos WHERE name = 'Lita, Little Orphan Amphibian + Mech
        END
   FROM cards WHERE name IN ('Lita, Little Orphan Amphibian', 'Mechanized Ninja Cavalry');
 
--- 13. Turning the enabler into cards -----------------------------------------
+-- 11. The clock the cut top end paid for -------------------------------------
 INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
 VALUES (
-    'Featherbrained Filcher + Ice Cream Kitty',
+    'Quick-Draw Katana + any one-drop',
     'value',
-    'Every Sneak turn draws you an extra card: the Filcher leaves, makes a Food, and the Kitty eats the Food.',
-    'Not flashy, but it fires on the turn you were already going to have, and it means the deck stops running out of cards.',
-    'Returning the Filcher to hand to pay a Sneak cost triggers its own "when this creature leaves the battlefield, create a Food token". Ice Cream Kitty then sacrifices that token for {2} to draw. LIMIT: the Kitty''s ability is sorcery-speed only, so it is once per turn in practice - sequence it in your second main phase, after combat. It also eats Lita''s Food, Foot Mystic''s Ninja token, Mechanized Ninja Cavalry''s Robot and Lord Dregg''s Insect. The Kitty is a Food Cat MUTANT, so it also crews Turtle Van for doubled counters.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
+    'A 1/1 becomes a 3/1 first striker on your turn for two mana, which is how a deck with nothing above three mana still kills on schedule.',
+    'The replacement for the four- and five-drops that were cut. Online turn 3 and it never stops mattering, because equipment survives the removal the creature does not.',
+    'Equip {2} is the real cost - budget a whole turn 3 for equip plus a one-drop, or equip precombat on turn 4 and still attack. FIRST STRIKE IS THE POINT, not the +2/+0: a 3/1 first striker beats every 2/2 and 3/3 blocker in combat without dying. BEST CARRIERS ARE THE UNBLOCKABLE ONES: Prehistoric Pet cannot be blocked by greater power, so a 3/2 Pet dodges most blockers outright, and April O''Neil cannot be blocked by power 3 or greater. On Squirrelanoids or Burrog Banemaker the deathtouch plus first strike means it kills anything it touches before taking damage back. The bonus is YOUR TURN ONLY, so it does nothing on defence.',
+    (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
-SELECT (SELECT id FROM combos WHERE name = 'Featherbrained Filcher + Ice Cream Kitty'),
-       oracle_id, 1,
-       CASE name WHEN 'Ice Cream Kitty' THEN 'castable {1}{B}; sorcery-speed only, so play it postcombat' END
-  FROM cards WHERE name IN ('Featherbrained Filcher', 'Ice Cream Kitty');
-
--- 14. Disappear, now worth building around -----------------------------------
-INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
-VALUES (
-    'Prehistoric Pet + Putrid Pals / Lord Dregg',
-    'value',
-    'One bounce in your main phase switches on every Disappear card at once: Putrid Pals lands as a 5/5 deathtouch and Lord Dregg makes a flying token.',
-    'Turns Disappear from a bonus into something you can actually plan a turn around, without needing to attack at all.',
-    'Prehistoric Pet''s {1}{W}, {T} bounce is sorcery-speed on your own turn, which is EARLIER than every end-step check - that is what makes it reliable where Sneak is not. Cast Putrid Pals after the bounce and it enters with two +1/+1 counters. TRAP, and it is a real one: Don & Leo does NOT enable Lord Dregg or Insectoid Exterminator. Both trigger "at the beginning of your end step" with an intervening-if, so the condition is checked when the trigger would go on the stack, and Don & Leo''s blink resolves in that same step - too late. Bounce or sneak earlier in the turn, or those two do nothing.',
-    (SELECT id FROM decks WHERE slug = 'foot-clan-sneak')
-);
-
-INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
-SELECT (SELECT id FROM combos WHERE name = 'Prehistoric Pet + Putrid Pals / Lord Dregg'),
+SELECT (SELECT id FROM combos WHERE name = 'Quick-Draw Katana + any one-drop'),
        oracle_id, 1,
        CASE name
-         WHEN 'Prehistoric Pet' THEN 'the reliable enabler: sorcery speed, your turn, no combat needed'
-         WHEN 'Lord Dregg, Insect Invader' THEN 'castable {3}{B}; only the dead {3}{G} ability makes it read as green'
+         WHEN 'Quick-Draw Katana' THEN 'your turn only: +2/+0 and first strike, equip {2}'
+         WHEN 'Prehistoric Pet' THEN 'best carrier: cannot be blocked by greater power, so the buff rarely meets a blocker'
+         WHEN 'Squirrelanoids' THEN 'deathtouch plus first strike kills any blocker before it deals damage back'
        END
-  FROM cards WHERE name IN ('Prehistoric Pet', 'Putrid Pals', 'Lord Dregg, Insect Invader');
+  FROM cards WHERE name IN ('Quick-Draw Katana', 'Prehistoric Pet', 'Squirrelanoids');
+
+INSERT INTO combo_disablers (combo_id, oracle_id, note)
+SELECT (SELECT id FROM combos WHERE name = 'Quick-Draw Katana + any one-drop'),
+       oracle_id, 'equip is an activated ability; naming Quick-Draw Katana means it can never be attached to anything'
+  FROM cards WHERE name = 'Pithing Needle';
 
 
 -- ---------------------------------------------------------------------------
@@ -459,3 +701,50 @@ UPDATE wishlist
        notes = notes || ' — rejected in the B4 upgrade: over budget, replaced by Diabolic Intent'
  WHERE card_name IN ('Demonic Tutor', 'Vampiric Tutor')
    AND notes NOT LIKE '%rejected in the B4 upgrade%';
+
+
+-- ---------------------------------------------------------------------------
+-- Foot Clan Blitz wishlist. Added 2026-08-09 with buying authorised at the
+-- usual ~EUR 10-15 per card ceiling.
+--
+-- No prices are quoted here because none were checked. The ceiling is the
+-- budget, not an estimate.
+--
+-- Item 1 is not a nice-to-have. The deck meets Steffen's "no lands that enter
+-- tapped" rule only by playing 20 basics plus two restricted lands, which
+-- leaves TEN coloured sources for noncreature spells. Every noncreature card
+-- in the maindeck is a single pip purely to survive that. Two or three real
+-- duals are the only fix, and they would also let the {1}{W}{W} and {B}{B}
+-- cards now sitting in free-cards (EPF Point Squad, Shark Shredder) back in.
+--
+-- Oracle text for all three lands was checked in the database, not recalled:
+--   Caves of Koilos      always untapped; 1 damage when it makes W or B
+--   Concealed Courtyard  untapped unless you control 3+ other lands
+--   Isolated Chapel      untapped if you control a Plains or a Swamp
+-- Concealed Courtyard is the best fit precisely because its condition covers
+-- turns 1-3, which is the whole game this deck is trying to play.
+--
+-- Idempotent: ON CONFLICT (card_name, deck_id) rewrites rather than appends.
+-- ---------------------------------------------------------------------------
+INSERT INTO wishlist (card_name, oracle_id, deck_id, quantity, price_ceiling_eur, priority, notes)
+SELECT w.card_name, c.oracle_id, d.id, w.qty, 15.0, w.prio, w.note
+  FROM decks d
+  JOIN (SELECT 'Caves of Koilos' AS card_name, 2 AS qty, 1 AS prio,
+               'Untapped every single turn with no condition at all - the only unconditional W/B dual worth having at this budget. Fixes the ten-source problem that every other weakness in this deck traces back to.' AS note
+        UNION ALL SELECT 'Concealed Courtyard', 2, 1,
+               'Enters untapped while you control two or fewer other lands, which is exactly turns 1-3 - the only turns this deck cares about. Best fit of any dual in the price range.'
+        UNION ALL SELECT 'Isolated Chapel', 1, 2,
+               'Enters untapped if you control a Plains or a Swamp. With 20 basics in the deck that is every turn but the first, and it is usually the cheapest of the three.'
+        UNION ALL SELECT 'Prehistoric Pet', 2, 2,
+               'The best one-drop in the deck and currently a singleton: evasive (cannot be blocked by greater power), crews Turtle Van for doubled counters, and its bounce is the only Disappear enabler that needs no combat.'
+        UNION ALL SELECT 'Path to Exile', 2, 2,
+               'One-mana unconditional exile, and the single best removal spell in the 75. He owns exactly one.'
+        UNION ALL SELECT 'Bitter Triumph', 2, 2,
+               'Two-mana unconditional removal, freed up by dismantling the SOS Draft deck. The deck wants to draw this every game and can only draw one.') w
+  LEFT JOIN cards c ON c.name = w.card_name
+ WHERE d.slug = 'foot-clan-blitz'
+    ON CONFLICT (card_name, deck_id) DO UPDATE SET
+       quantity          = excluded.quantity,
+       priority          = excluded.priority,
+       price_ceiling_eur = excluded.price_ceiling_eur,
+       notes             = excluded.notes;

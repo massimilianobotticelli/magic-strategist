@@ -1,0 +1,45 @@
+2 Plains (ECL) 269
+5 Plains (FDN) 272
+1 Plains (TMT) 191 *F*
+2 Plains (TMT) 191
+5 Swamp (ECL) 271
+4 Swamp (TDM) 281
+1 Swamp (TMT) 317 *F*
+1 Ancient Ziggurat (ECC) 144
+1 Secluded Courtyard (ECC) 62
+
+1 Featherbrained Filcher (TMT) 6
+1 Leonardo, Leader in Blue (TMT) 196
+1 Prehistoric Pet (TMT) 22
+1 Elite Interceptor // Rejoinder (SOS) 12
+2 Squirrelanoids (TMT) 81
+1 Diregraf Ghoul (FDN) 171
+1 Burrog Banemaker (SOS) 75
+1 Path to Exile (ECC) 65
+1 Stab (FDN) 71
+1 Hamato Guardian Stance (TMT) 8
+1 April O'Neil, Kunoichi Trainee (TMT) 3
+1 Lita, Little Orphan Amphibian (TMT) 19
+1 Action News Crew (TMT) 1
+1 Helpful Hunter (FDN) 16
+1 Tunnel Rats (TMT) 84
+1 Paramecia Coloniex (TMT) 70
+1 Inkling Mascot (SOS) 196
+1 Mechanized Ninja Cavalry (TMT) 156
+1 Bitter Triumph (TDC) 173
+1 Last Gasp (SOS) 86
+1 Death in the Family (TMT) 61
+1 Repel Calamity (BLB) 27
+1 Quick-Draw Katana (FDN) 130
+1 Goldvein Pick (FDN) 253
+2 Omni-Cheese Pizza (TMT) 176
+2 Oroku Saki, Shredder Rising (TMT) 68
+1 Koya, Death from Above (TMT) 11
+1 Leonardo, Big Brother (TMT) 14
+1 Foot Elite (TMT) 146
+1 Imperious Inkmage (SOS) 195
+1 Insectoid Exterminator (TMT) 64
+1 Crib Swap (ECL) 11
+1 Shredder's Technique (TMT) 232
+1 Banishing Light (FDN) 138
+1 Turtle Van (TMT) 181
