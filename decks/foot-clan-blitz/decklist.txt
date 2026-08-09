@@ -8,7 +8,6 @@
 1 Ancient Ziggurat (ECC) 144
 1 Secluded Courtyard (ECC) 62
 
-1 Featherbrained Filcher (TMT) 6
 1 Leonardo, Leader in Blue (TMT) 196
 1 Prehistoric Pet (TMT) 22
 1 Elite Interceptor // Rejoinder (SOS) 12
@@ -22,16 +21,14 @@
 1 Lita, Little Orphan Amphibian (TMT) 19
 1 Action News Crew (TMT) 1
 1 Helpful Hunter (FDN) 16
-1 Tunnel Rats (TMT) 84
 1 Paramecia Coloniex (TMT) 70
 1 Inkling Mascot (SOS) 196
 1 Mechanized Ninja Cavalry (TMT) 156
-1 Bitter Triumph (TDC) 173
+1 Bitter Triumph (SOA) 26
 1 Last Gasp (SOS) 86
 1 Death in the Family (TMT) 61
-1 Repel Calamity (BLB) 27
+1 Repel Calamity (SOA) 8
 1 Quick-Draw Katana (FDN) 130
-1 Goldvein Pick (FDN) 253
 2 Omni-Cheese Pizza (TMT) 176
 2 Oroku Saki, Shredder Rising (TMT) 68
 1 Koya, Death from Above (TMT) 11
@@ -39,7 +36,10 @@
 1 Foot Elite (TMT) 146
 1 Imperious Inkmage (SOS) 195
 1 Insectoid Exterminator (TMT) 64
+1 Soaring Stoneglider (SOS) 32
 1 Crib Swap (ECL) 11
 1 Shredder's Technique (TMT) 232
 1 Banishing Light (FDN) 138
 1 Turtle Van (TMT) 181
+1 Grounded for Life (TMT) 7 *F*
+1 Grounded for Life (TMT) 7

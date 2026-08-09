@@ -71,7 +71,7 @@ UPDATE decks
        status         = 'active',
        color_identity = 'BW',
        is_registered  = 1,
-       notes          = 'Cheap bodies from turn 1 backed by nine removal spells, seven of them at one or two mana. Nothing costs more than 3 and no land enters tapped - both of Steffen''s rules met for the first time. Sneak is a discount now, not the plan. The cost: only ten coloured sources for noncreature spells, which is why every noncreature card is a single pip.'
+       notes          = 'Cheap bodies from turn 1 backed by eleven removal spells, nine of them at one or two mana. No land enters tapped, and the curve tops at 3 by EFFECTIVE cost: the only two cards printed above it are Grounded for Life, which costs {1}{W} against a tapped creature - cheap on defence, full price on offence. Sneak is a discount now, not the plan. The cost: only ten coloured sources for noncreature spells, which is why every noncreature card is a single pip.'
  WHERE slug = 'foot-clan-blitz';
 
 UPDATE locations SET name = 'Foot Clan Blitz' WHERE slug = 'foot-clan-blitz';
@@ -500,7 +500,7 @@ VALUES (
     'value',
     'A one-mana deathtouch body that doubles in size every attack. 1 -> 2 -> 6 -> 14 -> 30 counters over four swings, and nothing profitably blocks a deathtouch creature that big.',
     'Strongest line in the deck and the least obvious. Online turn 3-4; the Van does the attacking, Squirrelanoids does the growing.',
-    'Turtle Van puts one +1/+1 counter on the creature that crewed it, THEN doubles that creature''s total if it is a Mutant, Ninja or Turtle - Squirrelanoids is a Squirrel Mutant, so it qualifies. Crewing taps it, so it grows while sitting back as a blocker; swing with it on a turn you choose not to crew. BEST CREWER IS LITA, not Squirrelanoids: her Alliance banks counters on its own, and the Van doubles whatever total she has already built, so the two engines multiply instead of adding. Any Mutant/Ninja/Turtle crews it: Lita, Prehistoric Pet, Foot Elite, Koya, April O''Neil, both Oroku Saki, both Leonardos, Mechanized Ninja Cavalry, Insectoid Exterminator, Squirrelanoids. TRAP: Featherbrained Filcher is 0/2 and cannot meet crew 1 on its own. If they kill the crewer in response to the attack trigger, the trigger simply fizzles.',
+    'Turtle Van puts one +1/+1 counter on the creature that crewed it, THEN doubles that creature''s total if it is a Mutant, Ninja or Turtle - Squirrelanoids is a Squirrel Mutant, so it qualifies. Crewing taps it, so it grows while sitting back as a blocker; swing with it on a turn you choose not to crew. BEST CREWER IS LITA, not Squirrelanoids: her Alliance banks counters on its own, and the Van doubles whatever total she has already built, so the two engines multiply instead of adding. Any Mutant/Ninja/Turtle crews it: Lita, Prehistoric Pet, Foot Elite, Koya, April O''Neil, both Oroku Saki, both Leonardos, Mechanized Ninja Cavalry, Insectoid Exterminator, Squirrelanoids. Crew 1 needs total POWER 1, so every creature in the deck now qualifies - the one that did not, Featherbrained Filcher at 0/2, was cut on 2026-08-09 partly for exactly this. If they kill the crewer in response to the attack trigger, the trigger simply fizzles.',
     (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
@@ -522,23 +522,22 @@ SELECT (SELECT id FROM combos WHERE name = 'Turtle Van + Squirrelanoids'),
 -- 4. The basic Sneak turn ----------------------------------------------------
 INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
 VALUES (
-    'Featherbrained Filcher + Oroku Saki, Shredder Rising',
+    'Prehistoric Pet + Oroku Saki, Shredder Rising',
     'value',
-    'A 3/1 that enters tapped and attacking for {1}{B} and draws a card when it connects - plus a free Food token off the Filcher.',
-    'The deck''s default turn from turn 3 onward. This is the pattern to recognise first; every other Sneak card runs on the same enabler.',
-    'Filcher is a 0/2 flier, so it is almost never worth blocking - that is the point, not a drawback. Attack, wait for blockers to be declared, then return the unblocked Filcher to hand as part of casting Oroku Saki for his Sneak cost. Filcher leaving the battlefield also triggers its own "create a Food token", so the enabler pays you every time. The same unblocked attacker pays for Leonardo Big Brother ({W}) or Shredder''s Technique ({B}) instead - pick on the day. Since the rebuild these three are the ONLY Sneak cards left in the maindeck, and all three are fine at full price: Sneak is now a discount you take when it appears, never a plan you build a turn around.',
+    'A 3/1 that enters tapped and attacking for {1}{B} and draws a card every time it connects.',
+    'The deck''s default turn from turn 3 onward, whenever an attacker gets through. Worth recognising, but no longer worth building a turn around.',
+    'Attack, wait for blockers to be declared, then return the unblocked attacker to hand as part of casting Oroku Saki for his Sneak cost. Both remaining enablers dodge blockers by rule rather than by being unattractive: Prehistoric Pet cannot be blocked by creatures with GREATER POWER, and April O''Neil cannot be blocked by power 3 or greater. FEATHERBRAINED FILCHER WAS THE THIRD AND WAS CUT on 2026-08-09 - a 0/2 blanks the attack step, cannot crew Turtle Van, and only ever existed to feed a Sneak plan that no longer exists. The same unblocked attacker pays for Leonardo Big Brother ({W}) or Shredder''s Technique ({B}) instead - pick on the day. These three are the ONLY Sneak cards left in the maindeck and all three are fine at full price: Sneak is a discount you take when it appears, never a plan.',
     (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
 INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
-SELECT (SELECT id FROM combos WHERE name = 'Featherbrained Filcher + Oroku Saki, Shredder Rising'),
+SELECT (SELECT id FROM combos WHERE name = 'Prehistoric Pet + Oroku Saki, Shredder Rising'),
        oracle_id, 1,
        CASE name
-         WHEN 'Featherbrained Filcher' THEN 'the enabler; makes a Food every time it is returned'
-         WHEN 'Prehistoric Pet' THEN 'interchangeable enabler: cannot be blocked by greater power'
+         WHEN 'Prehistoric Pet' THEN 'primary enabler: cannot be blocked by greater power, and unlike the cut Filcher it has power to attack with'
          WHEN 'April O''Neil, Kunoichi Trainee' THEN 'interchangeable enabler: cannot be blocked by power 3 or greater'
        END
-  FROM cards WHERE name IN ('Featherbrained Filcher', 'Oroku Saki, Shredder Rising',
+  FROM cards WHERE name IN ('Oroku Saki, Shredder Rising',
                             'Prehistoric Pet', 'April O''Neil, Kunoichi Trainee');
 
 -- 5. Manufacturing an unblocked attacker -------------------------------------
@@ -546,9 +545,9 @@ INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
 VALUES (
     'Hamato Guardian Stance + any Sneak card',
     'value',
-    'One white mana turns any creature into an unblocked attacker, which is the resource the whole deck actually runs on.',
+    'One white mana turns any creature into an unblocked attacker - and after the rebuild it is just as often used as a plain combat trick to win a fight.',
     'The fix for the deck''s one real failure mode: you attack, they block everything, and no Sneak cost can be paid.',
-    'Cast it in the declare attackers step, BEFORE blockers are declared - +1/+3 and flying. Waiting until blockers are on the table is too late. Reading Sneak''s reminder text, it also lets the sorcery-speed Techniques be cast during the declare blockers step, which is otherwise impossible. Because it targets a creature it also turns on Inkling Mascot.',
+    'Cast it in the declare attackers step, BEFORE blockers are declared - +1/+3 and flying. Waiting until blockers are on the table is too late. Reading Sneak''s reminder text, it also lets Shredder''s Technique - the one sorcery-speed Sneak card left after the rebuild - be cast during the declare blockers step, which is otherwise impossible. Because it targets a creature it also turns on Inkling Mascot. The +1/+3 half is worth remembering on its own: it wins a fight the opponent thought they had, and it is the deck''s only way to save a creature from damage-based removal.',
     (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
@@ -564,8 +563,8 @@ VALUES (
     'Inkling Mascot + any targeted spell',
     'value',
     'A 2/2 that flies on demand, turning a removal spell you were casting anyway into a second Sneak enabler.',
-    'Free value: nine maindeck spells trigger it, so it is live most turns without building around it.',
-    'Repartee triggers on any instant or sorcery you cast that targets a creature. After the rebuild that is: Path to Exile, Stab, Bitter Triumph, Last Gasp, Death in the Family, Repel Calamity, Hamato Guardian Stance, Shredder''s Technique and Crib Swap - nine, and every one of them costs three or less. Crib Swap counts because a Kindred Instant is still an instant. Cast one precombat, swing with a flying Mascot. CAREFUL: Banishing Light does NOT trigger it - it is an enchantment, and it exiles on an enter trigger rather than by the spell targeting anything.',
+    'Free value: twelve maindeck spells trigger it, so it is live most turns without building around it.',
+    'Repartee triggers on any instant or sorcery you cast that targets a creature. Recounted 2026-08-10 after Grounded for Life came back: Path to Exile, Stab, Bitter Triumph, Last Gasp, Death in the Family, Repel Calamity, Hamato Guardian Stance, Shredder''s Technique, Crib Swap and BOTH Grounded for Life - eleven, plus Rejoinder off Elite Interceptor, which is a Sorcery targeting a creature, for twelve. Crib Swap counts because a Kindred Instant is still an instant. Cast one precombat, swing with a flying Mascot. CAREFUL: Banishing Light does NOT trigger it - it is an enchantment, and it exiles on an enter trigger rather than by the spell targeting anything.',
     (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
@@ -581,8 +580,8 @@ VALUES (
     'Leonardo, Leader in Blue - the alpha strike',
     'value',
     'Sneak him in for {3}{W}{W} and every creature you control gets +2/+0, with Leonardo himself arriving tapped and attacking on top of it.',
-    'How the deck actually closes. Hold him rather than casting him as a 1-drop 2/1 once the board is wide.',
-    'The anthem only fires if the sneak cost was paid - hard-casting him for {W} gets you a 2/1 and nothing else. COUNT BEFORE DECLARING: the unblocked attacker you return to hand leaves combat, so it deals no damage and does not get the +2/+0. Leonardo Big Brother is a different card name, so both Leonardos can be on the battlefield at once.',
+    'A real finisher when it happens, but do not wait for it. Reassessed 2026-08-10: it needs FIVE mana AND an unblocked attacker AND double white off eleven white sources, so most games he is simply a turn-1 2/1. Cast him early when that is the better play.',
+    'The anthem only fires if the sneak cost was paid - hard-casting him for {W} gets you a 2/1 and nothing else. COUNT BEFORE DECLARING: the unblocked attacker you return to hand leaves combat, so it deals no damage and does not get the +2/+0. Leonardo Big Brother is a different card name, so both Leonardos can be on the battlefield at once. His {1}{W} first-strike ability is the part that gets forgotten and it needs no Sneak at all - it also stacks with Quick-Draw Katana on a deathtoucher.',
     (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
@@ -616,7 +615,7 @@ VALUES (
     'value',
     'Every Sneak turn hands you a free scry, for no extra cards and no extra mana.',
     'Pure upside that is easy to miss, but much smaller than it was: the rebuild cut Foot Mystic, Lord Dregg and Putrid Pals for costing four, so Insectoid Exterminator is the last Disappear card in the deck.',
-    'Returning your unblocked attacker to hand means a permanent left the battlefield under your control this turn, which is exactly the Disappear condition. Insectoid Exterminator checks at the beginning of your end step, so it needs no sequencing at all - which is the only reason it survived the cut while the others did not. Prehistoric Pet''s {1}{W}, {T} bounce turns it on with no Sneak card and no combat involved. Featherbrained Filcher leaving the battlefield also makes a Food, so the enabler still pays you twice.',
+    'Returning your unblocked attacker to hand means a permanent left the battlefield under your control this turn, which is exactly the Disappear condition. Insectoid Exterminator checks at the beginning of your end step, so it needs no sequencing at all - which is the only reason it survived the cut while the others did not. Prehistoric Pet''s {1}{W}, {T} bounce turns it on with no Sneak card and no combat involved, which after the Filcher cut is the most reliable way to switch it on at all.',
     (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
@@ -643,7 +642,7 @@ VALUES (
     'value',
     'One card, two creatures entering, two separate Alliance choices - a counter on Lita and a Food, or a counter and a scry.',
     'Cheap and repeatable. Lita is the engine; the Cavalry is simply the most efficient way to feed her twice off a single card.',
-    'Lita''s Alliance fires whenever another creature you control enters and lets you choose a mode that has NOT been chosen this turn, so multiple creatures entering in one turn give genuinely different value - up to a counter, a Food and a scry. Casting Mechanized Ninja Cavalry does it twice by itself: the Cavalry enters, then its Robot token enters. Crib Swap feeds her too - it hands the OPPONENT a Shapeshifter, but the deck''s own cheap creatures are what keep her firing. After the rebuild the counters matter more than they used to, because Lita is a Turtle Van crewer and the Van doubles whatever total she has already banked; the Foods are now just incidental life, with Ice Cream Kitty cut.',
+    'Lita''s Alliance fires whenever another creature you control enters and lets you choose a mode that has NOT been chosen this turn, so multiple creatures entering in one turn give genuinely different value - up to a counter, a Food and a scry. Casting Mechanized Ninja Cavalry does it twice by itself: the Cavalry enters, then its Robot token enters. TRAP, corrected 2026-08-10: CRIB SWAP DOES NOT FEED HER. Its token is created under the OPPONENT''s control, and Alliance only sees another creature YOU control entering. The same goes for any token you hand an opponent. What does feed her is the deck''s own cheap creatures, plus Mechanized Ninja Cavalry''s Robot. After the rebuild the counters matter more than the other two modes, because Lita is a Turtle Van crewer and the Van DOUBLES whatever total she has already banked - so take the counter first unless the scry is genuinely urgent. The Foods are now just incidental life.',
     (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
@@ -661,9 +660,9 @@ INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
 VALUES (
     'Quick-Draw Katana + any one-drop',
     'value',
-    'A 1/1 becomes a 3/1 first striker on your turn for two mana, which is how a deck with nothing above three mana still kills on schedule.',
-    'The replacement for the four- and five-drops that were cut. Online turn 3 and it never stops mattering, because equipment survives the removal the creature does not.',
-    'Equip {2} is the real cost - budget a whole turn 3 for equip plus a one-drop, or equip precombat on turn 4 and still attack. FIRST STRIKE IS THE POINT, not the +2/+0: a 3/1 first striker beats every 2/2 and 3/3 blocker in combat without dying. BEST CARRIERS ARE THE UNBLOCKABLE ONES: Prehistoric Pet cannot be blocked by greater power, so a 3/2 Pet dodges most blockers outright, and April O''Neil cannot be blocked by power 3 or greater. On Squirrelanoids or Burrog Banemaker the deathtouch plus first strike means it kills anything it touches before taking damage back. The bonus is YOUR TURN ONLY, so it does nothing on defence.',
+    'A 1/1 deathtoucher becomes a 3/1 first striker that kills any blocker and walks away, and it keeps doing it every turn for free once attached.',
+    'The replacement for the four- and five-drops that were cut, and the deck''s only mana sink. Slow to start - four mana across two turns - but it never stops mattering, because the Equipment survives the removal the creature does not.',
+    'Four mana before it does anything - {2} to cast, {2} to equip - but only the FIRST time. It stays attached, so from then on the bonus is free every turn, and if they kill the creature the Katana survives and re-equips for {2}. That is the difference from an Aura: removal never two-for-ones you. FIRST STRIKE IS THE POINT, not the +2/+0: a 3/1 first striker beats every 2/2 and 3/3 blocker without dying. BEST CARRIERS ARE THE DEATHTOUCHERS - Squirrelanoids and Burrog Banemaker - because first strike plus deathtouch kills any blocker before it deals damage back. TRAP, and it is the opposite of what it looks like: DO NOT EQUIP PREHISTORIC PET. His evasion reads "can''t be blocked by creatures with GREATER power", measured against his OWN power, so a 1/2 Pet dodges everything with power 2 or more, while a 3/2 Pet only dodges power 4 or more. The Katana makes him easier to block, not harder. April O''Neil is safe: her threshold is the BLOCKER''s power (3 or greater), so pumping her changes nothing. The bonus is YOUR TURN ONLY, so it does nothing on defence.',
     (SELECT id FROM decks WHERE slug = 'foot-clan-blitz')
 );
 
@@ -671,11 +670,12 @@ INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
 SELECT (SELECT id FROM combos WHERE name = 'Quick-Draw Katana + any one-drop'),
        oracle_id, 1,
        CASE name
-         WHEN 'Quick-Draw Katana' THEN 'your turn only: +2/+0 and first strike, equip {2}'
-         WHEN 'Prehistoric Pet' THEN 'best carrier: cannot be blocked by greater power, so the buff rarely meets a blocker'
-         WHEN 'Squirrelanoids' THEN 'deathtouch plus first strike kills any blocker before it deals damage back'
+         WHEN 'Quick-Draw Katana' THEN 'your turn only: +2/+0 and first strike, equip {2}, free every turn after the first'
+         WHEN 'Squirrelanoids' THEN 'best carrier: deathtouch plus first strike kills any blocker before it deals damage back'
+         WHEN 'Burrog Banemaker' THEN 'the other deathtoucher, and {1}{B} pumps it further once the mana is spare'
+         WHEN 'Prehistoric Pet' THEN 'ANTI-SYNERGY - do not equip him: his evasion is measured against his own power, so making him bigger makes him easier to block'
        END
-  FROM cards WHERE name IN ('Quick-Draw Katana', 'Prehistoric Pet', 'Squirrelanoids');
+  FROM cards WHERE name IN ('Quick-Draw Katana', 'Prehistoric Pet', 'Squirrelanoids', 'Burrog Banemaker');
 
 INSERT INTO combo_disablers (combo_id, oracle_id, note)
 SELECT (SELECT id FROM combos WHERE name = 'Quick-Draw Katana + any one-drop'),
@@ -714,8 +714,16 @@ UPDATE wishlist
 -- tapped" rule only by playing 20 basics plus two restricted lands, which
 -- leaves TEN coloured sources for noncreature spells. Every noncreature card
 -- in the maindeck is a single pip purely to survive that. Two or three real
--- duals are the only fix, and they would also let the {1}{W}{W} and {B}{B}
--- cards now sitting in free-cards (EPF Point Squad, Shark Shredder) back in.
+-- duals are the only fix for that.
+--
+-- MEASURED 2026-08-09, correcting an earlier overstatement here. Conditioned on
+-- having three lands on turn 3, the duals take "both colours available" from
+-- 83% to 91% - which is what the eleven single-pip removal spells care about,
+-- and it justifies the buy. They do NOT rescue the {W}{W} cards: a dual
+-- replaces a Plains AND a Swamp, so four of them move white sources only from
+-- 11 to 13, and EPF Point Squad on turn 3 goes 48% -> 57%. Duals fix colour
+-- BALANCE, not colour DENSITY. Casting {W}{W} on curve would need more Plains,
+-- which the black half cannot pay for.
 --
 -- Oracle text for all three lands was checked in the database, not recalled:
 --   Caves of Koilos      always untapped; 1 damage when it makes W or B

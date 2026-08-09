@@ -35,9 +35,37 @@ and that is what made a genuinely fast list possible.
 | Anchovy & Banana Pizza `{2}{B}{B}` | Four-mana removal on a strained mana base, and the only `{B}{B}` left. → `free-cards` |
 | Foot Mystic, Lord Dregg, Putrid Pals | Four-mana bodies whose Disappear triggers needed a bounce the deck no longer makes. |
 | Shark Shredder x2 `{2}{B}{B}` | The best top end, but still top end. → `free-cards` |
-| Grounded for Life x2 `{4}{W}` | Effectively `{1}{W}` against a tapped attacker, so genuinely cheap — but only on defence. → `free-cards` |
+| ~~Grounded for Life x2~~ | **Reversed on 2026-08-09 — see below.** |
 | Ice Cream Kitty, Make Your Move | Sorcery-speed value and conditional removal; both too slow for the plan. |
 | Illegitimate Business, Foot Headquarters x2, Forum of Amity | Every one enters tapped. Rule 2 is now met with zero exceptions. |
+
+## Correction, 2026-08-09: Grounded for Life back in, at full count
+
+**Caught by him while sleeving the deck, and he was right.** The rebuild cut
+both copies for a printed mana value of 5, which is the wrong measure — the
+rule in CLAUDE.md is *effective* cost, and Grounded for Life costs `{1}{W}`
+whenever it targets a tapped creature. It was even identified correctly in the
+first pass over the old deck and then cut anyway in the rebuild. Printed cost
+was applied where effective cost was called for.
+
+| In | Out | Why |
+|---|---|---|
+| Grounded for Life `{4}{W}` → `{1}{W}` | Tunnel Rats `{1}{B}` | His call. Tunnel Rats is a vanilla 2/2 for two; its recursion costs `{4}{B}`, far outside the curve, and it is a Rat so Turtle Van does not double it. Two-mana unconditional *destroy target creature* is simply a better card. |
+| Grounded for Life (2nd copy) | Goldvein Pick `{2}` | The weaker of the two Equipment by a distance — `+1/+1` for a two-mana card plus `{1}` to equip, against Quick-Draw Katana's `+2/+0` and first strike. Losing its Treasures costs a little colour fixing; see the mana section. |
+
+**The condition is one-directional and worth internalising: cheap on defence,
+full price on offence.** Against Steffen and Florian — the decks that were
+attacking him while he durdled — their creatures are tapped every combat, so it
+is a two-mana removal spell exactly when it is needed. Trying to clear a fresh
+blocker on his own turn really does cost five. It is not a proactive card.
+
+Net effect: 22 creatures instead of 23, removal from 9 to 11, effective average
+mana value unchanged at 2.00 (printed 2.16).
+
+**The lesson worth keeping:** a printed mana value is a filter, not a verdict.
+Before cutting anything for cost, read the card for a reduction or an
+alternative cost the deck reliably turns on — and if it has one, say which
+direction it works in.
 
 ## The trade that was made deliberately
 
@@ -50,13 +78,6 @@ would break it.
 
 This is the honest gap. It is not solved from the collection — it is item 1 on
 the wishlist.
-
-## Candidates, from the collection
-
-- **East Wind Avatar** x3, `{3}{W}` 2/4 flier with Alliance. Three copies is the
-  closest thing to a playset the collection owns in white, but four mana puts it
-  outside the curve target. **Cut for:** nothing, unless the deck proves too
-  flat and needs a top end — take the Shark Shredders out of `free-cards` first.
 
 ## The sideboard: deliberately deferred
 
@@ -84,14 +105,45 @@ order they would come back:
 Worth knowing before he starts: **moving a card between main and sideboard is a
 decklist edit, not a proposal** — the app tracks maindeck size, so a sideboard
 card is not markable there.
-- **EPF Point Squad** x2, `{1}{R/W}{R/W}` so castable for `{1}{W}{W}`. Alliance
-  banks a counter per creature entering, and the deck now has 23 creatures to
-  trigger it. **Held back because it is the only double-pip card that would go
-  in**, against ten white sources. Reconsider the moment a real dual arrives.
-- **Soaring Stoneglider** `{2}{W}` 4/3 flying vigilance, with an additional cost
-  of exiling two cards from your graveyard or paying `{1}{W}`. Early it is a
-  5-mana card; late it is a 3-mana 4/3 flier. **Cut for:** Insectoid
-  Exterminator, if games routinely reach turn six.
+## EPF Point Squad: rejected on the numbers, not on taste
+
+He asked whether EPF Point Squad should replace Helpful Hunter — a fair
+question, since a `{1}{W}` 1/1 is a poor body. **The answer is no, and it is
+not close.** Two things make it worse than it looks:
+
+1. **Secluded Courtyard names Ninja. EPF Point Squad is a Human Soldier**, so
+   the Courtyard does not cast it — it only makes `{C}`. That leaves **11 white
+   sources**, not 12.
+2. Simulated over 200k hands, on the play: **EPF Point Squad is castable on
+   turn 3 only 48% of the time.** Helpful Hunter on turn 2 is 77%.
+
+And the fix people reach for does not work. Buying duals moves it to **57%**,
+because a dual replaces a Plains *and* a Swamp — four of them take white
+sources from 11 to only 13. **Duals fix colour balance, not colour density.**
+The same reasoning rules out Triceraton Commander `{W}{W}` (a Dinosaur Soldier,
+so the Courtyard misses it too).
+
+**Helpful Hunter stays**, and the case for it is not the body: two mana buys
+**a card plus a free 1/1**, so it is card-neutral. The deck's only other draw is
+Omni-Cheese Pizza x2, Oroku Saki connecting, and Rejoinder — thin for a
+near-singleton list. There is also simply no better two-drop in the collection:
+the whole W/B pool at two mana is Pain 101, Uneasy Alliance, Hoofprints of the
+Stag, Everything Pizza and Page, Loose Leaf.
+
+If the 1/1 body still grates, the honest alternative is **Abigale, Poet
+Laureate** `{1}{W}{B}` — a 2/3 flier that re-arms a `+1/+1` counter every time
+you cast a creature, and 63% castable on turn 3 because one Plains plus one
+Swamp is a much easier ask than two Plains. It is a three-drop though, and the
+deck already runs twelve.
+
+## Other candidates
+
+- **Soaring Stoneglider** — **taken, 2026-08-09**, replacing Featherbrained
+  Filcher. See the correction section above.
+- **East Wind Avatar** x3 `{3}{W}` 2/4 flier with Alliance. Three copies is the
+  closest thing to a playset the collection owns in white, but four mana and
+  defensive stats put it outside the curve target. Only if the deck proves too
+  flat — and take the Shark Shredders out of `free-cards` first.
 
 ## To buy
 
