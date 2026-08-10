@@ -190,6 +190,28 @@ section { margin-bottom: 34px; }
 .proposal-action { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
 .proposal-src { font-size: 11px; color: var(--dim); }
 .proposal-why { font-size: 13px; color: var(--muted); margin: 6px 0; }
+
+/* Card art plus the binder the physical copy is in: a proposal is a shopping
+   list for a box of cards, so it has to say what to look for and where. */
+.proposal-head { display: flex; gap: 10px; align-items: flex-start; }
+.proposal-img { width: 86px; flex: 0 0 86px; }
+.proposal-meta { min-width: 0; }
+.proposal-type { font-size: 12px; margin: 2px 0 4px; }
+.proposal-where { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0 0; }
+.loc {
+  font-size: 11px; padding: 2px 8px; border-radius: 20px;
+  border: 1px solid var(--border); color: var(--muted); background: var(--bg);
+}
+.loc-kind { color: var(--dim); }
+/* Green: free, open that box. */
+.loc-free { border-color: var(--add); color: var(--add); background: var(--add-bg); }
+.loc-free .loc-kind { color: inherit; opacity: .75; }
+/* Amber is a caution, not an error: the copy exists, but it is inside another
+   ACTIVE deck, so taking it strips that deck. `loc-here` stays deliberately
+   plain - a cut sitting in its own deck is a fact, not a problem. */
+.loc-busy { border-color: var(--warn); color: var(--warn); background: var(--warn-bg); }
+.loc-busy .loc-kind { color: inherit; opacity: .75; }
+.loc-warn { border-color: var(--cut); color: var(--cut); background: var(--cut-bg); }
 .proposal-actions { display: flex; gap: 6px; margin-top: 8px; }
 .proposal-actions button, .combo button {
   font: inherit; font-size: 12px; padding: 3px 10px; border-radius: var(--radius);

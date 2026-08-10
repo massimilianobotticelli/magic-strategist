@@ -293,20 +293,80 @@ def deck_combos(conn, deck_id: int) -> list[dict]:
     return combos
 
 
+def _where_copies_are(conn, oracle_id: str, this_slug: str | None = None) -> list[dict]:
+    """Every physical copy of a card, and whether it can be taken freely.
+
+    Three states, because they mean three different things at the table:
+
+      here  - the copy is in THIS deck. For a `cut` that is simply where it is
+              now; it is not a warning and must not be coloured like one.
+      free  - a loose binder, or a deck marked donor, which is a parts bin.
+              Same definition query.py uses for `pool`. This is the box to open.
+      busy  - a copy in ANOTHER active deck. It exists, but taking it strips
+              that deck, which is a decision rather than a fetch.
+    """
+    rows = conn.execute(
+        """
+        SELECT l.slug, l.type, p.set_code, p.collector_number, cp.is_foil,
+               (SELECT status FROM decks d WHERE d.location_id = l.id) AS deck_status
+          FROM copies cp
+          JOIN locations l ON l.id = cp.location_id
+          JOIN printings p ON p.scryfall_id = cp.printing_id
+         WHERE cp.oracle_id = ?
+         ORDER BY l.slug
+        """,
+        (oracle_id,),
+    ).fetchall()
+    # Grouped by binder, not one entry per copy: he owns two Frog Butler in the
+    # same pool, and two identical chips say nothing a count does not.
+    seen: dict[str, dict] = {}
+    for r in rows:
+        loc = dict(r)
+        if loc["slug"] in seen:
+            seen[loc["slug"]]["count"] += 1
+            continue
+        loc["count"] = 1
+        loc["here"] = loc["slug"] == this_slug
+        loc["free"] = not loc["here"] and (loc["type"] == "pool"
+                                           or loc["deck_status"] == "donor")
+        loc["state"] = "here" if loc["here"] else ("free" if loc["free"] else "busy")
+        seen[loc["slug"]] = loc
+
+    out = list(seen.values())
+    # free copies first: that is the box he should actually open
+    out.sort(key=lambda x: {"free": 0, "here": 1, "busy": 2}[x["state"]])
+    return out
+
+
 def proposals(conn, deck_id: int) -> list[dict]:
-    return [
-        dict(r)
-        for r in conn.execute(
-            """
-            SELECT p.*, c.name, c.mana_cost, c.type_line,
-                   (SELECT scryfall_id FROM printings pr WHERE pr.oracle_id = c.oracle_id LIMIT 1) AS printing_id
-              FROM deck_proposals p JOIN cards c ON c.oracle_id = p.oracle_id
-             WHERE p.deck_id = ? AND p.status != 'applied'
-             ORDER BY p.action DESC, c.name
-            """,
-            (deck_id,),
-        )
-    ]
+    """Open proposals, with the card image and where the physical copy lives.
+
+    Both extras exist for the same reason: a proposal is a shopping list for a
+    box of cards, so it has to say what the card looks like and which binder it
+    is in. An `add` is only actionable if he can find a FREE copy.
+    """
+    this_slug = conn.execute(
+        "SELECT slug FROM decks WHERE id = ?", (deck_id,)
+    ).fetchone()["slug"]
+    rows = conn.execute(
+        """
+        SELECT p.*, c.name, c.mana_cost, c.type_line, c.oracle_text, c.oracle_id,
+               (SELECT scryfall_id FROM printings pr WHERE pr.oracle_id = c.oracle_id LIMIT 1) AS printing_id
+          FROM deck_proposals p JOIN cards c ON c.oracle_id = p.oracle_id
+         WHERE p.deck_id = ? AND p.status != 'applied'
+         ORDER BY p.action DESC, c.name
+        """,
+        (deck_id,),
+    ).fetchall()
+
+    out = []
+    for r in rows:
+        prop = dict(r)
+        prop["image"], prop["image_small"] = _images(conn, prop["printing_id"])
+        prop["locations"] = _where_copies_are(conn, prop["oracle_id"], this_slug)
+        prop["free_somewhere"] = any(loc["free"] for loc in prop["locations"])
+        out.append(prop)
+    return out
 
 
 # ---------------------------------------------------------------------------

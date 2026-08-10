@@ -81,12 +81,48 @@
     <div class="proposals">
       {% for p in proposals %}
       <div class="proposal proposal-{{ p.action }}" data-id="{{ p.id }}">
-        <div>
-          <span class="proposal-action">{{ 'cut' if p.action == 'cut' else 'add' }}</span>
-          <strong>{{ p.name }}</strong>
-          <span class="proposal-src">{{ p.source }}</span>
-          {% if p.status != 'proposed' %}<span class="pill pill-muted">{{ p.status }}</span>{% endif %}
+        <div class="proposal-head">
+          <div class="tile tile-static proposal-img">
+            {% if p.image_small %}<img src="{{ p.image_small }}" alt="{{ p.name }}" loading="lazy"
+                                       data-full="{{ p.image or p.image_small }}">
+            {% else %}<div class="tile-noimg">{{ p.name }}</div>{% endif %}
+          </div>
+          <div class="proposal-meta">
+            <div>
+              <span class="proposal-action">{{ 'cut' if p.action == 'cut' else 'add' }}</span>
+              <strong>{{ p.name }}</strong>
+              <span class="dim">{{ p.mana_cost or '' }}</span>
+            </div>
+            {% if p.type_line %}<p class="proposal-type dim">{{ p.type_line }}</p>{% endif %}
+            <div>
+              <span class="proposal-src">{{ p.source }}</span>
+              {% if p.status != 'proposed' %}<span class="pill pill-muted">{{ p.status }}</span>{% endif %}
+            </div>
+          </div>
         </div>
+
+        {# Where the physical copy is, so the swap can be done at the table.
+           Green = free, open that box. Amber = it exists but only inside
+           another ACTIVE deck, so taking it strips that deck. Plain = this
+           deck, which for a `cut` is just where the card is now. #}
+        <div class="proposal-where">
+          {% if p.locations %}
+            {% for loc in p.locations %}
+            <span class="loc loc-{{ loc.state }}"
+                  title="{{ loc.set_code | upper }} {{ loc.collector_number }}{% if loc.is_foil %} foil{% endif %}">
+              {{ 'in this deck' if loc.here else loc.slug }}
+              {% if not loc.here %}<span class="loc-kind">{{ 'donor' if loc.deck_status == 'donor' else loc.type }}</span>{% endif %}
+              {% if loc.count > 1 %}<span class="loc-kind">×{{ loc.count }}</span>{% endif %}
+            </span>
+            {% endfor %}
+            {% if p.action == 'add' and not p.free_somewhere %}
+            <span class="loc loc-warn">no free copy — every one is in an active deck</span>
+            {% endif %}
+          {% else %}
+            <span class="loc loc-warn">not in the collection — buy it</span>
+          {% endif %}
+        </div>
+
         {% if p.rationale %}<p class="proposal-why">{{ p.rationale }}</p>{% endif %}
         <div class="proposal-actions">
           <button data-status="accepted">accept</button>
