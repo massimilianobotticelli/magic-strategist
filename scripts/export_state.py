@@ -11,6 +11,13 @@ This is the missing file. `make dump` regenerates it, `make rebuild` replays it.
 Rows are keyed to decks by SLUG, not by the autoincrement id, because deck ids
 shift whenever a ManaBox binder is added or renamed. Their own ids ARE kept, so
 deck_proposals.pairs_with keeps pointing at the right partner.
+
+pairs_with is a self-reference, so it is written in a SECOND PASS of UPDATEs
+after every row exists. Emitting it inline looks fine until a proposal points at
+a partner with a HIGHER id - a cut re-paired to a different add, say - and then
+the replay hits the foreign key before that partner is inserted, the row is
+dropped, and the failure cascades quietly through the rest of the chain. It has
+happened twice. Two passes make insert order irrelevant.
 """
 
 from __future__ import annotations
@@ -65,7 +72,8 @@ def export(conn: sqlite3.Connection) -> str:
             f"INSERT INTO deck_requests ({', '.join(req_cols)}, deck_id)\n"
             f"VALUES ({vals}, {deck});")
 
-    prop_cols = ["id", "action", "status", "rationale", "source", "pairs_with",
+    # pairs_with is deliberately NOT in this list - see the second pass below.
+    prop_cols = ["id", "action", "status", "rationale", "source",
                  "created_at", "updated_at"]
     rows = conn.execute(
         "SELECT p.*, d.slug AS deck_slug, c.name AS card_name FROM deck_proposals p "
@@ -82,6 +90,18 @@ def export(conn: sqlite3.Connection) -> str:
             f"SELECT {vals}, d.id, c.oracle_id\n"
             f"  FROM decks d, cards c\n"
             f" WHERE d.slug = {lit(r['deck_slug'])} AND c.name = {lit(r['card_name'])};")
+
+    # Second pass: now that every row exists, the self-references resolve in any
+    # order. The EXISTS guard keeps a pairing whose partner was dropped above
+    # (deck or card gone) from failing the rebuild - it just stays unpaired.
+    pairs = [r for r in rows if r["pairs_with"] is not None]
+    if pairs:
+        out.append("\n-- Pairings, once every row above exists ------------------------------------")
+    for r in pairs:
+        out.append(
+            f"UPDATE deck_proposals SET pairs_with = {lit(r['pairs_with'])}\n"
+            f" WHERE id = {lit(r['id'])}\n"
+            f"   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = {lit(r['pairs_with'])});")
 
     out.append("")
     return "\n".join(out)
