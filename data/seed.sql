@@ -30,7 +30,10 @@ UPDATE decks
 -- own name says B4; the other two are unmodified precons, which sit at 2.
 -- ---------------------------------------------------------------------------
 UPDATE decks SET target_bracket = 4, is_registered = 1 WHERE slug = 'blight-curse-b4-final';
-UPDATE decks SET target_bracket = 2, is_registered = 1 WHERE slug = 'turtle-power';
+-- turtle-power moved 2 -> 3 on 2026-08-10: he chose to build it toward Upgraded.
+-- It still runs ZERO Game Changers and no infinite line, so it sits well inside
+-- bracket 3 - the change is a statement of intent, not a legality problem.
+UPDATE decks SET target_bracket = 3, is_registered = 1 WHERE slug = 'turtle-power';
 UPDATE decks SET target_bracket = 2, is_registered = 1 WHERE slug = 'dance-of-the-elements';
 
 
@@ -788,3 +791,333 @@ SELECT w.card_name, c.oracle_id, d.id, w.qty, 15.0, w.prio, w.note
        priority          = excluded.priority,
        price_ceiling_eur = excluded.price_ceiling_eur,
        notes             = excluded.notes;
+
+
+-- ---------------------------------------------------------------------------
+-- Turtle Power! (Commander, bracket 3).
+--
+-- REWRITTEN 2026-08-10 for the commander change. The deck ran Heroes in a Half
+-- Shell solo; it now runs the partner pair Leonardo, the Balance +
+-- Michelangelo, the Heart, and Heroes is an ordinary card in the 98.
+--
+-- That is not a cosmetic edit. THE ENGINE CHANGED SHAPE:
+--
+--   before  counters were a reward for CONNECTING. Heroes triggered on combat
+--           damage, so only creatures that got through were paid, and the
+--           first attack of the game was always the weak one.
+--   after   counters are a reward for MAKING A TOKEN. Leonardo pays every
+--           creature you control, once each turn, with no combat required -
+--           and Michelangelo, the Heart makes the token himself every turn
+--           you attack, so the pair needs no third card.
+--
+-- Every line below was re-checked against oracle text after the change, and
+-- every number re-derived. All are 'value' lines: no infinite loop in the deck.
+-- ---------------------------------------------------------------------------
+
+-- 1. The commander pair itself -----------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Leonardo, the Balance + Michelangelo, the Heart',
+    'value',
+    'A +1/+1 counter on EVERY creature you control, every turn, from the command zone alone. Nothing has to connect and nothing has to be drawn.',
+    'The deck''s engine and both halves are always available. Michelangelo lands turn 2 in 53% of games, Leonardo turn 4 in 51% - against 34% at turn FIVE for the old Heroes commander.',
+    'Michelangelo, the Heart: "Raid — at the beginning of your second main phase, IF YOU ATTACKED THIS TURN, put a +1/+1 counter on target creature and create a Food token." That Food is a token, and Leonardo reads "whenever a token you control enters, you may put a +1/+1 counter on EACH creature you control." So attacking with anything at all - a single 1/1 is enough, it does not need to connect - turns the whole board on. SEQUENCING: it fires in your SECOND main phase, so the counters land AFTER combat. They are ammunition for next turn''s attack, not this one, and every "if it has a counter" effect in the deck comes online one turn later than it feels like it should. LEONARDO IS CAPPED AT ONCE EACH TURN, which is why the deck does not need more token makers - Ninja Pizza already makes a Food every second main phase for free, and Michelangelo, Mutant BFF makes a Mutagen on enter and on every attack. Extra token generation does not stack.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Leonardo, the Balance + Michelangelo, the Heart'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Ninja Pizza' THEN 'backup token every second main phase, free, no attack needed'
+       END
+  FROM cards WHERE name IN ('Leonardo, the Balance', 'Michelangelo, the Heart', 'Ninja Pizza');
+
+-- 2. The ordering that is worth one counter per creature, every turn ----------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Corpsejack Menace + High Score',
+    'value',
+    'Every counter Leonardo hands out becomes four - and Leonardo hands one to every creature at once.',
+    'Both cheap and both already in the deck. Not a combo you assemble, a rule you have to remember at the table.',
+    'Both are replacement effects modifying the same event, so YOU choose which applies first - and the two orders are NOT equal. High Score first: one counter becomes two, then Corpsejack Menace doubles it to FOUR. Corpsejack first: one becomes two, then High Score adds one, THREE. ALWAYS APPLY HIGH SCORE FIRST. (n+1)x2 beats 2n+1 by exactly one counter, every time. THIS GOT BIGGER WITH THE COMMANDER CHANGE: Heroes only paid the creatures that connected, but Leonardo pays EVERY creature you control, so the extra counter is multiplied by your whole board. Five creatures out means 20 counters a turn instead of 15.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Corpsejack Menace + High Score'),
+       oracle_id, 1,
+       CASE name WHEN 'Leonardo, the Balance' THEN 'the event both effects are modifying, every turn' END
+  FROM cards WHERE name IN ('Corpsejack Menace', 'High Score', 'Leonardo, the Balance');
+
+-- 3. Damage without combat ---------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Casey Jones, Back Alley Brute + Leonardo, the Balance',
+    'value',
+    'Leonardo''s counters become direct damage. The deck can kill without a single attack connecting.',
+    'Four mana for the payoff and the enabler is in the command zone. Stronger than it was under Heroes, because Leonardo needs no combat damage to fire.',
+    'Casey reads "whenever you put one or more +1/+1 counters on A CREATURE you control" - singular. Leonardo''s trigger is ONE event that puts a counter on EACH creature, and that makes one Casey trigger PER CREATURE, not one in total. WORKED CASE, five creatures on board: Leonardo fires, five creatures get one counter each, Casey deals 1+1+1+1+1 = 5 to a chosen opponent. With Corpsejack Menace the counters are 2 each, so 10. With High Score applied first as well, 4 each, so 20. NONE OF THAT NEEDS AN ATTACK TO CONNECT - only a token to enter, which Michelangelo, the Heart supplies for the price of declaring any attacker. Leatherhead, Iron Gator''s attack trigger (two counters on each creature) stacks a second helping on the same turn. WHICH SIDE OF THE COMPARISON: for Raphael, the Muscle to double Casey''s damage the counter has to be on CASEY - he is a creature dealing damage, and Leonardo does put a counter on him, so from the second Leonardo trigger onward Raphael is doubling this.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Casey Jones, Back Alley Brute + Leonardo, the Balance'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Leatherhead, Iron Gator' THEN 'two counters on each creature on attack - a second Casey volley the same turn'
+         WHEN 'Raphael, the Muscle' THEN 'doubles Casey''s damage once Casey himself carries a counter'
+       END
+  FROM cards WHERE name IN ('Casey Jones, Back Alley Brute', 'Leonardo, the Balance',
+                            'Leatherhead, Iron Gator', 'Raphael, the Muscle');
+
+-- 4. The card draw that replaced the commander's --------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Ray Fillet, Wave Warrior + Leonardo, the Balance',
+    'value',
+    'A card for every creature that connects, from the very first attack.',
+    'Three mana, and it does not have to attack to pay out. THIS IS THE DECK''S MAIN DRAW ENGINE now that Heroes is not in the command zone - it is what makes losing that commander survivable.',
+    'Ray Fillet: "whenever a creature you control WITH A COUNTER ON IT deals combat damage to a player, draw a card" - one draw per creature. THE COMMANDER CHANGE IMPROVED THIS. Under Heroes the counters arrived as a reward for connecting, so the first attack of the game drew nothing from Ray Fillet and only later swings paid. Leonardo puts counters on every creature at the end of the turn you first attack, so from the SECOND attack onward every single attacker is already carrying one: four attackers is four cards, and it scales with the board rather than with what got through. Ray Fillet is a 0/2 with flying and evolve - he does not need to be in combat for any of this, so leave him home as a blocker.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Ray Fillet, Wave Warrior + Leonardo, the Balance'),
+       oracle_id, 1, NULL
+  FROM cards WHERE name IN ('Ray Fillet, Wave Warrior', 'Leonardo, the Balance');
+
+-- 5. Doubling the whole board ------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Raphael, the Muscle + Leonardo, the Balance',
+    'value',
+    'Every creature you control hits for double - combat damage and noncombat damage alike.',
+    'Five mana for the effect. Better under the partner pair than it was under Heroes, because Leonardo puts a counter on EVERY creature rather than only the ones that connected.',
+    'Raphael doubles ALL damage that creatures you control WITH COUNTERS ON THEM would deal, which includes Casey Jones'' triggered damage, not just combat. Under Heroes this was partial - a creature that had never connected had no counter and was not doubled. Under Leonardo one trigger arms the entire board at once, so Raphael doubles everything from that point on. THE TRAP IS STILL THE TIMING, AND IT MOVED: Michelangelo''s Raid trigger resolves in your SECOND MAIN PHASE, after combat. So on the turn Leonardo first fires, the attack that caused it was NOT doubled - the doubling starts the following turn. To double the very first swing, put a counter on precombat instead: Together Forever''s support 2, Arcade Cabinet''s enter trigger, Level Up, or a Mutagen token. Raphael himself is in the same position - he makes a token when he enters but nothing puts a counter on HIM, so his own 4/4 body stays undoubled until Leonardo gets there.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Raphael, the Muscle + Leonardo, the Balance'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Together Forever' THEN 'support 2 precombat: the cheapest way to be doubled on the FIRST swing'
+         WHEN 'Arcade Cabinet' THEN 'enter trigger puts a counter on up to four creatures at once'
+       END
+  FROM cards WHERE name IN ('Raphael, the Muscle', 'Leonardo, the Balance',
+                            'Together Forever', 'Arcade Cabinet');
+
+-- 6. The wipe that only hits them --------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Wave Goodbye + Leonardo, the Balance',
+    'value',
+    'A one-sided Evacuation: your board has counters on it, theirs does not.',
+    'Four mana, and the enabling condition is now guaranteed rather than combat-gated. The cleanest way this deck breaks a board stall.',
+    'Wave Goodbye returns each creature WITHOUT a +1/+1 counter on it to its owner''s hand. THE COMMANDER CHANGE MADE THIS RELIABLE: under Heroes only the creatures that had connected were safe, so a blocked board bounced along with the opponents''. Under Leonardo every creature you control is carrying a counter as a matter of course, whether it attacked, blocked or sat still. SEQUENCING: Leonardo''s counters land in your second main phase, so cast Wave Goodbye AFTER that trigger has resolved, not before. It still does not spare fresh arrivals - anything you cast after the trigger has no counter and bounces with the rest, so hold the extra creature until the Wave has resolved. Tokens returned to hand cease to exist, which is pure upside against a token board.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Wave Goodbye + Leonardo, the Balance'),
+       oracle_id, 1, NULL
+  FROM cards WHERE name IN ('Wave Goodbye', 'Leonardo, the Balance');
+
+-- 7. The one-sided wipe ------------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Vigor + Blasphemous Act',
+    'value',
+    'A one-sided board wipe that also pumps your team: every creature you control except Vigor gains thirteen +1/+1 counters, and every opposing creature with toughness 13 or less dies.',
+    'Both halves already in the deck. Blasphemous Act costs {1} less per creature on the battlefield, so on the wide board that makes this good it usually costs {R} - a five-mana turn, not a nine-mana one.',
+    'Vigor prevents damage dealt to each OTHER creature you control and converts it one-for-one into +1/+1 counters. WORKED CASE, board of Vigor plus Casey Jones plus two others: the three non-Vigor creatures take 0 damage and gain 13 counters each; Vigor itself is a 6/6 and is NOT protected by its own ability, so it takes the 13, dies, and shuffles back into your library instead of staying in the graveyard - one use per copy per game. SEQUENCING: Vigor has to already be on the battlefield when the Act resolves. WITH CASEY JONES THIS IS USUALLY LETHAL, NOT JUST A WIPE - each creature gaining counters is its own "you put counters on a creature" event, so Casey triggers three times for 13 damage each, 39 at a single opponent. Corpsejack Menace turns the 13 into 26; with High Score as well, apply High Score first and it is (13+1)x2 = 28 per creature.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Vigor + Blasphemous Act'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Casey Jones, Back Alley Brute' THEN 'turns the wipe into a kill: one trigger per creature that gained counters'
+         WHEN 'Corpsejack Menace' THEN 'doubles every one of the counters the prevention hands out'
+       END
+  FROM cards WHERE name IN ('Vigor', 'Blasphemous Act', 'Casey Jones, Back Alley Brute',
+                            'Corpsejack Menace');
+
+-- 8. The repeatable doubler and its fuel supply ------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Arcade Cabinet + Donatello, the Brains',
+    'value',
+    'A counter doubler you can fire every turn, with a token guaranteed every turn to pay for it.',
+    'Three mana and three mana, both already in the deck. Slow but it never runs dry.',
+    'Arcade Cabinet costs {2}, {T} and the sacrifice of a token; Donatello turns EVERY token creation under your control into that token plus an extra one, so the sacrifice fuel is free. Doubling is implemented as putting that many MORE counters on, which means Corpsejack Menace doubles the doubling: a creature on 4 counters goes to 8 with Arcade Cabinet alone, and to 12 with Corpsejack out, because the "4 more" becomes "8 more". It doubles EACH KIND of counter, not only +1/+1. WHOSE PERMANENT: Donatello''s replacement only sees tokens created UNDER YOUR CONTROL - a token you hand an opponent gives you nothing. WORTH NOTING SINCE THE COMMANDER CHANGE: Donatello''s extra token is also an extra chance to turn Leonardo on, but Leonardo is capped at once each turn, so treat that as insurance rather than as a second trigger.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Arcade Cabinet + Donatello, the Brains'),
+       oracle_id, 1,
+       CASE name WHEN 'Corpsejack Menace' THEN 'doubles the doubling - 4 counters become 12, not 8' END
+  FROM cards WHERE name IN ('Arcade Cabinet', 'Donatello, the Brains', 'Corpsejack Menace');
+
+-- 9. The unblockable lock ----------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Michelangelo, Mutant BFF + any menace source',
+    'value',
+    'A creature with a counter and menace has NO legal block. It connects every turn.',
+    'Four mana, and Leonardo puts the counter on every creature for free. It grants evasion, not a win, so it is comfortably inside bracket 3.',
+    'Michelangelo: "each creature you control with a counter on it CAN''T BE BLOCKED BY MORE THAN ONE creature." Menace: "can''t be blocked EXCEPT BY TWO OR MORE creatures." A creature under both restrictions cannot be blocked at all - there is no legal number of blockers. THE COMMANDER CHANGE CUT BOTH WAYS. The counter half got EASIER: Leonardo arms every creature every turn, where Heroes only armed the ones that had already connected. The menace half got HARDER: Heroes had menace printed on it and sat in the command zone, and it is now an ordinary card in the 98 that has to be drawn. The menace left in the deck is Splinter, the Mentor, Casey Jones, Back Alley Brute and Rat King, Pale Piper - three specific creatures - plus Leonardo''s own {W}{U}{B}{R}{G} activation, which grants it to the WHOLE team at once but costs five colours and is realistically a turn-six play. So the reliable version is: point Michelangelo at whichever of those three is on board. Michelangelo also makes a Mutagen token when he enters AND whenever he attacks, which is a Leonardo trigger in its own right.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Michelangelo, Mutant BFF + any menace source'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Splinter, the Mentor' THEN 'cheapest menace body in the deck at {1}{B}'
+         WHEN 'Leonardo, the Balance' THEN 'team-wide menace for {W}{U}{B}{R}{G} - the alpha-strike version, but a turn-six cost'
+       END
+  FROM cards WHERE name IN ('Michelangelo, Mutant BFF', 'Splinter, the Mentor',
+                            'Leonardo, the Balance');
+
+-- 10. The card advantage that replaced the commander's -----------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Return of the Wildspeaker + Leonardo, the Balance',
+    'value',
+    'Refills your hand for five mana at instant speed, and the size of the refill grows on its own every turn Leonardo fires.',
+    'Replaced Don & Leo on 2026-08-10 as the direct answer to losing Heroes from the command zone. Five mana, instant, no setup beyond the board you already wanted.',
+    'Return of the Wildspeaker: "draw cards equal to the GREATEST POWER among non-Human creatures you control", or the other mode, "+3/+3 to non-Human creatures until end of turn". Leonardo puts a +1/+1 counter on every creature you control once each turn, so the greatest power on your board climbs without you spending anything on it - the card gets better the longer the game runs, which is exactly the shape of card advantage this deck wanted back. NON-HUMAN IS THE CHECK, AND IT MOSTLY PASSES: Mutants, Ninjas, Turtles, Rats and Oozes all count. The Humans in the deck are Casey Jones, Shredder, Shadow Master, April O''Neil and Irma - do not measure off them, and remember the +3/+3 mode misses them too. SEQUENCING: it is an INSTANT, so hold it. Cast it after Leonardo''s second-main-phase trigger has resolved rather than before, and cast it in response to a board wipe to turn a dying board into cards.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Return of the Wildspeaker + Leonardo, the Balance'),
+       oracle_id, 1,
+       CASE name WHEN 'Leonardo, the Balance' THEN 'grows the greatest-power number every turn for free' END
+  FROM cards WHERE name IN ('Return of the Wildspeaker', 'Leonardo, the Balance');
+
+-- 11. Trample: which source, and why BOTH is nearly pointless ----------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Garruk''s Uprising + Michelangelo, Mutant BFF',
+    'value',
+    'Unconditional trample on the whole team, so the unblockable creatures that DO get chump-blocked still dump their damage on the player.',
+    'Three mana. Replaced Hard-Won Jitte on 2026-08-10 - the Jitte was in the deck to fire the old commander''s trigger twice, and that reason left with Heroes.',
+    'Garruk''s Uprising grants trample to CREATURES YOU CONTROL, full stop - no counter required. GNARLID COLONY IS NOW REDUNDANT AND THIS IS THE NOTE THAT SAYS SO: its only real text is "each creature you control with a +1/+1 counter on it has trample", which is a strict subset of what Garruk''s Uprising does. Running both means the second one is a 2/2 for {1}{G}. Flagged for review rather than cut on the spot, because Gnarlid can still be kicked for two counters and the deck has not been re-measured without it. The draw half: a card on the way in, and a card whenever a creature with power 4 or greater enters - the deck runs 10 such creatures out of 31, so treat it as a cantrip that sometimes keeps going, not as a draw engine.',
+    (SELECT id FROM decks WHERE slug = 'turtle-power')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Garruk''s Uprising + Michelangelo, Mutant BFF'),
+       oracle_id, 1,
+       CASE name WHEN 'Gnarlid Colony' THEN 'REDUNDANT with Garruk''s Uprising - its trample clause is a strict subset' END
+  FROM cards WHERE name IN ('Garruk''s Uprising', 'Michelangelo, Mutant BFF', 'Gnarlid Colony');
+
+-- Disablers for Turtle Power! ------------------------------------------------
+-- Solemnity is the universal answer to this deck, and MORE so since the
+-- commander change: the whole engine is now "put a counter on each creature".
+INSERT INTO combo_disablers (combo_id, oracle_id, note)
+SELECT c.id, k.oracle_id,
+       CASE c.name
+         WHEN 'Leonardo, the Balance + Michelangelo, the Heart' THEN 'the tokens still enter, but no counter is ever put on - the deck''s entire engine is switched off from the command zone down'
+         WHEN 'Vigor + Blasphemous Act' THEN 'the damage is still prevented, but no counters are put on - you get a symmetric wipe and no board'
+         WHEN 'Wave Goodbye + Leonardo, the Balance' THEN 'nothing on your side can have a counter, so Wave Goodbye returns YOUR creatures as well - it stops being one-sided and becomes a mistake'
+         WHEN 'Michelangelo, Mutant BFF + any menace source' THEN 'no counters means nothing qualifies for the "can''t be blocked by more than one" clause, so only the bare menace remains'
+         WHEN 'Garruk''s Uprising + Michelangelo, Mutant BFF' THEN 'trample still applies - Garruk''s Uprising does not care about counters - but nothing qualifies for Michelangelo''s unblockability, so they are merely trampling into two blockers'
+         ELSE 'counters cannot be put on permanents at all, so the line produces nothing'
+       END
+  FROM combos c CROSS JOIN cards k
+ WHERE k.name = 'Solemnity'
+   AND c.deck_id = (SELECT id FROM decks WHERE slug = 'turtle-power');
+
+-- Pithing Needle answers activated abilities only, so it reaches exactly one
+-- of these lines. The rest are triggered or static and cannot be named.
+INSERT INTO combo_disablers (combo_id, oracle_id, note)
+SELECT (SELECT id FROM combos WHERE name = 'Arcade Cabinet + Donatello, the Brains'),
+       oracle_id,
+       'naming Arcade Cabinet shuts off the doubling, which is an activated ability. Donatello''s half is a replacement effect and cannot be named.'
+  FROM cards WHERE name = 'Pithing Needle';
+-- ---------------------------------------------------------------------------
+-- Turtle Power! wishlist. RE-DERIVED 2026-08-10 after the commander change.
+--
+-- No prices are quoted: none were checked. The ceiling is the budget.
+--
+-- THE ORIGINAL LIST IS LARGELY OBSOLETE AND THIS IS THE HONEST REASON WHY.
+-- It was built to answer one measurement: Heroes in a Half Shell cost
+-- {W}{U}{B}{R}{G} and was castable on turn five in 34% of games, so every item
+-- was a cheap accelerant. Swapping to the Leonardo + Michelangelo partner pair
+-- fixed that problem by making the commanders cost {3}{W} and {1}{G} instead,
+-- and re-measuring says buying mana is no longer the best use of the budget:
+--
+--                        Michelangelo T2   Michelangelo T3   Leonardo T4
+--   as it stands              58.2%             89.1%           44.1%
+--   + Birds of Paradise       59.3%             90.0%           47.6%
+--   + Nature's Lore too       59.3%             90.6%           50.7%
+--
+-- Birds moves the two-drop by ONE POINT. A one-mana dork cannot help you cast a
+-- two-drop you were already casting. It is still worth having for Leonardo
+-- (+3.5pp on turn four), but it is no longer the headline fix, and saying so is
+-- the point of re-deriving this instead of leaving the old priorities standing.
+--
+-- What the deck wants now is not more mana, it is MORE OUT OF LEONARDO. He puts
+-- a +1/+1 counter on EVERY creature you control, once each turn - so a counter
+-- doubler is no longer multiplying the one creature that connected, it is
+-- multiplying the whole board. That is why Branching Evolution moves from the
+-- bottom of this list to the top.
+--
+-- Oracle text checked in the database, not recalled.
+-- Idempotent: ON CONFLICT (card_name, deck_id) rewrites rather than appends.
+-- ---------------------------------------------------------------------------
+INSERT INTO wishlist (card_name, oracle_id, deck_id, quantity, price_ceiling_eur, priority, notes)
+SELECT w.card_name, c.oracle_id, d.id, w.qty, 15.0, w.prio, w.note
+  FROM decks d
+  JOIN (SELECT 'Branching Evolution' AS card_name, 1 AS qty, 1 AS prio,
+               'PROMOTED from P3 on the commander change, and it is now the best card money can add to this deck. A second Corpsejack Menace, and under Leonardo the doubling applies to EVERY creature you control every turn rather than only the ones that connected. With both doublers plus High Score applied first, one Leonardo trigger becomes (1+1)x2x2 = 8 counters on each creature - and each of those is a separate Casey Jones trigger.' AS note
+        UNION ALL SELECT 'Birds of Paradise', 1, 2,
+               'DEMOTED from P1. Measured against the new commanders it is worth +1.1pp on casting Michelangelo at turn two and +3.5pp on Leonardo at turn four - real, but a fraction of what it was worth when the commander cost {W}{U}{B}{R}{G}. A one-mana any-colour dork cannot help you cast a two-drop you were already casting. Buy it for Leonardo and for Leonardo''s {W}{U}{B}{R}{G} activation, not as a fix.'
+        UNION ALL SELECT 'Nature''s Lore', 1, 2,
+               'Two-mana ramp that arrives UNTAPPED, which is the one mana problem the commander change did not solve: the deck still plays nine lands that enter tapped unconditionally. It searches for a Forest CARD, not a basic, so Cinder Glade, Sodden Verdure and Vernal Fen are all legal targets. Worth +3.1pp on Leonardo at turn four on top of Birds.'
+        UNION ALL SELECT 'Swiftfoot Boots', 1, 3,
+               'DEMOTED from P2. The old reason was that Heroes cost five colours and could not realistically be recast once it died. Two commanders is its own redundancy - if one dies you still have the other - and Leonardo recasts at {5}{W} rather than {W}{U}{B}{R}{G} plus tax. Still hexproof and not Lightning Greaves, deliberately: shroud would stop you targeting your own creature with Level Up, Saved by the Shell, Together Forever or a Mutagen token.'
+        UNION ALL SELECT 'Fellwar Stone', 1, 3,
+               'DEMOTED from P2. Both commanders now cost a single coloured pip, so five-colour fixing only matters for Leonardo''s {W}{U}{B}{R}{G} activation and for Everything Pizza. He owns one copy and it is in Blight Curse, so this would be a second copy rather than a steal - but it is no longer urgent.') w
+  LEFT JOIN cards c ON c.name = w.card_name
+ WHERE d.slug = 'turtle-power'
+    ON CONFLICT (card_name, deck_id) DO UPDATE SET
+       quantity          = excluded.quantity,
+       priority          = excluded.priority,
+       price_ceiling_eur = excluded.price_ceiling_eur,
+       notes             = excluded.notes;
+
+
+
+-- ---------------------------------------------------------------------------
+-- Turtle Power! runs a PARTNER PAIR from 2026-08-10: Leonardo, the Balance and
+-- Michelangelo, the Heart, both "Partner—Character select". Heroes in a Half
+-- Shell dropped into the 98.
+--
+-- THIS BLOCK IS NOT OPTIONAL. `decks` models ONE commander, and db.py picks it
+-- with `LIMIT 1` and no ORDER BY over the commander section - so an import is
+-- free to pick Michelangelo, whose colour identity is mono-GREEN. That would
+-- collapse the deck's identity from BGRUW to G and fail every card in it.
+--
+-- Leonardo is the right one to pin, and not by luck: his activated ability
+-- costs {W}{U}{B}{R}{G}, so HIS identity is already BGRUW - which is exactly
+-- the union of the pair. Pinning him gives the correct answer for the whole
+-- partnership rather than an approximation.
+--
+-- If the pair ever changes to two partners that do NOT include Leonardo, this
+-- block is wrong and the identity has to be widened by hand: the schema has no
+-- way to express two commanders.
+-- ---------------------------------------------------------------------------
+UPDATE decks
+   SET commander_oracle_id = (SELECT oracle_id FROM cards WHERE name = 'Leonardo, the Balance')
+ WHERE slug = 'turtle-power';
+
+UPDATE decks
+   SET color_identity = (SELECT color_identity FROM cards WHERE oracle_id = decks.commander_oracle_id)
+ WHERE commander_oracle_id IS NOT NULL;

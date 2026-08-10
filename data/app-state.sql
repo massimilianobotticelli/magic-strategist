@@ -11,3 +11,29 @@ PRAGMA foreign_keys = ON;
 DELETE FROM deck_proposals;
 DELETE FROM deck_requests;
 
+
+-- Deck proposals -----------------------------------------------------------
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 1, 'cut', 'applied', 'Its rationale was ''the commander''s trigger fires TWICE per attack'', and that died with Heroes leaving the command zone. Double strike plus trample is still good damage, but it is no longer doing anything the deck is built around.', 'claude', '2026-08-10 21:18:02', '2026-08-10 21:19:04', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'turtle-power' AND c.name = 'Hard-Won Jitte';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 2, 'add', 'applied', '''Creatures you control have trample'' with NO condition - it does not wait for Leonardo''s counters the way Gnarlid Colony does, so it works on the turn before the engine starts. Plus a card on the way in and a card whenever a creature with power 4 or greater enters: the deck has 10 of those in 31 creatures. Covers the Jitte''s job and part of the draw that left with Heroes.', 'claude', '2026-08-10 21:18:02', '2026-08-10 21:24:53', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'turtle-power' AND c.name = 'Garruk''s Uprising';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 3, 'cut', 'applied', 'The most Heroes-dependent card in the deck: it was added as a 4/6 Mutant Ninja Turtle that fed the commander''s tribal trigger. Under Leonardo the creature type is worth nothing, its blink creates no token so it does not turn Leonardo on, and the blink actively LOSES the +1/+1 counters the deck exists to accumulate.', 'claude', '2026-08-10 21:18:02', '2026-08-10 21:19:04', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'turtle-power' AND c.name = 'Don & Leo, Problem Solvers';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 4, 'add', 'applied', 'The direct answer to the card draw that left with Heroes. ''Draw cards equal to the greatest power among non-Human creatures you control'' - and Leonardo puts a counter on every creature every turn, so that number climbs on its own. Nearly the whole deck is non-Human (Mutants, Ninjas, Turtles). Instant speed, and the other mode (+3/+3 to non-Humans) wins a combat outright.', 'claude', '2026-08-10 21:18:02', '2026-08-10 21:24:53', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'turtle-power' AND c.name = 'Return of the Wildspeaker';
+
+-- Pairings, once every row above exists ------------------------------------
+UPDATE deck_proposals SET pairs_with = 1
+ WHERE id = 2
+   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 1);
+UPDATE deck_proposals SET pairs_with = 3
+ WHERE id = 4
+   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 3);

@@ -60,8 +60,15 @@ validate:
 #
 # Kept here so a rebuild cannot lose them. Their Scryfall responses are cached
 # and committed, so --offline still works.
+#
+# CARE WITH APOSTROPHES. `rebuild` below wraps the whole pipeline in
+# `sh -c '...'`, so a bare ' in a card name closes that quote and the recipe
+# dies with "unexpected EOF while looking for matching quote" before it runs a
+# single command. Write it as '\'' - close, escaped literal quote, reopen.
 EXTRA_CARDS := "Melira, Sylvok Outcast" "Solemnity" "Pithing Needle" \
-               "Caves of Koilos" "Concealed Courtyard" "Isolated Chapel"
+               "Caves of Koilos" "Concealed Courtyard" "Isolated Chapel" \
+               "Birds of Paradise" "Nature'\''s Lore" "Swiftfoot Boots" \
+               "Branching Evolution"
 
 # Full rebuild from the committed raw exports and decklists. Uses the cached
 # Scryfall responses, so it works with no network.
