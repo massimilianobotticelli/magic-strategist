@@ -287,22 +287,46 @@ Two swaps got *better* under the new commanders rather than worse:
 gated on having connected) and **Saved by the Shell** (Michelangelo, the Heart
 is a Turtle sitting in the command zone, so its `{1}` discount is permanent).
 
-### Open question this created: Gnarlid Colony is now redundant
+### Resolved: Gnarlid Colony stays
 
-Garruk's Uprising grants trample to *creatures you control*, unconditionally.
-Gnarlid Colony's only real text is *"each creature you control with a +1/+1
-counter on it has trample"* — a **strict subset**. Running both leaves Gnarlid
-as a 2/2 for `{1}{G}` that can be kicked for two counters.
+Flagged on 2026-08-10 as redundant with Garruk's Uprising, then **measured, and
+the flag was wrong.** Garruk's grants trample to *creatures you control*
+unconditionally; Gnarlid's *"each creature you control with a +1/+1 counter on
+it has trample"* is a strict subset — so the two overlap completely **when both
+are on the battlefield**, and that is the only case where one is wasted.
 
-Not cut on the spot: the deck has not been re-measured without it, and a cheap
-body that can arrive with counters is not nothing. Recorded in the
-`Garruk's Uprising + Michelangelo, Mutant BFF` combo note so it cannot be
-forgotten.
+These are the deck's **only two permanent team-wide trample sources in 98
+cards.** Everything else in the deck that mentions trample — Michelangelo the
+Heart, Heroes, Vigor, Leatherhead, Rocksteady, Voracious Hydra, Saved by the
+Shell — grants it only to itself. Leonardo's activation grants it to the team
+but costs `{W}{U}{B}{R}{G}`.
+
+Hypergeometric, on the play, 98 cards:
+
+| by turn | no trample source | exactly one | **both** (the wasteful case) |
+|---|---|---|---|
+| 6 | 76.9% | 21.7% | **1.4%** |
+| 8 | 73.3% | 24.7% | **1.9%** |
+| 10 | 69.9% | 27.6% | **2.5%** |
+
+And holding at least one: **27% by turn eight with both, 14% with Garruk's
+alone.** Cutting Gnarlid halves an already-thin number, and the overlap it would
+save costs 1.9% of games — a ratio of about 13 to 1 in favour of keeping it.
+
+That matters because trample is load-bearing here. Michelangelo, Mutant BFF only
+makes a creature unblockable alongside one of **three** printed-menace creatures;
+everything else gets chump-blocked, and trample is what turns a Leonardo-inflated
+9/9 into actual damage.
+
+Kicked for `{2}{G}` more, Gnarlid also enters with two +1/+1 counters — which
+arms Michelangelo's unblockability on itself immediately and is doubled by
+Corpsejack Menace. Even in the 1.9% case it is not a blank.
+
+**Two copies of a core effect is thin coverage in a singleton deck, not waste.**
+The original note had the wrong frame, and this is what re-measuring it was for.
 
 ## Open items
 
-- **Gnarlid Colony vs Garruk's Uprising** — decide whether the redundant one
-  earns its slot. Needs a measurement, not an opinion.
 - **Move the two swapped cards in ManaBox**: Hard-Won Jitte and Don & Leo out of
   the Turtle Power! binder, Garruk's Uprising and Return of the Wildspeaker in
   from `Free Dance of the Elements`. Until that export lands, the pools still
