@@ -5,7 +5,7 @@
 COMPOSE ?= docker compose
 RUN     := $(COMPOSE) run --rm app
 
-.PHONY: build shell app import enrich sync-gc seed validate query dump sql rebuild help
+.PHONY: build shell app import enrich sync-gc seed validate query moves dump sql rebuild help
 
 help:
 	@echo 'make build      Build the container image'
@@ -17,6 +17,7 @@ help:
 	@echo 'make seed       Apply data/seed.sql (brackets, commanders, combos)'
 	@echo 'make validate   Run all deck and collection checks'
 	@echo 'make query      Query the collection              (ARGS=...)'
+	@echo 'make moves      What to move in ManaBox           (ARGS=<slug>)'
 	@echo 'make dump       Regenerate data/collection.sql text dump'
 	@echo 'make sql        Open the sqlite3 CLI on the database'
 	@echo 'make rebuild    Rebuild the database from data/ and decks/ end to end'
@@ -90,6 +91,13 @@ rebuild:
 
 query:
 	$(RUN) python scripts/query.py $(ARGS)
+
+# What to move in ManaBox so its binders match the decklists. `validate` only
+# checks SUPPLY - that enough copies exist somewhere - so a deck can be edited
+# and validated clean while its cards are still sitting in a pool, where they
+# keep reading as free inventory. This is the check that catches that.
+moves:
+	$(RUN) python scripts/moves.py $(ARGS)
 
 # Both halves matter: collection.sql is the readable full snapshot, and
 # app-state.sql is the only committed home for the tables the web app writes.

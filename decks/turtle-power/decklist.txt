@@ -34,7 +34,7 @@
 1 Fast Forward (TMC) 24
 1 Fertile Ground (ECC) 106
 1 Foot Chopper (TMC) 17
-4 Forest (TMT) 319
+6 Forest (TMT) 319
 1 Frog Butler (TMT) 114
 1 Garruk's Uprising (ECC) 109
 1 Gnarlid Colony (FDN) 224
@@ -47,7 +47,6 @@
 1 Hinterland Harbor (TMC) 69
 1 Irma, Part-Time Mutant (TMC) 12
 2 Island (TMT) 316
-1 Jungle Shrine (ECC) 154
 1 Leatherhead, Iron Gator (TMC) 30
 1 Lessons from Life (TMT) 155
 1 Level Up (TMC) 31
@@ -57,8 +56,7 @@
 2 Mountain (TMT) 318
 1 Ninja Pizza (TMC) 32
 1 Path of Ancestry (TMC) 70
-2 Plains (TMT) 315
-1 Rain-Slicked Copse (TMC) 71
+3 Plains (TMT) 315
 1 Raphael, the Muscle (TMC) 4 *F*
 1 Rat King, Pale Piper (TMC) 19
 1 Ray Fillet, Wave Warrior (TMC) 14
@@ -68,7 +66,6 @@
 1 Sandsteppe Citadel (ECC) 164
 1 Savage Lands (ECC) 165
 1 Saved by the Shell (TMT) 132
-1 Seaside Citadel (ECC) 166
 1 Shark Shredder, Killer Clone (TMT) 73 *F*
 1 Shellshock (TMC) 25
 1 Shredder, Shadow Master (TMC) 20

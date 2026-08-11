@@ -70,7 +70,29 @@ The repo learns about it only through committed exports in `data/manabox/`.
 
 After he changes anything physically: he re-exports, drops it in
 `data/manabox/<date>/`, then `make rebuild && make validate`. Read the output
-before saying it worked.
+before saying it worked. If a second export lands on a date that already has a
+directory, give it a **letter suffix** (`2026-08-10b`) — never a second CSV in
+the same directory, because `rebuild` globs `$latest*.csv` and would feed the
+importer two snapshots.
+
+**`validate` checks SUPPLY, not LOCATION**, and this drifts silently. It asks
+"do enough copies of this card exist anywhere?", never "is the copy in this
+deck's own binder?". So a decklist can be edited, imported and validated
+completely clean while the cards are still sitting in a pool — where they keep
+reading as free inventory and get proposed to another deck. Nothing fails and
+nothing warns.
+
+**`make moves` is the check that catches it.** It prints exactly what to move
+in ManaBox for every deck, and where to take each card from:
+
+```
+make moves                 # every active deck
+make moves ARGS='<slug>'   # one deck
+```
+
+Run it after applying any swap, and again after his re-export to confirm it
+comes back clean. Batch the physical moves at the END of a session rather than
+card by card — that is the whole reason this prints a list instead of nagging.
 
 ## Building a deck from what he owns
 

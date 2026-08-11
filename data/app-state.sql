@@ -14,26 +14,30 @@ DELETE FROM deck_requests;
 
 -- Deck proposals -----------------------------------------------------------
 INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
-SELECT 1, 'cut', 'applied', 'Its rationale was ''the commander''s trigger fires TWICE per attack'', and that died with Heroes leaving the command zone. Double strike plus trample is still good damage, but it is no longer doing anything the deck is built around.', 'claude', '2026-08-10 21:18:02', '2026-08-10 21:19:04', d.id, c.oracle_id
+SELECT 1, 'cut', 'applied', 'Enters tapped ALWAYS and makes two colours. In a deck whose commanders now cost {1}{G} and {3}{W}, a land that can never come down untapped is the most expensive of the nine. Keeps its cycling {2} as a consolation, which the simulation does not model - so its real value is slightly above what the numbers show.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
   FROM decks d, cards c
- WHERE d.slug = 'turtle-power' AND c.name = 'Hard-Won Jitte';
+ WHERE d.slug = 'turtle-power' AND c.name = 'Rain-Slicked Copse';
 INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
-SELECT 2, 'add', 'applied', '''Creatures you control have trample'' with NO condition - it does not wait for Leonardo''s counters the way Gnarlid Colony does, so it works on the turn before the engine starts. Plus a card on the way in and a card whenever a creature with power 4 or greater enters: the deck has 10 of those in 31 creatures. Covers the Jitte''s job and part of the draw that left with Heroes.', 'claude', '2026-08-10 21:18:02', '2026-08-10 21:27:29', d.id, c.oracle_id
+SELECT 2, 'cut', 'applied', 'ADDED THIS MORNING BY ME, and wrong now. It was the right card while the commander cost {W}{U}{B}{R}{G} and fixing was the binding constraint. With mono-pip commanders the constraint is speed, and a tapped land is a lost turn.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
   FROM decks d, cards c
- WHERE d.slug = 'turtle-power' AND c.name = 'Garruk''s Uprising';
+ WHERE d.slug = 'turtle-power' AND c.name = 'Jungle Shrine';
 INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
-SELECT 3, 'cut', 'applied', 'The most Heroes-dependent card in the deck: it was added as a 4/6 Mutant Ninja Turtle that fed the commander''s tribal trigger. Under Leonardo the creature type is worth nothing, its blink creates no token so it does not turn Leonardo on, and the blink actively LOSES the +1/+1 counters the deck exists to accumulate.', 'claude', '2026-08-10 21:18:02', '2026-08-10 21:19:04', d.id, c.oracle_id
+SELECT 3, 'cut', 'applied', 'Same reasoning as Jungle Shrine, and cut in the same breath. Same deck, different commanders, different answer - the tri-lands were bought to solve a problem the commander change has already solved. — paid for by the SECOND Forest, which cannot have its own row: the Forest add above stands for two copies.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
   FROM decks d, cards c
- WHERE d.slug = 'turtle-power' AND c.name = 'Don & Leo, Problem Solvers';
+ WHERE d.slug = 'turtle-power' AND c.name = 'Seaside Citadel';
 INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
-SELECT 4, 'add', 'applied', 'The direct answer to the card draw that left with Heroes. ''Draw cards equal to the greatest power among non-Human creatures you control'' - and Leonardo puts a counter on every creature every turn, so that number climbs on its own. Nearly the whole deck is non-Human (Mutants, Ninjas, Turtles). Instant speed, and the other mode (+3/+3 to non-Humans) wins a combat outright.', 'claude', '2026-08-10 21:18:02', '2026-08-10 21:27:29', d.id, c.oracle_id
+SELECT 4, 'add', 'applied', 'TWO COPIES, not one - deck_proposals has no quantity column, so this single row stands for both, and the maindeck counter in the header will read 99 rather than 100 because of it. The deck is 42% green by mana symbol (31 pips of 74 against 9 white) and runs only four Forests. Untapped, and it raises Vigor {3}{G}{G}{G} by 2.2pp on top of everything else.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
   FROM decks d, cards c
- WHERE d.slug = 'turtle-power' AND c.name = 'Return of the Wildspeaker';
+ WHERE d.slug = 'turtle-power' AND c.name = 'Forest';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 5, 'add', 'applied', 'One copy, and deliberately a Plains rather than a third Forest: this is the configuration that gives the BEST Leonardo of any tested - 49.1% at turn four against 48.2% for three Forests - because Leonardo is the card that actually needs the white. It also loses less five-colour availability than the all-Forest version.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'turtle-power' AND c.name = 'Plains';
 
 -- Pairings, once every row above exists ------------------------------------
 UPDATE deck_proposals SET pairs_with = 1
- WHERE id = 2
-   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 1);
-UPDATE deck_proposals SET pairs_with = 3
  WHERE id = 4
-   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 3);
+   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 1);
+UPDATE deck_proposals SET pairs_with = 2
+ WHERE id = 5
+   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 2);
