@@ -112,4 +112,6 @@ leaving because something better arrived, and only the first one will repeat.
 
 `decks/blight-curse-b4-final/decklist-pre-upgrade.txt` is the pre-upgrade list,
 kept for reference and not imported. The cards that came out during the upgrade
-are in the `moved-blight-curse` pool.
+used to sit in a `moved-blight-curse` pool of their own; since the 2026-08-10
+consolidation every loose card is in **`free-cards`**. Diff the two decklists to
+see which ones they were.

@@ -4,7 +4,7 @@ Cards not assigned to a deck. **The cards themselves live in the database, not
 in this folder** — this file only explains what each pool is. Query them:
 
 ```bash
-make query ARGS='pool --location ninja-booster'
+make query ARGS='pool --location free-cards'
 make query ARGS='pool --color-identity BRG --type creature'
 ```
 
@@ -17,12 +17,27 @@ cannibalised for parts, so `query.py pool` includes its cards by default, tagged
 
 ## Current pools
 
+**There is only one, since 2026-08-10.** He consolidated every loose card into a
+single ManaBox binder — physically as well as in the app — so the four pools
+below became one.
+
 | Slug | ManaBox binder | What it is |
 |---|---|---|
-| `ninja-booster` | Ninja Booster | Booster pack contents from the TMNT sets. Contains genuine duplicates and tokens. Not a deck. |
-| `free-cards` | Free Cards | Assorted loose singles from various sets. |
-| `moved-blight-curse` | Moved Blight Curse | The 16 cards taken **out** of Blight Curse during the bracket-4 upgrade. The first place to look when that deck needs something back. |
-| `dance-of-the-elements` | *(donor deck)* | Not a binder — a deck with `status = 'donor'`. Blight Curse took Blasphemous Act, Cultivate, Fellwar Stone, Fury and Shriekmaw out of it, and it is now kept as a parts bin at 95 cards. |
+| `free-cards` | Free Cards | Every loose card he owns: 310 at the time of writing. |
+
+The pools it replaced were `ninja-booster` (TMNT booster contents, duplicates
+and tokens), `moved-blight-curse` (the cards taken out of Blight Curse during
+its bracket-4 upgrade), `free-dance-of-the-elements` (the dismantled precon)
+and the `dance-of-the-elements` donor deck. **Those names appear in older
+`upgrades.md` files and in `data/seed.sql` notes as a record of where a card
+came from at the time. They are history, not addresses** — everything loose is
+in `free-cards` now, and `make query ARGS='card "<name>"'` is the way to find
+anything.
+
+One thing genuinely lost in the merge: the pools used to carry meaning, and
+`moved-blight-curse` in particular was "the first place to look when Blight
+Curse needs something back". That signal is gone; the git history of
+`decks/blight-curse-b4-final/upgrades.md` is where it lives now.
 
 ## Notes
 

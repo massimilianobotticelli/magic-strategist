@@ -117,7 +117,7 @@ Horde and Blasphemous Act reset opposing boards to let the attack through.
   differ by 0.2pp, inside the simulation's noise.
 - Next lever is the wishlist, not another swap. Birds of Paradise and Nature's
   Lore are aimed straight at the 46% figure above.
-- **Springleaf Parade** (free, `free-dance-of-the-elements`) is the one pool card
+- **Springleaf Parade** (free, `free-cards`) is the one pool card
   still worth arguing about: it makes every creature token tap for any colour —
   including Big Apple's Rats — and its own tokens are changelings, so they are
   Mutants, Ninjas and Turtles at once and do trigger the commander. It needs a

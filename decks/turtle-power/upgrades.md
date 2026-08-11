@@ -86,7 +86,10 @@ fix.
 
 ## Bucket A — the twelve swaps, all free
 
-Sources: `ninja-booster`, `free-cards`, `free-dance-of-the-elements` pools.
+Sources, as the pools were named that day: `ninja-booster`, `free-cards`,
+`free-dance-of-the-elements`. They were all merged into `free-cards` on
+2026-08-10 — the names below are a record of where each card came from, not an
+address to look it up at.
 Nothing comes out of an active deck. Savage Lands exists in two copies, so
 Blight Curse keeps its own.
 
@@ -173,7 +176,7 @@ Three things about the Rats, all checked against oracle text:
   Mutagen on enter *and* on every attack. Six mana of Rats does not buy a
   Leonardo trigger you did not already have.
 
-**Springleaf Parade** (`{X}{G}{G}`, free in `free-dance-of-the-elements`) is the
+**Springleaf Parade** (`{X}{G}{G}`, free in `free-cards`) is the
 card that would make the Rats earn their mana: *"Creature tokens you control
 have '{T}: Add one mana of any color'"* turns them into any-colour sources, and
 its own X tokens are changelings — every creature type at once, so they DO

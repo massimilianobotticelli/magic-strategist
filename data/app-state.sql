@@ -11,33 +11,3 @@ PRAGMA foreign_keys = ON;
 DELETE FROM deck_proposals;
 DELETE FROM deck_requests;
 
-
--- Deck proposals -----------------------------------------------------------
-INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
-SELECT 1, 'cut', 'applied', 'Enters tapped ALWAYS and makes two colours. In a deck whose commanders now cost {1}{G} and {3}{W}, a land that can never come down untapped is the most expensive of the nine. Keeps its cycling {2} as a consolation, which the simulation does not model - so its real value is slightly above what the numbers show.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
-  FROM decks d, cards c
- WHERE d.slug = 'turtle-power' AND c.name = 'Rain-Slicked Copse';
-INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
-SELECT 2, 'cut', 'applied', 'ADDED THIS MORNING BY ME, and wrong now. It was the right card while the commander cost {W}{U}{B}{R}{G} and fixing was the binding constraint. With mono-pip commanders the constraint is speed, and a tapped land is a lost turn.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
-  FROM decks d, cards c
- WHERE d.slug = 'turtle-power' AND c.name = 'Jungle Shrine';
-INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
-SELECT 3, 'cut', 'applied', 'Same reasoning as Jungle Shrine, and cut in the same breath. Same deck, different commanders, different answer - the tri-lands were bought to solve a problem the commander change has already solved. — paid for by the SECOND Forest, which cannot have its own row: the Forest add above stands for two copies.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
-  FROM decks d, cards c
- WHERE d.slug = 'turtle-power' AND c.name = 'Seaside Citadel';
-INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
-SELECT 4, 'add', 'applied', 'TWO COPIES, not one - deck_proposals has no quantity column, so this single row stands for both, and the maindeck counter in the header will read 99 rather than 100 because of it. The deck is 42% green by mana symbol (31 pips of 74 against 9 white) and runs only four Forests. Untapped, and it raises Vigor {3}{G}{G}{G} by 2.2pp on top of everything else.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
-  FROM decks d, cards c
- WHERE d.slug = 'turtle-power' AND c.name = 'Forest';
-INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
-SELECT 5, 'add', 'applied', 'One copy, and deliberately a Plains rather than a third Forest: this is the configuration that gives the BEST Leonardo of any tested - 49.1% at turn four against 48.2% for three Forests - because Leonardo is the card that actually needs the white. It also loses less five-colour availability than the all-Forest version.', 'claude', '2026-08-11 20:51:30', '2026-08-11 21:00:43', d.id, c.oracle_id
-  FROM decks d, cards c
- WHERE d.slug = 'turtle-power' AND c.name = 'Plains';
-
--- Pairings, once every row above exists ------------------------------------
-UPDATE deck_proposals SET pairs_with = 1
- WHERE id = 4
-   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 1);
-UPDATE deck_proposals SET pairs_with = 2
- WHERE id = 5
-   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 2);

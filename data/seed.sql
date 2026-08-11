@@ -635,8 +635,10 @@ SELECT (SELECT id FROM combos WHERE name = 'Sneak + Disappear'),
 -- ---------------------------------------------------------------------------
 -- Alliance and equipment: what carries the deck now that the top end is gone.
 --
--- Everything below is free in ninja-booster or came out of the two dismantled
--- decks. Nothing is borrowed from Turtle Power! or Blight-Curse.
+-- Everything below is free in the loose pool (it was `ninja-booster` when this
+-- was written; all loose cards merged into `free-cards` on 2026-08-10) or came
+-- out of the two dismantled decks. Nothing is borrowed from Turtle Power! or
+-- Blight-Curse.
 -- ---------------------------------------------------------------------------
 
 -- 10. Alliance stacking ------------------------------------------------------
@@ -654,7 +656,7 @@ INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
 SELECT (SELECT id FROM combos WHERE name = 'Lita, Little Orphan Amphibian + Mechanized Ninja Cavalry'),
        oracle_id, 1,
        CASE name
-         WHEN 'Lita, Little Orphan Amphibian' THEN 'free copy in ninja-booster; Turtle Power! keeps its own'
+         WHEN 'Lita, Little Orphan Amphibian' THEN 'free copy in the loose pool; Turtle Power! keeps its own'
          WHEN 'Mechanized Ninja Cavalry' THEN 'castable {1}{W}; two Alliance triggers off one card'
        END
   FROM cards WHERE name IN ('Lita, Little Orphan Amphibian', 'Mechanized Ninja Cavalry');

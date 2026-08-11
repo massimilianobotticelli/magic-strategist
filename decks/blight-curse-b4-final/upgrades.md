@@ -6,7 +6,7 @@
 
 > This is the record of the upgrade that produced the current list. The
 > pre-upgrade list is kept at `decklist-pre-upgrade.txt`; the 15 removed cards
-> live in the `moved-blight-curse` pool. Both infinite combos below are
+> live in the `free-cards` pool (they had their own `moved-blight-curse` pool until the 2026-08-10 consolidation). Both infinite combos below are
 > registered in the database with their disablers — see
 > `make query ARGS='combos --deck blight-curse-b4-final'`.
 
