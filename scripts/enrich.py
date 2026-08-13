@@ -16,14 +16,14 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import db  # noqa: E402
-import roles  # noqa: E402
-import scryfall  # noqa: E402
+import db
+import roles
+import scryfall
 
 
 def oracle_id_of(card: dict) -> str | None:
@@ -121,7 +121,7 @@ def upsert_card(conn, card: dict) -> str | None:
             is_legendary,
             can_be_commander,
             card.get("scryfall_uri"),
-            datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            datetime.now(UTC).isoformat(timespec="seconds"),
         ),
     )
 
@@ -301,4 +301,10 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    # A missing SCRYFALL_USER_AGENT is a setup mistake, not a bug. Print what to
+    # do and exit, rather than dumping a traceback over the instructions.
+    try:
+        raise SystemExit(main())
+    except scryfall.MissingUserAgent as exc:
+        print(exc, file=sys.stderr)
+        raise SystemExit(2) from None

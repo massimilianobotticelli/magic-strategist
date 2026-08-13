@@ -5,7 +5,7 @@
 COMPOSE ?= docker compose
 RUN     := $(COMPOSE) run --rm app
 
-.PHONY: build shell app import enrich sync-gc seed validate query moves dump sql rebuild help
+.PHONY: build shell app import enrich sync-gc seed validate query moves dump sql rebuild lint reset help
 
 help:
 	@echo 'make build      Build the container image'
@@ -21,6 +21,8 @@ help:
 	@echo 'make dump       Regenerate data/collection.sql text dump'
 	@echo 'make sql        Open the sqlite3 CLI on the database'
 	@echo 'make rebuild    Rebuild the database from data/ and decks/ end to end'
+	@echo 'make lint       Lint scripts/ and app/ with ruff'
+	@echo 'make reset      Empty the repo of this collection, for a fork (dry run)'
 
 build:
 	$(COMPOSE) build
@@ -80,7 +82,10 @@ EXTRA_CARDS := "Melira, Sylvok Outcast" "Solemnity" "Pithing Needle" \
 # new ones. Older dumps stay committed as history; they are not inputs.
 rebuild:
 	$(RUN) sh -c 'rm -f data/collection.db && \
-	  latest=$$(ls -d data/manabox/*/ | sort | tail -1) && \
+	  latest=$$(ls -d data/manabox/*/ 2>/dev/null | sort | tail -1) && \
+	  if [ -z "$$latest" ]; then \
+	    echo "No ManaBox export found under data/manabox/<date>/. See FORK.md." >&2; exit 1; \
+	  fi && \
 	  echo "importing snapshot $$latest" && \
 	  python scripts/import_manabox.py $$latest*.csv decks/*/decklist.txt --no-materialize && \
 	  python scripts/enrich.py --offline --names $(EXTRA_CARDS) && \
@@ -109,3 +114,15 @@ dump:
 
 sql:
 	$(RUN) sqlite3 data/collection.db
+
+# ruff is a lint-time tool, not a runtime dependency, so it is installed into
+# the throwaway container rather than baked into the image. Config lives in
+# pyproject.toml. `make lint ARGS=--fix` applies the safe fixes.
+lint:
+	$(RUN) sh -c 'pip install --quiet --disable-pip-version-check ruff && python -m ruff check $(ARGS) .'
+
+# Empties the repo of THIS collection so a fork can be filled with another one.
+# Dry run by default; `make reset ARGS=--yes` is what actually deletes. Read
+# FORK.md before running it.
+reset:
+	$(RUN) python scripts/reset.py $(ARGS)

@@ -13,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
-import db  # noqa: E402
+import db
 
 BRACKET_NAMES = {1: "Exhibition", 2: "Core", 3: "Upgraded", 4: "Optimized", 5: "cEDH"}
 
@@ -118,8 +118,10 @@ def deck_cards(conn, deck_id: int, sections: tuple[str, ...] = ("main", "command
     caller wanted until Modern arrived; ask for ('sideboard',) to get the rest.
     """
     proposals = _proposal_map(conn, deck_id)
+    # One `?` per section, so the section names stay bound parameters.
+    placeholders = ",".join("?" * len(sections))
     rows = conn.execute(
-        """
+        f"""
         SELECT dc.quantity, dc.section, c.oracle_id, c.name, c.mana_cost, c.mana_value,
                c.type_line, c.oracle_text, c.color_identity, c.is_game_changer,
                COALESCE(dc.printing_id, (SELECT scryfall_id FROM printings p
@@ -131,10 +133,9 @@ def deck_cards(conn, deck_id: int, sections: tuple[str, ...] = ("main", "command
                   JOIN combos cb ON cb.id = cp.combo_id
                  WHERE cp.oracle_id = c.oracle_id) AS combos
           FROM deck_cards dc JOIN cards c ON c.oracle_id = dc.oracle_id
-         WHERE dc.deck_id = ? AND dc.section IN (%s)
+         WHERE dc.deck_id = ? AND dc.section IN ({placeholders})
          ORDER BY c.mana_value, c.name
-        """
-        % ",".join("?" * len(sections)),
+        """,
         (deck_id, *sections),
     ).fetchall()
 

@@ -146,9 +146,9 @@ def roles_for(oracle_text: str | None, type_line: str | None) -> set[str]:
             found.add(role)
 
     # A land that taps for several colours is fixing, whatever its wording.
-    if "Land" in types and "Basic" not in types:
-        if len(set(re.findall(r"add \{([wubrg])\}", text, re.IGNORECASE))) > 1:
-            found.add("fixing")
+    if ("Land" in types and "Basic" not in types
+            and len(set(re.findall(r"add \{([wubrg])\}", text, re.IGNORECASE))) > 1):
+        found.add("fixing")
 
     return found
 

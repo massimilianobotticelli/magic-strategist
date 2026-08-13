@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+.ruff_cache/
 
 # macOS
 .DS_Store
@@ -9,6 +10,18 @@ __pycache__/
 # Drop zone for new exports before they are filed into data/manabox/<date>/
 # and decks/<slug>/. Nothing here is authoritative.
 inbox/
+
+# Claude Code scratch space. Worktrees are throwaway checkouts of this same
+# repo - committing them would nest a copy of the repo inside itself.
+.claude/worktrees/
+.claude/settings.local.json
+
+# Personal preferences that are not about this collection.
+CLAUDE.global.draft.md
+
+# Local settings. .env.example is committed and documents every variable;
+# .env is this machine's copy and is not.
+.env
 
 # NOTE: data/collection.db and data/scryfall/ are deliberately NOT ignored.
 # The database and the cached Scryfall responses are committed so the repo

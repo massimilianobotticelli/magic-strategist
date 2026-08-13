@@ -66,7 +66,7 @@ def export(conn: sqlite3.Connection) -> str:
         out.append("\n-- Deck requests ------------------------------------------------------------")
     for r in rows:
         vals = ", ".join(lit(r[c]) for c in req_cols)
-        deck = ("(SELECT id FROM decks WHERE slug = %s)" % lit(r["deck_slug"])
+        deck = (f"(SELECT id FROM decks WHERE slug = {lit(r['deck_slug'])})"
                 if r["deck_slug"] else "NULL")
         out.append(
             f"INSERT INTO deck_requests ({', '.join(req_cols)}, deck_id)\n"

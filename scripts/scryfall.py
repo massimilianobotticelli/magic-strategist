@@ -9,9 +9,10 @@ new cards, and so the repo works offline.
 from __future__ import annotations
 
 import json
+import os
 import time
-from pathlib import Path
-from typing import Any, Iterable, Iterator
+from collections.abc import Iterable, Iterator
+from typing import Any
 
 import requests
 
@@ -25,10 +26,62 @@ MAX_IDENTIFIERS_PER_REQUEST = 75
 # 120ms between requests => ~8.3 req/s sustained, comfortably under the limit.
 REQUEST_DELAY_SECONDS = 0.12
 
-HEADERS = {
-    "User-Agent": "magic-strategist/1.0 (personal MTG collection manager; +https://github.com/massimilianobotticelli/magic-strategist)",
-    "Accept": "application/json",
-}
+# Scryfall uses the User-Agent to reach whoever is making the requests, so it
+# is REQUIRED and has no default on purpose. A default would be this
+# repository's, and every fork that never read the docs would quietly send its
+# traffic under someone else's name — the failure would be invisible to the
+# person causing it and land on somebody who cannot fix it.
+#
+# So it is treated like a credential: set it, or the request does not happen.
+#
+#     cp .env.example .env    # then set SCRYFALL_USER_AGENT
+#
+# Nothing offline needs it. `--offline`, `make rebuild`, `make validate` and CI
+# never reach this code, so requiring it costs them nothing.
+USER_AGENT_VAR = "SCRYFALL_USER_AGENT"
+
+# What .env.example ships. Copying the file without editing it is the ordinary
+# mistake, and it would put a fake URL in front of Scryfall, so it is caught
+# with the same error as leaving the variable unset.
+PLACEHOLDER_USER_AGENT = "my-collection/1.0 (+https://github.com/you/my-collection)"
+
+_MISSING_USER_AGENT = f"""
+{USER_AGENT_VAR} is not set, so this request was not made.
+
+Scryfall asks every caller to identify itself, and uses that string to get in
+touch about its traffic. There is deliberately no default: it would be this
+repository's, and your requests would be attributed to its owner.
+
+    cp .env.example .env
+
+then edit one line:
+
+    {USER_AGENT_VAR}=my-thing/1.0 (+https://github.com/you/my-thing)
+
+Include something that can be used to reach you — a repository URL is the usual
+choice. Docker Compose reads .env on its own, so there is nothing else to do.
+
+Only live requests need this. `--offline`, `make rebuild` and `make validate`
+work without it.
+"""
+
+
+class MissingUserAgent(RuntimeError):
+    """Raised instead of making an unidentified request to Scryfall."""
+
+
+def user_agent() -> str:
+    """The configured User-Agent, or refuse to make the request."""
+    value = os.environ.get(USER_AGENT_VAR, "").strip()
+    if not value or value == PLACEHOLDER_USER_AGENT:
+        raise MissingUserAgent(_MISSING_USER_AGENT)
+    return value
+
+
+def headers() -> dict[str, str]:
+    """Request headers. Built per call, so the check cannot be bypassed."""
+    return {"User-Agent": user_agent(), "Accept": "application/json"}
+
 
 CARD_CACHE = SCRYFALL_CACHE / "cards"
 ALIAS_PATH = SCRYFALL_CACHE / "aliases.json"
@@ -103,7 +156,7 @@ def fetch_collection(identifiers: list[dict]) -> tuple[list[dict], list[dict]]:
     response = requests.post(
         f"{API}/cards/collection",
         json={"identifiers": identifiers},
-        headers=HEADERS,
+        headers=headers(),
         timeout=30,
     )
     response.raise_for_status()
@@ -118,7 +171,7 @@ def search(query: str) -> Iterable[dict]:
 
     while url:
         _throttle()
-        response = requests.get(url, params=params, headers=HEADERS, timeout=30)
+        response = requests.get(url, params=params, headers=headers(), timeout=30)
         if response.status_code == 404:  # no matches at all
             return
         response.raise_for_status()
@@ -132,7 +185,7 @@ def named(name: str) -> dict | None:
     """Exact card lookup by name, for combo pieces and disablers not owned."""
     _throttle()
     response = requests.get(
-        f"{API}/cards/named", params={"exact": name}, headers=HEADERS, timeout=30
+        f"{API}/cards/named", params={"exact": name}, headers=headers(), timeout=30
     )
     if response.status_code == 404:
         return None

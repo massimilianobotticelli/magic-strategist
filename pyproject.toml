@@ -1,0 +1,42 @@
+# Tooling config only. There is no package here to build: the scripts are run
+# as scripts, inside the container, via the Makefile.
+
+[tool.ruff]
+target-version = "py312"
+# 120, not the usual 88 or 100: the queries here are long SQL strings written
+# inline, and wrapping them costs more readability than it buys. This is the
+# width the code was already written to.
+line-length = 120
+src = ["scripts", "app"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # import order
+    "UP",   # pyupgrade
+    "B",    # bugbear
+    "C4",   # comprehensions
+    "SIM",  # simplifications
+    "RUF",  # ruff's own
+]
+ignore = [
+    # FastAPI's own idiom: `x: str = Form(...)` in a route signature is a call
+    # in a default argument on purpose, and is how the framework is meant to be
+    # used. Flagging it here would mean silencing it on every route.
+    "B008",
+    # Oracle text uses both the ASCII hyphen and the Unicode minus sign, so the
+    # role patterns in scripts/roles.py match on `[-−]` deliberately. Not a typo.
+    "RUF001",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Both scripts and the app print to stdout for a person to read; that IS the
+# interface. And `scripts/` is a flat directory of runnable files on sys.path,
+# not an importable package.
+"scripts/*" = ["INP001"]
+"app/*" = ["INP001"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["db", "formats", "queries", "roles", "scryfall"]

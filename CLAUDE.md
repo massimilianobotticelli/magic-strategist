@@ -20,8 +20,17 @@ make validate         # all deck and collection checks
 make query ARGS='...' # query the collection
 make dump             # collection.sql + app-state.sql — run after any change
 make rebuild          # rebuild the database from committed files, offline
+make lint             # ruff over scripts/ and app/. ARGS=--fix applies fixes.
 make shell   make import ARGS='...'   make enrich   make sync-gc   make seed
 ```
+
+`make lint` must stay clean — CI runs it, along with `make rebuild && make
+validate`, on every push. Config is in `pyproject.toml`.
+
+**`make reset` is destructive and is not for this repository.** It empties the
+repo of the collection so somebody else can fork it and fill it with their own
+cards (see `FORK.md`). Never run it here, even with `--yes` in `ARGS`, unless he
+asks for it in those words.
 
 ## Talk to him through the database, not through the chat
 

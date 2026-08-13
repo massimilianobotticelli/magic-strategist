@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# The repo's own rule is that everything runs in the container, so CI uses the
+# same Makefile targets a person would. Building the image is the slow part;
+# both jobs need it, so both pay for it rather than sharing a cache that would
+# have to be invalidated by hand.
+jobs:
+  lint:
+    name: ruff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make build
+      - run: make lint
+
+  rebuild:
+    name: rebuild and validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: make build
+
+      # The real test of this repository: throw the database away and rebuild
+      # it from the committed CSV exports, decklists, seed file and Scryfall
+      # cache. It runs with --offline, so a green run proves the .db is a
+      # convenience and not the only copy of anything.
+      - name: Rebuild the database from committed files
+        run: make rebuild
+
+      # Non-zero exit means a deck is off its format's size, out of colour
+      # identity, past its bracket's Game Changer limit, or asking for more
+      # copies of a card than exist.
+      - name: Validate every deck and the collection
+        run: make validate
+
+      # A rebuild that quietly loses cards would still pass validate on an
+      # empty database, so assert the result is not empty.
+      - name: The rebuild produced a real collection
+        run: |
+          copies=$(docker compose run --rm -T app \
+            sqlite3 data/collection.db "SELECT COUNT(*) FROM copies;" | tr -d '\r')
+          decks=$(docker compose run --rm -T app \
+            sqlite3 data/collection.db "SELECT COUNT(*) FROM decks;" | tr -d '\r')
+          echo "rebuilt: $copies copies across $decks decks"
+          test "$copies" -gt 0 && test "$decks" -gt 0

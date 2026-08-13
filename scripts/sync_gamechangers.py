@@ -20,9 +20,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import db  # noqa: E402
-import scryfall  # noqa: E402
-from enrich import oracle_id_of  # noqa: E402
+import db
+import scryfall
+from enrich import oracle_id_of
 
 OUTPUT_PATH = db.REPO_ROOT / "knowledge" / "game-changers.json"
 
@@ -117,4 +117,10 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    # A missing SCRYFALL_USER_AGENT is a setup mistake, not a bug. Print what to
+    # do and exit, rather than dumping a traceback over the instructions.
+    try:
+        raise SystemExit(main())
+    except scryfall.MissingUserAgent as exc:
+        print(exc, file=sys.stderr)
+        raise SystemExit(2) from None

@@ -22,7 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import db  # noqa: E402
+import db
 
 # `1 Auntie Ool, Cursewretch (ECC) 2 *F*`
 DECK_LINE_RE = re.compile(

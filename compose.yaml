@@ -1,5 +1,10 @@
 # Editor-independent runner for the same image the dev container uses.
 #   docker compose run --rm app python scripts/validate.py
+#
+# Settings come from a .env file next to this one, which compose reads on its
+# own. .env is gitignored; .env.example documents every variable and is the file
+# to copy. Everything offline runs without a .env at all - only the commands
+# that fetch from Scryfall require one.
 services:
   app:
     build:
@@ -11,7 +16,20 @@ services:
     init: true
     ports:
       # The web app. `make app` -> http://localhost:8000
-      - "8000:8000"
+      #
+      # Bound to LOOPBACK on purpose. The app has no authentication and writes
+      # straight to the database, and Docker's default ("8000:8000") would
+      # publish it on every interface - reachable by anything on the same wifi.
+      # To reach it from your phone on the same network, and only then:
+      #   APP_BIND=0.0.0.0 make app
+      - "${APP_BIND:-127.0.0.1}:8000:8000"
+    environment:
+      # How this install identifies itself to Scryfall. REQUIRED by `make
+      # enrich` and `make sync-gc`, which refuse to fetch without it - there is
+      # no default, because a default would name the original repository and
+      # every fork's traffic would be attributed to its owner. Set it in .env.
+      # Empty is fine for everything offline, which never reads it.
+      SCRYFALL_USER_AGENT: "${SCRYFALL_USER_AGENT:-}"
     volumes:
       # The repo is the workspace. The database and Scryfall cache live inside
       # it, so they survive rebuilds of the image.
