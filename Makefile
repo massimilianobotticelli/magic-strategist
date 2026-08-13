@@ -118,8 +118,12 @@ sql:
 # ruff is a lint-time tool, not a runtime dependency, so it is installed into
 # the throwaway container rather than baked into the image. Config lives in
 # pyproject.toml. `make lint ARGS=--fix` applies the safe fixes.
+#
+# --no-cache because the cache dies with the container anyway, and on the CI
+# runner the bind-mounted workspace is owned by a different UID than the
+# container user, so trying to create .ruff_cache there fails outright.
 lint:
-	$(RUN) sh -c 'pip install --quiet --disable-pip-version-check ruff && python -m ruff check $(ARGS) .'
+	$(RUN) sh -c 'pip install --quiet --disable-pip-version-check ruff && python -m ruff check --no-cache $(ARGS) .'
 
 # Empties the repo of THIS collection so a fork can be filled with another one.
 # Dry run by default; `make reset ARGS=--yes` is what actually deletes. Read
