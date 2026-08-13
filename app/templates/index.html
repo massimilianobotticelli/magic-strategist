@@ -19,11 +19,18 @@
         {% if d.status != 'active' %}<span class="pill pill-muted">{{ d.status }}</span>{% endif %}
         {% if d.open_proposals %}<span class="pill pill-accent">{{ d.open_proposals }} proposal{{ 's' if d.open_proposals != 1 }}</span>{% endif %}
       </div>
+      {# A missing commander is only worth flagging where the format has one;
+         for the 60-card formats the format name is the useful line. #}
+      {% if d.needs_commander %}
       <div class="deck-meta">{{ d.commander or 'commander not identified' }}</div>
       <div class="deck-meta">
         {{ d.size }} cards · {{ d.color_identity or 'C' }} ·
         bracket {{ d.target_bracket or '—' }} {{ d.bracket_name }}
       </div>
+      {% else %}
+      <div class="deck-meta">{{ d.format_name }}</div>
+      <div class="deck-meta">{{ d.size }} cards · {{ d.color_identity or 'C' }}</div>
+      {% endif %}
     </a>
     {% endfor %}
   </div>

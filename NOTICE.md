@@ -18,9 +18,11 @@ It is not approved or endorsed by Wizards. Portions of the material used are
 property of Wizards of the Coast. It is non-commercial: nothing here is sold,
 and there is no advertising or donation link.
 
-Card **images** are never stored in this repository. The web app loads them
-directly from Scryfall's image servers at display time, so they are hotlinked
-rather than redistributed.
+Card **images** are not stored in this repository, with one narrow exception:
+the app screenshots under `docs/screenshots/` show card art as part of the
+interface, included as Fan Content under the same policy. The web app itself
+loads every image directly from Scryfall's image servers at display time, so
+they are hotlinked rather than redistributed.
 
 ## Scryfall
 

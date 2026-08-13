@@ -50,6 +50,8 @@ Pick a deck and it shows its cards with their real art, grouped by type,
 alongside every card you own that is legal in that deck, and the registered
 combos with their pieces and disablers.
 
+![A deck, grouped by type, with real card art and combo badges](docs/screenshots/deck.jpg)
+
 **It has no authentication**, so `compose.yaml` publishes it on `127.0.0.1`
 only. `APP_BIND=0.0.0.0` in `.env` — or inline, `APP_BIND=0.0.0.0 make app` —
 opens it to the local network, which is useful for reading it off a phone while
@@ -68,6 +70,16 @@ everything else works offline.
 Deck, Candidates, Combos and Proposals are tabs in the sticky header, so nothing
 is more than one click away. Type sections fold, and stay folded across reloads.
 Click a card to see it full size; **press and hold** to mark it.
+
+The Combos tab is the part I actually read before a game: each registered combo
+with its pieces, how it works, how fast it is — and in red, the cards that shut
+it off, because that is the detail notes keep losing:
+
+![A registered combo with its pieces, speed, and the cards that disable it](docs/screenshots/combos.jpg)
+
+The index is one card per deck, each with its format, colours and bracket:
+
+![The deck index](docs/screenshots/index.jpg)
 
 ## Building a new deck
 

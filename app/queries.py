@@ -66,7 +66,7 @@ def connect() -> sqlite3.Connection:
 def list_decks(conn) -> list[dict]:
     rows = conn.execute(
         """
-        SELECT d.id, d.slug, d.name, d.status, d.target_bracket, d.color_identity,
+        SELECT d.id, d.slug, d.name, d.status, d.format, d.target_bracket, d.color_identity,
                c.name AS commander,
                (SELECT COALESCE(SUM(quantity),0) FROM deck_cards
                  WHERE deck_id = d.id AND section IN ('main','commander')) AS size,
@@ -80,6 +80,9 @@ def list_decks(conn) -> list[dict]:
     for r in rows:
         d = dict(r)
         d["bracket_name"] = BRACKET_NAMES.get(d["target_bracket"], "—")
+        rules = fmt_rules.get(d["format"])
+        d["format_name"] = rules.name
+        d["needs_commander"] = rules.needs_commander
         out.append(d)
     return out
 
