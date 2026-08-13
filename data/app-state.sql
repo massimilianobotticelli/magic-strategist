@@ -11,3 +11,62 @@ PRAGMA foreign_keys = ON;
 DELETE FROM deck_proposals;
 DELETE FROM deck_requests;
 
+
+-- Deck proposals -----------------------------------------------------------
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 1, 'cut', 'proposed', 'Cut for Make Your Move. An Aura on a creature is a 2-for-1 for the opponent, and the game against Steffen was decided by a Lux Cannon destroying a creature every turn: Level Up hands that removal a second card for free.', 'claude', '2026-08-13 21:01:35', '2026-08-13 21:01:35', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'turtle-power' AND c.name = 'Level Up';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 2, 'add', 'proposed', 'Add. {2}{W} instant, destroys an artifact, an enchantment, or a creature with power 4 or greater. It is the single card that answers both cards that locked the game: Lux Cannon and Imprisoned in the Moon on Leonardo. Free in free-cards.', 'claude', '2026-08-13 21:01:35', '2026-08-13 21:25:14', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'turtle-power' AND c.name = 'Make Your Move';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 3, 'cut', 'proposed', 'Cut for Binding the Old Gods. Exploding Barrel is a 3-mana rock whose removal costs 8 minus one per turn it survives, so it kills a creature around turn 10 and never touches an artifact or an enchantment.', 'claude', '2026-08-13 21:01:35', '2026-08-13 21:01:35', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'turtle-power' AND c.name = 'Exploding Barrel';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 4, 'add', 'proposed', 'Add. {2}{U} Equipment: on entering it returns a nonland permanent to its owner''s hand. On Imprisoned in the Moon it frees Leonardo the moment the Aura leaves — he is a 3/3 Turtle again, no summoning sickness, still your commander. On Lux Cannon it also resets the charge counters to zero, so three turns of charging are undone even if it is recast. Then it stays as a +2/+1 vigilance Equipment. Free in free-cards. Replaces Binding the Old Gods, which Blight Curse needs more (single copy).', 'claude', '2026-08-13 21:01:35', '2026-08-13 21:25:14', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'turtle-power' AND c.name = 'Bespoke Bō';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 5, 'cut', 'proposed', 'Cut for Wickerbough Elder. Five mana to draw, and it pays by removing counters from among permanents — including the -1/-1 counters this deck spends its whole game placing. MV 5 is also the deck''s most crowded slot (8 cards).', 'claude', '2026-08-13 21:13:36', '2026-08-13 21:13:36', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'blight-curse-b4-final' AND c.name = 'Eventide''s Shadow';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 6, 'add', 'proposed', 'Add. {3}{G} 4/4 that enters with a -1/-1 counter and removes it for {G} to destroy an artifact or enchantment. In THIS deck it is repeatable: proliferate (Evolution Sage on every land drop, Contagion Clasp, Contagion Engine, Grave Venerations, Vraska) puts the counter back. Cycle is stable — proliferate to 2 counters (2/2), activate back to 1 (3/3) — and it dies only at 4 counters, so it never proliferates itself to death at one activation per turn. Each proliferate also feeds Nest of Scarabs. Free in free-cards.', 'claude', '2026-08-13 21:13:36', '2026-08-13 21:25:14', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'blight-curse-b4-final' AND c.name = 'Wickerbough Elder';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 7, 'cut', 'proposed', 'Cut for Binding the Old Gods. Six mana to reanimate is the slowest card in a deck that already has 8 cards at MV 6, and the deck wants to be interacting on turn 4, not rebuilding on turn 7.', 'claude', '2026-08-13 21:13:36', '2026-08-13 21:13:36', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'blight-curse-b4-final' AND c.name = 'Aberrant Return';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 8, 'add', 'proposed', 'Add. {2}{B}{G} Saga: chapter I destroys any nonland permanent an opponent controls — this deck''s only unconditional answer today is Assassin''s Trophy, one card in 99. Chapter II fetches a Forest tapped, chapter III gives the team deathtouch, which a -1/-1 counter board turns into removal. Free in free-cards.', 'claude', '2026-08-13 21:13:36', '2026-08-13 21:25:14', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'blight-curse-b4-final' AND c.name = 'Binding the Old Gods';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 9, 'cut', 'proposed', 'Cut for Tainted Treats. Seven mana for a 4/7 is the top of a curve that is already too heavy: cutting it takes the deck to zero cards at MV 7 and moves the weight down to 3 and 4, where a bracket 4 deck needs it.', 'claude', '2026-08-13 21:13:36', '2026-08-13 21:13:36', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'blight-curse-b4-final' AND c.name = 'Ferrafor, Young Yew';
+INSERT INTO deck_proposals (id, action, status, rationale, source, created_at, updated_at, deck_id, oracle_id)
+SELECT 10, 'add', 'proposed', 'Add. {1}{B}{G} instant, destroys an artifact or a creature, and Lux Cannon is MV 4 so it also leaves a Food. It does not answer an Aura, but it doubles the deck''s artifact removal (Putrefy was alone) at instant speed. Free in free-cards.', 'claude', '2026-08-13 21:13:36', '2026-08-13 21:25:14', d.id, c.oracle_id
+  FROM decks d, cards c
+ WHERE d.slug = 'blight-curse-b4-final' AND c.name = 'Tainted Treats';
+
+-- Pairings, once every row above exists ------------------------------------
+UPDATE deck_proposals SET pairs_with = 1
+ WHERE id = 2
+   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 1);
+UPDATE deck_proposals SET pairs_with = 3
+ WHERE id = 4
+   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 3);
+UPDATE deck_proposals SET pairs_with = 5
+ WHERE id = 6
+   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 5);
+UPDATE deck_proposals SET pairs_with = 7
+ WHERE id = 8
+   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 7);
+UPDATE deck_proposals SET pairs_with = 9
+ WHERE id = 10
+   AND EXISTS (SELECT 1 FROM deck_proposals WHERE id = 9);
