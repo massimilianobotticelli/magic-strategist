@@ -1123,3 +1123,252 @@ UPDATE decks
 UPDATE decks
    SET color_identity = (SELECT color_identity FROM cards WHERE oracle_id = decks.commander_oracle_id)
  WHERE commander_oracle_id IS NOT NULL;
+
+
+-- ---------------------------------------------------------------------------
+-- Roil Elementals: the Temur Commander deck. Promoted 2026-08-13.
+--
+-- Like Foot Clan Blitz it has NO ManaBox binder - it was assembled out of
+-- `free-cards`, not bought as a product - so an import derives only its card
+-- list from decks/roil-elementals/decklist.txt. Name, format, status and
+-- bracket have to be stated here or a rebuild recreates it as an unnamed
+-- Commander deck at the default status.
+--
+-- Until he creates a `deck` binder named "Roil Elementals" in ManaBox and
+-- re-exports, all 100 cards still read as sitting in Free Cards - which means
+-- they keep showing up as available inventory for any other deck. That is the
+-- one outstanding physical step; `make moves ARGS='roil-elementals'` prints it.
+--
+-- The commander IS derivable: decklist.txt carries a `// COMMANDER` marker and
+-- names exactly one card. It is pinned anyway, because db.py picks the
+-- commander with LIMIT 1 and no ORDER BY, and colour identity for the whole
+-- deck hangs off that one row.
+-- ---------------------------------------------------------------------------
+UPDATE decks
+   SET name           = 'Roil Elementals',
+       format         = 'commander',
+       status         = 'active',
+       target_bracket = 4,
+       is_registered  = 1,
+       notes          = 'Temur Elementals on landfall. Every land that enters is a trigger: Omnath grows an Elemental and, past eight lands, draws; Risen Reef turns every Elemental that enters back into a land drop. 21 Elemental cards in the 99 plus the commander. Built entirely from free-cards, 44 of them the Temur half of the dismantled Dance of the Elements precon. Coloured sources G16/U13/R13, rising to G19/U16/R16 for an Elemental spell because Primal Beyond, Unclaimed Territory and Abundant Countryside are conditional any-colour lands. Known gap: one board wipe and it is symmetric.'
+ WHERE slug = 'roil-elementals';
+
+UPDATE locations SET name = 'Roil Elementals' WHERE slug = 'roil-elementals';
+
+UPDATE decks
+   SET commander_oracle_id = (SELECT oracle_id FROM cards
+                               WHERE name = 'Omnath, Locus of the Roil')
+ WHERE slug = 'roil-elementals';
+
+UPDATE decks
+   SET color_identity = (SELECT color_identity FROM cards
+                          WHERE oracle_id = decks.commander_oracle_id)
+ WHERE slug = 'roil-elementals';
+
+
+-- ---------------------------------------------------------------------------
+-- Roil Elementals combos.
+--
+-- None of them is infinite, and `kind` says so. That is the point: this deck
+-- wins by accumulating, and writing "infinite" next to the Risen Reef chain
+-- would misdescribe it at the table. The chain length is SIMULATED, not
+-- estimated - see the note on the first one.
+--
+-- No combo_disablers rows. What shuts every one of these off is ordinary
+-- removal on Risen Reef or on Soulstoke, and there is no specific hate card in
+-- the collection worth naming; the notes say so in prose instead of adding a
+-- card to the Makefile's EXTRA_CARDS just to point at it.
+-- ---------------------------------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Risen Reef + Omnath, Locus of Rage',
+    'value',
+    'One land drop becomes a chain of 5/5 Elementals.',
+    'Strong, and it is NOT infinite.',
+    'Both on the battlefield. Play a land: Omnath''s landfall creates a 5/5 red and green Elemental token UNDER YOUR CONTROL, so Risen Reef''s "another Elemental you control enters" sees it and triggers. Reef looks at the top card; if it is a land you put it onto the battlefield tapped, which is a second landfall, which is a second 5/5, which is a third Reef trigger. NOT INFINITE: every iteration spends the top card of your library, so the chain stops at the first non-land, which goes to your hand instead. SIMULATED from a realistic mid-game library (28 lands / 51 spells left, 8 lands on the battlefield): the top card is a land 35% of the time, one land drop yields 1.5 tokens on average, and it reaches three or more tokens only 12% of the time. It is an engine, not a win on the spot. SEQUENCING: play the land in your PRECOMBAT main phase - the tokens have no haste unless Maelstrom Wanderer is out, but the extra lands are what turn on Omnath, Locus of the Roil''s draw. SHUT OFF BY: removal on Risen Reef, of which there is no second copy.',
+    (SELECT id FROM decks WHERE slug = 'roil-elementals')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Risen Reef + Omnath, Locus of Rage'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Risen Reef' THEN 'the only copy; the whole chain routes through it'
+         WHEN 'Omnath, Locus of Rage' THEN 'also drains 3 per Elemental that dies, which makes a board wipe a reach spell'
+       END
+  FROM cards WHERE name IN ('Risen Reef', 'Omnath, Locus of Rage');
+
+
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Risen Reef + Omnath, Locus of the Roil',
+    'value',
+    'Every Elemental you cast becomes a land drop, a +1/+1 counter and a card.',
+    'The deck''s main engine.',
+    'The reason the deck exists. With both out and SEVEN lands on the battlefield, cast Mulldrifter: it is an Elemental, so Reef triggers, reveals a land and puts it onto the battlefield tapped. That is your EIGHTH land, and Omnath''s landfall checks the count as it RESOLVES - the land that caused the trigger is already there - so you put a +1/+1 counter on an Elemental AND draw. Mulldrifter''s own ETB then draws two more. OMNATH''S ETB COUNTS ITSELF: "damage equal to the number of Elementals you control" resolves with Omnath already on the battlefield, so it is never zero. With Risen Reef, Smokebraider and two 5/5 tokens out, recasting him from the command zone deals 5, not 4. SHUT OFF BY: removal on Risen Reef. Without Reef, Omnath draws only on natural land drops - one a turn, and only past eight lands.',
+    (SELECT id FROM decks WHERE slug = 'roil-elementals')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Risen Reef + Omnath, Locus of the Roil'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Risen Reef' THEN 'the only copy'
+         WHEN 'Omnath, Locus of the Roil' THEN 'the commander, so it always comes back - but each recast costs 2 more'
+       END
+  FROM cards WHERE name IN ('Risen Reef', 'Omnath, Locus of the Roil');
+
+
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Incandescent Soulstoke cheats an ETB into play',
+    'value',
+    'A seven-mana Elemental''s ETB for {1}{R}, at instant speed.',
+    'The deck''s best mana-efficiency line, and the one with a real sequencing trap.',
+    'Soulstoke''s ability has NO timing restriction, so it works at instant speed and during combat. You keep whatever the ETB left behind; only the creature itself is sacrificed at the beginning of the next end step. AVENGER OF ZENDIKAR for {1}{R} instead of {5}{G}{G}: with eight lands its ETB makes eight 0/1 Plants, and the PLANTS STAY after Avenger is sacrificed. It is also an Elemental, so Risen Reef triggers on it too. JUBILATION - SEQUENCING TRAP, this is the one that gets misplayed: its +2/+2 and trample last only until end of turn, so it must enter BEFORE combat damage. The right line is to activate Soulstoke AFTER blockers are declared, when blocks were already committed against the small bodies; every attacker is then +2/+2 with trample. Putting it in after combat does nothing at all. Soulstoke also gives other Elementals +1/+1, so the 5/5 tokens attack as 6/6. SHUT OFF BY: nothing exotic - but Soulstoke taps to activate, so it must have been on the battlefield since your last turn.',
+    (SELECT id FROM decks WHERE slug = 'roil-elementals')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Incandescent Soulstoke cheats an ETB into play'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Incandescent Soulstoke' THEN 'the enabler; instant speed, taps to activate'
+         WHEN 'Avenger of Zendikar' THEN 'best target: the Plants outlive the sacrifice'
+         WHEN 'Jubilation' THEN 'put it in AFTER blockers, never after damage'
+       END
+  FROM cards WHERE name IN ('Incandescent Soulstoke', 'Avenger of Zendikar', 'Jubilation');
+
+
+-- ---------------------------------------------------------------------------
+-- Roil Elementals, second pass: the patterns that do NOT start from Risen Reef.
+--
+-- Added 2026-08-13 after the first three turned out to cover only the Reef
+-- engine. Every one below was read off the card in the database, not recalled,
+-- and the numbers are worked in the note rather than asserted.
+--
+-- One of them is an ANTI-synergy (Selvala). It is recorded as a combo on
+-- purpose: the trap is that the deck looks like it should draw cards off her
+-- and does not, and that is exactly the kind of thing these notes exist to
+-- stop being re-derived wrongly at the table.
+-- ---------------------------------------------------------------------------
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Risen Reef + Tatyova, Benthic Druid',
+    'value',
+    'Two cards off a single Elemental, plus life.',
+    'The draw half of the engine. Tatyova is the redundancy Omnath does not have.',
+    'Same chain as the Omnath pairings, different payoff. Reef puts a land onto the battlefield; Tatyova''s landfall gains 1 life and draws a card. WORKED, with Reef + Tatyova + Omnath, Locus of the Roil out and EIGHT lands: cast one Elemental, Reef reveals a land and puts it in, Tatyova draws 1 and gains 1, Omnath puts a +1/+1 counter on an Elemental and draws 1 - two cards from one creature, before that creature''s own ETB does anything. NOTE WHAT SHE IS NOT: Tatyova is a Merfolk Druid, NOT an Elemental. She does not trigger Risen Reef herself, Incandescent Soulstoke does not pump her, and Primal Beyond''s mana cannot cast her. She is a payoff, never a piece of the Elemental count.',
+    (SELECT id FROM decks WHERE slug = 'roil-elementals')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Risen Reef + Tatyova, Benthic Druid'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Risen Reef' THEN 'the only copy'
+         WHEN 'Tatyova, Benthic Druid' THEN 'Merfolk Druid - NOT an Elemental, see the note'
+       END
+  FROM cards WHERE name IN ('Risen Reef', 'Tatyova, Benthic Druid');
+
+
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Omnath, Locus of Rage + Chain Reaction',
+    'value',
+    'The symmetric sweeper becomes 15 damage aimed anywhere.',
+    'The answer to the deck''s stated weakness: it is the only reach in the list.',
+    'Chain Reaction deals X to EACH creature where X is the number of creatures on the battlefield - both sides, which is why it normally hits this deck hardest. With Omnath, Locus of Rage out it stops being a bad card. WORKED: you control Omnath (5/5) and four 5/5 tokens, an opponent has five creatures. Ten creatures on the battlefield, so X = 10 and everything with toughness 10 or less dies, including all five of yours. Omnath''s second ability reads "whenever Omnath OR another Elemental you control dies" - it counts ITSELF, and a leaves-the-battlefield trigger uses last-known information, so you get FIVE triggers, not four: 5 x 3 = 15 damage split however you like. SECOND OUTCOME, equally fine: if X comes out below 5 your tokens survive, the small creatures across the table do not, and you simply keep the board. SEQUENCING: cast it in your PRECOMBAT main phase - the 15 damage can go at a player, and if the board does survive you still have your attack.',
+    (SELECT id FROM decks WHERE slug = 'roil-elementals')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Omnath, Locus of Rage + Chain Reaction'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Omnath, Locus of Rage' THEN 'its death trigger includes its own death'
+         WHEN 'Chain Reaction' THEN 'the deck''s only sweeper; bad alone, reach with Omnath'
+       END
+  FROM cards WHERE name IN ('Omnath, Locus of Rage', 'Chain Reaction');
+
+
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Cream of the Crop + Realmwalker',
+    'value',
+    'Set the top of your library, then cast it for free off the top.',
+    'A two-card engine for four mana. Both halves are cheap and both are Elementals in practice.',
+    'Realmwalker: as it enters, CHOOSE ELEMENTAL - the choice is locked in, and naming Shapeshifter instead is the mistake to avoid. It then lets you cast Elemental creature spells from the top of your library. Cream of the Crop: whenever a creature you control enters, look at the top X where X is THAT CREATURE''S POWER, and put one of them on top. WORKED: a 5/5 Locus of Rage token enters, Cream digs 5 deep, you put an Elemental on top, Realmwalker casts it, and that Elemental entering triggers Cream again - and Risen Reef, if it is out. TRAP: X is the ENTERING creature''s power, not the biggest thing you control. A 1/1 Springleaf changeling looks at exactly ONE card. The 5/5 tokens are what make Cream dig; the small bodies barely filter. Realmwalker is a changeling, so it is itself an Elemental: it triggers Risen Reef and Soulstoke pumps it.',
+    (SELECT id FROM decks WHERE slug = 'roil-elementals')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Cream of the Crop + Realmwalker'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Realmwalker' THEN 'name Elemental as it enters, never Shapeshifter'
+         WHEN 'Cream of the Crop' THEN 'digs as deep as the entering creature''s power'
+         WHEN 'Cavalier of Thorns' THEN 'its death trigger also puts a card on top, which Realmwalker can then cast'
+       END
+  FROM cards WHERE name IN ('Realmwalker', 'Cream of the Crop', 'Cavalier of Thorns');
+
+
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Springleaf Parade + Omnath, Locus of Rage',
+    'value',
+    'Every 5/5 token also taps for one mana of any colour.',
+    'The real fix for the deck''s colour problem, and it is already in the list.',
+    'Springleaf Parade grants "{T}: Add one mana of any color" to CREATURE TOKENS YOU CONTROL - all of them, not only the changelings it made. WORKED: with the Parade out, four 5/5 Locus of Rage tokens are also four mana of any colour, which is what makes Cavalier of Thorns {2}{G}{G}{G} and Titan of Industry {4}{G}{G}{G} castable - the two cards the manabase simulation flagged at 24.5% and 12.8%. TRAP: the tokens have a {T} ability, so they are summoning sick. A token created this turn produces NO mana this turn unless Maelstrom Wanderer is on the battlefield. The X changelings the Parade itself makes are every creature type, so they are Elementals: X tokens entering is X Risen Reef triggers and X Cream of the Crop triggers - though at power 1 Cream only looks at one card each.',
+    (SELECT id FROM decks WHERE slug = 'roil-elementals')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Springleaf Parade + Omnath, Locus of Rage'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Springleaf Parade' THEN 'grants the mana ability to ALL your creature tokens'
+         WHEN 'Omnath, Locus of Rage' THEN 'the token engine it turns into a mana engine'
+       END
+  FROM cards WHERE name IN ('Springleaf Parade', 'Omnath, Locus of Rage');
+
+
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Maelstrom Wanderer + Omnath, Locus of Rage',
+    'value',
+    'Two free spells, and the 5/5 tokens attack the turn they are made.',
+    'The top end. Eight mana, but it does not ask the board for anything first.',
+    'Cascade twice off an eight-mana spell exiles until a NONLAND card costing less than 8. COUNTED against this list: of the 61 nonland cards, only Ghalta (mana value 12) and Maelstrom Wanderer itself are out of range, so 59 of 61 are live hits - both cascades connect essentially every time. The haste matters more than it looks: "creatures you control have haste" applies to TOKENS too, so a land played after Wanderer resolves makes a 5/5 that attacks immediately, and Springleaf Parade''s mana tokens produce mana the turn they arrive instead of waiting a full turn.',
+    (SELECT id FROM decks WHERE slug = 'roil-elementals')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Maelstrom Wanderer + Omnath, Locus of Rage'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Maelstrom Wanderer' THEN '59 of 61 nonlands are legal cascade hits'
+         WHEN 'Omnath, Locus of Rage' THEN 'its tokens get the haste'
+       END
+  FROM cards WHERE name IN ('Maelstrom Wanderer', 'Omnath, Locus of Rage');
+
+
+-- The anti-synergy. Recorded because the deck LOOKS like it should draw here.
+INSERT INTO combos (name, kind, payoff, power_level, notes, deck_id)
+VALUES (
+    'Selvala, Heart of the Wilds + Ghalta — and the draw that does NOT work',
+    'value',
+    'Ghalta for {G}{G}, and huge mana. But Selvala''s draw trigger is a trap in THIS deck.',
+    'The mana half is real. The draw half is an anti-synergy and is written down so it stops being re-derived.',
+    'THE MANA HALF WORKS. "{G}, {T}: Add X mana in any combination of colors, where X is the greatest power among creatures YOU control" - one 5/5 token out means {G} becomes five mana. And Ghalta costs {X} less where X is the TOTAL power of creatures you control; the reduction only eats the generic {10}, so at 10 total power - two 5/5 tokens is exactly enough - Ghalta costs {G}{G}. THE DRAW HALF DOES NOT. "Whenever another creature enters, ITS CONTROLLER may draw a card if its power is GREATER THAN EACH OTHER creature''s power." Two separate problems. (1) It says its controller: an opponent''s creature entering draws for THEM, so Selvala is symmetric and helps the table. (2) The entering creature is measured against EVERY OTHER creature on the battlefield, so once you control one 5/5 token the NEXT 5/5 token draws nothing - 5 is not greater than 5. Omnath, Locus of Rage makes identical tokens, so Selvala''s draw switches itself off after the first one. Keep her for the mana. Do not build around the draw.',
+    (SELECT id FROM decks WHERE slug = 'roil-elementals')
+);
+
+INSERT INTO combo_pieces (combo_id, oracle_id, owned, note)
+SELECT (SELECT id FROM combos WHERE name = 'Selvala, Heart of the Wilds + Ghalta — and the draw that does NOT work'),
+       oracle_id, 1,
+       CASE name
+         WHEN 'Selvala, Heart of the Wilds' THEN 'take the mana ability; the draw is symmetric AND self-cancelling'
+         WHEN 'Ghalta, Primal Hunger' THEN '{G}{G} once you control 10 total power'
+       END
+  FROM cards WHERE name IN ('Selvala, Heart of the Wilds', 'Ghalta, Primal Hunger');
